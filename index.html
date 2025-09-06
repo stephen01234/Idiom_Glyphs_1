@@ -29,23 +29,26 @@
         }
         .hidden { display: none !important; }
 
-        /* --- Glyphs App Styles --- */
-        #glyphs-container .flashcard-container { perspective: 1000px; position: relative; }
-        #glyphs-container .flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s; }
-        #glyphs-container .flashcard.is-flipped { transform: rotateY(180deg); }
-        #glyphs-container .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-        #glyphs-container .card-front { background-color: white; }
-        #glyphs-container .card-back { background-color: #f0f9ff; transform: rotateY(180deg); }
-        #glyphs-container .highlight { color: #ef4444; font-weight: bold; font-size: 1.5em; }
-        #glyphs-container .phrase-text { font-size: 2.5rem; line-height: 1.5; text-align: center; }
-        #glyphs-container .answer-text { font-size: 2rem; line-height: 1.5; text-align: center; }
-        #glyphs-container .answer-pinyin { font-size: 1.5rem; color: #3b82f6; margin-top: 1rem; }
-        #glyphs-container input[type="file"]::file-selector-button { @apply bg-blue-500 text-white font-bold py-2 px-4 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors; }
+        /* --- Glyphs App Styles (Also used by Idioms now) --- */
+        .flashcard-container { perspective: 1000px; position: relative; }
+        .flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s; }
+        .flashcard.is-flipped { transform: rotateY(180deg); }
+        .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .card-front { background-color: white; }
+        .card-back { background-color: #f0f9ff; transform: rotateY(180deg); }
+        .highlight { color: #ef4444; font-weight: bold; font-size: 1.5em; }
+        .phrase-text { font-size: 2.5rem; line-height: 1.5; text-align: center; }
+        .answer-text { font-size: 2rem; line-height: 1.5; text-align: center; }
+        .answer-pinyin { font-size: 1.5rem; color: #3b82f6; margin-top: 1rem; }
+        
+        /* --- MODIFIED: Made this rule global for both apps --- */
+        input[type="file"]::file-selector-button { @apply bg-blue-500 text-white font-bold py-2 px-4 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors; }
+        
         #glyphs-container #star-btn { position: absolute; top: 1rem; right: 1rem; z-index: 10; cursor: pointer; width: 32px; height: 32px; fill: none; stroke: #fbbf24; stroke-width: 2; transition: all 0.2s ease-in-out; }
         #glyphs-container #star-btn.starred { fill: #f59e0b; stroke: #f59e0b; }
         #glyphs-container #star-btn:hover { transform: scale(1.1); }
 
-        /* --- Idioms App Styles --- */
+        /* --- Idioms App Styles (Kept for star button) --- */
         #idioms-container { font-family: 'Noto Sans TC', sans-serif; }
         #idioms-container #star-btn-idiom { position: absolute; top: 1rem; right: 1rem; z-index: 10; cursor: pointer; width: 32px; height: 32px; fill: none; stroke: #fbbf24; stroke-width: 2; transition: all 0.2s ease-in-out; }
         #idioms-container #star-btn-idiom.starred { fill: #f59e0b; stroke: #f59e0b; }
@@ -137,11 +140,10 @@
         import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import React, { useState, useEffect, useCallback } from 'react';
         import ReactDOM from 'react-dom/client';
-        import { ChevronLeft, ChevronRight, RotateCcw, Shuffle, Book, Upload, XCircle, Star } from 'lucide-react';
+        // --- MODIFIED: Removed unused icons, kept XCircle ---
+        import { XCircle } from 'lucide-react';
 
-        // --- START: Firebase 設定 ---
-        // !!! 重要 !!!
-        // 請在此處貼上您自己的 Firebase Web App 設定物件。
+        // --- START: Firebase 設定 (Unchanged) ---
         const YOUR_NEW_FIREBASE_CONFIG = {
           apiKey: "AIzaSyB1t85toRv5pRHzx8vWLaSqW0w8FC0t-Do",
           authDomain: "idiom-glyphs.firebaseapp.com",
@@ -152,11 +154,11 @@
         };
         // --- END: Firebase 設定 ---
 
-        // --- Global State & Firebase Instances ---
+        // --- Global State & Firebase Instances (Unchanged) ---
         let db, auth, userId;
         let firebaseInitialized = false;
 
-        // --- UI Elements ---
+        // --- UI Elements (Unchanged) ---
         const welcomeScreen = document.getElementById('welcome-screen');
         const mainApp = document.getElementById('main-app');
         const appSwitcher = document.getElementById('app-switcher');
@@ -166,11 +168,9 @@
         const loadingOverlay = document.getElementById('loading-overlay');
         const loadingText = document.getElementById('loading-text');
 
-        // --- Firebase Initialization Logic ---
-        // --- Firebase Initialization Logic ---
+        // --- Firebase Initialization Logic (Unchanged) ---
         async function initializeFirebase() {
             if (firebaseInitialized) return;
-            // 修正後的檢查：只檢查 apiKey 是否存在或為預設的 placeholder
             if (!YOUR_NEW_FIREBASE_CONFIG.apiKey || YOUR_NEW_FIREBASE_CONFIG.apiKey.includes("XXXXXXXXXXXXXXXXXXXXXXXXXXX")) {
                  loadingText.innerHTML = `<div class="text-center"><p class="font-bold text-red-600">Firebase 設定無效！</p><p class="text-sm mt-2">請在程式碼中修改 YOUR_NEW_FIREBASE_CONFIG 物件，填入您自己的 Firebase 專案設定。</p></div>`;
                  return;
@@ -189,7 +189,6 @@
                         } else {
                             try {
                                 await signInAnonymously(auth);
-                                // The listener will call resolve() on the next state change
                             } catch (error) {
                                 console.error("Anonymous sign-in failed:", error);
                                 loadingText.innerText = "使用者登入失敗，請檢查網路連線後重新整理。";
@@ -204,10 +203,9 @@
         }
         
         // =================================================================================
-        // --- 字卡 (Glyphs) App Logic ---
+        // --- 字卡 (Glyphs) App Logic (Unchanged) ---
         // =================================================================================
         const GlyphsApp = {
-            // DOM Elements
             bookSelect: document.getElementById('book-select'),
             modeSelect: document.getElementById('mode-select'),
             csvUpload: document.getElementById('csv-upload-glyphs'),
@@ -221,16 +219,11 @@
             prevBtn: document.getElementById('prev-btn'),
             nextBtn: document.getElementById('next-btn'),
             cardCounter: document.getElementById('card-counter'),
-
-            // State
             allCards: [],
             currentDeck: [],
             currentIndex: 0,
             starredCardIds: new Set(),
             unsubscribeStarred: null,
-
-            // Sample Data
-            //字音字形
             sampleData: 
             [
                 {
@@ -4164,25 +4157,18 @@
                     "phrase": "頭緒。端倪。"
                 }
                 ],
-
-            // Methods
             init() {
                 this.allCards = this.sampleData.map(card => ({...card, id: this.generateCardId(card)}));
                 this.addEventListeners();
                 this.setupStarredListener();
                 this.buildDeck();
             },
-            
             destroy() {
                 if (this.unsubscribeStarred) this.unsubscribeStarred();
-                // We don't remove event listeners here because the elements persist.
-                // If we were creating/destroying elements, we would.
             },
-
             generateCardId(card) {
                 return `${card.char}_${card.phrase}`;
             },
-
             parseCSV(text) {
                 const lines = text.trim().split('\n');
                 return lines.map(line => {
@@ -4195,7 +4181,6 @@
                     return null;
                 }).filter(Boolean);
             },
-
             buildDeck() {
                 const selectedBook = this.bookSelect.value;
                 let filteredByBook = (selectedBook === 'starred') 
@@ -4203,7 +4188,6 @@
                     : (selectedBook !== 'all') 
                         ? this.allCards.filter(card => card.book === selectedBook)
                         : this.allCards;
-
                 this.currentDeck = [];
                 const selectedMode = this.modeSelect.value;
                 if (selectedMode === 'mixed') {
@@ -4214,17 +4198,14 @@
                 } else {
                     filteredByBook.forEach(card => this.currentDeck.push({ ...card, type: selectedMode }));
                 }
-                
                 this.currentDeck.sort(() => Math.random() - 0.5);
                 this.currentIndex = 0;
                 this.flashcard.classList.remove('is-flipped');
                 this.displayCard();
             },
-
             displayCard() {
                 const hasDeck = this.currentDeck.length > 0;
                 this.starBtn.style.display = hasDeck ? 'block' : 'none';
-
                 if (!hasDeck) {
                     this.cardFront.innerHTML = `<p class="text-xl text-gray-500">沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。</p>`;
                     this.cardBack.innerHTML = '';
@@ -4232,25 +4213,20 @@
                 } else {
                     const cardData = this.currentDeck[this.currentIndex];
                     const { id, char, pinyin, phrase, type } = cardData;
-
                     let frontHTML = (type === 'pronunciation')
                         ? `<p class="phrase-text">${phrase.replace(char, `<span class="highlight">「${char}」</span>`)}</p>`
                         : `<p class="phrase-text">${phrase.replace(char, `<span class="highlight">「${pinyin}」</span>`)}</p>`;
-                    
                     let backHTML = `<div class="answer-text">${phrase.replace(char, `<span class="highlight">「${char}」</span>`)}</div><div class="answer-pinyin">${pinyin}</div>`;
-                    
                     this.cardFront.innerHTML = frontHTML;
                     this.cardBack.innerHTML = backHTML;
                     this.cardCounter.textContent = `${this.currentIndex + 1} / ${this.currentDeck.length}`;
                     this.starBtn.classList.toggle('starred', this.starredCardIds.has(id));
                 }
-                
                 this.prevBtn.disabled = !hasDeck || this.currentIndex === 0;
                 this.nextBtn.disabled = !hasDeck || this.currentIndex === this.currentDeck.length - 1;
                 this.shuffleBtn.disabled = !hasDeck;
                 this.resetBtn.disabled = !hasDeck;
             },
-
             async toggleStar() {
                 if (!userId || this.currentDeck.length === 0) return;
                 const card = this.currentDeck[this.currentIndex];
@@ -4266,7 +4242,6 @@
                     alert("抱歉，更新收藏狀態失敗。");
                 }
             },
-            
             handleFileUpload(event) {
                 const file = event.target.files[0];
                 if (!file) return;
@@ -4284,7 +4259,6 @@
                 };
                 reader.readAsText(file);
             },
-
             setupStarredListener() {
                 if (this.unsubscribeStarred) this.unsubscribeStarred();
                 const collectionRef = collection(db, `users/${userId}/starred_glyphs`);
@@ -4302,7 +4276,6 @@
                     console.error("Failed to listen to starred glyphs:", error);
                 });
             },
-
             addEventListeners() {
                 this.flashcardContainer.addEventListener('click', (e) => {
                     if (e.target.closest('#star-btn')) return;
@@ -4338,7 +4311,7 @@
         };
 
         // =================================================================================
-        // --- 成語 (Idioms) App Logic (React) ---
+        // --- MODIFIED: 成語 (Idioms) App Logic (React) ---
         // =================================================================================
         const IdiomsApp = {
             reactRoot: null,
@@ -4352,10 +4325,7 @@
             },
             
             destroy() {
-                if (this.reactRoot) {
-                   // This might cause issues with React 18, so we just re-render.
-                   // A full unmount is cleaner if we were leaving the page.
-                }
+                // React 18 cleanup handled internally
             },
 
             IdiomsComponent() {
@@ -5417,20 +5387,19 @@
                             "meaning": "天下的人都像兄弟一樣，親如一家"
                         }
                         ]
-                    
-                    
-                    );
+                );
                 const [filteredIdioms, setFilteredIdioms] = useState([]);
                 const [selectedVolume, setSelectedVolume] = useState("全部");
                 const [currentIndex, setCurrentIndex] = useState(0);
                 const [showMeaning, setShowMeaning] = useState(false);
-                const [showVolumeSelector, setShowVolumeSelector] = useState(false);
+                // MODIFIED: Removed showVolumeSelector state
                 const [notification, setNotification] = useState({ show: false, message: '', type: '' });
                 const [starredIdiomIds, setStarredIdiomIds] = useState(new Set());
-                
+                const prevSelectedVolumeRef = React.useRef();
+                const prevAllIdiomsRef = React.useRef();
                 const volumes = [...new Set(allIdioms.map(item => item.volume))].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
 
-                // Firebase listener for starred idioms
+                // Firebase listener (Unchanged)
                 useEffect(() => {
                     if (!userId) return;
                     const collectionRef = collection(db, `users/${userId}/starred_idioms`);
@@ -5442,13 +5411,13 @@
                     return () => unsubscribe();
                 }, [userId]);
                 
-                // Helper to generate a stable ID
+                // Helper to generate a stable ID (Unchanged)
                 const generateIdiomId = useCallback((idiom) => `${idiom.idiom}_${idiom.meaning}`, []);
 
-                // Effect to build deck
+                // Effect to build deck (MODIFIED to prevent index reset on star click)
                 useEffect(() => {
                     const idiomsWithIds = allIdioms.map(item => ({ ...item, id: generateIdiomId(item) }));
-                    
+
                     let newFiltered;
                     if (selectedVolume === "我的收藏") {
                         newFiltered = idiomsWithIds.filter(item => starredIdiomIds.has(item.id));
@@ -5457,11 +5426,32 @@
                     } else {
                         newFiltered = idiomsWithIds.filter(item => item.volume === selectedVolume);
                     }
-                    
-                    setFilteredIdioms(newFiltered.sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke')));
-                    setCurrentIndex(0);
-                    setShowMeaning(false);
-                }, [selectedVolume, allIdioms, starredIdiomIds, generateIdiomId]);
+ 
+                    const newDeck = newFiltered.sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
+                    setFilteredIdioms(newDeck);
+
+                    // 檢查是什麼觸發了此更新
+                    const volumeChanged = prevSelectedVolumeRef.current !== undefined && prevSelectedVolumeRef.current !== selectedVolume;
+                    const dataChanged = prevAllIdiomsRef.current !== undefined && prevAllIdiomsRef.current !== allIdioms;
+
+                    if (volumeChanged || dataChanged) {
+                        // 如果是冊別或資料來源改變，則重設
+                        setCurrentIndex(0);
+                        setShowMeaning(false);
+                    } else {
+                        // 否則 (僅收藏狀態改變)，將索引固定在新的範圍內
+                        const newMaxIndex = newDeck.length - 1;
+                        if (currentIndex > newMaxIndex) {
+                            setCurrentIndex(Math.max(0, newMaxIndex)); // 如果當前索引超出範圍(例如刪除最後一張)，則移到新的最後一張
+                        }
+                        // 如果索引仍然有效，則什麼都不做，保持用戶位置
+                    }
+
+                    // 為下一次執行更新 ref
+                    prevSelectedVolumeRef.current = selectedVolume;
+                    prevAllIdiomsRef.current = allIdioms;
+
+                }, [selectedVolume, allIdioms, starredIdiomIds, generateIdiomId, currentIndex]); // 注意：currentIndex 已被添加到依賴項陣列中
                 
 
                 const showNotification = (message, type = 'success', duration = 3000) => {
@@ -5481,17 +5471,27 @@
                 };
                 
                 const resetCards = () => {
-                     const originalOrder = [...filteredIdioms].sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
+                     const originalOrder = [...allIdioms]
+                        .map(item => ({ ...item, id: generateIdiomId(item) }))
+                        .filter(item => {
+                             if (selectedVolume === "我的收藏") return starredIdiomIds.has(item.id);
+                             if (selectedVolume === "全部") return true;
+                             return item.volume === selectedVolume;
+                        })
+                        .sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
+                     
                      setFilteredIdioms(originalOrder);
                      setCurrentIndex(0); setShowMeaning(false);
                      showNotification('卡片已重置為預設順序。', 'info');
                 };
 
+                // MODIFIED: Navigate function to stop at ends (like Glyphs)
                 const navigate = (direction) => {
-                    if (filteredIdioms.length === 0) return;
-                    const newIndex = (currentIndex + direction + filteredIdioms.length) % filteredIdioms.length;
-                    setCurrentIndex(newIndex);
-                    setShowMeaning(false);
+                    const newIndex = currentIndex + direction;
+                    if (newIndex >= 0 && newIndex < filteredIdioms.length) {
+                        setCurrentIndex(newIndex);
+                        setShowMeaning(false);
+                    }
                 };
 
                 const handleFileUpload = async (event) => {
@@ -5507,7 +5507,6 @@
                     }).filter(Boolean);
 
                     if (newIdioms.length > 0) {
-                        // Avoid duplicates
                         const currentIdiomsSet = new Set(allIdioms.map(i => i.idiom));
                         const uniqueNewIdioms = newIdioms.filter(i => !currentIdiomsSet.has(i.idiom));
                         setAllIdioms(prev => [...prev, ...uniqueNewIdioms]);
@@ -5515,7 +5514,7 @@
                     } else {
                         showNotification('CSV檔案為空或格式不符。', 'error');
                     }
-                    event.target.value = null; // Reset file input
+                    event.target.value = null; 
                 };
 
                 const toggleStar = async (event) => {
@@ -5526,7 +5525,7 @@
                         if (starredIdiomIds.has(currentIdiom.id)) {
                             await deleteDoc(docRef);
                         } else {
-                            const { id, ...dataToSave } = currentIdiom; // Don't save id field in the document itself
+                            const { id, ...dataToSave } = currentIdiom;
                             await setDoc(docRef, { ...dataToSave, starredAt: new Date() });
                         }
                     } catch (error) {
@@ -5537,81 +5536,121 @@
 
                 const currentIdiom = filteredIdioms[currentIndex];
                 const isStarred = currentIdiom ? starredIdiomIds.has(currentIdiom.id) : false;
+                const hasDeck = filteredIdioms.length > 0;
 
-                return React.createElement('div', { className: "font-sans relative" },
-                    // Notification
+                // --- MODIFIED: This is the new React return block, mimicking the Glyphs layout ---
+                return React.createElement('div', null,
+                    // Notification (Unchanged)
                     notification.show && React.createElement('div', { className: `fixed top-20 left-1/2 -translate-x-1/2 flex items-center gap-3 w-auto max-w-sm p-4 rounded-lg shadow-2xl text-white z-50 transition-all duration-300 ${notification.type === 'success' ? 'bg-green-500' : notification.type === 'info' ? 'bg-blue-500' : 'bg-red-500'}` },
                       React.createElement('p', null, notification.message),
                       React.createElement('button', { onClick: () => setNotification({ ...notification, show: false }), className: "p-1 rounded-full hover:bg-white/20" }, React.createElement(XCircle, { size: 20 }))
                     ),
                     
-                    // Header Controls
-                    React.createElement('div', { className: "text-center mb-6" },
-                        React.createElement('div', { className: "relative inline-block" },
-                            React.createElement('button', { onClick: () => setShowVolumeSelector(!showVolumeSelector), className: "flex items-center justify-center space-x-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-gray-700 font-medium" },
-                                React.createElement(Book, { size: 18 }),
-                                React.createElement('span', null, selectedVolume),
-                                React.createElement(ChevronRight, { size: 16, className: `transform transition-transform ${showVolumeSelector ? 'rotate-90' : ''}` })
-                            ),
-                            showVolumeSelector && React.createElement('div', { className: "absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-20 min-w-[10rem]" },
-                                ['全部', '我的收藏', ...volumes].map(volume => React.createElement('button', {
-                                    key: volume,
-                                    onClick: () => { setSelectedVolume(volume); setShowVolumeSelector(false); },
-                                    className: `w-full px-4 py-2 text-left hover:bg-blue-50 transition-colors ${selectedVolume === volume ? "bg-blue-100 text-blue-700 font-semibold" : "text-gray-700"}`
-                                }, volume))
+                    // NEW: Control Panel (matches Glyphs, but uses 2 cols since mode is removed)
+                    React.createElement('div', { className: "bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center" },
+                        // NEW: Book Select (as <select>)
+                        React.createElement('div', null,
+                            React.createElement('label', { htmlFor: "idiom-book-select", className: "block text-sm font-medium text-gray-700" }, "選擇冊別"),
+                            React.createElement('select', { 
+                                id: "idiom-book-select", 
+                                className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                                value: selectedVolume,
+                                onChange: e => setSelectedVolume(e.target.value)
+                            },
+                                ['全部', '我的收藏', ...volumes].map(volume => React.createElement('option', { key: volume, value: volume }, volume))
                             )
+                        ),
+                        
+                        // NEW: CSV Upload (as <input type="file">)
+                        React.createElement('div', null,
+                            React.createElement('label', { htmlFor: "csv-upload-idioms", className: "block text-sm font-medium text-gray-700" }, "上傳CSV檔"),
+                            React.createElement('input', { 
+                                type: "file", 
+                                id: "csv-upload-idioms", 
+                                accept: ".csv", 
+                                className: "mt-1 block w-full text-sm text-gray-500",
+                                onChange: handleFileUpload 
+                            })
                         )
                     ),
                     
-                    // Progress
-                    filteredIdioms.length > 0 && React.createElement('div', { className: "text-center text-gray-600 mb-4" },
-                        React.createElement('span', { className: "text-lg font-medium" }, `${currentIndex + 1} / ${filteredIdioms.length}`),
-                        React.createElement('div', { className: "w-full bg-gray-200 rounded-full h-2 mt-2 overflow-hidden" },
-                            React.createElement('div', { className: "bg-blue-500 h-2 rounded-full transition-all duration-300", style: { width: `${((currentIndex + 1) / filteredIdioms.length) * 100}%` } })
-                        )
-                    ),
-                    
-                    // Flashcard
-                    React.createElement('div', { className: "relative w-full h-80 mb-6 cursor-pointer group", onClick: () => filteredIdioms.length > 0 && setShowMeaning(!showMeaning), style: { perspective: '1000px' } },
-                        currentIdiom ? React.createElement('div', { className: "relative w-full h-full" },
-                            React.createElement('svg', { id: "star-btn-idiom", onClick: toggleStar, viewBox: "0 0 24 24", strokeLinejoin: "round", className: isStarred ? 'starred' : '' }, React.createElement('path', { d: "M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" })),
-                            React.createElement('div', { className: "absolute inset-0 w-full h-full transition-transform duration-700", style: { transformStyle: 'preserve-3d', transform: showMeaning ? 'rotateY(180deg)' : 'rotateY(0deg)' } },
-                                // Front
-                                React.createElement('div', { className: "absolute inset-0 w-full h-full bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center border-2 border-blue-200 p-6", style: { backfaceVisibility: 'hidden' } },
-                                    React.createElement('p', { className: "text-gray-500 text-sm mb-4" }, currentIdiom.volume),
-                                    React.createElement('h2', { className: "text-4xl md:text-5xl font-bold text-gray-800 text-center" }, currentIdiom.idiom),
-                                    React.createElement('p', { className: "absolute bottom-6 text-gray-400 text-sm group-hover:text-blue-500 transition-colors" }, "點擊翻轉查看意思")
-                                ),
-                                // Back
-                                React.createElement('div', { className: "absolute inset-0 w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-xl flex flex-col items-center justify-center text-white p-6", style: { backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' } },
-                                    React.createElement('h3', { className: "text-2xl font-bold mb-4" }, currentIdiom.idiom),
-                                    React.createElement('p', { className: "text-lg text-center leading-relaxed" }, currentIdiom.meaning)
+                    // NEW: Flashcard Container (matches Glyphs)
+                    React.createElement('div', { className: "flashcard-container h-80 cursor-pointer", onClick: () => hasDeck && setShowMeaning(!showMeaning) },
+                        // Star Button (same as before, styled by its own CSS rule)
+                        hasDeck && React.createElement('svg', { 
+                            id: "star-btn-idiom", 
+                            onClick: toggleStar, 
+                            viewBox: "0 0 24 24", 
+                            strokeLinejoin: "round", 
+                            className: isStarred ? 'starred' : '' 
+                        }, React.createElement('path', { d: "M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" })),
+                        
+                        // Flashcard (using CSS classes for flip)
+                        React.createElement('div', { className: `flashcard ${showMeaning ? 'is-flipped' : ''}` },
+                            // Front face (uses Glyphs classes)
+                            React.createElement('div', { className: "card-face card-front" },
+                                currentIdiom 
+                                ? React.createElement('p', { className: "phrase-text" }, currentIdiom.idiom)
+                                : React.createElement('p', { className: "text-xl text-gray-500" }, "沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。", null)
+                            ),
+                            
+                            // Back face (uses Glyphs classes, no gradient)
+                            React.createElement('div', { className: "card-face card-back" },
+                                currentIdiom && React.createElement(React.Fragment, null,
+                                    React.createElement('div', { className: "answer-text highlight", style: { fontSize: '2.25rem', marginBottom: '1rem' } }, currentIdiom.idiom),
+                                    React.createElement('div', { className: "answer-text", style: { fontSize: '1.5rem' } }, currentIdiom.meaning)
                                 )
                             )
-                        ) : React.createElement('div', { className: "w-full h-full bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center border-2 border-dashed border-gray-300 p-6" },
-                            React.createElement('p', { className: "text-gray-500 text-lg" }, "沒有符合的成語。"),
-                            React.createElement('p', { className: "text-gray-400 mt-2" }, "請選擇其他冊別或上傳CSV。")
                         )
                     ),
 
-                    // Navigation
-                    React.createElement('div', { className: "flex justify-center items-center space-x-4 mb-6" },
-                        React.createElement('button', { onClick: () => navigate(-1), className: "p-4 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-200 text-gray-600 hover:text-gray-800 disabled:opacity-50", disabled: filteredIdioms.length === 0 }, React.createElement(ChevronLeft, { size: 24 })),
-                        React.createElement('button', { onClick: () => navigate(1), className: "p-4 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-200 text-gray-600 hover:text-gray-800 disabled:opacity-50", disabled: filteredIdioms.length === 0 }, React.createElement(ChevronRight, { size: 24 }))
-                    ),
-
-                    // Actions
-                    React.createElement('div', { className: "flex justify-center space-x-3" },
-                        React.createElement('button', { onClick: resetCards, className: "flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50", disabled: filteredIdioms.length === 0 }, React.createElement(RotateCcw, { size: 16 }), React.createElement('span', null, '重置')),
-                        React.createElement('button', { onClick: shuffleCards, className: "flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50", disabled: filteredIdioms.length === 0 }, React.createElement(Shuffle, { size: 16 }), React.createElement('span', null, '洗牌')),
-                        React.createElement('label', { className: "flex items-center space-x-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer" }, React.createElement(Upload, { size: 16 }), React.createElement('span', null, '上傳CSV'), React.createElement('input', { type: "file", accept: ".csv", onChange: handleFileUpload, className: "hidden" }))
+                    // NEW: Navigation Bar (matches Glyphs exactly)
+                    React.createElement('div', { className: "flex items-center justify-center flex-wrap gap-4 mt-6" },
+                        // Shuffle
+                        React.createElement('button', { 
+                            id: "shuffle-btn-idiom", 
+                            className: "bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                            onClick: shuffleCards,
+                            disabled: !hasDeck
+                        }, "打亂順序"),
+                        
+                        // Reset
+                        React.createElement('button', { 
+                            id: "reset-btn-idiom", 
+                            className: "bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                            onClick: resetCards,
+                            disabled: !hasDeck
+                        }, "重置練習"),
+                        
+                        // Prev
+                        React.createElement('button', { 
+                            id: "prev-btn-idiom", 
+                            className: "bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                            onClick: () => navigate(-1),
+                            disabled: !hasDeck || currentIndex === 0
+                        }, "上一個"),
+                        
+                        // Counter
+                        React.createElement('div', { 
+                            id: "card-counter-idiom", 
+                            className: "text-lg font-medium text-gray-700" 
+                        }, hasDeck ? `${currentIndex + 1} / ${filteredIdioms.length}` : '0 / 0'),
+                        
+                        // Next
+                        React.createElement('button', { 
+                            id: "next-btn-idiom", 
+                            className: "bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                            onClick: () => navigate(1),
+                            disabled: !hasDeck || currentIndex === filteredIdioms.length - 1
+                        }, "下一個")
                     )
                 );
             }
         };
 
+
         // =================================================================================
-        // --- Main Controller Logic ---
+        // --- Main Controller Logic (Unchanged) ---
         // =================================================================================
         function showApp(mode) {
             welcomeScreen.classList.add('hidden');
@@ -5623,12 +5662,12 @@
                 glyphsContainer.classList.remove('hidden');
                 idiomsContainer.classList.add('hidden');
                 GlyphsApp.init();
-                IdiomsApp.destroy(); // placeholder for future cleanup
+                IdiomsApp.destroy();
             } else {
                 appTitle.innerText = "成語學習卡";
                 glyphsContainer.classList.add('hidden');
                 idiomsContainer.classList.remove('hidden');
-                GlyphsApp.destroy(); // placeholder
+                GlyphsApp.destroy();
                 IdiomsApp.init();
             }
         }
