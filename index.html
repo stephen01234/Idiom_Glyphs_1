@@ -87,11 +87,16 @@
                 <div>
                     <label for="book-select" class="block text-sm font-medium text-gray-700">選擇冊別</label>
                     <select id="book-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option value="all">全部 (1-5冊)</option>
+                        <option value="all">全部 (1-5冊 & 其他)</option>
                         <option value="starred">我的收藏</option>
-                        <option value="第1冊">第1冊</option><option value="第2冊">第2冊</option><option value="第3冊">第3冊</option><option value="第4冊">第4冊</option><option value="第5冊">第5冊</option>
+                        <option value="第1冊">第1冊</option>
+                        <option value="第2冊">第2冊</option>
+                        <option value="第3冊">第3冊</option>
+                        <option value="第4冊">第4冊</option>
+                        <option value="第5冊">第5冊</option>
+                        <option value="其他">其他</option>
                     </select>
-                </div>
+                    </div>
                 <div>
                     <label for="mode-select" class="block text-sm font-medium text-gray-700">練習模式</label>
                     <select id="mode-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -224,4016 +229,4011 @@
             currentIndex: 0,
             starredCardIds: new Set(),
             unsubscribeStarred: null,
-
-
-
-
-            //sampleData:[]
-            sampleData:    [
-            {
-                "book": "其他",
-                "char": "墨",
-                "pinyin": "ㄇㄛˋ",
-                "phrase": "墨守成規"
-            },
-            {
-                "book": "其他",
-                "char": "幀",
-                "pinyin": "ㄓㄥˋ",
-                "phrase": "一幀照片"
-            },
-            {
-                "book": "其他",
-                "char": "挑",
-                "pinyin": "ㄊㄧㄠˇ",
-                "phrase": "挑燈看劍"
-            },
-            {
-                "book": "其他",
-                "char": "屬",
-                "pinyin": "ㄓㄨˇ",
-                "phrase": "舉酒屬客"
-            },
-            {
-                "book": "其他",
-                "char": "許",
-                "pinyin": "ㄒㄩˇ",
-                "phrase": "孤高自許"
-            },
-            {
-                "book": "其他",
-                "char": "杼",
-                "pinyin": "ㄓㄨˋ",
-                "phrase": "機杼"
-            },
-            {
-                "book": "其他",
-                "char": "騖",
-                "pinyin": "ㄨˋ",
-                "phrase": "好高騖遠"
-            },
-            {
-                "book": "其他",
-                "char": "僭",
-                "pinyin": "ㄐㄧㄢˋ",
-                "phrase": "僭號"
-            },
-            {
-                "book": "其他",
-                "char": "譖",
-                "pinyin": "ㄗㄣˋ",
-                "phrase": "譖下謾上"
-            },
-            {
-                "book": "其他",
-                "char": "暄",
-                "pinyin": "ㄒㄩㄢ",
-                "phrase": "寒暄"
-            },
-            {
-                "book": "其他",
-                "char": "觥",
-                "pinyin": "ㄍㄨㄥ",
-                "phrase": "觥籌"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第1冊",
-                "char": "幢幢",
-                "pinyin": "ㄔㄨㄤˊ ㄔㄨㄤˊ",
-                "phrase": "灰影幢幢"
-            },
-            {
-                "book": "第1冊",
-                "char": "朘",
-                "pinyin": "ㄐㄩㄢ",
-                "phrase": "日削月朘"
-            },
-            {
-                "book": "第1冊",
-                "char": "赭",
-                "pinyin": "ㄓㄜˇ",
-                "phrase": "赭紅色"
-            },
-            {
-                "book": "第1冊",
-                "char": "悛",
-                "pinyin": "ㄑㄩㄢ",
-                "phrase": "怙惡不悛"
-            },
-            {
-                "book": "第1冊",
-                "char": "嶙峋",
-                "pinyin": "ㄌㄧㄣˊ ㄒㄩㄣˊ",
-                "phrase": "瘦骨嶙峋"
-            },
-            {
-                "book": "第1冊",
-                "char": "詡",
-                "pinyin": "ㄒㄩˇ",
-                "phrase": "驕傲自詡"
-            },
-            {
-                "book": "第1冊",
-                "char": "栩",
-                "pinyin": "ㄒㄩˇ",
-                "phrase": "栩栩如生"
-            },
-            {
-                "book": "第1冊",
-                "char": "烙",
-                "pinyin": "ㄌㄠˋ",
-                "phrase": "烙鐵漿"
-            },
-            {
-                "book": "第1冊",
-                "char": "氤氳",
-                "pinyin": "ㄧㄣ ㄩㄣ",
-                "phrase": "霧氣氤氳"
-            },
-            {
-                "book": "第1冊",
-                "char": "紿",
-                "pinyin": "ㄉㄞˋ",
-                "phrase": "欺紿"
-            },
-            {
-                "book": "第1冊",
-                "char": "巍",
-                "pinyin": "ㄨㄟˊ",
-                "phrase": "巍峨聳矗"
-            },
-            {
-                "book": "第1冊",
-                "char": "矗",
-                "pinyin": "ㄔㄨˋ",
-                "phrase": "巍峨聳矗"
-            },
-            {
-                "book": "第1冊",
-                "char": "貽",
-                "pinyin": "ㄧˊ",
-                "phrase": "貽笑大方"
-            },
-            {
-                "book": "第1冊",
-                "char": "笞",
-                "pinyin": "ㄔ",
-                "phrase": "鞭笞天下"
-            },
-            {
-                "book": "第1冊",
-                "char": "逡",
-                "pinyin": "ㄑㄩㄣ",
-                "phrase": "四顧逡巡"
-            },
-            {
-                "book": "第1冊",
-                "char": "饜",
-                "pinyin": "ㄧㄢˋ",
-                "phrase": "學而不饜"
-            },
-            {
-                "book": "第1冊",
-                "char": "懨",
-                "pinyin": "ㄧㄢ",
-                "phrase": "病懨懨"
-            },
-            {
-                "book": "第1冊",
-                "char": "靨",
-                "pinyin": "ㄧㄝˋ",
-                "phrase": "笑靨"
-            },
-            {
-                "book": "第1冊",
-                "char": "魘",
-                "pinyin": "ㄧㄢˇ",
-                "phrase": "夢魘"
-            },
-            {
-                "book": "第1冊",
-                "char": "皋",
-                "pinyin": "ㄍㄠ",
-                "phrase": "沼澤皋壤"
-            },
-            {
-                "book": "第1冊",
-                "char": "嗥",
-                "pinyin": "ㄏㄠˊ",
-                "phrase": "狼嗥"
-            },
-            {
-                "book": "第1冊",
-                "char": "翱",
-                "pinyin": "ㄠˊ",
-                "phrase": "翱翔"
-            },
-            {
-                "book": "第1冊",
-                "char": "溯",
-                "pinyin": "ㄙㄨˋ",
-                "phrase": "推本溯源"
-            },
-            {
-                "book": "第1冊",
-                "char": "洄",
-                "pinyin": "ㄏㄨㄟˊ",
-                "phrase": "洄游"
-            },
-            {
-                "book": "第1冊",
-                "char": "妊",
-                "pinyin": "ㄖㄣˋ",
-                "phrase": "妊娠"
-            },
-            {
-                "book": "第1冊",
-                "char": "娠",
-                "pinyin": "ㄕㄣ",
-                "phrase": "妊娠"
-            },
-            {
-                "book": "第1冊",
-                "char": "淈",
-                "pinyin": "ㄍㄨˇ",
-                "phrase": "淈泥揚波"
-            },
-            {
-                "book": "第1冊",
-                "char": "狙",
-                "pinyin": "ㄐㄩ",
-                "phrase": "狙擊"
-            },
-            {
-                "book": "第1冊",
-                "char": "沂",
-                "pinyin": "ㄧˊ",
-                "phrase": "沂水弦歌"
-            },
-            {
-                "book": "第1冊",
-                "char": "韙",
-                "pinyin": "ㄨㄟˇ",
-                "phrase": "冒天下之大不韙"
-            },
-            {
-                "book": "第1冊",
-                "char": "煒",
-                "pinyin": "ㄨㄟˇ",
-                "phrase": "顧盼煒如"
-            },
-            {
-                "book": "第1冊",
-                "char": "釃",
-                "pinyin": "ㄙ",
-                "phrase": "釃酒臨江"
-            },
-            {
-                "book": "第1冊",
-                "char": "黧",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "面目黧黑"
-            },
-            {
-                "book": "第1冊",
-                "char": "渚",
-                "pinyin": "ㄓㄨˇ",
-                "phrase": "江渚"
-            },
-            {
-                "book": "第1冊",
-                "char": "朔",
-                "pinyin": "ㄕㄨㄛˋ",
-                "phrase": "朔日"
-            },
-            {
-                "book": "第1冊",
-                "char": "徊",
-                "pinyin": "ㄏㄨㄞˊ",
-                "phrase": "徘徊"
-            },
-            {
-                "book": "第1冊",
-                "char": "賑",
-                "pinyin": "ㄓㄣˋ",
-                "phrase": "賑窮濟乏"
-            },
-            {
-                "book": "第1冊",
-                "char": "崛",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "崛起於文壇"
-            },
-            {
-                "book": "第1冊",
-                "char": "殂",
-                "pinyin": "ㄘㄨˊ",
-                "phrase": "崩殂"
-            },
-            {
-                "book": "第1冊",
-                "char": "泝",
-                "pinyin": "ㄙㄨˋ",
-                "phrase": "擊空明兮泝流光"
-            },
-            {
-                "book": "第1冊",
-                "char": "諱",
-                "pinyin": "ㄏㄨㄟˋ",
-                "phrase": "諱疾忌醫"
-            },
-            {
-                "book": "第1冊",
-                "char": "嫋嫋",
-                "pinyin": "ㄋㄧㄠˇ ㄋㄧㄠˇ",
-                "phrase": "餘音嫋嫋"
-            },
-            {
-                "book": "第1冊",
-                "char": "鸝",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "黃鸝"
-            },
-            {
-                "book": "第1冊",
-                "char": "釐",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "毫釐之差"
-            },
-            {
-                "book": "第1冊",
-                "char": "塑",
-                "pinyin": "ㄙㄨˋ",
-                "phrase": "塑膠"
-            },
-            {
-                "book": "第1冊",
-                "char": "迴",
-                "pinyin": "ㄏㄨㄟˊ",
-                "phrase": "輪迴"
-            },
-            {
-                "book": "第1冊",
-                "char": "倔",
-                "pinyin": "ㄐㄩㄝˋ",
-                "phrase": "倔脾氣"
-            },
-            {
-                "book": "第1冊",
-                "char": "掘",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "臨渴掘井"
-            },
-            {
-                "book": "第1冊",
-                "char": "苴",
-                "pinyin": "ㄐㄩ",
-                "phrase": "補苴罅漏"
-            },
-            {
-                "book": "第1冊",
-                "char": "斫",
-                "pinyin": "ㄓㄨㄛˊ",
-                "phrase": "斫輪老手"
-            },
-            {
-                "book": "第1冊",
-                "char": "韋",
-                "pinyin": "ㄨㄟˊ",
-                "phrase": "韋編三絕"
-            },
-            {
-                "book": "第1冊",
-                "char": "搦",
-                "pinyin": "ㄋㄨㄛˋ",
-                "phrase": "搦管為文"
-            },
-            {
-                "book": "第1冊",
-                "char": "嫠",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "泣孤舟之嫠婦"
-            },
-            {
-                "book": "第1冊",
-                "char": "邐",
-                "pinyin": "ㄌㄧˇ",
-                "phrase": "山路邐迆"
-            },
-            {
-                "book": "第1冊",
-                "char": "赭",
-                "pinyin": "ㄓㄜˇ",
-                "phrase": "赭衣塞路"
-            },
-            {
-                "book": "第1冊",
-                "char": "褚",
-                "pinyin": "ㄔㄨˇ",
-                "phrase": "褚遂良"
-            },
-            {
-                "book": "第1冊",
-                "char": "愀",
-                "pinyin": "ㄑㄧㄠˇ",
-                "phrase": "蘇子愀然"
-            },
-            {
-                "book": "第1冊",
-                "char": "瞅",
-                "pinyin": "ㄔㄡˇ",
-                "phrase": "不瞅不睬"
-            },
-            {
-                "book": "第1冊",
-                "char": "寥",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "寥寥無幾"
-            },
-            {
-                "book": "第1冊",
-                "char": "莪",
-                "pinyin": "ㄜˊ",
-                "phrase": "蓼莪"
-            },
-            {
-                "book": "第1冊",
-                "char": "蓼",
-                "pinyin": "ㄌㄨˋ",
-                "phrase": "蓼莪"
-            },
-            {
-                "book": "第1冊",
-                "char": "呦呦",
-                "pinyin": "ㄧㄡ ㄧㄡ",
-                "phrase": "呦呦鹿鳴"
-            },
-            {
-                "book": "第1冊",
-                "char": "逮",
-                "pinyin": "ㄉㄞˋ",
-                "phrase": "力有未逮"
-            },
-            {
-                "book": "第1冊",
-                "char": "惙",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "危惙之際"
-            },
-            {
-                "book": "第1冊",
-                "char": "驤",
-                "pinyin": "ㄒㄧㄤ",
-                "phrase": "龍驤虎步"
-            },
-            {
-                "book": "第1冊",
-                "char": "摻",
-                "pinyin": "ㄔㄢ",
-                "phrase": "摻雜混雜"
-            },
-            {
-                "book": "第1冊",
-                "char": "淖",
-                "pinyin": "ㄋㄠˋ",
-                "phrase": "泥淖"
-            },
-            {
-                "book": "第1冊",
-                "char": "瓠",
-                "pinyin": "ㄏㄨˋ",
-                "phrase": "瓠巴"
-            },
-            {
-                "book": "第1冊",
-                "char": "鍬",
-                "pinyin": "ㄑㄧㄠ",
-                "phrase": "圓鍬"
-            },
-            {
-                "book": "第1冊",
-                "char": "繆",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "山川相繆"
-            },
-            {
-                "book": "第1冊",
-                "char": "戮",
-                "pinyin": "ㄌㄨˋ",
-                "phrase": "戮力同心"
-            },
-            {
-                "book": "第1冊",
-                "char": "窈",
-                "pinyin": "ㄧㄠˇ",
-                "phrase": "窈窕淑女"
-            },
-            {
-                "book": "第1冊",
-                "char": "怠",
-                "pinyin": "ㄉㄞˋ",
-                "phrase": "怠慢了姑娘"
-            },
-            {
-                "book": "第1冊",
-                "char": "貸",
-                "pinyin": "ㄉㄞˋ",
-                "phrase": "責無旁貸"
-            },
-            {
-                "book": "第1冊",
-                "char": "啜",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "啜菽飲水"
-            },
-            {
-                "book": "第1冊",
-                "char": "驂",
-                "pinyin": "ㄘㄢ",
-                "phrase": "解驂推食"
-            },
-            {
-                "book": "第1冊",
-                "char": "滲",
-                "pinyin": "ㄕㄣˋ",
-                "phrase": "塵泥滲漉"
-            },
-            {
-                "book": "第1冊",
-                "char": "棹",
-                "pinyin": "ㄓㄠˋ",
-                "phrase": "桂棹"
-            },
-            {
-                "book": "第1冊",
-                "char": "揪",
-                "pinyin": "ㄐㄧㄡ",
-                "phrase": "揪出禍首"
-            },
-            {
-                "book": "第1冊",
-                "char": "繆",
-                "pinyin": "ㄇㄡˊ",
-                "phrase": "未雨綢繆"
-            },
-            {
-                "book": "第1冊",
-                "char": "戮",
-                "pinyin": "ㄌㄨˋ",
-                "phrase": "殺戮"
-            },
-            {
-                "book": "第1冊",
-                "char": "拗",
-                "pinyin": "ㄠˋ",
-                "phrase": "拗口"
-            },
-            {
-                "book": "第1冊",
-                "char": "殆",
-                "pinyin": "ㄉㄞˋ",
-                "phrase": "思而不學則殆"
-            },
-            {
-                "book": "第1冊",
-                "char": "輟",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "弦歌不輟"
-            },
-            {
-                "book": "第1冊",
-                "char": "嚷",
-                "pinyin": "ㄖㄤˇ",
-                "phrase": "大聲喧嚷"
-            },
-            {
-                "book": "第1冊",
-                "char": "參",
-                "pinyin": "ㄘㄢ",
-                "phrase": "古木參天"
-            },
-            {
-                "book": "第1冊",
-                "char": "悼",
-                "pinyin": "ㄉㄠˋ",
-                "phrase": "悼念"
-            },
-            {
-                "book": "第1冊",
-                "char": "袴",
-                "pinyin": "ㄨㄢˊ ㄎㄨˋ",
-                "phrase": "紈袴子弟"
-            },
-            {
-                "book": "第1冊",
-                "char": "洿",
-                "pinyin": "ㄨ",
-                "phrase": "洿池"
-            },
-            {
-                "book": "第1冊",
-                "char": "閨",
-                "pinyin": "ㄍㄨㄟ",
-                "phrase": "待字閨中"
-            },
-            {
-                "book": "第1冊",
-                "char": "規",
-                "pinyin": "ㄍㄨㄟ",
-                "phrase": "墨守成規"
-            },
-            {
-                "book": "第1冊",
-                "char": "皈",
-                "pinyin": "ㄍㄨㄟ",
-                "phrase": "皈依佛教"
-            },
-            {
-                "book": "第1冊",
-                "char": "圭",
-                "pinyin": "ㄍㄨㄟ",
-                "phrase": "奉為圭臬"
-            },
-            {
-                "book": "第1冊",
-                "char": "臬",
-                "pinyin": "ㄋㄧㄝˋ",
-                "phrase": "奉為圭臬"
-            },
-            {
-                "book": "第1冊",
-                "char": "癰",
-                "pinyin": "ㄩㄥ",
-                "phrase": "吮癰舐痔"
-            },
-            {
-                "book": "第1冊",
-                "char": "壅",
-                "pinyin": "ㄩㄥ",
-                "phrase": "壅塞"
-            },
-            {
-                "book": "第1冊",
-                "char": "雍",
-                "pinyin": "ㄩㄥ",
-                "phrase": "雍容大度"
-            },
-            {
-                "book": "第1冊",
-                "char": "庸",
-                "pinyin": "ㄩㄥ",
-                "phrase": "附庸風雅"
-            },
-            {
-                "book": "第1冊",
-                "char": "慵",
-                "pinyin": "ㄩㄥ",
-                "phrase": "慵懶"
-            },
-            {
-                "book": "第1冊",
-                "char": "躡",
-                "pinyin": "ㄋㄧㄝˋ",
-                "phrase": "躡足"
-            },
-            {
-                "book": "第1冊",
-                "char": "懾",
-                "pinyin": "ㄓㄜˊ",
-                "phrase": "震懾人心"
-            },
-            {
-                "book": "第1冊",
-                "char": "攝",
-                "pinyin": "ㄕㄜˋ",
-                "phrase": "拍攝照片"
-            },
-            {
-                "book": "第1冊",
-                "char": "囁",
-                "pinyin": "ㄋㄧㄝˋ",
-                "phrase": "囁嚅數次"
-            },
-            {
-                "book": "第1冊",
-                "char": "彆",
-                "pinyin": "ㄅㄧㄝˋ",
-                "phrase": "鬧彆扭"
-            },
-            {
-                "book": "第1冊",
-                "char": "憋",
-                "pinyin": "ㄅㄧㄝ",
-                "phrase": "憋不住"
-            },
-            {
-                "book": "第1冊",
-                "char": "瞥",
-                "pinyin": "ㄆㄧㄝ",
-                "phrase": "驚鴻一瞥"
-            },
-            {
-                "book": "第1冊",
-                "char": "撇",
-                "pinyin": "ㄆㄧㄝˇ",
-                "phrase": "八字都沒一撇"
-            },
-            {
-                "book": "第1冊",
-                "char": "瀆",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "褻瀆神明"
-            },
-            {
-                "book": "第1冊",
-                "char": "犢",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "初生之犢"
-            },
-            {
-                "book": "第1冊",
-                "char": "黷",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "窮兵黷武"
-            },
-            {
-                "book": "第1冊",
-                "char": "牘",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "連篇累牘"
-            },
-            {
-                "book": "第1冊",
-                "char": "櫝",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "買櫝還珠"
-            },
-            {
-                "book": "第1冊",
-                "char": "讀",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "耕讀傳家"
-            },
-            {
-                "book": "第1冊",
-                "char": "戮",
-                "pinyin": "ㄌㄨˋ",
-                "phrase": "同心戮力"
-            },
-            {
-                "book": "第1冊",
-                "char": "蓼",
-                "pinyin": "ㄌㄧㄠˇ",
-                "phrase": "含蓼問疾"
-            },
-            {
-                "book": "第1冊",
-                "char": "僇",
-                "pinyin": "ㄌㄨˋ",
-                "phrase": "僇人"
-            },
-            {
-                "book": "第1冊",
-                "char": "寥",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "寥若晨星"
-            },
-            {
-                "book": "第1冊",
-                "char": "佝",
-                "pinyin": "ㄎㄡˋ",
-                "phrase": "佝僂"
-            },
-            {
-                "book": "第1冊",
-                "char": "劬",
-                "pinyin": "ㄑㄩˊ",
-                "phrase": "劬勞"
-            },
-            {
-                "book": "第1冊",
-                "char": "痀",
-                "pinyin": "ㄐㄩ",
-                "phrase": "痀瘻"
-            },
-            {
-                "book": "第1冊",
-                "char": "呴",
-                "pinyin": "ㄒㄩˇ",
-                "phrase": "相呴相濡"
-            },
-            {
-                "book": "第1冊",
-                "char": "纔",
-                "pinyin": "ㄘㄞˊ",
-                "phrase": "方纔 、纔至"
-            },
-            {
-                "book": "第1冊",
-                "char": "巉",
-                "pinyin": "ㄔㄢˊ",
-                "phrase": "巉岩陡崖"
-            },
-            {
-                "book": "第1冊",
-                "char": "攙",
-                "pinyin": "ㄔㄢ",
-                "phrase": "攙雜"
-            },
-            {
-                "book": "第1冊",
-                "char": "貲",
-                "pinyin": "ㄗ",
-                "phrase": "所費不貲"
-            },
-            {
-                "book": "第1冊",
-                "char": "齜",
-                "pinyin": "ㄗ",
-                "phrase": "齜牙咧嘴"
-            },
-            {
-                "book": "第1冊",
-                "char": "眥",
-                "pinyin": "ㄗˋ",
-                "phrase": "睚眥必報"
-            },
-            {
-                "book": "第1冊",
-                "char": "訾",
-                "pinyin": "ㄗˇ",
-                "phrase": "訾議"
-            },
-            {
-                "book": "第1冊",
-                "char": "疵",
-                "pinyin": "ㄘ",
-                "phrase": "吹毛求疵"
-            },
-            {
-                "book": "第2冊",
-                "char": "皴",
-                "pinyin": "ㄘㄨㄣ",
-                "phrase": "皴裂"
-            },
-            {
-                "book": "第2冊",
-                "char": "皴",
-                "pinyin": "ㄘㄨㄣ",
-                "phrase": "根根都麻皴著 (物體表面有皺褶)"
-            },
-            {
-                "book": "第2冊",
-                "char": "逡",
-                "pinyin": "ㄑㄩㄣ",
-                "phrase": "逡巡 (徘徊、往來行走)"
-            },
-            {
-                "book": "第2冊",
-                "char": "唆",
-                "pinyin": "ㄙㄨㄛ",
-                "phrase": "教唆"
-            },
-            {
-                "book": "第2冊",
-                "char": "悛",
-                "pinyin": "ㄑㄩㄢ",
-                "phrase": "怙惡不悛 (有過惡卻不肯悔改)"
-            },
-            {
-                "book": "第2冊",
-                "char": "竣",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "竣工"
-            },
-            {
-                "book": "第2冊",
-                "char": "砌",
-                "pinyin": "ㄑㄧˋ",
-                "phrase": "雕欄玉砌 (形容富麗華美的建築物)"
-            },
-            {
-                "book": "第2冊",
-                "char": "沏",
-                "pinyin": "ㄑㄧ",
-                "phrase": "沏茶"
-            },
-            {
-                "book": "第2冊",
-                "char": "毵毵",
-                "pinyin": "ㄙㄢ ㄙㄢ",
-                "phrase": "晴煙漠漠柳毵毵 (細長的樣子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "滲",
-                "pinyin": "ㄕㄣˋ",
-                "phrase": "滲入"
-            },
-            {
-                "book": "第2冊",
-                "char": "摻",
-                "pinyin": "ㄔㄢ",
-                "phrase": "摻雜混合"
-            },
-            {
-                "book": "第2冊",
-                "char": "參",
-                "pinyin": "ㄕㄣ",
-                "phrase": "動如參商 (比喻分別而無法相見)"
-            },
-            {
-                "book": "第2冊",
-                "char": "蕾",
-                "pinyin": "ㄌㄟˇ",
-                "phrase": "芭蕾舞"
-            },
-            {
-                "book": "第2冊",
-                "char": "擂",
-                "pinyin": "ㄌㄟˊ",
-                "phrase": "自吹自擂 (比喻自我宣傳吹噓)"
-            },
-            {
-                "book": "第2冊",
-                "char": "篙",
-                "pinyin": "ㄍㄠ",
-                "phrase": "船上的篙槳"
-            },
-            {
-                "book": "第2冊",
-                "char": "犒",
-                "pinyin": "ㄎㄠˋ",
-                "phrase": "犒賞軍士"
-            },
-            {
-                "book": "第2冊",
-                "char": "槁",
-                "pinyin": "ㄍㄠˇ",
-                "phrase": "槁木死灰 (喻心情極端消沉)"
-            },
-            {
-                "book": "第2冊",
-                "char": "縞",
-                "pinyin": "ㄍㄠˇ",
-                "phrase": "一身縞素"
-            },
-            {
-                "book": "第2冊",
-                "char": "嵩",
-                "pinyin": "ㄙㄨㄥ",
-                "phrase": "嵩壽 (高壽)"
-            },
-            {
-                "book": "第2冊",
-                "char": "戧",
-                "pinyin": "ㄑㄧㄤˋ",
-                "phrase": "捏絲戧金五彩大盒子"
-            },
-            {
-                "book": "第2冊",
-                "char": "蹌",
-                "pinyin": "ㄑㄧㄤˋ",
-                "phrase": "踉「蹌」而來"
-            },
-            {
-                "book": "第2冊",
-                "char": "瘡",
-                "pinyin": "ㄔㄨㄤ",
-                "phrase": "千瘡百孔"
-            },
-            {
-                "book": "第2冊",
-                "char": "愴",
-                "pinyin": "ㄔㄨㄤˋ",
-                "phrase": "淒愴"
-            },
-            {
-                "book": "第2冊",
-                "char": "傖",
-                "pinyin": "ㄘㄤ",
-                "phrase": "穿著寒傖(穿著寒酸窮困樣子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "贖",
-                "pinyin": "ㄕㄨˊ",
-                "phrase": "將功贖罪"
-            },
-            {
-                "book": "第2冊",
-                "char": "櫝",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "買櫝還珠 (比喻捨本逐末)"
-            },
-            {
-                "book": "第2冊",
-                "char": "牘",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "案牘勞形 (形容因文書工作繁重而疲憊不堪)"
-            },
-            {
-                "book": "第2冊",
-                "char": "犢",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "舐犢情深 (比喻父母疼愛子女之深情)"
-            },
-            {
-                "book": "第2冊",
-                "char": "竇",
-                "pinyin": "ㄉㄡˋ",
-                "phrase": "情竇初開 (初通情愛的感覺)"
-            },
-            {
-                "book": "第2冊",
-                "char": "黷",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "窮兵黷武 (恣意動用兵力，發動戰爭)"
-            },
-            {
-                "book": "第2冊",
-                "char": "咆",
-                "pinyin": "ㄆㄠˊ",
-                "phrase": "咆哮"
-            },
-            {
-                "book": "第2冊",
-                "char": "刨",
-                "pinyin": "ㄅㄠˋ",
-                "phrase": "刨冰"
-            },
-            {
-                "book": "第2冊",
-                "char": "枹",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "枹鼓相應 (喻極力響應，緊密配合)"
-            },
-            {
-                "book": "第2冊",
-                "char": "匏",
-                "pinyin": "ㄆㄠˊ",
-                "phrase": "匏瓜空懸 (比喻有才能的人卻不為世所用)"
-            },
-            {
-                "book": "第2冊",
-                "char": "庖",
-                "pinyin": "ㄆㄠˊ",
-                "phrase": "越俎代庖 (比喻踰越自己的職分而代人做事)"
-            },
-            {
-                "book": "第2冊",
-                "char": "鮑",
-                "pinyin": "ㄅㄠˋ",
-                "phrase": "鮑魚之肆 (比喻臭穢的地方、惡劣的環境或小人聚集的場所)"
-            },
-            {
-                "book": "第2冊",
-                "char": "炮",
-                "pinyin": "ㄆㄠˊ",
-                "phrase": "如法炮製 (多指依照往例或現有的方法辦事)"
-            },
-            {
-                "book": "第2冊",
-                "char": "峻",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "崇山峻嶺"
-            },
-            {
-                "book": "第2冊",
-                "char": "峻",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "嚴刑峻法:"
-            },
-            {
-                "book": "第2冊",
-                "char": "浚",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "疏浚:(疏通水道)"
-            },
-            {
-                "book": "第2冊",
-                "char": "寥",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "寂寥"
-            },
-            {
-                "book": "第2冊",
-                "char": "寥",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "寥寥可數"
-            },
-            {
-                "book": "第2冊",
-                "char": "綢繆",
-                "pinyin": "ㄔㄡˊ ㄇㄡˊ",
-                "phrase": "未雨綢繆"
-            },
-            {
-                "book": "第2冊",
-                "char": "戮",
-                "pinyin": "ㄌㄨˋ",
-                "phrase": "殺戮"
-            },
-            {
-                "book": "第2冊",
-                "char": "謬",
-                "pinyin": "ㄇㄧㄡˋ",
-                "phrase": "荒謬"
-            },
-            {
-                "book": "第2冊",
-                "char": "蓼",
-                "pinyin": "ㄌㄧㄠˇ",
-                "phrase": "蓼澈一帶"
-            },
-            {
-                "book": "第2冊",
-                "char": "舂",
-                "pinyin": "ㄔㄨㄥ",
-                "phrase": "舂米 (用杵臼去除穀物的皮殼)"
-            },
-            {
-                "book": "第2冊",
-                "char": "鏑",
-                "pinyin": "ㄉㄧˊ",
-                "phrase": "鳴鏑"
-            },
-            {
-                "book": "第2冊",
-                "char": "樁",
-                "pinyin": "ㄓㄨㄤ",
-                "phrase": "打樁 (插在土中的木棒或石柱)"
-            },
-            {
-                "book": "第2冊",
-                "char": "謫",
-                "pinyin": "ㄓㄜˊ",
-                "phrase": "天上謫仙人"
-            },
-            {
-                "book": "第2冊",
-                "char": "椿",
-                "pinyin": "ㄔㄨㄣ",
-                "phrase": "椿萱並茂 (喻父母都健在)"
-            },
-            {
-                "book": "第2冊",
-                "char": "嫡",
-                "pinyin": "ㄉㄧˊ",
-                "phrase": "嫡庶之分"
-            },
-            {
-                "book": "第2冊",
-                "char": "杌",
-                "pinyin": "ㄨˋ",
-                "phrase": "檮杌 (古代楚國的史書)"
-            },
-            {
-                "book": "第2冊",
-                "char": "檮",
-                "pinyin": "ㄊㄠˊ",
-                "phrase": "檮杌 (古代楚國的史書)"
-            },
-            {
-                "book": "第2冊",
-                "char": "疇",
-                "pinyin": "ㄔㄡˊ",
-                "phrase": "疇昔"
-            },
-            {
-                "book": "第2冊",
-                "char": "霏",
-                "pinyin": "ㄈㄟ",
-                "phrase": "煙霏露結"
-            },
-            {
-                "book": "第2冊",
-                "char": "搗",
-                "pinyin": "ㄉㄠˇ",
-                "phrase": "搗米"
-            },
-            {
-                "book": "第2冊",
-                "char": "腓",
-                "pinyin": "ㄈㄟˊ",
-                "phrase": "腓骨 (腿部外側的骨頭)"
-            },
-            {
-                "book": "第2冊",
-                "char": "躊",
-                "pinyin": "ㄔㄡˊ",
-                "phrase": "躊躇"
-            },
-            {
-                "book": "第2冊",
-                "char": "俳",
-                "pinyin": "ㄆㄞˊ",
-                "phrase": "俳謔 (詼諧、開玩笑)"
-            },
-            {
-                "book": "第2冊",
-                "char": "濤",
-                "pinyin": "ㄊㄠˊ",
-                "phrase": "驚濤駭浪"
-            },
-            {
-                "book": "第2冊",
-                "char": "蜚",
-                "pinyin": "ㄈㄟ",
-                "phrase": "蜚聲中外 (揚名國內外)"
-            },
-            {
-                "book": "第2冊",
-                "char": "菲",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "妄自菲薄"
-            },
-            {
-                "book": "第2冊",
-                "char": "殂",
-                "pinyin": "ㄘㄨˊ",
-                "phrase": "中道崩殂"
-            },
-            {
-                "book": "第2冊",
-                "char": "緋",
-                "pinyin": "ㄈㄟ",
-                "phrase": "緋聞"
-            },
-            {
-                "book": "第2冊",
-                "char": "蛆",
-                "pinyin": "ㄑㄩ",
-                "phrase": "腐敗生蛆"
-            },
-            {
-                "book": "第2冊",
-                "char": "俎",
-                "pinyin": "ㄗㄨˇ",
-                "phrase": "越俎代庖 (踰越自己職分而代人做事)"
-            },
-            {
-                "book": "第2冊",
-                "char": "齟",
-                "pinyin": "ㄐㄩˇ",
-                "phrase": "齟齬(上下排牙齒參差不齊。多用來比喻彼此意見不合）"
-            },
-            {
-                "book": "第2冊",
-                "char": "齬",
-                "pinyin": "ㄩˇ",
-                "phrase": "齟齬(上下排牙齒參差不齊。多用來比喻彼此意見不合）"
-            },
-            {
-                "book": "第2冊",
-                "char": "莩",
-                "pinyin": "ㄆㄧㄠˇ",
-                "phrase": "塗有餓莩而不知發"
-            },
-            {
-                "book": "第2冊",
-                "char": "數",
-                "pinyin": "ㄘㄨˋ",
-                "phrase": "數罟不入洿池"
-            },
-            {
-                "book": "第2冊",
-                "char": "浮",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "心浮氣躁"
-            },
-            {
-                "book": "第2冊",
-                "char": "數",
-                "pinyin": "ㄕㄨˋ",
-                "phrase": "不計其數"
-            },
-            {
-                "book": "第2冊",
-                "char": "俘",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "俘虜"
-            },
-            {
-                "book": "第2冊",
-                "char": "數",
-                "pinyin": "ㄕㄨˇ",
-                "phrase": "不可勝數"
-            },
-            {
-                "book": "第2冊",
-                "char": "孵",
-                "pinyin": "ㄈㄨ",
-                "phrase": "孵蛋"
-            },
-            {
-                "book": "第2冊",
-                "char": "數",
-                "pinyin": "ㄕㄨㄛˋ",
-                "phrase": "石簣數為余言 (多次)"
-            },
-            {
-                "book": "第2冊",
-                "char": "偈",
-                "pinyin": "ㄐㄧˋ",
-                "phrase": "偈言"
-            },
-            {
-                "book": "第2冊",
-                "char": "褐",
-                "pinyin": "ㄏㄜˊ",
-                "phrase": "被褐懷珠 (比喻有真才實學而身處寒微的人)"
-            },
-            {
-                "book": "第2冊",
-                "char": "喝",
-                "pinyin": "ㄏㄜˋ",
-                "phrase": "籠街喝道 (形容車駕儀從之盛)"
-            },
-            {
-                "book": "第2冊",
-                "char": "謁",
-                "pinyin": "ㄧㄝˋ",
-                "phrase": "謁見總統"
-            },
-            {
-                "book": "第2冊",
-                "char": "愒",
-                "pinyin": "ㄎㄞˋ",
-                "phrase": "玩日愒歲 (怠惰偷安，虛度光陰)"
-            },
-            {
-                "book": "第2冊",
-                "char": "遏",
-                "pinyin": "ㄜˋ",
-                "phrase": "怒不可遏"
-            },
-            {
-                "book": "第2冊",
-                "char": "羯",
-                "pinyin": "ㄐㄧㄝˊ",
-                "phrase": "摩羯座"
-            },
-            {
-                "book": "第2冊",
-                "char": "葛",
-                "pinyin": "ㄍㄜˊ",
-                "phrase": "杯葛提案"
-            },
-            {
-                "book": "第2冊",
-                "char": "褥",
-                "pinyin": "ㄖㄨˋ",
-                "phrase": "床褥"
-            },
-            {
-                "book": "第2冊",
-                "char": "霰",
-                "pinyin": "ㄒㄧㄢˋ",
-                "phrase": "雪霰"
-            },
-            {
-                "book": "第2冊",
-                "char": "縟",
-                "pinyin": "ㄖㄨˋ",
-                "phrase": "繁文縟節"
-            },
-            {
-                "book": "第2冊",
-                "char": "霎",
-                "pinyin": "ㄕㄚˋ",
-                "phrase": "霎時 (極短的時間)"
-            },
-            {
-                "book": "第2冊",
-                "char": "溽",
-                "pinyin": "ㄖㄨˋ",
-                "phrase": "溽暑 (潮溼)"
-            },
-            {
-                "book": "第2冊",
-                "char": "雩",
-                "pinyin": "ㄩˊ",
-                "phrase": "浴乎沂，風乎舞雩"
-            },
-            {
-                "book": "第2冊",
-                "char": "耨",
-                "pinyin": "ㄋㄡˋ",
-                "phrase": "深耕易耨 (除草)"
-            },
-            {
-                "book": "第2冊",
-                "char": "崢",
-                "pinyin": "ㄓㄥ",
-                "phrase": "岩角崢嶸"
-            },
-            {
-                "book": "第2冊",
-                "char": "雹",
-                "pinyin": "ㄅㄠˊ",
-                "phrase": "下冰雹"
-            },
-            {
-                "book": "第2冊",
-                "char": "箏",
-                "pinyin": "ㄓㄥ",
-                "phrase": "彈箏搏髀"
-            },
-            {
-                "book": "第2冊",
-                "char": "錚",
-                "pinyin": "ㄓㄥ",
-                "phrase": "錚錚鏦鏦"
-            },
-            {
-                "book": "第2冊",
-                "char": "猙",
-                "pinyin": "ㄓㄥ",
-                "phrase": "面目猙獰"
-            },
-            {
-                "book": "第2冊",
-                "char": "掙",
-                "pinyin": "ㄓㄥˋ",
-                "phrase": "掙些銀子"
-            },
-            {
-                "book": "第2冊",
-                "char": "盞",
-                "pinyin": "ㄓㄢˇ",
-                "phrase": "洗盞更酌 (清洗酒杯)"
-            },
-            {
-                "book": "第2冊",
-                "char": "嶙峋",
-                "pinyin": "ㄌㄧㄣˊ ㄒㄩㄣˊ",
-                "phrase": "肌理嶙峋"
-            },
-            {
-                "book": "第2冊",
-                "char": "攫",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "攫取"
-            },
-            {
-                "book": "第2冊",
-                "char": "粼粼",
-                "pinyin": "ㄌㄧㄣˊ ㄌㄧㄣˊ",
-                "phrase": "波光粼粼 (波光閃動的樣子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "矍",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "矍然 (吃驚而睜大眼睛)"
-            },
-            {
-                "book": "第2冊",
-                "char": "岬",
-                "pinyin": "ㄐㄧㄚˇ",
-                "phrase": "海岬"
-            },
-            {
-                "book": "第2冊",
-                "char": "戄",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "戄然(驚惶的樣子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "匣",
-                "pinyin": "ㄒㄧㄚˊ",
-                "phrase": "鏡匣"
-            },
-            {
-                "book": "第2冊",
-                "char": "躩",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "躩步(腳步迅速)"
-            },
-            {
-                "book": "第2冊",
-                "char": "舺",
-                "pinyin": "ㄐㄧㄚˇ",
-                "phrase": "艋舺"
-            },
-            {
-                "book": "第2冊",
-                "char": "瞿",
-                "pinyin": "ㄐㄩˋ",
-                "phrase": "瞿然(通「懼」，驚懼、害怕)"
-            },
-            {
-                "book": "第2冊",
-                "char": "閘",
-                "pinyin": "ㄓㄚˊ",
-                "phrase": "水閘"
-            },
-            {
-                "book": "第2冊",
-                "char": "狎",
-                "pinyin": "ㄒㄧㄚˊ",
-                "phrase": "狎侮 (惡作劇、戲弄)"
-            },
-            {
-                "book": "第2冊",
-                "char": "棧",
-                "pinyin": "ㄓㄢˋ",
-                "phrase": "木屋旅棧"
-            },
-            {
-                "book": "第2冊",
-                "char": "餞",
-                "pinyin": "ㄐㄧㄢˋ",
-                "phrase": "餞別 (設酒食為人送行)"
-            },
-            {
-                "book": "第2冊",
-                "char": "箋",
-                "pinyin": "ㄐㄧㄢ",
-                "phrase": "處方箋"
-            },
-            {
-                "book": "第2冊",
-                "char": "耽",
-                "pinyin": "ㄉㄢ",
-                "phrase": "耽耽 (喝酒喝得很快樂。引申有安樂)"
-            },
-            {
-                "book": "第2冊",
-                "char": "耽",
-                "pinyin": "ㄉㄢ",
-                "phrase": "耽擱"
-            },
-            {
-                "book": "第2冊",
-                "char": "耽",
-                "pinyin": "ㄉㄢ",
-                "phrase": "耽溺"
-            },
-            {
-                "book": "第2冊",
-                "char": "耽",
-                "pinyin": "ㄉㄢ",
-                "phrase": "虎視眈眈"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第2冊",
-                "char": "簣",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "功虧一簣 (盛土的竹器)"
-            },
-            {
-                "book": "第2冊",
-                "char": "潰",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "潰不成軍 (敗逃)"
-            },
-            {
-                "book": "第2冊",
-                "char": "匱",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "物資匱乏 (缺乏)"
-            },
-            {
-                "book": "第2冊",
-                "char": "饋",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "饋贈物品 (贈送)"
-            },
-            {
-                "book": "第2冊",
-                "char": "聵",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "振聾發聵 (耳聾)"
-            },
-            {
-                "book": "第2冊",
-                "char": "冶",
-                "pinyin": "ㄧㄝˇ",
-                "phrase": "陶冶性情"
-            },
-            {
-                "book": "第2冊",
-                "char": "治",
-                "pinyin": "ㄓˋ",
-                "phrase": "長治久安 (國家長期安定)"
-            },
-            {
-                "book": "第2冊",
-                "char": "殆",
-                "pinyin": "ㄉㄞˋ",
-                "phrase": "消滅殆盡 (差不多)"
-            },
-            {
-                "book": "第2冊",
-                "char": "矍",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "步履矍鑠 (腳步迅速)"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第2冊",
-                "char": "剜",
-                "pinyin": "ㄨㄢ",
-                "phrase": "剜肉補瘡 (用有害的方法解決眼前急迫的問題，而不顧後果)"
-            },
-            {
-                "book": "第2冊",
-                "char": "麴",
-                "pinyin": "ㄑㄩˊ",
-                "phrase": "紅麴酒"
-            },
-            {
-                "book": "第2冊",
-                "char": "掬",
-                "pinyin": "ㄐㄩˊ",
-                "phrase": "笑容可掬"
-            },
-            {
-                "book": "第2冊",
-                "char": "鞠",
-                "pinyin": "ㄐㄩˊ",
-                "phrase": "彎腰鞠躬"
-            },
-            {
-                "book": "第2冊",
-                "char": "灼",
-                "pinyin": "ㄓㄨㄛˊ",
-                "phrase": "真知灼見"
-            },
-            {
-                "book": "第2冊",
-                "char": "酌",
-                "pinyin": "ㄓㄨㄛˊ",
-                "phrase": "仔細斟酌"
-            },
-            {
-                "book": "第2冊",
-                "char": "杓",
-                "pinyin": "ㄅㄧㄠ",
-                "phrase": "斗杓東指 (春季來臨)"
-            },
-            {
-                "book": "第2冊",
-                "char": "貽",
-                "pinyin": "ㄧˊ",
-                "phrase": "貽笑大方 (指被識見廣博的人所取笑)"
-            },
-            {
-                "book": "第2冊",
-                "char": "笞",
-                "pinyin": "ㄔ",
-                "phrase": "鞭笞天下 (鞭策驅使天下百姓)"
-            },
-            {
-                "book": "第2冊",
-                "char": "腕",
-                "pinyin": "ㄨㄢˋ",
-                "phrase": "手腕"
-            },
-            {
-                "book": "第2冊",
-                "char": "惋",
-                "pinyin": "ㄨㄢˋ",
-                "phrase": "嘆惋"
-            },
-            {
-                "book": "第2冊",
-                "char": "蜿",
-                "pinyin": "ㄨㄢ",
-                "phrase": "蜿蜒"
-            },
-            {
-                "book": "第2冊",
-                "char": "邃",
-                "pinyin": "ㄙㄨㄟˋ",
-                "phrase": "深邃"
-            },
-            {
-                "book": "第2冊",
-                "char": "遂",
-                "pinyin": "ㄙㄨㄟˋ",
-                "phrase": "諸事順遂"
-            },
-            {
-                "book": "第2冊",
-                "char": "隧",
-                "pinyin": "ㄙㄨㄟˋ",
-                "phrase": "隧道"
-            },
-            {
-                "book": "第2冊",
-                "char": "燧",
-                "pinyin": "ㄙㄨㄟˋ",
-                "phrase": "鑽燧取火"
-            },
-            {
-                "book": "第2冊",
-                "char": "腆",
-                "pinyin": "ㄊㄧㄢˇ",
-                "phrase": "倨傲鮮腆 (傲慢無禮)"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第2冊",
-                "char": "忝",
-                "pinyin": "ㄊㄧㄢˇ",
-                "phrase": "無忝所生 (對得起父母)"
-            },
-            {
-                "book": "第2冊",
-                "char": "遑",
-                "pinyin": "ㄏㄨㄤˊ",
-                "phrase": "不遑多讓 (無暇多所謙讓)"
-            },
-            {
-                "book": "第2冊",
-                "char": "舔",
-                "pinyin": "ㄊㄧㄢˇ",
-                "phrase": "刀頭舔血 (極危險行為)"
-            },
-            {
-                "book": "第2冊",
-                "char": "扉",
-                "pinyin": "ㄈㄟ",
-                "phrase": "你底心是小小的窗扉緊掩"
-            },
-            {
-                "book": "第2冊",
-                "char": "殄",
-                "pinyin": "ㄊㄧㄢˇ",
-                "phrase": "暴殄天物 (比喻蹭蹋物力，不知珍惜)"
-            },
-            {
-                "book": "第2冊",
-                "char": "蜚",
-                "pinyin": "ㄈㄟ",
-                "phrase": "流言蜚語"
-            },
-            {
-                "book": "第2冊",
-                "char": "砒",
-                "pinyin": "ㄆㄧ",
-                "phrase": "砒霜"
-            },
-            {
-                "book": "第2冊",
-                "char": "毗",
-                "pinyin": "ㄆㄧˊ",
-                "phrase": "毗鄰"
-            },
-            {
-                "book": "第2冊",
-                "char": "仳",
-                "pinyin": "ㄆㄧˇ",
-                "phrase": "仳離"
-            },
-            {
-                "book": "第2冊",
-                "char": "妣",
-                "pinyin": "ㄅㄧˇ",
-                "phrase": "先妣"
-            },
-            {
-                "book": "第2冊",
-                "char": "禳",
-                "pinyin": "ㄖㄤˊ",
-                "phrase": "求福禳災 (求神靈降福)"
-            },
-            {
-                "book": "第2冊",
-                "char": "惶",
-                "pinyin": "ㄏㄨㄤˊ",
-                "phrase": "惶恐不安 (心中驚慌害怕)"
-            },
-            {
-                "book": "第2冊",
-                "char": "隍",
-                "pinyin": "ㄏㄨㄤˊ",
-                "phrase": "城隍廟"
-            },
-            {
-                "book": "第2冊",
-                "char": "穰",
-                "pinyin": "ㄖㄤˊ",
-                "phrase": "歲有凶穰 (穀物每年有歉收與豐熟之時)"
-            },
-            {
-                "book": "第2冊",
-                "char": "攘",
-                "pinyin": "ㄖㄤˊ",
-                "phrase": "熙熙攘攘 (形容人來人往、熱鬧紛雜的樣子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "苴",
-                "pinyin": "ㄐㄩ",
-                "phrase": "《穰苴》"
-            },
-            {
-                "book": "第2冊",
-                "char": "疽",
-                "pinyin": "ㄐㄩ",
-                "phrase": "癰疽 (常見的毒瘡)"
-            },
-            {
-                "book": "第2冊",
-                "char": "狙",
-                "pinyin": "ㄐㄩ",
-                "phrase": "狙擊"
-            },
-            {
-                "book": "第2冊",
-                "char": "徨",
-                "pinyin": "ㄏㄨㄤˊ",
-                "phrase": "徬徨不安"
-            },
-            {
-                "book": "第2冊",
-                "char": "潢",
-                "pinyin": "ㄏㄨㄤˊ",
-                "phrase": "客廳裝潢"
-            },
-            {
-                "book": "第2冊",
-                "char": "煌",
-                "pinyin": "ㄏㄨㄤˊ",
-                "phrase": "金碧輝煌 (建築華麗光彩)"
-            },
-            {
-                "book": "第2冊",
-                "char": "孺",
-                "pinyin": "ㄖㄨˊ",
-                "phrase": "老弱婦孺"
-            },
-            {
-                "book": "第2冊",
-                "char": "儒",
-                "pinyin": "ㄖㄨˊ",
-                "phrase": "溫文儒雅"
-            },
-            {
-                "book": "第2冊",
-                "char": "濡",
-                "pinyin": "ㄖㄨˊ",
-                "phrase": "耳濡目染 (因經常眼見與耳聞而受影響)"
-            },
-            {
-                "book": "第2冊",
-                "char": "嚅",
-                "pinyin": "ㄖㄨˊ",
-                "phrase": "說話囁嚅 (說話吞吞吐吐，欲言又止的樣子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "蠕",
-                "pinyin": "ㄖㄨˊ",
-                "phrase": "腸胃蠕動"
-            },
-            {
-                "book": "第2冊",
-                "char": "陛",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "皇帝陛下"
-            },
-            {
-                "book": "第2冊",
-                "char": "弊",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "益州疲弊"
-            },
-            {
-                "book": "第2冊",
-                "char": "蔽",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "衣不蔽體"
-            },
-            {
-                "book": "第2冊",
-                "char": "蜉",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "蚍蜉撼樹 (比喻不自量力)"
-            },
-            {
-                "book": "第2冊",
-                "char": "裨",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "裨補缺漏"
-            },
-            {
-                "book": "第2冊",
-                "char": "髀",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "髀肉復生 (比喻或自嘆久處安逸，壯志未酬，虛度光陰)"
-            },
-            {
-                "book": "第2冊",
-                "char": "睥",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "睥睨 (表示輕視)"
-            },
-            {
-                "book": "第2冊",
-                "char": "俘",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "俘擄"
-            },
-            {
-                "book": "第2冊",
-                "char": "曳",
-                "pinyin": "ㄧˋ",
-                "phrase": "棄甲曳兵而走"
-            },
-            {
-                "book": "第2冊",
-                "char": "拽",
-                "pinyin": "ㄓㄨㄞˋ",
-                "phrase": "生拉硬拽"
-            },
-            {
-                "book": "第2冊",
-                "char": "洩",
-                "pinyin": "ㄒㄧㄝˋ",
-                "phrase": "天機不可洩漏"
-            },
-            {
-                "book": "第2冊",
-                "char": "敝",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "視若敝屣 (瞧不起)"
-            },
-            {
-                "book": "第2冊",
-                "char": "滕",
-                "pinyin": "ㄊㄥˊ",
-                "phrase": "滕子京謫守巴陵郡"
-            },
-            {
-                "book": "第2冊",
-                "char": "菲",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "不宜妄自菲薄，引喻失義"
-            },
-            {
-                "book": "第2冊",
-                "char": "謄",
-                "pinyin": "ㄊㄥˊ",
-                "phrase": "戶籍謄本"
-            },
-            {
-                "book": "第2冊",
-                "char": "霏",
-                "pinyin": "ㄈㄟ",
-                "phrase": "日出而林霏開"
-            },
-            {
-                "book": "第2冊",
-                "char": "騰",
-                "pinyin": "ㄊㄥˊ",
-                "phrase": "奔騰澎湃"
-            },
-            {
-                "book": "第2冊",
-                "char": "斐",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "斐然成章"
-            },
-            {
-                "book": "第2冊",
-                "char": "藤",
-                "pinyin": "ㄊㄥˊ",
-                "phrase": "牽絲攀藤 (糾纏不清)"
-            },
-            {
-                "book": "第2冊",
-                "char": "誹",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "誹謗"
-            },
-            {
-                "book": "第2冊",
-                "char": "讒",
-                "pinyin": "ㄔㄢˊ",
-                "phrase": "憂讒畏譏"
-            },
-            {
-                "book": "第2冊",
-                "char": "纏",
-                "pinyin": "ㄔㄢˊ",
-                "phrase": "病榻纏綿"
-            },
-            {
-                "book": "第2冊",
-                "char": "詰",
-                "pinyin": "ㄐㄧㄝˊ",
-                "phrase": "反詰修辭"
-            },
-            {
-                "book": "第2冊",
-                "char": "饞",
-                "pinyin": "ㄔㄢˊ",
-                "phrase": "饞涎欲滴"
-            },
-            {
-                "book": "第2冊",
-                "char": "髻",
-                "pinyin": "ㄐㄧˋ",
-                "phrase": "廣袖高髻 (風俗奢蕩豪華)"
-            },
-            {
-                "book": "第2冊",
-                "char": "鑱",
-                "pinyin": "ㄔㄢˊ",
-                "phrase": "手長鑱，為除不潔者"
-            },
-            {
-                "book": "第2冊",
-                "char": "鱗",
-                "pinyin": "ㄌㄧㄣˊ",
-                "phrase": "錦鱗游泳"
-            },
-            {
-                "book": "第2冊",
-                "char": "麟",
-                "pinyin": "ㄌㄧㄣˊ",
-                "phrase": "鳳毛麟角"
-            },
-            {
-                "book": "第2冊",
-                "char": "粼",
-                "pinyin": "ㄌㄧㄣˊ",
-                "phrase": "波光粼粼"
-            },
-            {
-                "book": "第2冊",
-                "char": "遴",
-                "pinyin": "ㄌㄧㄣˊ",
-                "phrase": "遴選人才 (謹慎選擇)"
-            },
-            {
-                "book": "第2冊",
-                "char": "暝",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "雲歸而巖穴暝"
-            },
-            {
-                "book": "第2冊",
-                "char": "冥",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "冥頑不靈"
-            },
-            {
-                "book": "第2冊",
-                "char": "瞑",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "死不瞑目"
-            },
-            {
-                "book": "第2冊",
-                "char": "螟",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "螟蛉子 (可代指養子)"
-            },
-            {
-                "book": "第2冊",
-                "char": "酩",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "酩酊大醉"
-            },
-            {
-                "book": "第2冊",
-                "char": "鳴",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "鐘鳴鼎食"
-            },
-            {
-                "book": "第2冊",
-                "char": "徉",
-                "pinyin": "ㄧㄤˊ",
-                "phrase": "徜徉"
-            },
-            {
-                "book": "第2冊",
-                "char": "佯",
-                "pinyin": "ㄧㄤˊ",
-                "phrase": "被髮佯狂"
-            },
-            {
-                "book": "第2冊",
-                "char": "烊",
-                "pinyin": "ㄧㄤˊ",
-                "phrase": "商店打烊"
-            },
-            {
-                "book": "第2冊",
-                "char": "詳",
-                "pinyin": "ㄒㄧㄤˊ",
-                "phrase": "安詳"
-            },
-            {
-                "book": "第2冊",
-                "char": "攣",
-                "pinyin": "ㄌㄨㄢˊ",
-                "phrase": "肌肉痙攣"
-            },
-            {
-                "book": "第2冊",
-                "char": "孿",
-                "pinyin": "ㄌㄨㄢˊ",
-                "phrase": "孿生兄弟雙胞胎。"
-            },
-            {
-                "book": "第2冊",
-                "char": "鑾",
-                "pinyin": "ㄌㄨㄢˊ",
-                "phrase": "鵝鑾鼻"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "ㄌㄨㄢˊ",
-                "phrase": "嘗鼎一臠(見微知著、因小 見大)"
-            },
-            {
-                "book": "第2冊",
-                "char": "鸞",
-                "pinyin": "ㄌㄨㄢˊ",
-                "phrase": "鸞鳳和鳴 (祝賀新婚)"
-            },
-            {
-                "book": "第2冊",
-                "char": "輟",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "創作不輟"
-            },
-            {
-                "book": "第2冊",
-                "char": "啜",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "低聲啜泣"
-            },
-            {
-                "book": "第2冊",
-                "char": "銘",
-                "pinyin": "ㄇㄧㄥˊ",
-                "phrase": "銘感五內"
-            },
-            {
-                "book": "第2冊",
-                "char": "惙",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "憂心惙惙"
-            },
-            {
-                "book": "第2冊",
-                "char": "拮",
-                "pinyin": "ㄐㄧㄝˊ",
-                "phrase": "生活拮据"
-            },
-            {
-                "book": "第2冊",
-                "char": "掇",
-                "pinyin": "ㄉㄨㄛˊ",
-                "phrase": "掇拾史料"
-            },
-            {
-                "book": "第2冊",
-                "char": "擷",
-                "pinyin": "ㄐㄧㄝˊ",
-                "phrase": "採擷花木"
-            },
-            {
-                "book": "第2冊",
-                "char": "綴",
-                "pinyin": "ㄓㄨㄟˋ",
-                "phrase": "點綴裝飾"
-            },
-            {
-                "book": "第3冊",
-                "char": "葺",
-                "pinyin": "ㄑㄧˋ",
-                "phrase": "余稍為修葺，使不上漏"
-            },
-            {
-                "book": "第3冊",
-                "char": "焙",
-                "pinyin": "ㄅㄟˋ",
-                "phrase": "烘焙"
-            },
-            {
-                "book": "第3冊",
-                "char": "緝",
-                "pinyin": "ㄑㄧˋ",
-                "phrase": "查緝酒駕"
-            },
-            {
-                "book": "第3冊",
-                "char": "培",
-                "pinyin": "ㄆㄟˊ",
-                "phrase": "培養"
-            },
-            {
-                "book": "第3冊",
-                "char": "輯",
-                "pinyin": "ㄐㄧˊ",
-                "phrase": "邏輯"
-            },
-            {
-                "book": "第3冊",
-                "char": "僻",
-                "pinyin": "ㄆㄧˋ",
-                "phrase": "個性孤僻"
-            },
-            {
-                "book": "第3冊",
-                "char": "揖",
-                "pinyin": "ㄧ",
-                "phrase": "打躬作揖"
-            },
-            {
-                "book": "第3冊",
-                "char": "避",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "避重就輕"
-            },
-            {
-                "book": "第3冊",
-                "char": "楫",
-                "pinyin": "ㄐㄧˊ",
-                "phrase": "檣傾楫摧"
-            },
-            {
-                "book": "第3冊",
-                "char": "癖",
-                "pinyin": "ㄆㄧˇ",
-                "phrase": "癖好"
-            },
-            {
-                "book": "第3冊",
-                "char": "逡",
-                "pinyin": "ㄑㄩㄣ",
-                "phrase": "俛首驟入，勿逡巡"
-            },
-            {
-                "book": "第3冊",
-                "char": "詡",
-                "pinyin": "ㄒㄩˇ",
-                "phrase": "自詡遇仙"
-            },
-            {
-                "book": "第3冊",
-                "char": "浚",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "疏浚"
-            },
-            {
-                "book": "第3冊",
-                "char": "栩栩",
-                "pinyin": "ㄒㄩˇ ㄒㄩˇ",
-                "phrase": "栩栩如生"
-            },
-            {
-                "book": "第3冊",
-                "char": "竣",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "竣工"
-            },
-            {
-                "book": "第3冊",
-                "char": "翊",
-                "pinyin": "ㄧˋ",
-                "phrase": "輔翊 (輔助)"
-            },
-            {
-                "book": "第3冊",
-                "char": "梭",
-                "pinyin": "ㄙㄨㄛ",
-                "phrase": "歲月如梭"
-            },
-            {
-                "book": "第3冊",
-                "char": "卒",
-                "pinyin": "ㄗㄨˊ",
-                "phrase": "身先士卒"
-            },
-            {
-                "book": "第3冊",
-                "char": "踣",
-                "pinyin": "ㄅㄛˊ",
-                "phrase": "頭觸硬壁，驀然而踣"
-            },
-            {
-                "book": "第3冊",
-                "char": "粹",
-                "pinyin": "ㄘㄨㄟˋ",
-                "phrase": "純粹"
-            },
-            {
-                "book": "第3冊",
-                "char": "猝",
-                "pinyin": "ㄘㄨˋ",
-                "phrase": "猝不及防 (忽然發生，來不及防備)"
-            },
-            {
-                "book": "第3冊",
-                "char": "檣",
-                "pinyin": "ㄑㄧㄤˊ",
-                "phrase": "危檣獨夜舟"
-            },
-            {
-                "book": "第3冊",
-                "char": "讖",
-                "pinyin": "ㄔㄣˋ",
-                "phrase": "一語成讖"
-            },
-            {
-                "book": "第3冊",
-                "char": "嗇",
-                "pinyin": "ㄙㄜˋ",
-                "phrase": "個性吝嗇"
-            },
-            {
-                "book": "第3冊",
-                "char": "佚",
-                "pinyin": "ㄧˋ",
-                "phrase": "原書亡佚 (散失)"
-            },
-            {
-                "book": "第3冊",
-                "char": "纖",
-                "pinyin": "ㄒㄧㄢ",
-                "phrase": "纖維"
-            },
-            {
-                "book": "第3冊",
-                "char": "迭",
-                "pinyin": "ㄉㄧㄝˊ",
-                "phrase": "叫苦不迭 (止)"
-            },
-            {
-                "book": "第3冊",
-                "char": "懺",
-                "pinyin": "ㄔㄢˋ",
-                "phrase": "懺悔"
-            },
-            {
-                "book": "第3冊",
-                "char": "軼",
-                "pinyin": "ㄧˋ",
-                "phrase": "軼聞 (不見於正式記載的雜談瑣聞)"
-            },
-            {
-                "book": "第3冊",
-                "char": "脾",
-                "pinyin": "ㄆㄧˊ",
-                "phrase": "不合脾胃"
-            },
-            {
-                "book": "第3冊",
-                "char": "裨",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "裨補闕漏 (有助於缺失的改善)"
-            },
-            {
-                "book": "第3冊",
-                "char": "睥",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "睥睨群雄 (斜眼看人，表示傲然輕視)"
-            },
-            {
-                "book": "第3冊",
-                "char": "碑",
-                "pinyin": "ㄅㄟ",
-                "phrase": "里程碑 (指具有重大意義、可以作為標誌的事件)"
-            },
-            {
-                "book": "第3冊",
-                "char": "糴",
-                "pinyin": "ㄉㄧˊ",
-                "phrase": "就先糴些米"
-            },
-            {
-                "book": "第3冊",
-                "char": "擢",
-                "pinyin": "ㄓㄨㄛˊ",
-                "phrase": "拔擢後進 (提拔、升用)"
-            },
-            {
-                "book": "第3冊",
-                "char": "躍",
-                "pinyin": "ㄩㄝˋ",
-                "phrase": "鳶飛魚躍 (萬物任其天性而動，各得其所)"
-            },
-            {
-                "book": "第3冊",
-                "char": "濯",
-                "pinyin": "ㄓㄨㄛˊ",
-                "phrase": "濯纓彈冠 (比喻準備出仕)"
-            },
-            {
-                "book": "第3冊",
-                "char": "贖",
-                "pinyin": "ㄕㄨˊ",
-                "phrase": "贖取金花"
-            },
-            {
-                "book": "第3冊",
-                "char": "櫝",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "買櫝還珠 (捨本逐末，取捨失當)"
-            },
-            {
-                "book": "第3冊",
-                "char": "牘",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "連篇累牘 (篇幅過多，文詞冗長)"
-            },
-            {
-                "book": "第3冊",
-                "char": "瀆",
-                "pinyin": "ㄉㄨˊ",
-                "phrase": "官吏瀆職 (有虧職守)"
-            },
-            {
-                "book": "第3冊",
-                "char": "闠",
-                "pinyin": "ㄏㄨㄟˋ",
-                "phrase": "闤闠"
-            },
-            {
-                "book": "第3冊",
-                "char": "聵",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "昏聵(愚昧糊塗，不明事理):"
-            },
-            {
-                "book": "第3冊",
-                "char": "匱",
-                "pinyin": "ㄎㄨㄟˋ",
-                "phrase": "不虞匱乏"
-            },
-            {
-                "book": "第3冊",
-                "char": "砥",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "中流砥柱 (能堅強支撐危局的人)"
-            },
-            {
-                "book": "第3冊",
-                "char": "牴",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "牴觸 (衝突矛盾)"
-            },
-            {
-                "book": "第3冊",
-                "char": "柢",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "根深柢固 (基礎堅實，牢不可拔)"
-            },
-            {
-                "book": "第3冊",
-                "char": "詆",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "詆毀 (說人短處，毀謗他人)"
-            },
-            {
-                "book": "第3冊",
-                "char": "邸",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "官邸 (高級官員的住所)"
-            },
-            {
-                "book": "第3冊",
-                "char": "衢",
-                "pinyin": "ㄑㄩˊ",
-                "phrase": "通衢大道 (通往各方的交通要道)"
-            },
-            {
-                "book": "第3冊",
-                "char": "懼",
-                "pinyin": "ㄐㄩˋ",
-                "phrase": "恐懼不安"
-            },
-            {
-                "book": "第3冊",
-                "char": "攫",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "攫取暴利"
-            },
-            {
-                "book": "第3冊",
-                "char": "矍鑠",
-                "pinyin": "ㄐㄩㄝˊ ㄕㄨㄛˋ",
-                "phrase": "神情矍鑠 (老而強健的樣子)"
-            },
-            {
-                "book": "第3冊",
-                "char": "艟",
-                "pinyin": "ㄊㄨㄥˊ",
-                "phrase": "海艟"
-            },
-            {
-                "book": "第3冊",
-                "char": "僮",
-                "pinyin": "ㄊㄨㄥˊ",
-                "phrase": "僮僕成群"
-            },
-            {
-                "book": "第3冊",
-                "char": "瞳",
-                "pinyin": "ㄊㄨㄥˊ",
-                "phrase": "雙瞳翦水 (形容眼睛清澈明亮)"
-            },
-            {
-                "book": "第3冊",
-                "char": "幢幢",
-                "pinyin": "ㄔㄨㄤˊ ㄔㄨㄤˊ",
-                "phrase": "鬼影幢幢 (形容陰森恐怖的樣子)"
-            },
-            {
-                "book": "第3冊",
-                "char": "峙",
-                "pinyin": "ㄓˋ",
-                "phrase": "街衢對峙"
-            },
-            {
-                "book": "第3冊",
-                "char": "懊",
-                "pinyin": "ㄠˋ",
-                "phrase": "懊悔"
-            },
-            {
-                "book": "第3冊",
-                "char": "恃",
-                "pinyin": "ㄕˋ",
-                "phrase": "居功自恃"
-            },
-            {
-                "book": "第3冊",
-                "char": "襖",
-                "pinyin": "ㄠˇ",
-                "phrase": "棉襖 (有襯裡的上衣)"
-            },
-            {
-                "book": "第3冊",
-                "char": "侍",
-                "pinyin": "ㄕˋ",
-                "phrase": "隨侍在側"
-            },
-            {
-                "book": "第3冊",
-                "char": "澳",
-                "pinyin": "ㄠˋ",
-                "phrase": "南方澳"
-            },
-            {
-                "book": "第3冊",
-                "char": "篙",
-                "pinyin": "ㄍㄠ",
-                "phrase": "篙工撐棹"
-            },
-            {
-                "book": "第3冊",
-                "char": "綴",
-                "pinyin": "ㄓㄨㄟˋ",
-                "phrase": "點綴"
-            },
-            {
-                "book": "第3冊",
-                "char": "槁",
-                "pinyin": "ㄍㄠˇ",
-                "phrase": "槁木死灰"
-            },
-            {
-                "book": "第3冊",
-                "char": "啜",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "啜泣"
-            },
-            {
-                "book": "第3冊",
-                "char": "縞",
-                "pinyin": "ㄍㄠˇ",
-                "phrase": "縞素 (純白絹或白色喪服)"
-            },
-            {
-                "book": "第3冊",
-                "char": "輟",
-                "pinyin": "ㄔㄨㄛˋ",
-                "phrase": "輟學"
-            },
-            {
-                "book": "第3冊",
-                "char": "燠",
-                "pinyin": "ㄩˋ",
-                "phrase": "燠熱"
-            },
-            {
-                "book": "第3冊",
-                "char": "掇",
-                "pinyin": "ㄉㄨㄛˊ",
-                "phrase": "掇拾 (採取)"
-            },
-            {
-                "book": "第3冊",
-                "char": "齕",
-                "pinyin": "ㄏㄜˊ",
-                "phrase": "狗迓而齕之"
-            },
-            {
-                "book": "第3冊",
-                "char": "齧",
-                "pinyin": "ㄋㄧㄝˋ",
-                "phrase": "窮鼠齧貓"
-            },
-            {
-                "book": "第3冊",
-                "char": "齜",
-                "pinyin": "ㄗ",
-                "phrase": "齜牙咧嘴"
-            },
-            {
-                "book": "第3冊",
-                "char": "齣",
-                "pinyin": "ㄔㄨ",
-                "phrase": "一齣戲"
-            },
-            {
-                "book": "第3冊",
-                "char": "翟",
-                "pinyin": "ㄉㄧˊ",
-                "phrase": "墨翟"
-            },
-            {
-                "book": "第3冊",
-                "char": "擢",
-                "pinyin": "ㄓㄨㄛˊ",
-                "phrase": "拔擢人才"
-            },
-            {
-                "book": "第3冊",
-                "char": "濯濯",
-                "pinyin": "ㄓㄨㄛˊ ㄓㄨㄛˊ",
-                "phrase": "牛山濯濯"
-            },
-            {
-                "book": "第3冊",
-                "char": "躍",
-                "pinyin": "ㄩㄝˋ",
-                "phrase": "一躍而起"
-            },
-            {
-                "book": "第3冊",
-                "char": "嗑",
-                "pinyin": "ㄎㄜˋ",
-                "phrase": "嗑瓜子"
-            },
-            {
-                "book": "第3冊",
-                "char": "溘",
-                "pinyin": "ㄎㄜˋ",
-                "phrase": "溘然長逝"
-            },
-            {
-                "book": "第3冊",
-                "char": "蓋",
-                "pinyin": "ㄍㄞˋ",
-                "phrase": "亭亭如蓋"
-            },
-            {
-                "book": "第3冊",
-                "char": "瞌",
-                "pinyin": "ㄎㄜ",
-                "phrase": "打瞌睡"
-            },
-            {
-                "book": "第3冊",
-                "char": "磕",
-                "pinyin": "ㄎㄜ",
-                "phrase": "磕頭"
-            },
-            {
-                "book": "第3冊",
-                "char": "跖",
-                "pinyin": "ㄓˊ",
-                "phrase": "盜跖"
-            },
-            {
-                "book": "第3冊",
-                "char": "拓",
-                "pinyin": "ㄊㄨㄛˋ",
-                "phrase": "拓荒者"
-            },
-            {
-                "book": "第3冊",
-                "char": "宕",
-                "pinyin": "ㄉㄤˋ",
-                "phrase": "懸宕已久"
-            },
-            {
-                "book": "第3冊",
-                "char": "詛",
-                "pinyin": "ㄗㄨˇ",
-                "phrase": "詛咒"
-            },
-            {
-                "book": "第3冊",
-                "char": "殂",
-                "pinyin": "ㄘㄨˊ",
-                "phrase": "中道崩殂"
-            },
-            {
-                "book": "第3冊",
-                "char": "沮",
-                "pinyin": "ㄐㄩˇ",
-                "phrase": "心情沮喪"
-            },
-            {
-                "book": "第3冊",
-                "char": "狙",
-                "pinyin": "ㄐㄩ",
-                "phrase": "狙擊"
-            },
-            {
-                "book": "第3冊",
-                "char": "齕",
-                "pinyin": "ㄏㄜˊ",
-                "phrase": "狗迓而齕之"
-            },
-            {
-                "book": "第3冊",
-                "char": "迄",
-                "pinyin": "ㄑㄧˋ",
-                "phrase": "迄今"
-            },
-            {
-                "book": "第3冊",
-                "char": "訖",
-                "pinyin": "ㄑㄧˋ",
-                "phrase": "銀貨兩訖"
-            },
-            {
-                "book": "第3冊",
-                "char": "履",
-                "pinyin": "ㄌㄩˇ",
-                "phrase": "鄭人買履"
-            },
-            {
-                "book": "第3冊",
-                "char": "屢",
-                "pinyin": "ㄌㄩˇ",
-                "phrase": "屢戰屢敗"
-            },
-            {
-                "book": "第3冊",
-                "char": "屨",
-                "pinyin": "ㄐㄩˋ",
-                "phrase": "窺戶者足無止屨"
-            },
-            {
-                "book": "第3冊",
-                "char": "驅",
-                "pinyin": "ㄑㄩ",
-                "phrase": "並駕齊驅"
-            },
-            {
-                "book": "第3冊",
-                "char": "趨",
-                "pinyin": "ㄑㄩ",
-                "phrase": "趨之若鶩"
-            },
-            {
-                "book": "第3冊",
-                "char": "屈",
-                "pinyin": "ㄑㄩ",
-                "phrase": "首屈一指"
-            },
-            {
-                "book": "第3冊",
-                "char": "央",
-                "pinyin": "ㄧㄤ",
-                "phrase": "誰可央託"
-            },
-            {
-                "book": "第3冊",
-                "char": "殃",
-                "pinyin": "ㄧㄤ",
-                "phrase": "殃及池魚 (比喻無故受累)"
-            },
-            {
-                "book": "第3冊",
-                "char": "秧",
-                "pinyin": "ㄧㄤ",
-                "phrase": "水稻秧苗"
-            },
-            {
-                "book": "第3冊",
-                "char": "泱",
-                "pinyin": "ㄧㄤ",
-                "phrase": "泱泱大國 (稱讚國力強大的國家)"
-            },
-            {
-                "book": "第3冊",
-                "char": "翌",
-                "pinyin": "ㄧˋ",
-                "phrase": "翌年 (=隔年)"
-            },
-            {
-                "book": "第3冊",
-                "char": "羿",
-                "pinyin": "ㄧˋ",
-                "phrase": "后羿射日"
-            },
-            {
-                "book": "第3冊",
-                "char": "翼",
-                "pinyin": "ㄧˋ",
-                "phrase": "不翼而飛"
-            },
-            {
-                "book": "第3冊",
-                "char": "鴦",
-                "pinyin": "ㄧㄤ",
-                "phrase": "亂點鴛鴦譜 (將未婚男女胡亂湊成夫妻)"
-            },
-            {
-                "book": "第3冊",
-                "char": "締",
-                "pinyin": "ㄉㄧˋ",
-                "phrase": "取締酒駕"
-            },
-            {
-                "book": "第3冊",
-                "char": "蒂",
-                "pinyin": "ㄉㄧˋ",
-                "phrase": "瓜熟蒂落"
-            },
-            {
-                "book": "第3冊",
-                "char": "諦",
-                "pinyin": "ㄉㄧˋ",
-                "phrase": "凝神諦聽"
-            },
-            {
-                "book": "第3冊",
-                "char": "遞",
-                "pinyin": "ㄉㄧˋ",
-                "phrase": "遞送物品"
-            },
-            {
-                "book": "第3冊",
-                "char": "牴",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "牴觸 (引申為觸犯)"
-            },
-            {
-                "book": "第3冊",
-                "char": "柢",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "追根究柢"
-            },
-            {
-                "book": "第3冊",
-                "char": "砥",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "砥礪 (引申為磨練)"
-            },
-            {
-                "book": "第3冊",
-                "char": "詆",
-                "pinyin": "ㄉㄧˇ",
-                "phrase": "詆毀 (毀謗)"
-            },
-            {
-                "book": "第3冊",
-                "char": "挈",
-                "pinyin": "ㄑㄧㄝˋ",
-                "phrase": "提綱挈領"
-            },
-            {
-                "book": "第3冊",
-                "char": "契",
-                "pinyin": "ㄑㄧˋ",
-                "phrase": "情意相契"
-            },
-            {
-                "book": "第3冊",
-                "char": "鍥",
-                "pinyin": "ㄑㄧㄝˋ",
-                "phrase": "鍥而不舍，金石可鏤"
-            },
-            {
-                "book": "第3冊",
-                "char": "楔",
-                "pinyin": "ㄒㄧㄝ",
-                "phrase": "楔子 (小說前的序文)"
-            },
-            {
-                "book": "第3冊",
-                "char": "喫",
-                "pinyin": "ㄔ",
-                "phrase": "喫茶"
-            },
-            {
-                "book": "第3冊",
-                "char": "戍",
-                "pinyin": "ㄕㄨˋ",
-                "phrase": "戍守邊疆"
-            },
-            {
-                "book": "第3冊",
-                "char": "戌",
-                "pinyin": "ㄒㄩ",
-                "phrase": "戌時 (晚上七點到九點)"
-            },
-            {
-                "book": "第3冊",
-                "char": "戊",
-                "pinyin": "ㄨˋ",
-                "phrase": "戊戌變法"
-            },
-            {
-                "book": "第3冊",
-                "char": "闥",
-                "pinyin": "ㄊㄚˋ",
-                "phrase": "排闥而去"
-            },
-            {
-                "book": "第3冊",
-                "char": "達",
-                "pinyin": "ㄉㄚˊ",
-                "phrase": "四通八達"
-            },
-            {
-                "book": "第3冊",
-                "char": "撻",
-                "pinyin": "ㄊㄚˋ",
-                "phrase": "引來撻伐"
-            },
-            {
-                "book": "第3冊",
-                "char": "袂",
-                "pinyin": "ㄇㄟˋ",
-                "phrase": "連袂同行 (比喻共同動作)"
-            },
-            {
-                "book": "第3冊",
-                "char": "決",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "猶豫不決"
-            },
-            {
-                "book": "第3冊",
-                "char": "缺",
-                "pinyin": "ㄑㄩㄝ",
-                "phrase": "完美無缺"
-            },
-            {
-                "book": "第3冊",
-                "char": "訣",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "就此訣別"
-            },
-            {
-                "book": "第3冊",
-                "char": "抉",
-                "pinyin": "ㄐㄩㄝˊ",
-                "phrase": "抉擇"
-            },
-            {
-                "book": "第3冊",
-                "char": "髯",
-                "pinyin": "ㄖㄢˊ",
-                "phrase": "虬髯客"
-            },
-            {
-                "book": "第3冊",
-                "char": "鬈",
-                "pinyin": "ㄑㄩㄢˊ",
-                "phrase": "一頭鬈髮"
-            },
-            {
-                "book": "第3冊",
-                "char": "髭",
-                "pinyin": "ㄗ",
-                "phrase": "下擔持髭鬚"
-            },
-            {
-                "book": "第3冊",
-                "char": "髫",
-                "pinyin": "ㄊㄧㄠˊ",
-                "phrase": "黃髮垂髫"
-            },
-            {
-                "book": "第3冊",
-                "char": "攏",
-                "pinyin": "ㄌㄨㄥˇ",
-                "phrase": "攏絡人心"
-            },
-            {
-                "book": "第3冊",
-                "char": "隴",
-                "pinyin": "ㄌㄨㄥˇ",
-                "phrase": "得隴望蜀"
-            },
-            {
-                "book": "第3冊",
-                "char": "壟",
-                "pinyin": "ㄌㄨㄥˇ",
-                "phrase": "壟斷市場"
-            },
-            {
-                "book": "第3冊",
-                "char": "鍘",
-                "pinyin": "ㄓㄚˊ",
-                "phrase": "鍘美案"
-            },
-            {
-                "book": "第3冊",
-                "char": "紮",
-                "pinyin": "ㄓㄚ",
-                "phrase": "口感紮實"
-            },
-            {
-                "book": "第3冊",
-                "char": "閘",
-                "pinyin": "ㄓㄚˊ",
-                "phrase": "驗票閘門"
-            },
-            {
-                "book": "第3冊",
-                "char": "僂",
-                "pinyin": "ㄌㄡˊ",
-                "phrase": "佝僂身影"
-            },
-            {
-                "book": "第3冊",
-                "char": "樓",
-                "pinyin": "ㄌㄡˊ",
-                "phrase": "人去樓空"
-            },
-            {
-                "book": "第3冊",
-                "char": "髏",
-                "pinyin": "ㄌㄡˊ",
-                "phrase": "駭人骷髏"
-            },
-            {
-                "book": "第3冊",
-                "char": "螻",
-                "pinyin": "ㄌㄡˊ",
-                "phrase": "螻蟻尚且偷生"
-            },
-            {
-                "book": "第3冊",
-                "char": "枷",
-                "pinyin": "ㄐㄧㄚ",
-                "phrase": "枷鎖"
-            },
-            {
-                "book": "第3冊",
-                "char": "痂",
-                "pinyin": "ㄐㄧㄚ",
-                "phrase": "傷口結痂"
-            },
-            {
-                "book": "第3冊",
-                "char": "伽",
-                "pinyin": "ㄐㄧㄚ",
-                "phrase": "瑜伽課"
-            },
-            {
-                "book": "第3冊",
-                "char": "黯",
-                "pinyin": "ㄢˋ",
-                "phrase": "神色黯然"
-            },
-            {
-                "book": "第3冊",
-                "char": "暗",
-                "pinyin": "ㄢˋ",
-                "phrase": "明槍暗箭"
-            },
-            {
-                "book": "第3冊",
-                "char": "闇",
-                "pinyin": "ㄢˋ",
-                "phrase": "性格闇弱"
-            },
-            {
-                "book": "第3冊",
-                "char": "伶",
-                "pinyin": "ㄌㄧㄥˊ",
-                "phrase": "歌劇名伶"
-            },
-            {
-                "book": "第3冊",
-                "char": "聆",
-                "pinyin": "ㄌㄧㄥˊ",
-                "phrase": "聆聽音樂"
-            },
-            {
-                "book": "第3冊",
-                "char": "玲",
-                "pinyin": "ㄌㄧㄥˊ",
-                "phrase": "小巧玲瓏"
-            },
-            {
-                "book": "第3冊",
-                "char": "譴",
-                "pinyin": "ㄑㄧㄢˇ",
-                "phrase": "譴責"
-            },
-            {
-                "book": "第3冊",
-                "char": "遣",
-                "pinyin": "ㄑㄧㄢˇ",
-                "phrase": "派遣"
-            },
-            {
-                "book": "第3冊",
-                "char": "殫",
-                "pinyin": "ㄉㄢ",
-                "phrase": "殫精竭慮"
-            },
-            {
-                "book": "第3冊",
-                "char": "憚",
-                "pinyin": "ㄉㄢˋ",
-                "phrase": "肆無忌憚"
-            },
-            {
-                "book": "第4冊",
-                "char": "繆",
-                "pinyin": "ㄇㄨˋ",
-                "phrase": "秦繆公 (通「穆」)"
-            },
-            {
-                "book": "第4冊",
-                "char": "綢繆",
-                "pinyin": "ㄔㄡˊ ㄇㄡˊ",
-                "phrase": "未雨綢繆"
-            },
-            {
-                "book": "第4冊",
-                "char": "繆",
-                "pinyin": "ㄇㄧㄡˋ",
-                "phrase": "繆論 (通「謬」)"
-            },
-            {
-                "book": "第4冊",
-                "char": "繆",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "山川相繆"
-            },
-            {
-                "book": "第4冊",
-                "char": "繆",
-                "pinyin": "ㄇㄧㄠˋ",
-                "phrase": "繆先生"
-            },
-            {
-                "book": "第4冊",
-                "char": "髀",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "彈箏搏髀"
-            },
-            {
-                "book": "第4冊",
-                "char": "俾",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "俾使、俾能自立"
-            },
-            {
-                "book": "第4冊",
-                "char": "睥",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "睥睨"
-            },
-            {
-                "book": "第4冊",
-                "char": "裨",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "必能裨補闕漏，有所廣益"
-            },
-            {
-                "book": "第4冊",
-                "char": "捭",
-                "pinyin": "ㄅㄞˇ",
-                "phrase": "縱橫捭闔"
-            },
-            {
-                "book": "第4冊",
-                "char": "稗",
-                "pinyin": "ㄅㄞˋ",
-                "phrase": "稗官野史"
-            },
-            {
-                "book": "第4冊",
-                "char": "顰",
-                "pinyin": "ㄆㄧㄣˊ",
-                "phrase": "顰眉"
-            },
-            {
-                "book": "第4冊",
-                "char": "傾",
-                "pinyin": "ㄑㄧㄥ",
-                "phrase": "高下相傾；傾酒、傾盆大雨；傾心、傾慕"
-            },
-            {
-                "book": "第4冊",
-                "char": "頃",
-                "pinyin": "ㄑㄧㄥˇ",
-                "phrase": "頃刻、俄頃；頃聞佳音；公頃、一碧萬頃"
-            },
-            {
-                "book": "第4冊",
-                "char": "恃",
-                "pinyin": "ㄕˋ",
-                "phrase": "為而不恃、恃強凌弱"
-            },
-            {
-                "book": "第4冊",
-                "char": "侍",
-                "pinyin": "ㄕˋ",
-                "phrase": "服侍、陪侍"
-            },
-            {
-                "book": "第4冊",
-                "char": "峙",
-                "pinyin": "ㄓˋ",
-                "phrase": "對峙"
-            },
-            {
-                "book": "第4冊",
-                "char": "軱",
-                "pinyin": "ㄍㄨ",
-                "phrase": "大軱"
-            },
-            {
-                "book": "第4冊",
-                "char": "觚",
-                "pinyin": "ㄍㄨ",
-                "phrase": "率爾操觚 (不加思索，揮筆成文)"
-            },
-            {
-                "book": "第4冊",
-                "char": "謋",
-                "pinyin": "ㄏㄨㄛˋ",
-                "phrase": "謋然已解 (骨肉分離聲)"
-            },
-            {
-                "book": "第4冊",
-                "char": "桀",
-                "pinyin": "ㄐㄧㄝˊ",
-                "phrase": "桀驁不馴"
-            },
-            {
-                "book": "第4冊",
-                "char": "磔",
-                "pinyin": "ㄓㄜˊ",
-                "phrase": "磔刑 (分裂肢體)"
-            },
-            {
-                "book": "第4冊",
-                "char": "聃",
-                "pinyin": "ㄉㄢ",
-                "phrase": "聃耳 (耳長而大)；老聃"
-            },
-            {
-                "book": "第4冊",
-                "char": "苒",
-                "pinyin": "ㄖㄢˇ",
-                "phrase": "荏苒 (漸漸的樣子)"
-            },
-            {
-                "book": "第4冊",
-                "char": "髯",
-                "pinyin": "ㄖㄢˊ",
-                "phrase": "虬髯"
-            },
-            {
-                "book": "第4冊",
-                "char": "旖",
-                "pinyin": "ㄧˇ",
-                "phrase": "旖旎"
-            },
-            {
-                "book": "第4冊",
-                "char": "綺",
-                "pinyin": "ㄑㄧˇ",
-                "phrase": "綺麗、綺年玉貌"
-            },
-            {
-                "book": "第四冊",
-                "char": "踦",
-                "pinyin": "ㄧˇ",
-                "phrase": "膝之所踦（抵住）"
-            },
-            {
-                "book": "第4冊",
-                "char": "犄",
-                "pinyin": "ㄐㄧ",
-                "phrase": "犄角 (獸角)"
-            },
-            {
-                "book": "第4冊",
-                "char": "緋",
-                "pinyin": "ㄈㄟ",
-                "phrase": "緋麗、緋紅 (紅色)"
-            },
-            {
-                "book": "第4冊",
-                "char": "悱",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "纏綿悱惻 (悲切動人)"
-            },
-            {
-                "book": "第4冊",
-                "char": "誹",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "誹謗"
-            },
-            {
-                "book": "第4冊",
-                "char": "蜚",
-                "pinyin": "ㄈㄟ",
-                "phrase": "蜚聲國際；流言蜚語"
-            },
-            {
-                "book": "第4冊",
-                "char": "菲",
-                "pinyin": "ㄈㄟ",
-                "phrase": "人間四月芳菲盡 (花草芳香豔麗)"
-            },
-            {
-                "book": "第4冊",
-                "char": "菲",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "微薄 (不宜妄自菲薄) ；菲酌、菲儀、價值不菲"
-            },
-            {
-                "book": "第4冊",
-                "char": "斐",
-                "pinyin": "ㄈㄟˇ",
-                "phrase": "斐然成章 (具有文采)"
-            },
-            {
-                "book": "第4冊",
-                "char": "霏",
-                "pinyin": "ㄈㄟ",
-                "phrase": "若夫霪雨霏霏 (雨雪綿密) ；日出而林霏開 (霧氣)"
-            },
-            {
-                "book": "第4冊",
-                "char": "扉",
-                "pinyin": "ㄈㄟ",
-                "phrase": "你底心是小小的窗扉緊掩"
-            },
-            {
-                "book": "第4冊",
-                "char": "魘",
-                "pinyin": "ㄧㄢˇ",
-                "phrase": "魘夢"
-            },
-            {
-                "book": "第4冊",
-                "char": "饜",
-                "pinyin": "ㄧㄢˋ",
-                "phrase": "貪得無饜 (滿足)"
-            },
-            {
-                "book": "第4冊",
-                "char": "靨",
-                "pinyin": "ㄧㄝˋ",
-                "phrase": "笑靨"
-            },
-            {
-                "book": "第4冊",
-                "char": "翼",
-                "pinyin": "ㄧˋ",
-                "phrase": "羽翼、不翼而飛"
-            },
-            {
-                "book": "第4冊",
-                "char": "冀",
-                "pinyin": "ㄐㄧˋ",
-                "phrase": "希冀、冀求"
-            },
-            {
-                "book": "第4冊",
-                "char": "杏",
-                "pinyin": "ㄒㄧㄥˋ",
-                "phrase": "銀杏"
-            },
-            {
-                "book": "第4冊",
-                "char": "杳",
-                "pinyin": "ㄧㄠˇ",
-                "phrase": "杳無音信、杳無人蹤"
-            },
-            {
-                "book": "第4冊",
-                "char": "鬈",
-                "pinyin": "ㄑㄩㄢˊ",
-                "phrase": "鬈髮"
-            },
-            {
-                "book": "第4冊",
-                "char": "蜷",
-                "pinyin": "ㄑㄩㄢˊ",
-                "phrase": "蜷縮"
-            },
-            {
-                "book": "第4冊",
-                "char": "捲",
-                "pinyin": "ㄐㄩㄢˇ",
-                "phrase": "蛋捲、春捲"
-            },
-            {
-                "book": "第4冊",
-                "char": "圮",
-                "pinyin": "ㄆㄧˇ",
-                "phrase": "頹圮"
-            },
-            {
-                "book": "第4冊",
-                "char": "杞",
-                "pinyin": "ㄑㄧˇ",
-                "phrase": "杞人憂天"
-            },
-            {
-                "book": "第4冊",
-                "char": "梨",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "梨樹"
-            },
-            {
-                "book": "第4冊",
-                "char": "犁",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "犁田"
-            },
-            {
-                "book": "第4冊",
-                "char": "黎",
-                "pinyin": "ㄌㄧˊ",
-                "phrase": "黎明"
-            },
-            {
-                "book": "第4冊",
-                "char": "擰",
-                "pinyin": "ㄋㄧㄥˇ",
-                "phrase": "擰開、擰乾"
-            },
-            {
-                "book": "第4冊",
-                "char": "獰",
-                "pinyin": "ㄋㄧㄥˊ",
-                "phrase": "猙獰"
-            },
-            {
-                "book": "第4冊",
-                "char": "嚀",
-                "pinyin": "ㄋㄧㄥˊ",
-                "phrase": "叮嚀"
-            },
-            {
-                "book": "第4冊",
-                "char": "濘",
-                "pinyin": "ㄋㄧㄥˋ",
-                "phrase": "泥濘"
-            },
-            {
-                "book": "第4冊",
-                "char": "腴",
-                "pinyin": "ㄩˊ",
-                "phrase": "膏腴之壤"
-            },
-            {
-                "book": "第4冊",
-                "char": "諛",
-                "pinyin": "ㄩˊ",
-                "phrase": "阿諛奉承"
-            },
-            {
-                "book": "第4冊",
-                "char": "萸",
-                "pinyin": "ㄩˊ",
-                "phrase": "遍插茱萸少一人"
-            },
-            {
-                "book": "第4冊",
-                "char": "庾",
-                "pinyin": "ㄩˇ",
-                "phrase": "庾澄慶"
-            },
-            {
-                "book": "第4冊",
-                "char": "簪",
-                "pinyin": "ㄗㄢ",
-                "phrase": "綰珠之簪"
-            },
-            {
-                "book": "第4冊",
-                "char": "僭",
-                "pinyin": "ㄐㄧㄢˋ",
-                "phrase": "僭越"
-            },
-            {
-                "book": "第4冊",
-                "char": "潛",
-                "pinyin": "ㄑㄧㄢˊ",
-                "phrase": "激發潛力"
-            },
-            {
-                "book": "第4冊",
-                "char": "讚",
-                "pinyin": "ㄗㄢˋ",
-                "phrase": "讚言"
-            },
-            {
-                "book": "第4冊",
-                "char": "弗",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "功成弗居"
-            },
-            {
-                "book": "第4冊",
-                "char": "氟",
-                "pinyin": "ㄈㄨˊ",
-                "phrase": "氟化物"
-            },
-            {
-                "book": "第4冊",
-                "char": "拂",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "法家拂士 (謹守法度的臣子和輔助君王的賢士)"
-            },
-            {
-                "book": "第4冊",
-                "char": "窕",
-                "pinyin": "ㄊㄧㄠˇ",
-                "phrase": "窈窕淑女"
-            },
-            {
-                "book": "第4冊",
-                "char": "佻",
-                "pinyin": "ㄊㄧㄠˊ",
-                "phrase": "舉止輕佻"
-            },
-            {
-                "book": "第4冊",
-                "char": "髀",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "彈箏搏髀"
-            },
-            {
-                "book": "第4冊",
-                "char": "裨",
-                "pinyin": "ㄅㄧˋ",
-                "phrase": "大有裨益"
-            },
-            {
-                "book": "第4冊",
-                "char": "駿",
-                "pinyin": "ㄐㄩㄣˋ",
-                "phrase": "駿馬馳騁"
-            },
-            {
-                "book": "第4冊",
-                "char": "悛",
-                "pinyin": "ㄑㄩㄢ",
-                "phrase": "怙惡不悛"
-            },
-            {
-                "book": "第4冊",
-                "char": "彊",
-                "pinyin": "ㄑㄧㄤˊ",
-                "phrase": "國以富彊"
-            },
-            {
-                "book": "第4冊",
-                "char": "疆",
-                "pinyin": "ㄐㄧㄤ",
-                "phrase": "邊疆民族"
-            },
-            {
-                "book": "第4冊",
-                "char": "腴",
-                "pinyin": "ㄩˊ",
-                "phrase": "膏腴之地"
-            },
-            {
-                "book": "第4冊",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第4冊",
-                "char": "縞",
-                "pinyin": "ㄍㄠˇ",
-                "phrase": "阿縞之衣"
-            },
-            {
-                "book": "第4冊",
-                "char": "槁",
-                "pinyin": "ㄍㄠˇ",
-                "phrase": "槁木死灰"
-            },
-            {
-                "book": "第4冊",
-                "char": "璣",
-                "pinyin": "ㄐㄧ",
-                "phrase": "傅璣之珥"
-            },
-            {
-                "book": "第4冊",
-                "char": "譏",
-                "pinyin": "ㄐㄧ",
-                "phrase": "反脣相譏"
-            },
-            {
-                "book": "第4冊",
-                "char": "黔",
-                "pinyin": "ㄑㄧㄢˊ",
-                "phrase": "布衣黔首"
-            },
-            {
-                "book": "第4冊",
-                "char": "黔",
-                "pinyin": "ㄑㄧㄢˊ",
-                "phrase": "黔驢技窮"
-            },
-            {
-                "book": "第4冊",
-                "char": "翼",
-                "pinyin": "ㄧˋ",
-                "phrase": "不翼而飛"
-            },
-            {
-                "book": "第4冊",
-                "char": "冀",
-                "pinyin": "ㄐㄧˋ",
-                "phrase": "滿懷希冀"
-            },
-            {
-                "book": "第4冊",
-                "char": "畏",
-                "pinyin": "ㄨㄟˋ",
-                "phrase": "不畏強敵"
-            },
-            {
-                "book": "第4冊",
-                "char": "偎",
-                "pinyin": "ㄨㄟ",
-                "phrase": "偎香倚玉"
-            },
-            {
-                "book": "第4冊",
-                "char": "陷",
-                "pinyin": "ㄒㄧㄢˋ",
-                "phrase": "地層下陷"
-            },
-            {
-                "book": "第4冊",
-                "char": "埳",
-                "pinyin": "ㄎㄢˇ",
-                "phrase": "埳井之蛙"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第4冊",
-                "char": "委",
-                "pinyin": "ㄨㄟˇ",
-                "phrase": "如土委地 (散落) 、推委責任 (推託)"
-            },
-            {
-                "book": "第4冊",
-                "char": "履",
-                "pinyin": "ㄌㄩˇ",
-                "phrase": "足之所履 (踩踏) 、削足適履 (鞋子)"
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "",
-                "char": "",
-                "pinyin": "",
-                "phrase": ""
-            },
-            {
-                "book": "第5冊",
-                "char": "眥",
-                "pinyin": "ㄗˋ",
-                "phrase": "眼眶。目眥盡裂、睚眥必報 (指極小的怨恨也一定要報復)。"
-            },
-            {
-                "book": "第5冊",
-                "char": "貲",
-                "pinyin": "ㄗ",
-                "phrase": "計算、估量。所費不貲。/財貨。家貲萬貫、捐貲。"
-            },
-            {
-                "book": "第5冊",
-                "char": "齜",
-                "pinyin": "ㄗ",
-                "phrase": "張嘴露牙的樣子。齜牙咧嘴。"
-            },
-            {
-                "book": "第5冊",
-                "char": "疵",
-                "pinyin": "ㄘ",
-                "phrase": "毛病、缺點。瑕疵、吹毛求疵。"
-            },
-            {
-                "book": "第5冊",
-                "char": "俎",
-                "pinyin": "ㄗㄨˇ",
-                "phrase": "砧板。越俎代庖 (比喻踰越自己的職分而待人做事)。"
-            },
-            {
-                "book": "第5冊",
-                "char": "殂",
-                "pinyin": "ㄘㄨˊ",
-                "phrase": "死亡。崩殂、殂落。"
-            },
-            {
-                "book": "第5冊",
-                "char": "狙",
-                "pinyin": "ㄐㄩ",
-                "phrase": "伺機、窺伺。狙擊、狙殺。"
-            },
-            {
-                "book": "第5冊",
-                "char": "沮",
-                "pinyin": "ㄐㄩˇ",
-                "phrase": "頹喪、意志消沉。沮喪、氣沮。"
-            },
-            {
-                "book": "第5冊",
-                "char": "咀",
-                "pinyin": "ㄐㄩˇ",
-                "phrase": "嚼食。咀嚼、含英咀華 (品味文章的要旨及辭藻的華美)。"
-            },
-            {
-                "book": "第5冊",
-                "char": "詛",
-                "pinyin": "ㄗㄨˇ",
-                "phrase": "咒罵或祈求鬼神降禍給他人。詛咒、詛罵。"
-            },
-            {
-                "book": "第5冊",
-                "char": "疽",
-                "pinyin": "ㄐㄩ",
-                "phrase": "一種毒瘡。巨疽、壞疽。"
-            },
-            {
-                "book": "第5冊",
-                "char": "蛆",
-                "pinyin": "ㄑㄩ",
-                "phrase": "蠅類的幼蟲。蛆蟲。"
-            },
-            {
-                "book": "第5冊",
-                "char": "膾",
-                "pinyin": "ㄎㄨㄞˋ",
-                "phrase": "細切的肉絲。膾炙人口。"
-            },
-            {
-                "book": "第5冊",
-                "char": "獪",
-                "pinyin": "ㄎㄨㄞˋ",
-                "phrase": "奸詐、狡猾。狡獪、狙獪。"
-            },
-            {
-                "book": "第5冊",
-                "char": "劊",
-                "pinyin": "ㄎㄨㄞˋ",
-                "phrase": "砍斷。劊子手。"
-            },
-            {
-                "book": "第5冊",
-                "char": "畛",
-                "pinyin": "ㄓㄣˇ",
-                "phrase": "界限。若分畛域。/田間分界的道路。畦畛。"
-            },
-            {
-                "book": "第5冊",
-                "char": "診",
-                "pinyin": "ㄓㄣˇ",
-                "phrase": "察看。悉心問診。"
-            },
-            {
-                "book": "第5冊",
-                "char": "珍",
-                "pinyin": "ㄓㄣ",
-                "phrase": "稀有貴重的寶物。珍寶。/愛惜、重視。珍惜。"
-            },
-            {
-                "book": "第5冊",
-                "char": "軫",
-                "pinyin": "ㄓㄣˇ",
-                "phrase": "傷痛、憐憫。軫懷、軫念。/星宿名。軫宿。"
-            },
-            {
-                "book": "第5冊",
-                "char": "殄",
-                "pinyin": "ㄊㄧㄢˇ",
-                "phrase": "盡除、滅絕。殄絕。/浪費、糟蹋。暴殄天物。"
-            },
-            {
-                "book": "第5冊",
-                "char": "疹",
-                "pinyin": "ㄓㄣˇ",
-                "phrase": "皮膚上起的紅色顆粒。溼疹、麻疹。"
-            },
-            {
-                "book": "第5冊",
-                "char": "揆",
-                "pinyin": "ㄎㄨㄟˊ",
-                "phrase": "審度、仔細思考。揆情度理。/統理國政的官員。首揆、閣揆。"
-            },
-            {
-                "book": "第5冊",
-                "char": "睽",
-                "pinyin": "ㄎㄨㄟˊ",
-                "phrase": "分離。睽違。/張眼注視的樣子。眾目睽睽。"
-            },
-            {
-                "book": "第5冊",
-                "char": "癸",
-                "pinyin": "ㄍㄨㄟˇ",
-                "phrase": "天干的第十位。歲在癸丑。"
-            },
-            {
-                "book": "第5冊",
-                "char": "遏",
-                "pinyin": "ㄜˋ",
-                "phrase": "阻止。莫可阻遏。"
-            },
-            {
-                "book": "第5冊",
-                "char": "竭",
-                "pinyin": "ㄐㄧㄝˊ",
-                "phrase": "窮盡。竭誠化導。"
-            },
-            {
-                "book": "第5冊",
-                "char": "揭",
-                "pinyin": "ㄐㄧㄝ",
-                "phrase": "高舉。揭其劍、揭竿而起。"
-            },
-            {
-                "book": "第5冊",
-                "char": "褐",
-                "pinyin": "ㄏㄜˊ",
-                "phrase": "粗布衣服。短褐穿結、褐衣疏食。"
-            },
-            {
-                "book": "第5冊",
-                "char": "謁",
-                "pinyin": "ㄧㄝˋ",
-                "phrase": "拜見。以布衣來謁。"
-            },
-            {
-                "book": "第5冊",
-                "char": "愒",
-                "pinyin": "ㄎㄞˋ",
-                "phrase": "貪圖。玩日愒歲 (怠惰偷安，虛度光陰)。"
-            },
-            {
-                "book": "第5冊",
-                "char": "歇",
-                "pinyin": "ㄒㄧㄝ",
-                "phrase": "停止。歇業、歇工。"
-            },
-            {
-                "book": "第5冊",
-                "char": "燎",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "燃燒、延燒。燎原。"
-            },
-            {
-                "book": "第5冊",
-                "char": "撩",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "挑弄、逗引。姿態撩人。/紛亂。眼花撩亂。"
-            },
-            {
-                "book": "第5冊",
-                "char": "僚",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "官吏。官僚、幕僚。"
-            },
-            {
-                "book": "第5冊",
-                "char": "繚",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "纏繞、圍繞。香煙繚繞。"
-            },
-            {
-                "book": "第5冊",
-                "char": "遼",
-                "pinyin": "ㄌㄧㄠˊ",
-                "phrase": "開闊。遼闊。"
-            },
-            {
-                "book": "第5冊",
-                "char": "咳",
-                "pinyin": "ㄎㄜˊ",
-                "phrase": "氣管受刺激，將氣體用力排出。喘咳、咳唾成珠。"
-            },
-            {
-                "book": "第5冊",
-                "char": "駭",
-                "pinyin": "ㄏㄞˋ",
-                "phrase": "吃驚、害怕。驚駭、駭人耳目。"
-            },
-            {
-                "book": "第5冊",
-                "char": "骸",
-                "pinyin": "ㄏㄞˊ",
-                "phrase": "軀體、形體。形骸、遺骸。"
-            },
-            {
-                "book": "第5冊",
-                "char": "劾",
-                "pinyin": "ㄏㄜˊ",
-                "phrase": "檢舉、揭發。彈劾、深文巧劾。"
-            },
-            {
-                "book": "第5冊",
-                "char": "賅",
-                "pinyin": "ㄍㄞ",
-                "phrase": "充足、完備的。言簡意賅。"
-            },
-            {
-                "book": "第5冊",
-                "char": "鬩",
-                "pinyin": "ㄒㄧˋ",
-                "phrase": "爭吵。鬩牆。"
-            },
-            {
-                "book": "第5冊",
-                "char": "睨",
-                "pinyin": "ㄋㄧˋ",
-                "phrase": "斜著眼睛看。傲睨萬物。"
-            },
-            {
-                "book": "第5冊",
-                "char": "倪",
-                "pinyin": "ㄋㄧˊ",
-                "phrase": "頭緒。端倪。"
-            }
-                ]
-                
+            sampleData:
+            [
+  {
+    "book": "其他",
+    "char": "墨",
+    "pinyin": "ㄇㄛˋ",
+    "phrase": "墨守成規"
+  },
+  {
+    "book": "其他",
+    "char": "幀",
+    "pinyin": "ㄓㄥˋ",
+    "phrase": "一幀照片"
+  },
+  {
+    "book": "其他",
+    "char": "挑",
+    "pinyin": "ㄊㄧㄠˇ",
+    "phrase": "挑燈看劍"
+  },
+  {
+    "book": "其他",
+    "char": "屬",
+    "pinyin": "ㄓㄨˇ",
+    "phrase": "舉酒屬客"
+  },
+  {
+    "book": "其他",
+    "char": "許",
+    "pinyin": "ㄒㄩˇ",
+    "phrase": "孤高自許"
+  },
+  {
+    "book": "其他",
+    "char": "杼",
+    "pinyin": "ㄓㄨˋ",
+    "phrase": "機杼"
+  },
+  {
+    "book": "其他",
+    "char": "騖",
+    "pinyin": "ㄨˋ",
+    "phrase": "好高騖遠"
+  },
+  {
+    "book": "其他",
+    "char": "僭",
+    "pinyin": "ㄐㄧㄢˋ",
+    "phrase": "僭號"
+  },
+  {
+    "book": "其他",
+    "char": "譖",
+    "pinyin": "ㄗㄣˋ",
+    "phrase": "譖下謾上"
+  },
+  {
+    "book": "其他",
+    "char": "暄",
+    "pinyin": "ㄒㄩㄢ",
+    "phrase": "寒暄"
+  },
+  {
+    "book": "其他",
+    "char": "觥",
+    "pinyin": "ㄍㄨㄥ",
+    "phrase": "觥籌"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第1冊",
+    "char": "幢幢",
+    "pinyin": "ㄔㄨㄤˊ ㄔㄨㄤˊ",
+    "phrase": "灰影幢幢"
+  },
+  {
+    "book": "第1冊",
+    "char": "朘",
+    "pinyin": "ㄐㄩㄢ",
+    "phrase": "日削月朘"
+  },
+  {
+    "book": "第1冊",
+    "char": "赭",
+    "pinyin": "ㄓㄜˇ",
+    "phrase": "赭紅色"
+  },
+  {
+    "book": "第1冊",
+    "char": "悛",
+    "pinyin": "ㄑㄩㄢ",
+    "phrase": "怙惡不悛"
+  },
+  {
+    "book": "第1冊",
+    "char": "嶙峋",
+    "pinyin": "ㄌㄧㄣˊ ㄒㄩㄣˊ",
+    "phrase": "瘦骨嶙峋"
+  },
+  {
+    "book": "第1冊",
+    "char": "詡",
+    "pinyin": "ㄒㄩˇ",
+    "phrase": "驕傲自詡"
+  },
+  {
+    "book": "第1冊",
+    "char": "栩",
+    "pinyin": "ㄒㄩˇ",
+    "phrase": "栩栩如生"
+  },
+  {
+    "book": "第1冊",
+    "char": "烙",
+    "pinyin": "ㄌㄠˋ",
+    "phrase": "烙鐵漿"
+  },
+  {
+    "book": "第1冊",
+    "char": "氤氳",
+    "pinyin": "ㄧㄣ ㄩㄣ",
+    "phrase": "霧氣氤氳"
+  },
+  {
+    "book": "第1冊",
+    "char": "紿",
+    "pinyin": "ㄉㄞˋ",
+    "phrase": "欺紿"
+  },
+  {
+    "book": "第1冊",
+    "char": "巍",
+    "pinyin": "ㄨㄟˊ",
+    "phrase": "巍峨聳矗"
+  },
+  {
+    "book": "第1冊",
+    "char": "矗",
+    "pinyin": "ㄔㄨˋ",
+    "phrase": "巍峨聳矗"
+  },
+  {
+    "book": "第1冊",
+    "char": "貽",
+    "pinyin": "ㄧˊ",
+    "phrase": "貽笑大方"
+  },
+  {
+    "book": "第1冊",
+    "char": "笞",
+    "pinyin": "ㄔ",
+    "phrase": "鞭笞天下"
+  },
+  {
+    "book": "第1冊",
+    "char": "逡",
+    "pinyin": "ㄑㄩㄣ",
+    "phrase": "四顧逡巡"
+  },
+  {
+    "book": "第1冊",
+    "char": "饜",
+    "pinyin": "ㄧㄢˋ",
+    "phrase": "學而不饜"
+  },
+  {
+    "book": "第1冊",
+    "char": "懨",
+    "pinyin": "ㄧㄢ",
+    "phrase": "病懨懨"
+  },
+  {
+    "book": "第1冊",
+    "char": "靨",
+    "pinyin": "ㄧㄝˋ",
+    "phrase": "笑靨"
+  },
+  {
+    "book": "第1冊",
+    "char": "魘",
+    "pinyin": "ㄧㄢˇ",
+    "phrase": "夢魘"
+  },
+  {
+    "book": "第1冊",
+    "char": "皋",
+    "pinyin": "ㄍㄠ",
+    "phrase": "沼澤皋壤"
+  },
+  {
+    "book": "第1冊",
+    "char": "嗥",
+    "pinyin": "ㄏㄠˊ",
+    "phrase": "狼嗥"
+  },
+  {
+    "book": "第1冊",
+    "char": "翱",
+    "pinyin": "ㄠˊ",
+    "phrase": "翱翔"
+  },
+  {
+    "book": "第1冊",
+    "char": "溯",
+    "pinyin": "ㄙㄨˋ",
+    "phrase": "推本溯源"
+  },
+  {
+    "book": "第1冊",
+    "char": "洄",
+    "pinyin": "ㄏㄨㄟˊ",
+    "phrase": "洄游"
+  },
+  {
+    "book": "第1冊",
+    "char": "妊",
+    "pinyin": "ㄖㄣˋ",
+    "phrase": "妊娠"
+  },
+  {
+    "book": "第1冊",
+    "char": "娠",
+    "pinyin": "ㄕㄣ",
+    "phrase": "妊娠"
+  },
+  {
+    "book": "第1冊",
+    "char": "淈",
+    "pinyin": "ㄍㄨˇ",
+    "phrase": "淈泥揚波"
+  },
+  {
+    "book": "第1冊",
+    "char": "狙",
+    "pinyin": "ㄐㄩ",
+    "phrase": "狙擊"
+  },
+  {
+    "book": "第1冊",
+    "char": "沂",
+    "pinyin": "ㄧˊ",
+    "phrase": "沂水弦歌"
+  },
+  {
+    "book": "第1冊",
+    "char": "韙",
+    "pinyin": "ㄨㄟˇ",
+    "phrase": "冒天下之大不韙"
+  },
+  {
+    "book": "第1冊",
+    "char": "煒",
+    "pinyin": "ㄨㄟˇ",
+    "phrase": "顧盼煒如"
+  },
+  {
+    "book": "第1冊",
+    "char": "釃",
+    "pinyin": "ㄙ",
+    "phrase": "釃酒臨江"
+  },
+  {
+    "book": "第1冊",
+    "char": "黧",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "面目黧黑"
+  },
+  {
+    "book": "第1冊",
+    "char": "渚",
+    "pinyin": "ㄓㄨˇ",
+    "phrase": "江渚"
+  },
+  {
+    "book": "第1冊",
+    "char": "朔",
+    "pinyin": "ㄕㄨㄛˋ",
+    "phrase": "朔日"
+  },
+  {
+    "book": "第1冊",
+    "char": "徊",
+    "pinyin": "ㄏㄨㄞˊ",
+    "phrase": "徘徊"
+  },
+  {
+    "book": "第1冊",
+    "char": "賑",
+    "pinyin": "ㄓㄣˋ",
+    "phrase": "賑窮濟乏"
+  },
+  {
+    "book": "第1冊",
+    "char": "崛",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "崛起於文壇"
+  },
+  {
+    "book": "第1冊",
+    "char": "殂",
+    "pinyin": "ㄘㄨˊ",
+    "phrase": "崩殂"
+  },
+  {
+    "book": "第1冊",
+    "char": "泝",
+    "pinyin": "ㄙㄨˋ",
+    "phrase": "擊空明兮泝流光"
+  },
+  {
+    "book": "第1冊",
+    "char": "諱",
+    "pinyin": "ㄏㄨㄟˋ",
+    "phrase": "諱疾忌醫"
+  },
+  {
+    "book": "第1冊",
+    "char": "嫋嫋",
+    "pinyin": "ㄋㄧㄠˇ ㄋㄧㄠˇ",
+    "phrase": "餘音嫋嫋"
+  },
+  {
+    "book": "第1冊",
+    "char": "鸝",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "黃鸝"
+  },
+  {
+    "book": "第1冊",
+    "char": "釐",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "毫釐之差"
+  },
+  {
+    "book": "第1冊",
+    "char": "塑",
+    "pinyin": "ㄙㄨˋ",
+    "phrase": "塑膠"
+  },
+  {
+    "book": "第1冊",
+    "char": "迴",
+    "pinyin": "ㄏㄨㄟˊ",
+    "phrase": "輪迴"
+  },
+  {
+    "book": "第1冊",
+    "char": "倔",
+    "pinyin": "ㄐㄩㄝˋ",
+    "phrase": "倔脾氣"
+  },
+  {
+    "book": "第1冊",
+    "char": "掘",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "臨渴掘井"
+  },
+  {
+    "book": "第1冊",
+    "char": "苴",
+    "pinyin": "ㄐㄩ",
+    "phrase": "補苴罅漏"
+  },
+  {
+    "book": "第1冊",
+    "char": "斫",
+    "pinyin": "ㄓㄨㄛˊ",
+    "phrase": "斫輪老手"
+  },
+  {
+    "book": "第1冊",
+    "char": "韋",
+    "pinyin": "ㄨㄟˊ",
+    "phrase": "韋編三絕"
+  },
+  {
+    "book": "第1冊",
+    "char": "搦",
+    "pinyin": "ㄋㄨㄛˋ",
+    "phrase": "搦管為文"
+  },
+  {
+    "book": "第1冊",
+    "char": "嫠",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "泣孤舟之嫠婦"
+  },
+  {
+    "book": "第1冊",
+    "char": "邐",
+    "pinyin": "ㄌㄧˇ",
+    "phrase": "山路邐迆"
+  },
+  {
+    "book": "第1冊",
+    "char": "赭",
+    "pinyin": "ㄓㄜˇ",
+    "phrase": "赭衣塞路"
+  },
+  {
+    "book": "第1冊",
+    "char": "褚",
+    "pinyin": "ㄔㄨˇ",
+    "phrase": "褚遂良"
+  },
+  {
+    "book": "第1冊",
+    "char": "愀",
+    "pinyin": "ㄑㄧㄠˇ",
+    "phrase": "蘇子愀然"
+  },
+  {
+    "book": "第1冊",
+    "char": "瞅",
+    "pinyin": "ㄔㄡˇ",
+    "phrase": "不瞅不睬"
+  },
+  {
+    "book": "第1冊",
+    "char": "寥",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "寥寥無幾"
+  },
+  {
+    "book": "第1冊",
+    "char": "莪",
+    "pinyin": "ㄜˊ",
+    "phrase": "蓼莪"
+  },
+  {
+    "book": "第1冊",
+    "char": "蓼",
+    "pinyin": "ㄌㄨˋ",
+    "phrase": "蓼莪"
+  },
+  {
+    "book": "第1冊",
+    "char": "呦呦",
+    "pinyin": "ㄧㄡ ㄧㄡ",
+    "phrase": "呦呦鹿鳴"
+  },
+  {
+    "book": "第1冊",
+    "char": "逮",
+    "pinyin": "ㄉㄞˋ",
+    "phrase": "力有未逮"
+  },
+  {
+    "book": "第1冊",
+    "char": "惙",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "危惙之際"
+  },
+  {
+    "book": "第1冊",
+    "char": "驤",
+    "pinyin": "ㄒㄧㄤ",
+    "phrase": "龍驤虎步"
+  },
+  {
+    "book": "第1冊",
+    "char": "摻",
+    "pinyin": "ㄔㄢ",
+    "phrase": "摻雜混雜"
+  },
+  {
+    "book": "第1冊",
+    "char": "淖",
+    "pinyin": "ㄋㄠˋ",
+    "phrase": "泥淖"
+  },
+  {
+    "book": "第1冊",
+    "char": "瓠",
+    "pinyin": "ㄏㄨˋ",
+    "phrase": "瓠巴"
+  },
+  {
+    "book": "第1冊",
+    "char": "鍬",
+    "pinyin": "ㄑㄧㄠ",
+    "phrase": "圓鍬"
+  },
+  {
+    "book": "第1冊",
+    "char": "繆",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "山川相繆"
+  },
+  {
+    "book": "第1冊",
+    "char": "戮",
+    "pinyin": "ㄌㄨˋ",
+    "phrase": "戮力同心"
+  },
+  {
+    "book": "第1冊",
+    "char": "窈",
+    "pinyin": "ㄧㄠˇ",
+    "phrase": "窈窕淑女"
+  },
+  {
+    "book": "第1冊",
+    "char": "怠",
+    "pinyin": "ㄉㄞˋ",
+    "phrase": "怠慢了姑娘"
+  },
+  {
+    "book": "第1冊",
+    "char": "貸",
+    "pinyin": "ㄉㄞˋ",
+    "phrase": "責無旁貸"
+  },
+  {
+    "book": "第1冊",
+    "char": "啜",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "啜菽飲水"
+  },
+  {
+    "book": "第1冊",
+    "char": "驂",
+    "pinyin": "ㄘㄢ",
+    "phrase": "解驂推食"
+  },
+  {
+    "book": "第1冊",
+    "char": "滲",
+    "pinyin": "ㄕㄣˋ",
+    "phrase": "塵泥滲漉"
+  },
+  {
+    "book": "第1冊",
+    "char": "棹",
+    "pinyin": "ㄓㄠˋ",
+    "phrase": "桂棹"
+  },
+  {
+    "book": "第1冊",
+    "char": "揪",
+    "pinyin": "ㄐㄧㄡ",
+    "phrase": "揪出禍首"
+  },
+  {
+    "book": "第1冊",
+    "char": "繆",
+    "pinyin": "ㄇㄡˊ",
+    "phrase": "未雨綢繆"
+  },
+  {
+    "book": "第1冊",
+    "char": "戮",
+    "pinyin": "ㄌㄨˋ",
+    "phrase": "殺戮"
+  },
+  {
+    "book": "第1冊",
+    "char": "拗",
+    "pinyin": "ㄠˋ",
+    "phrase": "拗口"
+  },
+  {
+    "book": "第1冊",
+    "char": "殆",
+    "pinyin": "ㄉㄞˋ",
+    "phrase": "思而不學則殆"
+  },
+  {
+    "book": "第1冊",
+    "char": "輟",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "弦歌不輟"
+  },
+  {
+    "book": "第1冊",
+    "char": "嚷",
+    "pinyin": "ㄖㄤˇ",
+    "phrase": "大聲喧嚷"
+  },
+  {
+    "book": "第1冊",
+    "char": "參",
+    "pinyin": "ㄘㄢ",
+    "phrase": "古木參天"
+  },
+  {
+    "book": "第1冊",
+    "char": "悼",
+    "pinyin": "ㄉㄠˋ",
+    "phrase": "悼念"
+  },
+  {
+    "book": "第1冊",
+    "char": "袴",
+    "pinyin": "ㄨㄢˊ ㄎㄨˋ",
+    "phrase": "紈袴子弟"
+  },
+  {
+    "book": "第1冊",
+    "char": "洿",
+    "pinyin": "ㄨ",
+    "phrase": "洿池"
+  },
+  {
+    "book": "第1冊",
+    "char": "閨",
+    "pinyin": "ㄍㄨㄟ",
+    "phrase": "待字閨中"
+  },
+  {
+    "book": "第1冊",
+    "char": "規",
+    "pinyin": "ㄍㄨㄟ",
+    "phrase": "墨守成規"
+  },
+  {
+    "book": "第1冊",
+    "char": "皈",
+    "pinyin": "ㄍㄨㄟ",
+    "phrase": "皈依佛教"
+  },
+  {
+    "book": "第1冊",
+    "char": "圭",
+    "pinyin": "ㄍㄨㄟ",
+    "phrase": "奉為圭臬"
+  },
+  {
+    "book": "第1冊",
+    "char": "臬",
+    "pinyin": "ㄋㄧㄝˋ",
+    "phrase": "奉為圭臬"
+  },
+  {
+    "book": "第1冊",
+    "char": "癰",
+    "pinyin": "ㄩㄥ",
+    "phrase": "吮癰舐痔"
+  },
+  {
+    "book": "第1冊",
+    "char": "壅",
+    "pinyin": "ㄩㄥ",
+    "phrase": "壅塞"
+  },
+  {
+    "book": "第1冊",
+    "char": "雍",
+    "pinyin": "ㄩㄥ",
+    "phrase": "雍容大度"
+  },
+  {
+    "book": "第1冊",
+    "char": "庸",
+    "pinyin": "ㄩㄥ",
+    "phrase": "附庸風雅"
+  },
+  {
+    "book": "第1冊",
+    "char": "慵",
+    "pinyin": "ㄩㄥ",
+    "phrase": "慵懶"
+  },
+  {
+    "book": "第1冊",
+    "char": "躡",
+    "pinyin": "ㄋㄧㄝˋ",
+    "phrase": "躡足"
+  },
+  {
+    "book": "第1冊",
+    "char": "懾",
+    "pinyin": "ㄓㄜˊ",
+    "phrase": "震懾人心"
+  },
+  {
+    "book": "第1冊",
+    "char": "攝",
+    "pinyin": "ㄕㄜˋ",
+    "phrase": "拍攝照片"
+  },
+  {
+    "book": "第1冊",
+    "char": "囁",
+    "pinyin": "ㄋㄧㄝˋ",
+    "phrase": "囁嚅數次"
+  },
+  {
+    "book": "第1冊",
+    "char": "彆",
+    "pinyin": "ㄅㄧㄝˋ",
+    "phrase": "鬧彆扭"
+  },
+  {
+    "book": "第1冊",
+    "char": "憋",
+    "pinyin": "ㄅㄧㄝ",
+    "phrase": "憋不住"
+  },
+  {
+    "book": "第1冊",
+    "char": "瞥",
+    "pinyin": "ㄆㄧㄝ",
+    "phrase": "驚鴻一瞥"
+  },
+  {
+    "book": "第1冊",
+    "char": "撇",
+    "pinyin": "ㄆㄧㄝˇ",
+    "phrase": "八字都沒一撇"
+  },
+  {
+    "book": "第1冊",
+    "char": "瀆",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "褻瀆神明"
+  },
+  {
+    "book": "第1冊",
+    "char": "犢",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "初生之犢"
+  },
+  {
+    "book": "第1冊",
+    "char": "黷",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "窮兵黷武"
+  },
+  {
+    "book": "第1冊",
+    "char": "牘",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "連篇累牘"
+  },
+  {
+    "book": "第1冊",
+    "char": "櫝",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "買櫝還珠"
+  },
+  {
+    "book": "第1冊",
+    "char": "讀",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "耕讀傳家"
+  },
+  {
+    "book": "第1冊",
+    "char": "戮",
+    "pinyin": "ㄌㄨˋ",
+    "phrase": "同心戮力"
+  },
+  {
+    "book": "第1冊",
+    "char": "蓼",
+    "pinyin": "ㄌㄧㄠˇ",
+    "phrase": "含蓼問疾"
+  },
+  {
+    "book": "第1冊",
+    "char": "僇",
+    "pinyin": "ㄌㄨˋ",
+    "phrase": "僇人"
+  },
+  {
+    "book": "第1冊",
+    "char": "寥",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "寥若晨星"
+  },
+  {
+    "book": "第1冊",
+    "char": "佝",
+    "pinyin": "ㄎㄡˋ",
+    "phrase": "佝僂"
+  },
+  {
+    "book": "第1冊",
+    "char": "劬",
+    "pinyin": "ㄑㄩˊ",
+    "phrase": "劬勞"
+  },
+  {
+    "book": "第1冊",
+    "char": "痀",
+    "pinyin": "ㄐㄩ",
+    "phrase": "痀瘻"
+  },
+  {
+    "book": "第1冊",
+    "char": "呴",
+    "pinyin": "ㄒㄩˇ",
+    "phrase": "相呴相濡"
+  },
+  {
+    "book": "第1冊",
+    "char": "纔",
+    "pinyin": "ㄘㄞˊ",
+    "phrase": "方纔 、纔至"
+  },
+  {
+    "book": "第1冊",
+    "char": "巉",
+    "pinyin": "ㄔㄢˊ",
+    "phrase": "巉岩陡崖"
+  },
+  {
+    "book": "第1冊",
+    "char": "攙",
+    "pinyin": "ㄔㄢ",
+    "phrase": "攙雜"
+  },
+  {
+    "book": "第1冊",
+    "char": "貲",
+    "pinyin": "ㄗ",
+    "phrase": "所費不貲"
+  },
+  {
+    "book": "第1冊",
+    "char": "齜",
+    "pinyin": "ㄗ",
+    "phrase": "齜牙咧嘴"
+  },
+  {
+    "book": "第1冊",
+    "char": "眥",
+    "pinyin": "ㄗˋ",
+    "phrase": "睚眥必報"
+  },
+  {
+    "book": "第1冊",
+    "char": "訾",
+    "pinyin": "ㄗˇ",
+    "phrase": "訾議"
+  },
+  {
+    "book": "第1冊",
+    "char": "疵",
+    "pinyin": "ㄘ",
+    "phrase": "吹毛求疵"
+  },
+  {
+    "book": "第2冊",
+    "char": "皴",
+    "pinyin": "ㄘㄨㄣ",
+    "phrase": "皴裂"
+  },
+  {
+    "book": "第2冊",
+    "char": "皴",
+    "pinyin": "ㄘㄨㄣ",
+    "phrase": "根根都麻皴著 (物體表面有皺褶)"
+  },
+  {
+    "book": "第2冊",
+    "char": "逡",
+    "pinyin": "ㄑㄩㄣ",
+    "phrase": "逡巡 (徘徊、往來行走)"
+  },
+  {
+    "book": "第2冊",
+    "char": "唆",
+    "pinyin": "ㄙㄨㄛ",
+    "phrase": "教唆"
+  },
+  {
+    "book": "第2冊",
+    "char": "悛",
+    "pinyin": "ㄑㄩㄢ",
+    "phrase": "怙惡不悛 (有過惡卻不肯悔改)"
+  },
+  {
+    "book": "第2冊",
+    "char": "竣",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "竣工"
+  },
+  {
+    "book": "第2冊",
+    "char": "砌",
+    "pinyin": "ㄑㄧˋ",
+    "phrase": "雕欄玉砌 (形容富麗華美的建築物)"
+  },
+  {
+    "book": "第2冊",
+    "char": "沏",
+    "pinyin": "ㄑㄧ",
+    "phrase": "沏茶"
+  },
+  {
+    "book": "第2冊",
+    "char": "毵毵",
+    "pinyin": "ㄙㄢ ㄙㄢ",
+    "phrase": "晴煙漠漠柳毵毵 (細長的樣子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "滲",
+    "pinyin": "ㄕㄣˋ",
+    "phrase": "滲入"
+  },
+  {
+    "book": "第2冊",
+    "char": "摻",
+    "pinyin": "ㄔㄢ",
+    "phrase": "摻雜混合"
+  },
+  {
+    "book": "第2冊",
+    "char": "參",
+    "pinyin": "ㄕㄣ",
+    "phrase": "動如參商 (比喻分別而無法相見)"
+  },
+  {
+    "book": "第2冊",
+    "char": "蕾",
+    "pinyin": "ㄌㄟˇ",
+    "phrase": "芭蕾舞"
+  },
+  {
+    "book": "第2冊",
+    "char": "擂",
+    "pinyin": "ㄌㄟˊ",
+    "phrase": "自吹自擂 (比喻自我宣傳吹噓)"
+  },
+  {
+    "book": "第2冊",
+    "char": "篙",
+    "pinyin": "ㄍㄠ",
+    "phrase": "船上的篙槳"
+  },
+  {
+    "book": "第2冊",
+    "char": "犒",
+    "pinyin": "ㄎㄠˋ",
+    "phrase": "犒賞軍士"
+  },
+  {
+    "book": "第2冊",
+    "char": "槁",
+    "pinyin": "ㄍㄠˇ",
+    "phrase": "槁木死灰 (喻心情極端消沉)"
+  },
+  {
+    "book": "第2冊",
+    "char": "縞",
+    "pinyin": "ㄍㄠˇ",
+    "phrase": "一身縞素"
+  },
+  {
+    "book": "第2冊",
+    "char": "嵩",
+    "pinyin": "ㄙㄨㄥ",
+    "phrase": "嵩壽 (高壽)"
+  },
+  {
+    "book": "第2冊",
+    "char": "戧",
+    "pinyin": "ㄑㄧㄤˋ",
+    "phrase": "捏絲戧金五彩大盒子"
+  },
+  {
+    "book": "第2冊",
+    "char": "蹌",
+    "pinyin": "ㄑㄧㄤˋ",
+    "phrase": "踉「蹌」而來"
+  },
+  {
+    "book": "第2冊",
+    "char": "瘡",
+    "pinyin": "ㄔㄨㄤ",
+    "phrase": "千瘡百孔"
+  },
+  {
+    "book": "第2冊",
+    "char": "愴",
+    "pinyin": "ㄔㄨㄤˋ",
+    "phrase": "淒愴"
+  },
+  {
+    "book": "第2冊",
+    "char": "傖",
+    "pinyin": "ㄘㄤ",
+    "phrase": "穿著寒傖(穿著寒酸窮困樣子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "贖",
+    "pinyin": "ㄕㄨˊ",
+    "phrase": "將功贖罪"
+  },
+  {
+    "book": "第2冊",
+    "char": "櫝",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "買櫝還珠 (比喻捨本逐末)"
+  },
+  {
+    "book": "第2冊",
+    "char": "牘",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "案牘勞形 (形容因文書工作繁重而疲憊不堪)"
+  },
+  {
+    "book": "第2冊",
+    "char": "犢",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "舐犢情深 (比喻父母疼愛子女之深情)"
+  },
+  {
+    "book": "第2冊",
+    "char": "竇",
+    "pinyin": "ㄉㄡˋ",
+    "phrase": "情竇初開 (初通情愛的感覺)"
+  },
+  {
+    "book": "第2冊",
+    "char": "黷",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "窮兵黷武 (恣意動用兵力，發動戰爭)"
+  },
+  {
+    "book": "第2冊",
+    "char": "咆",
+    "pinyin": "ㄆㄠˊ",
+    "phrase": "咆哮"
+  },
+  {
+    "book": "第2冊",
+    "char": "刨",
+    "pinyin": "ㄅㄠˋ",
+    "phrase": "刨冰"
+  },
+  {
+    "book": "第2冊",
+    "char": "枹",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "枹鼓相應 (喻極力響應，緊密配合)"
+  },
+  {
+    "book": "第2冊",
+    "char": "匏",
+    "pinyin": "ㄆㄠˊ",
+    "phrase": "匏瓜空懸 (比喻有才能的人卻不為世所用)"
+  },
+  {
+    "book": "第2冊",
+    "char": "庖",
+    "pinyin": "ㄆㄠˊ",
+    "phrase": "越俎代庖 (比喻踰越自己的職分而代人做事)"
+  },
+  {
+    "book": "第2冊",
+    "char": "鮑",
+    "pinyin": "ㄅㄠˋ",
+    "phrase": "鮑魚之肆 (比喻臭穢的地方、惡劣的環境或小人聚集的場所)"
+  },
+  {
+    "book": "第2冊",
+    "char": "炮",
+    "pinyin": "ㄆㄠˊ",
+    "phrase": "如法炮製 (多指依照往例或現有的方法辦事)"
+  },
+  {
+    "book": "第2冊",
+    "char": "峻",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "崇山峻嶺"
+  },
+  {
+    "book": "第2冊",
+    "char": "峻",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "嚴刑峻法:"
+  },
+  {
+    "book": "第2冊",
+    "char": "浚",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "疏浚:(疏通水道)"
+  },
+  {
+    "book": "第2冊",
+    "char": "寥",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "寂寥"
+  },
+  {
+    "book": "第2冊",
+    "char": "寥",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "寥寥可數"
+  },
+  {
+    "book": "第2冊",
+    "char": "綢繆",
+    "pinyin": "ㄔㄡˊ ㄇㄡˊ",
+    "phrase": "未雨綢繆"
+  },
+  {
+    "book": "第2冊",
+    "char": "戮",
+    "pinyin": "ㄌㄨˋ",
+    "phrase": "殺戮"
+  },
+  {
+    "book": "第2冊",
+    "char": "謬",
+    "pinyin": "ㄇㄧㄡˋ",
+    "phrase": "荒謬"
+  },
+  {
+    "book": "第2冊",
+    "char": "蓼",
+    "pinyin": "ㄌㄧㄠˇ",
+    "phrase": "蓼澈一帶"
+  },
+  {
+    "book": "第2冊",
+    "char": "舂",
+    "pinyin": "ㄔㄨㄥ",
+    "phrase": "舂米 (用杵臼去除穀物的皮殼)"
+  },
+  {
+    "book": "第2冊",
+    "char": "鏑",
+    "pinyin": "ㄉㄧˊ",
+    "phrase": "鳴鏑"
+  },
+  {
+    "book": "第2冊",
+    "char": "樁",
+    "pinyin": "ㄓㄨㄤ",
+    "phrase": "打樁 (插在土中的木棒或石柱)"
+  },
+  {
+    "book": "第2冊",
+    "char": "謫",
+    "pinyin": "ㄓㄜˊ",
+    "phrase": "天上謫仙人"
+  },
+  {
+    "book": "第2冊",
+    "char": "椿",
+    "pinyin": "ㄔㄨㄣ",
+    "phrase": "椿萱並茂 (喻父母都健在)"
+  },
+  {
+    "book": "第2冊",
+    "char": "嫡",
+    "pinyin": "ㄉㄧˊ",
+    "phrase": "嫡庶之分"
+  },
+  {
+    "book": "第2冊",
+    "char": "杌",
+    "pinyin": "ㄨˋ",
+    "phrase": "檮杌 (古代楚國的史書)"
+  },
+  {
+    "book": "第2冊",
+    "char": "檮",
+    "pinyin": "ㄊㄠˊ",
+    "phrase": "檮杌 (古代楚國的史書)"
+  },
+  {
+    "book": "第2冊",
+    "char": "疇",
+    "pinyin": "ㄔㄡˊ",
+    "phrase": "疇昔"
+  },
+  {
+    "book": "第2冊",
+    "char": "霏",
+    "pinyin": "ㄈㄟ",
+    "phrase": "煙霏露結"
+  },
+  {
+    "book": "第2冊",
+    "char": "搗",
+    "pinyin": "ㄉㄠˇ",
+    "phrase": "搗米"
+  },
+  {
+    "book": "第2冊",
+    "char": "腓",
+    "pinyin": "ㄈㄟˊ",
+    "phrase": "腓骨 (腿部外側的骨頭)"
+  },
+  {
+    "book": "第2冊",
+    "char": "躊",
+    "pinyin": "ㄔㄡˊ",
+    "phrase": "躊躇"
+  },
+  {
+    "book": "第2冊",
+    "char": "俳",
+    "pinyin": "ㄆㄞˊ",
+    "phrase": "俳謔 (詼諧、開玩笑)"
+  },
+  {
+    "book": "第2冊",
+    "char": "濤",
+    "pinyin": "ㄊㄠˊ",
+    "phrase": "驚濤駭浪"
+  },
+  {
+    "book": "第2冊",
+    "char": "蜚",
+    "pinyin": "ㄈㄟ",
+    "phrase": "蜚聲中外 (揚名國內外)"
+  },
+  {
+    "book": "第2冊",
+    "char": "菲",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "妄自菲薄"
+  },
+  {
+    "book": "第2冊",
+    "char": "殂",
+    "pinyin": "ㄘㄨˊ",
+    "phrase": "中道崩殂"
+  },
+  {
+    "book": "第2冊",
+    "char": "緋",
+    "pinyin": "ㄈㄟ",
+    "phrase": "緋聞"
+  },
+  {
+    "book": "第2冊",
+    "char": "蛆",
+    "pinyin": "ㄑㄩ",
+    "phrase": "腐敗生蛆"
+  },
+  {
+    "book": "第2冊",
+    "char": "俎",
+    "pinyin": "ㄗㄨˇ",
+    "phrase": "越俎代庖 (踰越自己職分而代人做事)"
+  },
+  {
+    "book": "第2冊",
+    "char": "齟",
+    "pinyin": "ㄐㄩˇ",
+    "phrase": "齟齬(上下排牙齒參差不齊。多用來比喻彼此意見不合）"
+  },
+  {
+    "book": "第2冊",
+    "char": "齬",
+    "pinyin": "ㄩˇ",
+    "phrase": "齟齬(上下排牙齒參差不齊。多用來比喻彼此意見不合）"
+  },
+  {
+    "book": "第2冊",
+    "char": "莩",
+    "pinyin": "ㄆㄧㄠˇ",
+    "phrase": "塗有餓莩而不知發"
+  },
+  {
+    "book": "第2冊",
+    "char": "數",
+    "pinyin": "ㄘㄨˋ",
+    "phrase": "數罟不入洿池"
+  },
+  {
+    "book": "第2冊",
+    "char": "浮",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "心浮氣躁"
+  },
+  {
+    "book": "第2冊",
+    "char": "數",
+    "pinyin": "ㄕㄨˋ",
+    "phrase": "不計其數"
+  },
+  {
+    "book": "第2冊",
+    "char": "俘",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "俘虜"
+  },
+  {
+    "book": "第2冊",
+    "char": "數",
+    "pinyin": "ㄕㄨˇ",
+    "phrase": "不可勝數"
+  },
+  {
+    "book": "第2冊",
+    "char": "孵",
+    "pinyin": "ㄈㄨ",
+    "phrase": "孵蛋"
+  },
+  {
+    "book": "第2冊",
+    "char": "數",
+    "pinyin": "ㄕㄨㄛˋ",
+    "phrase": "石簣數為余言 (多次)"
+  },
+  {
+    "book": "第2冊",
+    "char": "偈",
+    "pinyin": "ㄐㄧˋ",
+    "phrase": "偈言"
+  },
+  {
+    "book": "第2冊",
+    "char": "褐",
+    "pinyin": "ㄏㄜˊ",
+    "phrase": "被褐懷珠 (比喻有真才實學而身處寒微的人)"
+  },
+  {
+    "book": "第2冊",
+    "char": "喝",
+    "pinyin": "ㄏㄜˋ",
+    "phrase": "籠街喝道 (形容車駕儀從之盛)"
+  },
+  {
+    "book": "第2冊",
+    "char": "謁",
+    "pinyin": "ㄧㄝˋ",
+    "phrase": "謁見總統"
+  },
+  {
+    "book": "第2冊",
+    "char": "愒",
+    "pinyin": "ㄎㄞˋ",
+    "phrase": "玩日愒歲 (怠惰偷安，虛度光陰)"
+  },
+  {
+    "book": "第2冊",
+    "char": "遏",
+    "pinyin": "ㄜˋ",
+    "phrase": "怒不可遏"
+  },
+  {
+    "book": "第2冊",
+    "char": "羯",
+    "pinyin": "ㄐㄧㄝˊ",
+    "phrase": "摩羯座"
+  },
+  {
+    "book": "第2冊",
+    "char": "葛",
+    "pinyin": "ㄍㄜˊ",
+    "phrase": "杯葛提案"
+  },
+  {
+    "book": "第2冊",
+    "char": "褥",
+    "pinyin": "ㄖㄨˋ",
+    "phrase": "床褥"
+  },
+  {
+    "book": "第2冊",
+    "char": "霰",
+    "pinyin": "ㄒㄧㄢˋ",
+    "phrase": "雪霰"
+  },
+  {
+    "book": "第2冊",
+    "char": "縟",
+    "pinyin": "ㄖㄨˋ",
+    "phrase": "繁文縟節"
+  },
+  {
+    "book": "第2冊",
+    "char": "霎",
+    "pinyin": "ㄕㄚˋ",
+    "phrase": "霎時 (極短的時間)"
+  },
+  {
+    "book": "第2冊",
+    "char": "溽",
+    "pinyin": "ㄖㄨˋ",
+    "phrase": "溽暑 (潮溼)"
+  },
+  {
+    "book": "第2冊",
+    "char": "雩",
+    "pinyin": "ㄩˊ",
+    "phrase": "浴乎沂，風乎舞雩"
+  },
+  {
+    "book": "第2冊",
+    "char": "耨",
+    "pinyin": "ㄋㄡˋ",
+    "phrase": "深耕易耨 (除草)"
+  },
+  {
+    "book": "第2冊",
+    "char": "崢",
+    "pinyin": "ㄓㄥ",
+    "phrase": "岩角崢嶸"
+  },
+  {
+    "book": "第2冊",
+    "char": "雹",
+    "pinyin": "ㄅㄠˊ",
+    "phrase": "下冰雹"
+  },
+  {
+    "book": "第2冊",
+    "char": "箏",
+    "pinyin": "ㄓㄥ",
+    "phrase": "彈箏搏髀"
+  },
+  {
+    "book": "第2冊",
+    "char": "錚",
+    "pinyin": "ㄓㄥ",
+    "phrase": "錚錚鏦鏦"
+  },
+  {
+    "book": "第2冊",
+    "char": "猙",
+    "pinyin": "ㄓㄥ",
+    "phrase": "面目猙獰"
+  },
+  {
+    "book": "第2冊",
+    "char": "掙",
+    "pinyin": "ㄓㄥˋ",
+    "phrase": "掙些銀子"
+  },
+  {
+    "book": "第2冊",
+    "char": "盞",
+    "pinyin": "ㄓㄢˇ",
+    "phrase": "洗盞更酌 (清洗酒杯)"
+  },
+  {
+    "book": "第2冊",
+    "char": "嶙峋",
+    "pinyin": "ㄌㄧㄣˊ ㄒㄩㄣˊ",
+    "phrase": "肌理嶙峋"
+  },
+  {
+    "book": "第2冊",
+    "char": "攫",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "攫取"
+  },
+  {
+    "book": "第2冊",
+    "char": "粼粼",
+    "pinyin": "ㄌㄧㄣˊ ㄌㄧㄣˊ",
+    "phrase": "波光粼粼 (波光閃動的樣子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "矍",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "矍然 (吃驚而睜大眼睛)"
+  },
+  {
+    "book": "第2冊",
+    "char": "岬",
+    "pinyin": "ㄐㄧㄚˇ",
+    "phrase": "海岬"
+  },
+  {
+    "book": "第2冊",
+    "char": "戄",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "戄然(驚惶的樣子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "匣",
+    "pinyin": "ㄒㄧㄚˊ",
+    "phrase": "鏡匣"
+  },
+  {
+    "book": "第2冊",
+    "char": "躩",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "躩步(腳步迅速)"
+  },
+  {
+    "book": "第2冊",
+    "char": "舺",
+    "pinyin": "ㄐㄧㄚˇ",
+    "phrase": "艋舺"
+  },
+  {
+    "book": "第2冊",
+    "char": "瞿",
+    "pinyin": "ㄐㄩˋ",
+    "phrase": "瞿然(通「懼」，驚懼、害怕)"
+  },
+  {
+    "book": "第2冊",
+    "char": "閘",
+    "pinyin": "ㄓㄚˊ",
+    "phrase": "水閘"
+  },
+  {
+    "book": "第2冊",
+    "char": "狎",
+    "pinyin": "ㄒㄧㄚˊ",
+    "phrase": "狎侮 (惡作劇、戲弄)"
+  },
+  {
+    "book": "第2冊",
+    "char": "棧",
+    "pinyin": "ㄓㄢˋ",
+    "phrase": "木屋旅棧"
+  },
+  {
+    "book": "第2冊",
+    "char": "餞",
+    "pinyin": "ㄐㄧㄢˋ",
+    "phrase": "餞別 (設酒食為人送行)"
+  },
+  {
+    "book": "第2冊",
+    "char": "箋",
+    "pinyin": "ㄐㄧㄢ",
+    "phrase": "處方箋"
+  },
+  {
+    "book": "第2冊",
+    "char": "耽",
+    "pinyin": "ㄉㄢ",
+    "phrase": "耽耽 (喝酒喝得很快樂。引申有安樂)"
+  },
+  {
+    "book": "第2冊",
+    "char": "耽",
+    "pinyin": "ㄉㄢ",
+    "phrase": "耽擱"
+  },
+  {
+    "book": "第2冊",
+    "char": "耽",
+    "pinyin": "ㄉㄢ",
+    "phrase": "耽溺"
+  },
+  {
+    "book": "第2冊",
+    "char": "耽",
+    "pinyin": "ㄉㄢ",
+    "phrase": "虎視眈眈"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第2冊",
+    "char": "簣",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "功虧一簣 (盛土的竹器)"
+  },
+  {
+    "book": "第2冊",
+    "char": "潰",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "潰不成軍 (敗逃)"
+  },
+  {
+    "book": "第2冊",
+    "char": "匱",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "物資匱乏 (缺乏)"
+  },
+  {
+    "book": "第2冊",
+    "char": "饋",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "饋贈物品 (贈送)"
+  },
+  {
+    "book": "第2冊",
+    "char": "聵",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "振聾發聵 (耳聾)"
+  },
+  {
+    "book": "第2冊",
+    "char": "冶",
+    "pinyin": "ㄧㄝˇ",
+    "phrase": "陶冶性情"
+  },
+  {
+    "book": "第2冊",
+    "char": "治",
+    "pinyin": "ㄓˋ",
+    "phrase": "長治久安 (國家長期安定)"
+  },
+  {
+    "book": "第2冊",
+    "char": "殆",
+    "pinyin": "ㄉㄞˋ",
+    "phrase": "消滅殆盡 (差不多)"
+  },
+  {
+    "book": "第2冊",
+    "char": "矍",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "步履矍鑠 (腳步迅速)"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第2冊",
+    "char": "剜",
+    "pinyin": "ㄨㄢ",
+    "phrase": "剜肉補瘡 (用有害的方法解決眼前急迫的問題，而不顧後果)"
+  },
+  {
+    "book": "第2冊",
+    "char": "麴",
+    "pinyin": "ㄑㄩˊ",
+    "phrase": "紅麴酒"
+  },
+  {
+    "book": "第2冊",
+    "char": "掬",
+    "pinyin": "ㄐㄩˊ",
+    "phrase": "笑容可掬"
+  },
+  {
+    "book": "第2冊",
+    "char": "鞠",
+    "pinyin": "ㄐㄩˊ",
+    "phrase": "彎腰鞠躬"
+  },
+  {
+    "book": "第2冊",
+    "char": "灼",
+    "pinyin": "ㄓㄨㄛˊ",
+    "phrase": "真知灼見"
+  },
+  {
+    "book": "第2冊",
+    "char": "酌",
+    "pinyin": "ㄓㄨㄛˊ",
+    "phrase": "仔細斟酌"
+  },
+  {
+    "book": "第2冊",
+    "char": "杓",
+    "pinyin": "ㄅㄧㄠ",
+    "phrase": "斗杓東指 (春季來臨)"
+  },
+  {
+    "book": "第2冊",
+    "char": "貽",
+    "pinyin": "ㄧˊ",
+    "phrase": "貽笑大方 (指被識見廣博的人所取笑)"
+  },
+  {
+    "book": "第2冊",
+    "char": "笞",
+    "pinyin": "ㄔ",
+    "phrase": "鞭笞天下 (鞭策驅使天下百姓)"
+  },
+  {
+    "book": "第2冊",
+    "char": "腕",
+    "pinyin": "ㄨㄢˋ",
+    "phrase": "手腕"
+  },
+  {
+    "book": "第2冊",
+    "char": "惋",
+    "pinyin": "ㄨㄢˋ",
+    "phrase": "嘆惋"
+  },
+  {
+    "book": "第2冊",
+    "char": "蜿",
+    "pinyin": "ㄨㄢ",
+    "phrase": "蜿蜒"
+  },
+  {
+    "book": "第2冊",
+    "char": "邃",
+    "pinyin": "ㄙㄨㄟˋ",
+    "phrase": "深邃"
+  },
+  {
+    "book": "第2冊",
+    "char": "遂",
+    "pinyin": "ㄙㄨㄟˋ",
+    "phrase": "諸事順遂"
+  },
+  {
+    "book": "第2冊",
+    "char": "隧",
+    "pinyin": "ㄙㄨㄟˋ",
+    "phrase": "隧道"
+  },
+  {
+    "book": "第2冊",
+    "char": "燧",
+    "pinyin": "ㄙㄨㄟˋ",
+    "phrase": "鑽燧取火"
+  },
+  {
+    "book": "第2冊",
+    "char": "腆",
+    "pinyin": "ㄊㄧㄢˇ",
+    "phrase": "倨傲鮮腆 (傲慢無禮)"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第2冊",
+    "char": "忝",
+    "pinyin": "ㄊㄧㄢˇ",
+    "phrase": "無忝所生 (對得起父母)"
+  },
+  {
+    "book": "第2冊",
+    "char": "遑",
+    "pinyin": "ㄏㄨㄤˊ",
+    "phrase": "不遑多讓 (無暇多所謙讓)"
+  },
+  {
+    "book": "第2冊",
+    "char": "舔",
+    "pinyin": "ㄊㄧㄢˇ",
+    "phrase": "刀頭舔血 (極危險行為)"
+  },
+  {
+    "book": "第2冊",
+    "char": "扉",
+    "pinyin": "ㄈㄟ",
+    "phrase": "你底心是小小的窗扉緊掩"
+  },
+  {
+    "book": "第2冊",
+    "char": "殄",
+    "pinyin": "ㄊㄧㄢˇ",
+    "phrase": "暴殄天物 (比喻蹭蹋物力，不知珍惜)"
+  },
+  {
+    "book": "第2冊",
+    "char": "蜚",
+    "pinyin": "ㄈㄟ",
+    "phrase": "流言蜚語"
+  },
+  {
+    "book": "第2冊",
+    "char": "砒",
+    "pinyin": "ㄆㄧ",
+    "phrase": "砒霜"
+  },
+  {
+    "book": "第2冊",
+    "char": "毗",
+    "pinyin": "ㄆㄧˊ",
+    "phrase": "毗鄰"
+  },
+  {
+    "book": "第2冊",
+    "char": "仳",
+    "pinyin": "ㄆㄧˇ",
+    "phrase": "仳離"
+  },
+  {
+    "book": "第2冊",
+    "char": "妣",
+    "pinyin": "ㄅㄧˇ",
+    "phrase": "先妣"
+  },
+  {
+    "book": "第2冊",
+    "char": "禳",
+    "pinyin": "ㄖㄤˊ",
+    "phrase": "求福禳災 (求神靈降福)"
+  },
+  {
+    "book": "第2冊",
+    "char": "惶",
+    "pinyin": "ㄏㄨㄤˊ",
+    "phrase": "惶恐不安 (心中驚慌害怕)"
+  },
+  {
+    "book": "第2冊",
+    "char": "隍",
+    "pinyin": "ㄏㄨㄤˊ",
+    "phrase": "城隍廟"
+  },
+  {
+    "book": "第2冊",
+    "char": "穰",
+    "pinyin": "ㄖㄤˊ",
+    "phrase": "歲有凶穰 (穀物每年有歉收與豐熟之時)"
+  },
+  {
+    "book": "第2冊",
+    "char": "攘",
+    "pinyin": "ㄖㄤˊ",
+    "phrase": "熙熙攘攘 (形容人來人往、熱鬧紛雜的樣子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "苴",
+    "pinyin": "ㄐㄩ",
+    "phrase": "《穰苴》"
+  },
+  {
+    "book": "第2冊",
+    "char": "疽",
+    "pinyin": "ㄐㄩ",
+    "phrase": "癰疽 (常見的毒瘡)"
+  },
+  {
+    "book": "第2冊",
+    "char": "狙",
+    "pinyin": "ㄐㄩ",
+    "phrase": "狙擊"
+  },
+  {
+    "book": "第2冊",
+    "char": "徨",
+    "pinyin": "ㄏㄨㄤˊ",
+    "phrase": "徬徨不安"
+  },
+  {
+    "book": "第2冊",
+    "char": "潢",
+    "pinyin": "ㄏㄨㄤˊ",
+    "phrase": "客廳裝潢"
+  },
+  {
+    "book": "第2冊",
+    "char": "煌",
+    "pinyin": "ㄏㄨㄤˊ",
+    "phrase": "金碧輝煌 (建築華麗光彩)"
+  },
+  {
+    "book": "第2冊",
+    "char": "孺",
+    "pinyin": "ㄖㄨˊ",
+    "phrase": "老弱婦孺"
+  },
+  {
+    "book": "第2冊",
+    "char": "儒",
+    "pinyin": "ㄖㄨˊ",
+    "phrase": "溫文儒雅"
+  },
+  {
+    "book": "第2冊",
+    "char": "濡",
+    "pinyin": "ㄖㄨˊ",
+    "phrase": "耳濡目染 (因經常眼見與耳聞而受影響)"
+  },
+  {
+    "book": "第2冊",
+    "char": "嚅",
+    "pinyin": "ㄖㄨˊ",
+    "phrase": "說話囁嚅 (說話吞吞吐吐，欲言又止的樣子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "蠕",
+    "pinyin": "ㄖㄨˊ",
+    "phrase": "腸胃蠕動"
+  },
+  {
+    "book": "第2冊",
+    "char": "陛",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "皇帝陛下"
+  },
+  {
+    "book": "第2冊",
+    "char": "弊",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "益州疲弊"
+  },
+  {
+    "book": "第2冊",
+    "char": "蔽",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "衣不蔽體"
+  },
+  {
+    "book": "第2冊",
+    "char": "蜉",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "蚍蜉撼樹 (比喻不自量力)"
+  },
+  {
+    "book": "第2冊",
+    "char": "裨",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "裨補缺漏"
+  },
+  {
+    "book": "第2冊",
+    "char": "髀",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "髀肉復生 (比喻或自嘆久處安逸，壯志未酬，虛度光陰)"
+  },
+  {
+    "book": "第2冊",
+    "char": "睥",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "睥睨 (表示輕視)"
+  },
+  {
+    "book": "第2冊",
+    "char": "俘",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "俘擄"
+  },
+  {
+    "book": "第2冊",
+    "char": "曳",
+    "pinyin": "ㄧˋ",
+    "phrase": "棄甲曳兵而走"
+  },
+  {
+    "book": "第2冊",
+    "char": "拽",
+    "pinyin": "ㄓㄨㄞˋ",
+    "phrase": "生拉硬拽"
+  },
+  {
+    "book": "第2冊",
+    "char": "洩",
+    "pinyin": "ㄒㄧㄝˋ",
+    "phrase": "天機不可洩漏"
+  },
+  {
+    "book": "第2冊",
+    "char": "敝",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "視若敝屣 (瞧不起)"
+  },
+  {
+    "book": "第2冊",
+    "char": "滕",
+    "pinyin": "ㄊㄥˊ",
+    "phrase": "滕子京謫守巴陵郡"
+  },
+  {
+    "book": "第2冊",
+    "char": "菲",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "不宜妄自菲薄，引喻失義"
+  },
+  {
+    "book": "第2冊",
+    "char": "謄",
+    "pinyin": "ㄊㄥˊ",
+    "phrase": "戶籍謄本"
+  },
+  {
+    "book": "第2冊",
+    "char": "霏",
+    "pinyin": "ㄈㄟ",
+    "phrase": "日出而林霏開"
+  },
+  {
+    "book": "第2冊",
+    "char": "騰",
+    "pinyin": "ㄊㄥˊ",
+    "phrase": "奔騰澎湃"
+  },
+  {
+    "book": "第2冊",
+    "char": "斐",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "斐然成章"
+  },
+  {
+    "book": "第2冊",
+    "char": "藤",
+    "pinyin": "ㄊㄥˊ",
+    "phrase": "牽絲攀藤 (糾纏不清)"
+  },
+  {
+    "book": "第2冊",
+    "char": "誹",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "誹謗"
+  },
+  {
+    "book": "第2冊",
+    "char": "讒",
+    "pinyin": "ㄔㄢˊ",
+    "phrase": "憂讒畏譏"
+  },
+  {
+    "book": "第2冊",
+    "char": "纏",
+    "pinyin": "ㄔㄢˊ",
+    "phrase": "病榻纏綿"
+  },
+  {
+    "book": "第2冊",
+    "char": "詰",
+    "pinyin": "ㄐㄧㄝˊ",
+    "phrase": "反詰修辭"
+  },
+  {
+    "book": "第2冊",
+    "char": "饞",
+    "pinyin": "ㄔㄢˊ",
+    "phrase": "饞涎欲滴"
+  },
+  {
+    "book": "第2冊",
+    "char": "髻",
+    "pinyin": "ㄐㄧˋ",
+    "phrase": "廣袖高髻 (風俗奢蕩豪華)"
+  },
+  {
+    "book": "第2冊",
+    "char": "鑱",
+    "pinyin": "ㄔㄢˊ",
+    "phrase": "手長鑱，為除不潔者"
+  },
+  {
+    "book": "第2冊",
+    "char": "鱗",
+    "pinyin": "ㄌㄧㄣˊ",
+    "phrase": "錦鱗游泳"
+  },
+  {
+    "book": "第2冊",
+    "char": "麟",
+    "pinyin": "ㄌㄧㄣˊ",
+    "phrase": "鳳毛麟角"
+  },
+  {
+    "book": "第2冊",
+    "char": "粼",
+    "pinyin": "ㄌㄧㄣˊ",
+    "phrase": "波光粼粼"
+  },
+  {
+    "book": "第2冊",
+    "char": "遴",
+    "pinyin": "ㄌㄧㄣˊ",
+    "phrase": "遴選人才 (謹慎選擇)"
+  },
+  {
+    "book": "第2冊",
+    "char": "暝",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "雲歸而巖穴暝"
+  },
+  {
+    "book": "第2冊",
+    "char": "冥",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "冥頑不靈"
+  },
+  {
+    "book": "第2冊",
+    "char": "瞑",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "死不瞑目"
+  },
+  {
+    "book": "第2冊",
+    "char": "螟",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "螟蛉子 (可代指養子)"
+  },
+  {
+    "book": "第2冊",
+    "char": "酩",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "酩酊大醉"
+  },
+  {
+    "book": "第2冊",
+    "char": "鳴",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "鐘鳴鼎食"
+  },
+  {
+    "book": "第2冊",
+    "char": "徉",
+    "pinyin": "ㄧㄤˊ",
+    "phrase": "徜徉"
+  },
+  {
+    "book": "第2冊",
+    "char": "佯",
+    "pinyin": "ㄧㄤˊ",
+    "phrase": "被髮佯狂"
+  },
+  {
+    "book": "第2冊",
+    "char": "烊",
+    "pinyin": "ㄧㄤˊ",
+    "phrase": "商店打烊"
+  },
+  {
+    "book": "第2冊",
+    "char": "詳",
+    "pinyin": "ㄒㄧㄤˊ",
+    "phrase": "安詳"
+  },
+  {
+    "book": "第2冊",
+    "char": "攣",
+    "pinyin": "ㄌㄨㄢˊ",
+    "phrase": "肌肉痙攣"
+  },
+  {
+    "book": "第2冊",
+    "char": "孿",
+    "pinyin": "ㄌㄨㄢˊ",
+    "phrase": "孿生兄弟雙胞胎。"
+  },
+  {
+    "book": "第2冊",
+    "char": "鑾",
+    "pinyin": "ㄌㄨㄢˊ",
+    "phrase": "鵝鑾鼻"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "ㄌㄨㄢˊ",
+    "phrase": "嘗鼎一臠(見微知著、因小 見大)"
+  },
+  {
+    "book": "第2冊",
+    "char": "鸞",
+    "pinyin": "ㄌㄨㄢˊ",
+    "phrase": "鸞鳳和鳴 (祝賀新婚)"
+  },
+  {
+    "book": "第2冊",
+    "char": "輟",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "創作不輟"
+  },
+  {
+    "book": "第2冊",
+    "char": "啜",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "低聲啜泣"
+  },
+  {
+    "book": "第2冊",
+    "char": "銘",
+    "pinyin": "ㄇㄧㄥˊ",
+    "phrase": "銘感五內"
+  },
+  {
+    "book": "第2冊",
+    "char": "惙",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "憂心惙惙"
+  },
+  {
+    "book": "第2冊",
+    "char": "拮",
+    "pinyin": "ㄐㄧㄝˊ",
+    "phrase": "生活拮据"
+  },
+  {
+    "book": "第2冊",
+    "char": "掇",
+    "pinyin": "ㄉㄨㄛˊ",
+    "phrase": "掇拾史料"
+  },
+  {
+    "book": "第2冊",
+    "char": "擷",
+    "pinyin": "ㄐㄧㄝˊ",
+    "phrase": "採擷花木"
+  },
+  {
+    "book": "第2冊",
+    "char": "綴",
+    "pinyin": "ㄓㄨㄟˋ",
+    "phrase": "點綴裝飾"
+  },
+  {
+    "book": "第3冊",
+    "char": "葺",
+    "pinyin": "ㄑㄧˋ",
+    "phrase": "余稍為修葺，使不上漏"
+  },
+  {
+    "book": "第3冊",
+    "char": "焙",
+    "pinyin": "ㄅㄟˋ",
+    "phrase": "烘焙"
+  },
+  {
+    "book": "第3冊",
+    "char": "緝",
+    "pinyin": "ㄑㄧˋ",
+    "phrase": "查緝酒駕"
+  },
+  {
+    "book": "第3冊",
+    "char": "培",
+    "pinyin": "ㄆㄟˊ",
+    "phrase": "培養"
+  },
+  {
+    "book": "第3冊",
+    "char": "輯",
+    "pinyin": "ㄐㄧˊ",
+    "phrase": "邏輯"
+  },
+  {
+    "book": "第3冊",
+    "char": "僻",
+    "pinyin": "ㄆㄧˋ",
+    "phrase": "個性孤僻"
+  },
+  {
+    "book": "第3冊",
+    "char": "揖",
+    "pinyin": "ㄧ",
+    "phrase": "打躬作揖"
+  },
+  {
+    "book": "第3冊",
+    "char": "避",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "避重就輕"
+  },
+  {
+    "book": "第3冊",
+    "char": "楫",
+    "pinyin": "ㄐㄧˊ",
+    "phrase": "檣傾楫摧"
+  },
+  {
+    "book": "第3冊",
+    "char": "癖",
+    "pinyin": "ㄆㄧˇ",
+    "phrase": "癖好"
+  },
+  {
+    "book": "第3冊",
+    "char": "逡",
+    "pinyin": "ㄑㄩㄣ",
+    "phrase": "俛首驟入，勿逡巡"
+  },
+  {
+    "book": "第3冊",
+    "char": "詡",
+    "pinyin": "ㄒㄩˇ",
+    "phrase": "自詡遇仙"
+  },
+  {
+    "book": "第3冊",
+    "char": "浚",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "疏浚"
+  },
+  {
+    "book": "第3冊",
+    "char": "栩栩",
+    "pinyin": "ㄒㄩˇ ㄒㄩˇ",
+    "phrase": "栩栩如生"
+  },
+  {
+    "book": "第3冊",
+    "char": "竣",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "竣工"
+  },
+  {
+    "book": "第3冊",
+    "char": "翊",
+    "pinyin": "ㄧˋ",
+    "phrase": "輔翊 (輔助)"
+  },
+  {
+    "book": "第3冊",
+    "char": "梭",
+    "pinyin": "ㄙㄨㄛ",
+    "phrase": "歲月如梭"
+  },
+  {
+    "book": "第3冊",
+    "char": "卒",
+    "pinyin": "ㄗㄨˊ",
+    "phrase": "身先士卒"
+  },
+  {
+    "book": "第3冊",
+    "char": "踣",
+    "pinyin": "ㄅㄛˊ",
+    "phrase": "頭觸硬壁，驀然而踣"
+  },
+  {
+    "book": "第3冊",
+    "char": "粹",
+    "pinyin": "ㄘㄨㄟˋ",
+    "phrase": "純粹"
+  },
+  {
+    "book": "第3冊",
+    "char": "猝",
+    "pinyin": "ㄘㄨˋ",
+    "phrase": "猝不及防 (忽然發生，來不及防備)"
+  },
+  {
+    "book": "第3冊",
+    "char": "檣",
+    "pinyin": "ㄑㄧㄤˊ",
+    "phrase": "危檣獨夜舟"
+  },
+  {
+    "book": "第3冊",
+    "char": "讖",
+    "pinyin": "ㄔㄣˋ",
+    "phrase": "一語成讖"
+  },
+  {
+    "book": "第3冊",
+    "char": "嗇",
+    "pinyin": "ㄙㄜˋ",
+    "phrase": "個性吝嗇"
+  },
+  {
+    "book": "第3冊",
+    "char": "佚",
+    "pinyin": "ㄧˋ",
+    "phrase": "原書亡佚 (散失)"
+  },
+  {
+    "book": "第3冊",
+    "char": "纖",
+    "pinyin": "ㄒㄧㄢ",
+    "phrase": "纖維"
+  },
+  {
+    "book": "第3冊",
+    "char": "迭",
+    "pinyin": "ㄉㄧㄝˊ",
+    "phrase": "叫苦不迭 (止)"
+  },
+  {
+    "book": "第3冊",
+    "char": "懺",
+    "pinyin": "ㄔㄢˋ",
+    "phrase": "懺悔"
+  },
+  {
+    "book": "第3冊",
+    "char": "軼",
+    "pinyin": "ㄧˋ",
+    "phrase": "軼聞 (不見於正式記載的雜談瑣聞)"
+  },
+  {
+    "book": "第3冊",
+    "char": "脾",
+    "pinyin": "ㄆㄧˊ",
+    "phrase": "不合脾胃"
+  },
+  {
+    "book": "第3冊",
+    "char": "裨",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "裨補闕漏 (有助於缺失的改善)"
+  },
+  {
+    "book": "第3冊",
+    "char": "睥",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "睥睨群雄 (斜眼看人，表示傲然輕視)"
+  },
+  {
+    "book": "第3冊",
+    "char": "碑",
+    "pinyin": "ㄅㄟ",
+    "phrase": "里程碑 (指具有重大意義、可以作為標誌的事件)"
+  },
+  {
+    "book": "第3冊",
+    "char": "糴",
+    "pinyin": "ㄉㄧˊ",
+    "phrase": "就先糴些米"
+  },
+  {
+    "book": "第3冊",
+    "char": "擢",
+    "pinyin": "ㄓㄨㄛˊ",
+    "phrase": "拔擢後進 (提拔、升用)"
+  },
+  {
+    "book": "第3冊",
+    "char": "躍",
+    "pinyin": "ㄩㄝˋ",
+    "phrase": "鳶飛魚躍 (萬物任其天性而動，各得其所)"
+  },
+  {
+    "book": "第3冊",
+    "char": "濯",
+    "pinyin": "ㄓㄨㄛˊ",
+    "phrase": "濯纓彈冠 (比喻準備出仕)"
+  },
+  {
+    "book": "第3冊",
+    "char": "贖",
+    "pinyin": "ㄕㄨˊ",
+    "phrase": "贖取金花"
+  },
+  {
+    "book": "第3冊",
+    "char": "櫝",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "買櫝還珠 (捨本逐末，取捨失當)"
+  },
+  {
+    "book": "第3冊",
+    "char": "牘",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "連篇累牘 (篇幅過多，文詞冗長)"
+  },
+  {
+    "book": "第3冊",
+    "char": "瀆",
+    "pinyin": "ㄉㄨˊ",
+    "phrase": "官吏瀆職 (有虧職守)"
+  },
+  {
+    "book": "第3冊",
+    "char": "闠",
+    "pinyin": "ㄏㄨㄟˋ",
+    "phrase": "闤闠"
+  },
+  {
+    "book": "第3冊",
+    "char": "聵",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "昏聵(愚昧糊塗，不明事理):"
+  },
+  {
+    "book": "第3冊",
+    "char": "匱",
+    "pinyin": "ㄎㄨㄟˋ",
+    "phrase": "不虞匱乏"
+  },
+  {
+    "book": "第3冊",
+    "char": "砥",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "中流砥柱 (能堅強支撐危局的人)"
+  },
+  {
+    "book": "第3冊",
+    "char": "牴",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "牴觸 (衝突矛盾)"
+  },
+  {
+    "book": "第3冊",
+    "char": "柢",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "根深柢固 (基礎堅實，牢不可拔)"
+  },
+  {
+    "book": "第3冊",
+    "char": "詆",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "詆毀 (說人短處，毀謗他人)"
+  },
+  {
+    "book": "第3冊",
+    "char": "邸",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "官邸 (高級官員的住所)"
+  },
+  {
+    "book": "第3冊",
+    "char": "衢",
+    "pinyin": "ㄑㄩˊ",
+    "phrase": "通衢大道 (通往各方的交通要道)"
+  },
+  {
+    "book": "第3冊",
+    "char": "懼",
+    "pinyin": "ㄐㄩˋ",
+    "phrase": "恐懼不安"
+  },
+  {
+    "book": "第3冊",
+    "char": "攫",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "攫取暴利"
+  },
+  {
+    "book": "第3冊",
+    "char": "矍鑠",
+    "pinyin": "ㄐㄩㄝˊ ㄕㄨㄛˋ",
+    "phrase": "神情矍鑠 (老而強健的樣子)"
+  },
+  {
+    "book": "第3冊",
+    "char": "艟",
+    "pinyin": "ㄊㄨㄥˊ",
+    "phrase": "海艟"
+  },
+  {
+    "book": "第3冊",
+    "char": "僮",
+    "pinyin": "ㄊㄨㄥˊ",
+    "phrase": "僮僕成群"
+  },
+  {
+    "book": "第3冊",
+    "char": "瞳",
+    "pinyin": "ㄊㄨㄥˊ",
+    "phrase": "雙瞳翦水 (形容眼睛清澈明亮)"
+  },
+  {
+    "book": "第3冊",
+    "char": "幢幢",
+    "pinyin": "ㄔㄨㄤˊ ㄔㄨㄤˊ",
+    "phrase": "鬼影幢幢 (形容陰森恐怖的樣子)"
+  },
+  {
+    "book": "第3冊",
+    "char": "峙",
+    "pinyin": "ㄓˋ",
+    "phrase": "街衢對峙"
+  },
+  {
+    "book": "第3冊",
+    "char": "懊",
+    "pinyin": "ㄠˋ",
+    "phrase": "懊悔"
+  },
+  {
+    "book": "第3冊",
+    "char": "恃",
+    "pinyin": "ㄕˋ",
+    "phrase": "居功自恃"
+  },
+  {
+    "book": "第3冊",
+    "char": "襖",
+    "pinyin": "ㄠˇ",
+    "phrase": "棉襖 (有襯裡的上衣)"
+  },
+  {
+    "book": "第3冊",
+    "char": "侍",
+    "pinyin": "ㄕˋ",
+    "phrase": "隨侍在側"
+  },
+  {
+    "book": "第3冊",
+    "char": "澳",
+    "pinyin": "ㄠˋ",
+    "phrase": "南方澳"
+  },
+  {
+    "book": "第3冊",
+    "char": "篙",
+    "pinyin": "ㄍㄠ",
+    "phrase": "篙工撐棹"
+  },
+  {
+    "book": "第3冊",
+    "char": "綴",
+    "pinyin": "ㄓㄨㄟˋ",
+    "phrase": "點綴"
+  },
+  {
+    "book": "第3冊",
+    "char": "槁",
+    "pinyin": "ㄍㄠˇ",
+    "phrase": "槁木死灰"
+  },
+  {
+    "book": "第3冊",
+    "char": "啜",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "啜泣"
+  },
+  {
+    "book": "第3冊",
+    "char": "縞",
+    "pinyin": "ㄍㄠˇ",
+    "phrase": "縞素 (純白絹或白色喪服)"
+  },
+  {
+    "book": "第3冊",
+    "char": "輟",
+    "pinyin": "ㄔㄨㄛˋ",
+    "phrase": "輟學"
+  },
+  {
+    "book": "第3冊",
+    "char": "燠",
+    "pinyin": "ㄩˋ",
+    "phrase": "燠熱"
+  },
+  {
+    "book": "第3冊",
+    "char": "掇",
+    "pinyin": "ㄉㄨㄛˊ",
+    "phrase": "掇拾 (採取)"
+  },
+  {
+    "book": "第3冊",
+    "char": "齕",
+    "pinyin": "ㄏㄜˊ",
+    "phrase": "狗迓而齕之"
+  },
+  {
+    "book": "第3冊",
+    "char": "齧",
+    "pinyin": "ㄋㄧㄝˋ",
+    "phrase": "窮鼠齧貓"
+  },
+  {
+    "book": "第3冊",
+    "char": "齜",
+    "pinyin": "ㄗ",
+    "phrase": "齜牙咧嘴"
+  },
+  {
+    "book": "第3冊",
+    "char": "齣",
+    "pinyin": "ㄔㄨ",
+    "phrase": "一齣戲"
+  },
+  {
+    "book": "第3冊",
+    "char": "翟",
+    "pinyin": "ㄉㄧˊ",
+    "phrase": "墨翟"
+  },
+  {
+    "book": "第3冊",
+    "char": "擢",
+    "pinyin": "ㄓㄨㄛˊ",
+    "phrase": "拔擢人才"
+  },
+  {
+    "book": "第3冊",
+    "char": "濯濯",
+    "pinyin": "ㄓㄨㄛˊ ㄓㄨㄛˊ",
+    "phrase": "牛山濯濯"
+  },
+  {
+    "book": "第3冊",
+    "char": "躍",
+    "pinyin": "ㄩㄝˋ",
+    "phrase": "一躍而起"
+  },
+  {
+    "book": "第3冊",
+    "char": "嗑",
+    "pinyin": "ㄎㄜˋ",
+    "phrase": "嗑瓜子"
+  },
+  {
+    "book": "第3冊",
+    "char": "溘",
+    "pinyin": "ㄎㄜˋ",
+    "phrase": "溘然長逝"
+  },
+  {
+    "book": "第3冊",
+    "char": "蓋",
+    "pinyin": "ㄍㄞˋ",
+    "phrase": "亭亭如蓋"
+  },
+  {
+    "book": "第3冊",
+    "char": "瞌",
+    "pinyin": "ㄎㄜ",
+    "phrase": "打瞌睡"
+  },
+  {
+    "book": "第3冊",
+    "char": "磕",
+    "pinyin": "ㄎㄜ",
+    "phrase": "磕頭"
+  },
+  {
+    "book": "第3冊",
+    "char": "跖",
+    "pinyin": "ㄓˊ",
+    "phrase": "盜跖"
+  },
+  {
+    "book": "第3冊",
+    "char": "拓",
+    "pinyin": "ㄊㄨㄛˋ",
+    "phrase": "拓荒者"
+  },
+  {
+    "book": "第3冊",
+    "char": "宕",
+    "pinyin": "ㄉㄤˋ",
+    "phrase": "懸宕已久"
+  },
+  {
+    "book": "第3冊",
+    "char": "詛",
+    "pinyin": "ㄗㄨˇ",
+    "phrase": "詛咒"
+  },
+  {
+    "book": "第3冊",
+    "char": "殂",
+    "pinyin": "ㄘㄨˊ",
+    "phrase": "中道崩殂"
+  },
+  {
+    "book": "第3冊",
+    "char": "沮",
+    "pinyin": "ㄐㄩˇ",
+    "phrase": "心情沮喪"
+  },
+  {
+    "book": "第3冊",
+    "char": "狙",
+    "pinyin": "ㄐㄩ",
+    "phrase": "狙擊"
+  },
+  {
+    "book": "第3冊",
+    "char": "齕",
+    "pinyin": "ㄏㄜˊ",
+    "phrase": "狗迓而齕之"
+  },
+  {
+    "book": "第3冊",
+    "char": "迄",
+    "pinyin": "ㄑㄧˋ",
+    "phrase": "迄今"
+  },
+  {
+    "book": "第3冊",
+    "char": "訖",
+    "pinyin": "ㄑㄧˋ",
+    "phrase": "銀貨兩訖"
+  },
+  {
+    "book": "第3冊",
+    "char": "履",
+    "pinyin": "ㄌㄩˇ",
+    "phrase": "鄭人買履"
+  },
+  {
+    "book": "第3冊",
+    "char": "屢",
+    "pinyin": "ㄌㄩˇ",
+    "phrase": "屢戰屢敗"
+  },
+  {
+    "book": "第3冊",
+    "char": "屨",
+    "pinyin": "ㄐㄩˋ",
+    "phrase": "窺戶者足無止屨"
+  },
+  {
+    "book": "第3冊",
+    "char": "驅",
+    "pinyin": "ㄑㄩ",
+    "phrase": "並駕齊驅"
+  },
+  {
+    "book": "第3冊",
+    "char": "趨",
+    "pinyin": "ㄑㄩ",
+    "phrase": "趨之若鶩"
+  },
+  {
+    "book": "第3冊",
+    "char": "屈",
+    "pinyin": "ㄑㄩ",
+    "phrase": "首屈一指"
+  },
+  {
+    "book": "第3冊",
+    "char": "央",
+    "pinyin": "ㄧㄤ",
+    "phrase": "誰可央託"
+  },
+  {
+    "book": "第3冊",
+    "char": "殃",
+    "pinyin": "ㄧㄤ",
+    "phrase": "殃及池魚 (比喻無故受累)"
+  },
+  {
+    "book": "第3冊",
+    "char": "秧",
+    "pinyin": "ㄧㄤ",
+    "phrase": "水稻秧苗"
+  },
+  {
+    "book": "第3冊",
+    "char": "泱",
+    "pinyin": "ㄧㄤ",
+    "phrase": "泱泱大國 (稱讚國力強大的國家)"
+  },
+  {
+    "book": "第3冊",
+    "char": "翌",
+    "pinyin": "ㄧˋ",
+    "phrase": "翌年 (=隔年)"
+  },
+  {
+    "book": "第3冊",
+    "char": "羿",
+    "pinyin": "ㄧˋ",
+    "phrase": "后羿射日"
+  },
+  {
+    "book": "第3冊",
+    "char": "翼",
+    "pinyin": "ㄧˋ",
+    "phrase": "不翼而飛"
+  },
+  {
+    "book": "第3冊",
+    "char": "鴦",
+    "pinyin": "ㄧㄤ",
+    "phrase": "亂點鴛鴦譜 (將未婚男女胡亂湊成夫妻)"
+  },
+  {
+    "book": "第3冊",
+    "char": "締",
+    "pinyin": "ㄉㄧˋ",
+    "phrase": "取締酒駕"
+  },
+  {
+    "book": "第3冊",
+    "char": "蒂",
+    "pinyin": "ㄉㄧˋ",
+    "phrase": "瓜熟蒂落"
+  },
+  {
+    "book": "第3冊",
+    "char": "諦",
+    "pinyin": "ㄉㄧˋ",
+    "phrase": "凝神諦聽"
+  },
+  {
+    "book": "第3冊",
+    "char": "遞",
+    "pinyin": "ㄉㄧˋ",
+    "phrase": "遞送物品"
+  },
+  {
+    "book": "第3冊",
+    "char": "牴",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "牴觸 (引申為觸犯)"
+  },
+  {
+    "book": "第3冊",
+    "char": "柢",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "追根究柢"
+  },
+  {
+    "book": "第3冊",
+    "char": "砥",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "砥礪 (引申為磨練)"
+  },
+  {
+    "book": "第3冊",
+    "char": "詆",
+    "pinyin": "ㄉㄧˇ",
+    "phrase": "詆毀 (毀謗)"
+  },
+  {
+    "book": "第3冊",
+    "char": "挈",
+    "pinyin": "ㄑㄧㄝˋ",
+    "phrase": "提綱挈領"
+  },
+  {
+    "book": "第3冊",
+    "char": "契",
+    "pinyin": "ㄑㄧˋ",
+    "phrase": "情意相契"
+  },
+  {
+    "book": "第3冊",
+    "char": "鍥",
+    "pinyin": "ㄑㄧㄝˋ",
+    "phrase": "鍥而不舍，金石可鏤"
+  },
+  {
+    "book": "第3冊",
+    "char": "楔",
+    "pinyin": "ㄒㄧㄝ",
+    "phrase": "楔子 (小說前的序文)"
+  },
+  {
+    "book": "第3冊",
+    "char": "喫",
+    "pinyin": "ㄔ",
+    "phrase": "喫茶"
+  },
+  {
+    "book": "第3冊",
+    "char": "戍",
+    "pinyin": "ㄕㄨˋ",
+    "phrase": "戍守邊疆"
+  },
+  {
+    "book": "第3冊",
+    "char": "戌",
+    "pinyin": "ㄒㄩ",
+    "phrase": "戌時 (晚上七點到九點)"
+  },
+  {
+    "book": "第3冊",
+    "char": "戊",
+    "pinyin": "ㄨˋ",
+    "phrase": "戊戌變法"
+  },
+  {
+    "book": "第3冊",
+    "char": "闥",
+    "pinyin": "ㄊㄚˋ",
+    "phrase": "排闥而去"
+  },
+  {
+    "book": "第3冊",
+    "char": "達",
+    "pinyin": "ㄉㄚˊ",
+    "phrase": "四通八達"
+  },
+  {
+    "book": "第3冊",
+    "char": "撻",
+    "pinyin": "ㄊㄚˋ",
+    "phrase": "引來撻伐"
+  },
+  {
+    "book": "第3冊",
+    "char": "袂",
+    "pinyin": "ㄇㄟˋ",
+    "phrase": "連袂同行 (比喻共同動作)"
+  },
+  {
+    "book": "第3冊",
+    "char": "決",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "猶豫不決"
+  },
+  {
+    "book": "第3冊",
+    "char": "缺",
+    "pinyin": "ㄑㄩㄝ",
+    "phrase": "完美無缺"
+  },
+  {
+    "book": "第3冊",
+    "char": "訣",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "就此訣別"
+  },
+  {
+    "book": "第3冊",
+    "char": "抉",
+    "pinyin": "ㄐㄩㄝˊ",
+    "phrase": "抉擇"
+  },
+  {
+    "book": "第3冊",
+    "char": "髯",
+    "pinyin": "ㄖㄢˊ",
+    "phrase": "虬髯客"
+  },
+  {
+    "book": "第3冊",
+    "char": "鬈",
+    "pinyin": "ㄑㄩㄢˊ",
+    "phrase": "一頭鬈髮"
+  },
+  {
+    "book": "第3冊",
+    "char": "髭",
+    "pinyin": "ㄗ",
+    "phrase": "下擔持髭鬚"
+  },
+  {
+    "book": "第3冊",
+    "char": "髫",
+    "pinyin": "ㄊㄧㄠˊ",
+    "phrase": "黃髮垂髫"
+  },
+  {
+    "book": "第3冊",
+    "char": "攏",
+    "pinyin": "ㄌㄨㄥˇ",
+    "phrase": "攏絡人心"
+  },
+  {
+    "book": "第3冊",
+    "char": "隴",
+    "pinyin": "ㄌㄨㄥˇ",
+    "phrase": "得隴望蜀"
+  },
+  {
+    "book": "第3冊",
+    "char": "壟",
+    "pinyin": "ㄌㄨㄥˇ",
+    "phrase": "壟斷市場"
+  },
+  {
+    "book": "第3冊",
+    "char": "鍘",
+    "pinyin": "ㄓㄚˊ",
+    "phrase": "鍘美案"
+  },
+  {
+    "book": "第3冊",
+    "char": "紮",
+    "pinyin": "ㄓㄚ",
+    "phrase": "口感紮實"
+  },
+  {
+    "book": "第3冊",
+    "char": "閘",
+    "pinyin": "ㄓㄚˊ",
+    "phrase": "驗票閘門"
+  },
+  {
+    "book": "第3冊",
+    "char": "僂",
+    "pinyin": "ㄌㄡˊ",
+    "phrase": "佝僂身影"
+  },
+  {
+    "book": "第3冊",
+    "char": "樓",
+    "pinyin": "ㄌㄡˊ",
+    "phrase": "人去樓空"
+  },
+  {
+    "book": "第3冊",
+    "char": "髏",
+    "pinyin": "ㄌㄡˊ",
+    "phrase": "駭人骷髏"
+  },
+  {
+    "book": "第3冊",
+    "char": "螻",
+    "pinyin": "ㄌㄡˊ",
+    "phrase": "螻蟻尚且偷生"
+  },
+  {
+    "book": "第3冊",
+    "char": "枷",
+    "pinyin": "ㄐㄧㄚ",
+    "phrase": "枷鎖"
+  },
+  {
+    "book": "第3冊",
+    "char": "痂",
+    "pinyin": "ㄐㄧㄚ",
+    "phrase": "傷口結痂"
+  },
+  {
+    "book": "第3冊",
+    "char": "伽",
+    "pinyin": "ㄐㄧㄚ",
+    "phrase": "瑜伽課"
+  },
+  {
+    "book": "第3冊",
+    "char": "黯",
+    "pinyin": "ㄢˋ",
+    "phrase": "神色黯然"
+  },
+  {
+    "book": "第3冊",
+    "char": "暗",
+    "pinyin": "ㄢˋ",
+    "phrase": "明槍暗箭"
+  },
+  {
+    "book": "第3冊",
+    "char": "闇",
+    "pinyin": "ㄢˋ",
+    "phrase": "性格闇弱"
+  },
+  {
+    "book": "第3冊",
+    "char": "伶",
+    "pinyin": "ㄌㄧㄥˊ",
+    "phrase": "歌劇名伶"
+  },
+  {
+    "book": "第3冊",
+    "char": "聆",
+    "pinyin": "ㄌㄧㄥˊ",
+    "phrase": "聆聽音樂"
+  },
+  {
+    "book": "第3冊",
+    "char": "玲",
+    "pinyin": "ㄌㄧㄥˊ",
+    "phrase": "小巧玲瓏"
+  },
+  {
+    "book": "第3冊",
+    "char": "譴",
+    "pinyin": "ㄑㄧㄢˇ",
+    "phrase": "譴責"
+  },
+  {
+    "book": "第3冊",
+    "char": "遣",
+    "pinyin": "ㄑㄧㄢˇ",
+    "phrase": "派遣"
+  },
+  {
+    "book": "第3冊",
+    "char": "殫",
+    "pinyin": "ㄉㄢ",
+    "phrase": "殫精竭慮"
+  },
+  {
+    "book": "第3冊",
+    "char": "憚",
+    "pinyin": "ㄉㄢˋ",
+    "phrase": "肆無忌憚"
+  },
+  {
+    "book": "第4冊",
+    "char": "繆",
+    "pinyin": "ㄇㄨˋ",
+    "phrase": "秦繆公 (通「穆」)"
+  },
+  {
+    "book": "第4冊",
+    "char": "綢繆",
+    "pinyin": "ㄔㄡˊ ㄇㄡˊ",
+    "phrase": "未雨綢繆"
+  },
+  {
+    "book": "第4冊",
+    "char": "繆",
+    "pinyin": "ㄇㄧㄡˋ",
+    "phrase": "繆論 (通「謬」)"
+  },
+  {
+    "book": "第4冊",
+    "char": "繆",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "山川相繆"
+  },
+  {
+    "book": "第4冊",
+    "char": "繆",
+    "pinyin": "ㄇㄧㄠˋ",
+    "phrase": "繆先生"
+  },
+  {
+    "book": "第4冊",
+    "char": "髀",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "彈箏搏髀"
+  },
+  {
+    "book": "第4冊",
+    "char": "俾",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "俾使、俾能自立"
+  },
+  {
+    "book": "第4冊",
+    "char": "睥",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "睥睨"
+  },
+  {
+    "book": "第4冊",
+    "char": "裨",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "必能裨補闕漏，有所廣益"
+  },
+  {
+    "book": "第4冊",
+    "char": "捭",
+    "pinyin": "ㄅㄞˇ",
+    "phrase": "縱橫捭闔"
+  },
+  {
+    "book": "第4冊",
+    "char": "稗",
+    "pinyin": "ㄅㄞˋ",
+    "phrase": "稗官野史"
+  },
+  {
+    "book": "第4冊",
+    "char": "顰",
+    "pinyin": "ㄆㄧㄣˊ",
+    "phrase": "顰眉"
+  },
+  {
+    "book": "第4冊",
+    "char": "傾",
+    "pinyin": "ㄑㄧㄥ",
+    "phrase": "高下相傾；傾酒、傾盆大雨；傾心、傾慕"
+  },
+  {
+    "book": "第4冊",
+    "char": "頃",
+    "pinyin": "ㄑㄧㄥˇ",
+    "phrase": "頃刻、俄頃；頃聞佳音；公頃、一碧萬頃"
+  },
+  {
+    "book": "第4冊",
+    "char": "恃",
+    "pinyin": "ㄕˋ",
+    "phrase": "為而不恃、恃強凌弱"
+  },
+  {
+    "book": "第4冊",
+    "char": "侍",
+    "pinyin": "ㄕˋ",
+    "phrase": "服侍、陪侍"
+  },
+  {
+    "book": "第4冊",
+    "char": "峙",
+    "pinyin": "ㄓˋ",
+    "phrase": "對峙"
+  },
+  {
+    "book": "第4冊",
+    "char": "軱",
+    "pinyin": "ㄍㄨ",
+    "phrase": "大軱"
+  },
+  {
+    "book": "第4冊",
+    "char": "觚",
+    "pinyin": "ㄍㄨ",
+    "phrase": "率爾操觚 (不加思索，揮筆成文)"
+  },
+  {
+    "book": "第4冊",
+    "char": "謋",
+    "pinyin": "ㄏㄨㄛˋ",
+    "phrase": "謋然已解 (骨肉分離聲)"
+  },
+  {
+    "book": "第4冊",
+    "char": "桀",
+    "pinyin": "ㄐㄧㄝˊ",
+    "phrase": "桀驁不馴"
+  },
+  {
+    "book": "第4冊",
+    "char": "磔",
+    "pinyin": "ㄓㄜˊ",
+    "phrase": "磔刑 (分裂肢體)"
+  },
+  {
+    "book": "第4冊",
+    "char": "聃",
+    "pinyin": "ㄉㄢ",
+    "phrase": "聃耳 (耳長而大)；老聃"
+  },
+  {
+    "book": "第4冊",
+    "char": "苒",
+    "pinyin": "ㄖㄢˇ",
+    "phrase": "荏苒 (漸漸的樣子)"
+  },
+  {
+    "book": "第4冊",
+    "char": "髯",
+    "pinyin": "ㄖㄢˊ",
+    "phrase": "虬髯"
+  },
+  {
+    "book": "第4冊",
+    "char": "旖",
+    "pinyin": "ㄧˇ",
+    "phrase": "旖旎"
+  },
+  {
+    "book": "第4冊",
+    "char": "綺",
+    "pinyin": "ㄑㄧˇ",
+    "phrase": "綺麗、綺年玉貌"
+  },
+  {
+    "book": "第四冊",
+    "char": "踦",
+    "pinyin": "ㄧˇ",
+    "phrase": "膝之所踦（抵住）"
+  },
+  {
+    "book": "第4冊",
+    "char": "犄",
+    "pinyin": "ㄐㄧ",
+    "phrase": "犄角 (獸角)"
+  },
+  {
+    "book": "第4冊",
+    "char": "緋",
+    "pinyin": "ㄈㄟ",
+    "phrase": "緋麗、緋紅 (紅色)"
+  },
+  {
+    "book": "第4冊",
+    "char": "悱",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "纏綿悱惻 (悲切動人)"
+  },
+  {
+    "book": "第4冊",
+    "char": "誹",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "誹謗"
+  },
+  {
+    "book": "第4冊",
+    "char": "蜚",
+    "pinyin": "ㄈㄟ",
+    "phrase": "蜚聲國際；流言蜚語"
+  },
+  {
+    "book": "第4冊",
+    "char": "菲",
+    "pinyin": "ㄈㄟ",
+    "phrase": "人間四月芳菲盡 (花草芳香豔麗)"
+  },
+  {
+    "book": "第4冊",
+    "char": "菲",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "微薄 (不宜妄自菲薄) ；菲酌、菲儀、價值不菲"
+  },
+  {
+    "book": "第4冊",
+    "char": "斐",
+    "pinyin": "ㄈㄟˇ",
+    "phrase": "斐然成章 (具有文采)"
+  },
+  {
+    "book": "第4冊",
+    "char": "霏",
+    "pinyin": "ㄈㄟ",
+    "phrase": "若夫霪雨霏霏 (雨雪綿密) ；日出而林霏開 (霧氣)"
+  },
+  {
+    "book": "第4冊",
+    "char": "扉",
+    "pinyin": "ㄈㄟ",
+    "phrase": "你底心是小小的窗扉緊掩"
+  },
+  {
+    "book": "第4冊",
+    "char": "魘",
+    "pinyin": "ㄧㄢˇ",
+    "phrase": "魘夢"
+  },
+  {
+    "book": "第4冊",
+    "char": "饜",
+    "pinyin": "ㄧㄢˋ",
+    "phrase": "貪得無饜 (滿足)"
+  },
+  {
+    "book": "第4冊",
+    "char": "靨",
+    "pinyin": "ㄧㄝˋ",
+    "phrase": "笑靨"
+  },
+  {
+    "book": "第4冊",
+    "char": "翼",
+    "pinyin": "ㄧˋ",
+    "phrase": "羽翼、不翼而飛"
+  },
+  {
+    "book": "第4冊",
+    "char": "冀",
+    "pinyin": "ㄐㄧˋ",
+    "phrase": "希冀、冀求"
+  },
+  {
+    "book": "第4冊",
+    "char": "杏",
+    "pinyin": "ㄒㄧㄥˋ",
+    "phrase": "銀杏"
+  },
+  {
+    "book": "第4冊",
+    "char": "杳",
+    "pinyin": "ㄧㄠˇ",
+    "phrase": "杳無音信、杳無人蹤"
+  },
+  {
+    "book": "第4冊",
+    "char": "鬈",
+    "pinyin": "ㄑㄩㄢˊ",
+    "phrase": "鬈髮"
+  },
+  {
+    "book": "第4冊",
+    "char": "蜷",
+    "pinyin": "ㄑㄩㄢˊ",
+    "phrase": "蜷縮"
+  },
+  {
+    "book": "第4冊",
+    "char": "捲",
+    "pinyin": "ㄐㄩㄢˇ",
+    "phrase": "蛋捲、春捲"
+  },
+  {
+    "book": "第4冊",
+    "char": "圮",
+    "pinyin": "ㄆㄧˇ",
+    "phrase": "頹圮"
+  },
+  {
+    "book": "第4冊",
+    "char": "杞",
+    "pinyin": "ㄑㄧˇ",
+    "phrase": "杞人憂天"
+  },
+  {
+    "book": "第4冊",
+    "char": "梨",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "梨樹"
+  },
+  {
+    "book": "第4冊",
+    "char": "犁",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "犁田"
+  },
+  {
+    "book": "第4冊",
+    "char": "黎",
+    "pinyin": "ㄌㄧˊ",
+    "phrase": "黎明"
+  },
+  {
+    "book": "第4冊",
+    "char": "擰",
+    "pinyin": "ㄋㄧㄥˇ",
+    "phrase": "擰開、擰乾"
+  },
+  {
+    "book": "第4冊",
+    "char": "獰",
+    "pinyin": "ㄋㄧㄥˊ",
+    "phrase": "猙獰"
+  },
+  {
+    "book": "第4冊",
+    "char": "嚀",
+    "pinyin": "ㄋㄧㄥˊ",
+    "phrase": "叮嚀"
+  },
+  {
+    "book": "第4冊",
+    "char": "濘",
+    "pinyin": "ㄋㄧㄥˋ",
+    "phrase": "泥濘"
+  },
+  {
+    "book": "第4冊",
+    "char": "腴",
+    "pinyin": "ㄩˊ",
+    "phrase": "膏腴之壤"
+  },
+  {
+    "book": "第4冊",
+    "char": "諛",
+    "pinyin": "ㄩˊ",
+    "phrase": "阿諛奉承"
+  },
+  {
+    "book": "第4冊",
+    "char": "萸",
+    "pinyin": "ㄩˊ",
+    "phrase": "遍插茱萸少一人"
+  },
+  {
+    "book": "第4冊",
+    "char": "庾",
+    "pinyin": "ㄩˇ",
+    "phrase": "庾澄慶"
+  },
+  {
+    "book": "第4冊",
+    "char": "簪",
+    "pinyin": "ㄗㄢ",
+    "phrase": "綰珠之簪"
+  },
+  {
+    "book": "第4冊",
+    "char": "僭",
+    "pinyin": "ㄐㄧㄢˋ",
+    "phrase": "僭越"
+  },
+  {
+    "book": "第4冊",
+    "char": "潛",
+    "pinyin": "ㄑㄧㄢˊ",
+    "phrase": "激發潛力"
+  },
+  {
+    "book": "第4冊",
+    "char": "讚",
+    "pinyin": "ㄗㄢˋ",
+    "phrase": "讚言"
+  },
+  {
+    "book": "第4冊",
+    "char": "弗",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "功成弗居"
+  },
+  {
+    "book": "第4冊",
+    "char": "氟",
+    "pinyin": "ㄈㄨˊ",
+    "phrase": "氟化物"
+  },
+  {
+    "book": "第4冊",
+    "char": "拂",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "法家拂士 (謹守法度的臣子和輔助君王的賢士)"
+  },
+  {
+    "book": "第4冊",
+    "char": "窕",
+    "pinyin": "ㄊㄧㄠˇ",
+    "phrase": "窈窕淑女"
+  },
+  {
+    "book": "第4冊",
+    "char": "佻",
+    "pinyin": "ㄊㄧㄠˊ",
+    "phrase": "舉止輕佻"
+  },
+  {
+    "book": "第4冊",
+    "char": "髀",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "彈箏搏髀"
+  },
+  {
+    "book": "第4冊",
+    "char": "裨",
+    "pinyin": "ㄅㄧˋ",
+    "phrase": "大有裨益"
+  },
+  {
+    "book": "第4冊",
+    "char": "駿",
+    "pinyin": "ㄐㄩㄣˋ",
+    "phrase": "駿馬馳騁"
+  },
+  {
+    "book": "第4冊",
+    "char": "悛",
+    "pinyin": "ㄑㄩㄢ",
+    "phrase": "怙惡不悛"
+  },
+  {
+    "book": "第4冊",
+    "char": "彊",
+    "pinyin": "ㄑㄧㄤˊ",
+    "phrase": "國以富彊"
+  },
+  {
+    "book": "第4冊",
+    "char": "疆",
+    "pinyin": "ㄐㄧㄤ",
+    "phrase": "邊疆民族"
+  },
+  {
+    "book": "第4冊",
+    "char": "腴",
+    "pinyin": "ㄩˊ",
+    "phrase": "膏腴之地"
+  },
+  {
+    "book": "第4冊",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第4冊",
+    "char": "縞",
+    "pinyin": "ㄍㄠˇ",
+    "phrase": "阿縞之衣"
+  },
+  {
+    "book": "第4冊",
+    "char": "槁",
+    "pinyin": "ㄍㄠˇ",
+    "phrase": "槁木死灰"
+  },
+  {
+    "book": "第4冊",
+    "char": "璣",
+    "pinyin": "ㄐㄧ",
+    "phrase": "傅璣之珥"
+  },
+  {
+    "book": "第4冊",
+    "char": "譏",
+    "pinyin": "ㄐㄧ",
+    "phrase": "反脣相譏"
+  },
+  {
+    "book": "第4冊",
+    "char": "黔",
+    "pinyin": "ㄑㄧㄢˊ",
+    "phrase": "布衣黔首"
+  },
+  {
+    "book": "第4冊",
+    "char": "黔",
+    "pinyin": "ㄑㄧㄢˊ",
+    "phrase": "黔驢技窮"
+  },
+  {
+    "book": "第4冊",
+    "char": "翼",
+    "pinyin": "ㄧˋ",
+    "phrase": "不翼而飛"
+  },
+  {
+    "book": "第4冊",
+    "char": "冀",
+    "pinyin": "ㄐㄧˋ",
+    "phrase": "滿懷希冀"
+  },
+  {
+    "book": "第4冊",
+    "char": "畏",
+    "pinyin": "ㄨㄟˋ",
+    "phrase": "不畏強敵"
+  },
+  {
+    "book": "第4冊",
+    "char": "偎",
+    "pinyin": "ㄨㄟ",
+    "phrase": "偎香倚玉"
+  },
+  {
+    "book": "第4冊",
+    "char": "陷",
+    "pinyin": "ㄒㄧㄢˋ",
+    "phrase": "地層下陷"
+  },
+  {
+    "book": "第4冊",
+    "char": "埳",
+    "pinyin": "ㄎㄢˇ",
+    "phrase": "埳井之蛙"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第4冊",
+    "char": "委",
+    "pinyin": "ㄨㄟˇ",
+    "phrase": "如土委地 (散落) 、推委責任 (推託)"
+  },
+  {
+    "book": "第4冊",
+    "char": "履",
+    "pinyin": "ㄌㄩˇ",
+    "phrase": "足之所履 (踩踏) 、削足適履 (鞋子)"
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "",
+    "char": "",
+    "pinyin": "",
+    "phrase": ""
+  },
+  {
+    "book": "第5冊",
+    "char": "眥",
+    "pinyin": "ㄗˋ",
+    "phrase": "眼眶。目眥盡裂、睚眥必報 (指極小的怨恨也一定要報復)。"
+  },
+  {
+    "book": "第5冊",
+    "char": "貲",
+    "pinyin": "ㄗ",
+    "phrase": "計算、估量。所費不貲。/財貨。家貲萬貫、捐貲。"
+  },
+  {
+    "book": "第5冊",
+    "char": "齜",
+    "pinyin": "ㄗ",
+    "phrase": "張嘴露牙的樣子。齜牙咧嘴。"
+  },
+  {
+    "book": "第5冊",
+    "char": "疵",
+    "pinyin": "ㄘ",
+    "phrase": "毛病、缺點。瑕疵、吹毛求疵。"
+  },
+  {
+    "book": "第5冊",
+    "char": "俎",
+    "pinyin": "ㄗㄨˇ",
+    "phrase": "砧板。越俎代庖 (比喻踰越自己的職分而待人做事)。"
+  },
+  {
+    "book": "第5冊",
+    "char": "殂",
+    "pinyin": "ㄘㄨˊ",
+    "phrase": "死亡。崩殂、殂落。"
+  },
+  {
+    "book": "第5冊",
+    "char": "狙",
+    "pinyin": "ㄐㄩ",
+    "phrase": "伺機、窺伺。狙擊、狙殺。"
+  },
+  {
+    "book": "第5冊",
+    "char": "沮",
+    "pinyin": "ㄐㄩˇ",
+    "phrase": "頹喪、意志消沉。沮喪、氣沮。"
+  },
+  {
+    "book": "第5冊",
+    "char": "咀",
+    "pinyin": "ㄐㄩˇ",
+    "phrase": "嚼食。咀嚼、含英咀華 (品味文章的要旨及辭藻的華美)。"
+  },
+  {
+    "book": "第5冊",
+    "char": "詛",
+    "pinyin": "ㄗㄨˇ",
+    "phrase": "咒罵或祈求鬼神降禍給他人。詛咒、詛罵。"
+  },
+  {
+    "book": "第5冊",
+    "char": "疽",
+    "pinyin": "ㄐㄩ",
+    "phrase": "一種毒瘡。巨疽、壞疽。"
+  },
+  {
+    "book": "第5冊",
+    "char": "蛆",
+    "pinyin": "ㄑㄩ",
+    "phrase": "蠅類的幼蟲。蛆蟲。"
+  },
+  {
+    "book": "第5冊",
+    "char": "膾",
+    "pinyin": "ㄎㄨㄞˋ",
+    "phrase": "細切的肉絲。膾炙人口。"
+  },
+  {
+    "book": "第5冊",
+    "char": "獪",
+    "pinyin": "ㄎㄨㄞˋ",
+    "phrase": "奸詐、狡猾。狡獪、狙獪。"
+  },
+  {
+    "book": "第5冊",
+    "char": "劊",
+    "pinyin": "ㄎㄨㄞˋ",
+    "phrase": "砍斷。劊子手。"
+  },
+  {
+    "book": "第5冊",
+    "char": "畛",
+    "pinyin": "ㄓㄣˇ",
+    "phrase": "界限。若分畛域。/田間分界的道路。畦畛。"
+  },
+  {
+    "book": "第5冊",
+    "char": "診",
+    "pinyin": "ㄓㄣˇ",
+    "phrase": "察看。悉心問診。"
+  },
+  {
+    "book": "第5冊",
+    "char": "珍",
+    "pinyin": "ㄓㄣ",
+    "phrase": "稀有貴重的寶物。珍寶。/愛惜、重視。珍惜。"
+  },
+  {
+    "book": "第5冊",
+    "char": "軫",
+    "pinyin": "ㄓㄣˇ",
+    "phrase": "傷痛、憐憫。軫懷、軫念。/星宿名。軫宿。"
+  },
+  {
+    "book": "第5冊",
+    "char": "殄",
+    "pinyin": "ㄊㄧㄢˇ",
+    "phrase": "盡除、滅絕。殄絕。/浪費、糟蹋。暴殄天物。"
+  },
+  {
+    "book": "第5冊",
+    "char": "疹",
+    "pinyin": "ㄓㄣˇ",
+    "phrase": "皮膚上起的紅色顆粒。溼疹、麻疹。"
+  },
+  {
+    "book": "第5冊",
+    "char": "揆",
+    "pinyin": "ㄎㄨㄟˊ",
+    "phrase": "審度、仔細思考。揆情度理。/統理國政的官員。首揆、閣揆。"
+  },
+  {
+    "book": "第5冊",
+    "char": "睽",
+    "pinyin": "ㄎㄨㄟˊ",
+    "phrase": "分離。睽違。/張眼注視的樣子。眾目睽睽。"
+  },
+  {
+    "book": "第5冊",
+    "char": "癸",
+    "pinyin": "ㄍㄨㄟˇ",
+    "phrase": "天干的第十位。歲在癸丑。"
+  },
+  {
+    "book": "第5冊",
+    "char": "遏",
+    "pinyin": "ㄜˋ",
+    "phrase": "阻止。莫可阻遏。"
+  },
+  {
+    "book": "第5冊",
+    "char": "竭",
+    "pinyin": "ㄐㄧㄝˊ",
+    "phrase": "窮盡。竭誠化導。"
+  },
+  {
+    "book": "第5冊",
+    "char": "揭",
+    "pinyin": "ㄐㄧㄝ",
+    "phrase": "高舉。揭其劍、揭竿而起。"
+  },
+  {
+    "book": "第5冊",
+    "char": "褐",
+    "pinyin": "ㄏㄜˊ",
+    "phrase": "粗布衣服。短褐穿結、褐衣疏食。"
+  },
+  {
+    "book": "第5冊",
+    "char": "謁",
+    "pinyin": "ㄧㄝˋ",
+    "phrase": "拜見。以布衣來謁。"
+  },
+  {
+    "book": "第5冊",
+    "char": "愒",
+    "pinyin": "ㄎㄞˋ",
+    "phrase": "貪圖。玩日愒歲 (怠惰偷安，虛度光陰)。"
+  },
+  {
+    "book": "第5冊",
+    "char": "歇",
+    "pinyin": "ㄒㄧㄝ",
+    "phrase": "停止。歇業、歇工。"
+  },
+  {
+    "book": "第5冊",
+    "char": "燎",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "燃燒、延燒。燎原。"
+  },
+  {
+    "book": "第5冊",
+    "char": "撩",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "挑弄、逗引。姿態撩人。/紛亂。眼花撩亂。"
+  },
+  {
+    "book": "第5冊",
+    "char": "僚",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "官吏。官僚、幕僚。"
+  },
+  {
+    "book": "第5冊",
+    "char": "繚",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "纏繞、圍繞。香煙繚繞。"
+  },
+  {
+    "book": "第5冊",
+    "char": "遼",
+    "pinyin": "ㄌㄧㄠˊ",
+    "phrase": "開闊。遼闊。"
+  },
+  {
+    "book": "第5冊",
+    "char": "咳",
+    "pinyin": "ㄎㄜˊ",
+    "phrase": "氣管受刺激，將氣體用力排出。喘咳、咳唾成珠。"
+  },
+  {
+    "book": "第5冊",
+    "char": "駭",
+    "pinyin": "ㄏㄞˋ",
+    "phrase": "吃驚、害怕。驚駭、駭人耳目。"
+  },
+  {
+    "book": "第5冊",
+    "char": "骸",
+    "pinyin": "ㄏㄞˊ",
+    "phrase": "軀體、形體。形骸、遺骸。"
+  },
+  {
+    "book": "第5冊",
+    "char": "劾",
+    "pinyin": "ㄏㄜˊ",
+    "phrase": "檢舉、揭發。彈劾、深文巧劾。"
+  },
+  {
+    "book": "第5冊",
+    "char": "賅",
+    "pinyin": "ㄍㄞ",
+    "phrase": "充足、完備的。言簡意賅。"
+  },
+  {
+    "book": "第5冊",
+    "char": "鬩",
+    "pinyin": "ㄒㄧˋ",
+    "phrase": "爭吵。鬩牆。"
+  },
+  {
+    "book": "第5冊",
+    "char": "睨",
+    "pinyin": "ㄋㄧˋ",
+    "phrase": "斜著眼睛看。傲睨萬物。"
+  },
+  {
+    "book": "第5冊",
+    "char": "倪",
+    "pinyin": "ㄋㄧˊ",
+    "phrase": "頭緒。端倪。"
+  }
+]
                 ,init() {
                 this.allCards = this.sampleData.map(card => ({...card, id: this.generateCardId(card)}));
                 this.addEventListeners();
@@ -4330,7 +4330,15 @@
                         return;
                     }
                     this.allCards = customCards;
-                    this.bookSelect.innerHTML = `<option value="all">全部 (自訂)</option><option value="starred">我的收藏</option>`;
+                    // MODIFIED: When uploading CSV, we *don't* show the static list, just the dynamic data + starred.
+                    // This creates a list of unique 'book' values from the CSV.
+                    const uniqueBooks = [...new Set(customCards.map(c => c.book))];
+                    let optionsHTML = `<option value="all">全部 (自訂)</option><option value="starred">我的收藏</option>`;
+                    uniqueBooks.sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke')).forEach(book => {
+                        optionsHTML += `<option value="${book}">${book}</option>`;
+                    });
+                    this.bookSelect.innerHTML = optionsHTML;
+
                     this.bookSelect.value = 'all';
                     this.buildDeck();
                 };
@@ -4406,7 +4414,7 @@
             },
 
             IdiomsComponent() {
-                //const [allIdioms, setAllIdioms] = useState( [] );
+                // === MODIFIED: Restored useState to initialize with an empty array ===
                 const [allIdioms, setAllIdioms] = useState(
                     [
   {
@@ -5515,17 +5523,34 @@
     "meaning": "天下的人都像兄弟一樣，親如一家"
   }
 ]
+
+
+
                 );
+                // === END MODIFICATION ===
+
                 const [filteredIdioms, setFilteredIdioms] = useState([]);
                 const [selectedVolume, setSelectedVolume] = useState("全部");
                 const [currentIndex, setCurrentIndex] = useState(0);
                 const [showMeaning, setShowMeaning] = useState(false);
-                // MODIFIED: Removed showVolumeSelector state
                 const [notification, setNotification] = useState({ show: false, message: '', type: '' });
                 const [starredIdiomIds, setStarredIdiomIds] = useState(new Set());
                 const prevSelectedVolumeRef = React.useRef();
                 const prevAllIdiomsRef = React.useRef();
-                const volumes = [...new Set(allIdioms.map(item => item.volume))].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
+
+                // === MODIFIED: Logic to create the volume list ===
+                // 1. Define the static base categories
+                const baseVolumes = ['第1冊', '第2冊', '第3冊', '第4冊', '第5冊', '其他'];
+                // 2. Get all dynamic categories from the current data (if any)
+                const dynamicVolumes = Array.isArray(allIdioms) ? allIdioms.map(item => item.volume) : [];
+                // 3. Combine them, remove duplicates and null/undefined
+                const combinedVolumesSet = new Set([...baseVolumes, ...dynamicVolumes]);
+                combinedVolumesSet.delete(undefined);
+                combinedVolumesSet.delete(null);
+                // 4. Create the final sorted list
+                const volumes = [...combinedVolumesSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
+                // === END MODIFICATION ===
+
 
                 // Firebase listener (Unchanged)
                 useEffect(() => {
@@ -5542,9 +5567,9 @@
                 // Helper to generate a stable ID (Unchanged)
                 const generateIdiomId = useCallback((idiom) => `${idiom.idiom}_${idiom.meaning}`, []);
 
-                // Effect to build deck (MODIFIED to prevent index reset on star click)
+                // Effect to build deck (Unchanged from your bug-fix version)
                 useEffect(() => {
-                    const idiomsWithIds = allIdioms.map(item => ({ ...item, id: generateIdiomId(item) }));
+                    const idiomsWithIds = (Array.isArray(allIdioms) ? allIdioms : []).map(item => ({ ...item, id: generateIdiomId(item) }));
 
                     let newFiltered;
                     if (selectedVolume === "我的收藏") {
@@ -5558,28 +5583,23 @@
                     const newDeck = newFiltered.sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
                     setFilteredIdioms(newDeck);
 
-                    // 檢查是什麼觸發了此更新
                     const volumeChanged = prevSelectedVolumeRef.current !== undefined && prevSelectedVolumeRef.current !== selectedVolume;
                     const dataChanged = prevAllIdiomsRef.current !== undefined && prevAllIdiomsRef.current !== allIdioms;
 
                     if (volumeChanged || dataChanged) {
-                        // 如果是冊別或資料來源改變，則重設
                         setCurrentIndex(0);
                         setShowMeaning(false);
                     } else {
-                        // 否則 (僅收藏狀態改變)，將索引固定在新的範圍內
                         const newMaxIndex = newDeck.length - 1;
                         if (currentIndex > newMaxIndex) {
-                            setCurrentIndex(Math.max(0, newMaxIndex)); // 如果當前索引超出範圍(例如刪除最後一張)，則移到新的最後一張
+                            setCurrentIndex(Math.max(0, newMaxIndex));
                         }
-                        // 如果索引仍然有效，則什麼都不做，保持用戶位置
                     }
 
-                    // 為下一次執行更新 ref
                     prevSelectedVolumeRef.current = selectedVolume;
                     prevAllIdiomsRef.current = allIdioms;
 
-                }, [selectedVolume, allIdioms, starredIdiomIds, generateIdiomId, currentIndex]); // 注意：currentIndex 已被添加到依賴項陣列中
+                }, [selectedVolume, allIdioms, starredIdiomIds, generateIdiomId, currentIndex]);
                 
 
                 const showNotification = (message, type = 'success', duration = 3000) => {
@@ -5599,7 +5619,7 @@
                 };
                 
                 const resetCards = () => {
-                     const originalOrder = [...allIdioms]
+                     const originalOrder = (Array.isArray(allIdioms) ? allIdioms : [])
                         .map(item => ({ ...item, id: generateIdiomId(item) }))
                         .filter(item => {
                              if (selectedVolume === "我的收藏") return starredIdiomIds.has(item.id);
@@ -5635,9 +5655,9 @@
                     }).filter(Boolean);
 
                     if (newIdioms.length > 0) {
-                        const currentIdiomsSet = new Set(allIdioms.map(i => i.idiom));
+                        const currentIdiomsSet = new Set((Array.isArray(allIdioms) ? allIdioms : []).map(i => i.idiom));
                         const uniqueNewIdioms = newIdioms.filter(i => !currentIdiomsSet.has(i.idiom));
-                        setAllIdioms(prev => [...prev, ...uniqueNewIdioms]);
+                        setAllIdioms(prev => [...(Array.isArray(prev) ? prev : []), ...uniqueNewIdioms]);
                         showNotification(`成功匯入 ${uniqueNewIdioms.length} 個新成語！`, 'success');
                     } else {
                         showNotification('CSV檔案為空或格式不符。', 'error');
@@ -5666,17 +5686,17 @@
                 const isStarred = currentIdiom ? starredIdiomIds.has(currentIdiom.id) : false;
                 const hasDeck = filteredIdioms.length > 0;
 
-                // --- MODIFIED: This is the new React return block, mimicking the Glyphs layout ---
+                // --- React return block (Unchanged UI, but data source for options is updated) ---
                 return React.createElement('div', null,
-                    // Notification (Unchanged)
+                    // Notification
                     notification.show && React.createElement('div', { className: `fixed top-20 left-1/2 -translate-x-1/2 flex items-center gap-3 w-auto max-w-sm p-4 rounded-lg shadow-2xl text-white z-50 transition-all duration-300 ${notification.type === 'success' ? 'bg-green-500' : notification.type === 'info' ? 'bg-blue-500' : 'bg-red-500'}` },
                       React.createElement('p', null, notification.message),
                       React.createElement('button', { onClick: () => setNotification({ ...notification, show: false }), className: "p-1 rounded-full hover:bg-white/20" }, React.createElement(XCircle, { size: 20 }))
                     ),
                     
-                    // NEW: Control Panel (matches Glyphs, but uses 2 cols since mode is removed)
+                    // Control Panel
                     React.createElement('div', { className: "bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center" },
-                        // NEW: Book Select (as <select>)
+                        // Book Select
                         React.createElement('div', null,
                             React.createElement('label', { htmlFor: "idiom-book-select", className: "block text-sm font-medium text-gray-700" }, "選擇冊別"),
                             React.createElement('select', { 
@@ -5685,11 +5705,12 @@
                                 value: selectedVolume,
                                 onChange: e => setSelectedVolume(e.target.value)
                             },
+                                // === MODIFIED: This list now includes the base volumes ===
                                 ['全部', '我的收藏', ...volumes].map(volume => React.createElement('option', { key: volume, value: volume }, volume))
                             )
                         ),
                         
-                        // NEW: CSV Upload (as <input type="file">)
+                        // CSV Upload
                         React.createElement('div', null,
                             React.createElement('label', { htmlFor: "csv-upload-idioms", className: "block text-sm font-medium text-gray-700" }, "上傳CSV檔"),
                             React.createElement('input', { 
@@ -5702,9 +5723,9 @@
                         )
                     ),
                     
-                    // NEW: Flashcard Container (matches Glyphs)
+                    // Flashcard Container
                     React.createElement('div', { className: "flashcard-container h-80 cursor-pointer", onClick: () => hasDeck && setShowMeaning(!showMeaning) },
-                        // Star Button (same as before, styled by its own CSS rule)
+                        // Star Button
                         hasDeck && React.createElement('svg', { 
                             id: "star-btn-idiom", 
                             onClick: toggleStar, 
@@ -5713,16 +5734,16 @@
                             className: isStarred ? 'starred' : '' 
                         }, React.createElement('path', { d: "M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" })),
                         
-                        // Flashcard (using CSS classes for flip)
+                        // Flashcard
                         React.createElement('div', { className: `flashcard ${showMeaning ? 'is-flipped' : ''}` },
-                            // Front face (uses Glyphs classes)
+                            // Front face
                             React.createElement('div', { className: "card-face card-front" },
                                 currentIdiom 
                                 ? React.createElement('p', { className: "phrase-text" }, currentIdiom.idiom)
                                 : React.createElement('p', { className: "text-xl text-gray-500" }, "沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。", null)
                             ),
                             
-                            // Back face (uses Glyphs classes, no gradient)
+                            // Back face
                             React.createElement('div', { className: "card-face card-back" },
                                 currentIdiom && React.createElement(React.Fragment, null,
                                     React.createElement('div', { className: "answer-text highlight", style: { fontSize: '2.25rem', marginBottom: '1rem' } }, currentIdiom.idiom),
@@ -5732,7 +5753,7 @@
                         )
                     ),
 
-                    // NEW: Navigation Bar (matches Glyphs exactly)
+                    // Navigation Bar
                     React.createElement('div', { className: "flex items-center justify-center flex-wrap gap-4 mt-6" },
                         // Shuffle
                         React.createElement('button', { 
