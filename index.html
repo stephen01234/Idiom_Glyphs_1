@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>綜合學習卡 (字卡 & 成語)</title>
+    <title>綜合學習卡 (字卡、成語、字義)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <script type="importmap">
@@ -19,7 +19,6 @@
         body {
             font-family: 'Noto Sans TC', sans-serif;
         }
-        /* ... [其餘 CSS 樣式保持不變] ... */
         .loading-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(255, 255, 255, 0.9);
@@ -35,21 +34,16 @@
         .card-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
         .card-front { background-color: white; }
         .card-back { background-color: #f0f9ff; transform: rotateY(180deg); }
-        .highlight { color: #ef4444; font-weight: bold; font-size: 1.5em; }
-        .phrase-text { font-size: 2.5rem; line-height: 1.5; text-align: center; }
-        .answer-text { font-size: 2rem; line-height: 1.5; text-align: center; }
+        .highlight { color: #ef4444; font-weight: bold; }
+        .phrase-text { font-size: 2.2rem; line-height: 1.6; text-align: center; }
+        .answer-text { font-size: 2.5rem; line-height: 1.5; text-align: center; font-weight: bold; color: #1d4ed8; }
         .answer-pinyin { font-size: 1.5rem; color: #3b82f6; margin-top: 1rem; }
         
         input[type="file"]::file-selector-button { @apply bg-blue-500 text-white font-bold py-2 px-4 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors; }
         
-        #glyphs-container #star-btn { position: absolute; top: 1rem; right: 1rem; z-index: 10; cursor: pointer; width: 32px; height: 32px; fill: none; stroke: #fbbf24; stroke-width: 2; transition: all 0.2s ease-in-out; }
-        #glyphs-container #star-btn.starred { fill: #f59e0b; stroke: #f59e0b; }
-        #glyphs-container #star-btn:hover { transform: scale(1.1); }
-
-        #idioms-container { font-family: 'Noto Sans TC', sans-serif; }
-        #idioms-container #star-btn-idiom { position: absolute; top: 1rem; right: 1rem; z-index: 10; cursor: pointer; width: 32px; height: 32px; fill: none; stroke: #fbbf24; stroke-width: 2; transition: all 0.2s ease-in-out; }
-        #idioms-container #star-btn-idiom.starred { fill: #f59e0b; stroke: #f59e0b; }
-        #idioms-container #star-btn-idiom:hover { transform: scale(1.1); }
+        .star-button { position: absolute; top: 1rem; right: 1rem; z-index: 10; cursor: pointer; width: 32px; height: 32px; fill: none; stroke: #fbbf24; stroke-width: 2; transition: all 0.2s ease-in-out; }
+        .star-button.starred { fill: #f59e0b; stroke: #f59e0b; }
+        .star-button:hover { transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
@@ -57,12 +51,15 @@
     <div id="welcome-screen" class="text-center">
         <h1 class="text-5xl font-bold text-gray-800 mb-4">綜合學習卡</h1>
         <p class="text-xl text-gray-600 mb-8">請選擇您想要學習的項目</p>
-        <div class="flex justify-center gap-6">
-            <button id="start-glyphs-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <button data-mode="glyphs" class="start-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                 字卡 (Glyphs)
             </button>
-            <button id="start-idioms-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+            <button data-mode="idioms" class="start-btn bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                 成語 (Idioms)
+            </button>
+            <button data-mode="meanings" class="start-btn bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                字義 (Meanings)
             </button>
         </div>
     </div>
@@ -76,47 +73,21 @@
                 <select id="app-switcher" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     <option value="glyphs">字卡 (Glyphs)</option>
                     <option value="idioms">成語 (Idioms)</option>
+                    <option value="meanings">字義 (Meanings)</option>
                 </select>
             </div>
         </header>
 
-        <div id="glyphs-container">
-             <div class="bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                <div>
-                    <label for="book-select" class="block text-sm font-medium text-gray-700">選擇冊別</label>
-                    <select id="book-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </select>
-                    </div>
-                <div>
-                    <label for="mode-select" class="block text-sm font-medium text-gray-700">練習模式</label>
-                    <select id="mode-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option value="mixed">混合模式</option> <option value="pronunciation">字音練習</option> <option value="character">字型練習</option>
-                    </select>
-                </div>
-                <div>
-                     <label for="csv-upload-glyphs" class="block text-sm font-medium text-gray-700">上傳CSV檔</label>
-                     <input type="file" id="csv-upload-glyphs" accept=".csv" class="mt-1 block w-full text-sm text-gray-500">
-                </div>
-            </div>
-            <div class="flashcard-container h-80 cursor-pointer" id="flashcard-container">
-                 <svg id="star-btn" viewBox="0 0 24 24" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
-                <div class="flashcard" id="flashcard">
-                    <div class="card-face card-front" id="card-front"></div>
-                    <div class="card-face card-back" id="card-back"></div>
-                </div>
-            </div>
-            <div class="flex items-center justify-center flex-wrap gap-4 mt-6">
-                <button id="shuffle-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">打亂順序</button>
-                <button id="reset-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">重置練習</button>
-                <button id="prev-btn" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">上一個</button>
-                <div id="card-counter" class="text-lg font-medium text-gray-700">0 / 0</div>
-                <button id="next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">下一個</button>
-            </div>
-        </div>
+        <!-- 字卡容器 -->
+        <div id="glyphs-container" class="app-mode-container"></div>
         
-        <div id="idioms-container">
+        <!-- 成語容器 -->
+        <div id="idioms-container" class="app-mode-container">
             <div id="idioms-root"></div>
         </div>
+
+        <!-- 字義容器 -->
+        <div id="meanings-container" class="app-mode-container"></div>
 
     </div>
 
@@ -130,7 +101,6 @@
 
 
     <script type="module">
-        // --- [Imports 和 Firebase 設定/初始化 保持不變] ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -138,7 +108,8 @@
         import ReactDOM from 'react-dom/client';
         import { XCircle } from 'lucide-react';
 
-        const YOUR_NEW_FIREBASE_CONFIG = {
+        const firebaseConfig = {
+          // 請用您自己的 Firebase 專案設定替換這裡的內容
           apiKey: "AIzaSyB1t85toRv5pRHzx8vWLaSqW0w8FC0t-Do",
           authDomain: "idiom-glyphs.firebaseapp.com",
           projectId: "idiom-glyphs",
@@ -154,19 +125,25 @@
         const mainApp = document.getElementById('main-app');
         const appSwitcher = document.getElementById('app-switcher');
         const appTitle = document.getElementById('app-title');
-        const glyphsContainer = document.getElementById('glyphs-container');
-        const idiomsContainer = document.getElementById('idioms-container');
         const loadingOverlay = document.getElementById('loading-overlay');
         const loadingText = document.getElementById('loading-text');
 
+        // App Containers
+        const appContainers = {
+            glyphs: document.getElementById('glyphs-container'),
+            idioms: document.getElementById('idioms-container'),
+            meanings: document.getElementById('meanings-container')
+        };
+
         async function initializeFirebase() {
             if (firebaseInitialized) return;
-            if (!YOUR_NEW_FIREBASE_CONFIG.apiKey || YOUR_NEW_FIREBASE_CONFIG.apiKey.includes("XXXXXXXXXXXXXXXXXXXXXXXXXXX")) {
-                 loadingText.innerHTML = `<div class="text-center"><p class="font-bold text-red-600">Firebase 設定無效！</p><p class="text-sm mt-2">請在程式碼中修改 YOUR_NEW_FIREBASE_CONFIG 物件，填入您自己的 Firebase 專案設定。</p></div>`;
+            // 修正檢查邏輯，只檢查 apiKey 是否為空。
+            if (!firebaseConfig.apiKey) { 
+                 loadingText.innerHTML = `<div class="text-center"><p class="font-bold text-red-600">Firebase 設定無效！</p><p class="text-sm mt-2">請在程式碼中修改 firebaseConfig 物件，填入您自己的 Firebase 專案設定。</p></div>`;
                  return;
             }
             try {
-                const app = initializeApp(YOUR_NEW_FIREBASE_CONFIG);
+                const app = initializeApp(firebaseConfig);
                 db = getFirestore(app);
                 auth = getAuth(app);
 
@@ -192,104 +169,1870 @@
             }
         }
         
-        // =================================================================================
-        // --- 字卡 (Glyphs) App Logic ---
-        // =================================================================================
-        const GlyphsApp = {
-            // ... (DOM 元素定義保持不變) ...
-            bookSelect: document.getElementById('book-select'),
-            modeSelect: document.getElementById('mode-select'),
-            csvUpload: document.getElementById('csv-upload-glyphs'),
-            flashcardContainer: document.getElementById('flashcard-container'),
-            flashcard: document.getElementById('flashcard'),
-            cardFront: document.getElementById('card-front'),
-            cardBack: document.getElementById('card-back'),
-            starBtn: document.getElementById('star-btn'),
-            shuffleBtn: document.getElementById('shuffle-btn'),
-            resetBtn: document.getElementById('reset-btn'),
-            prevBtn: document.getElementById('prev-btn'),
-            nextBtn: document.getElementById('next-btn'),
-            cardCounter: document.getElementById('card-counter'),
+        // -------------------------------------------------------------
+        // ** MODIFICATION START: Updated createAppUI **
+        // -------------------------------------------------------------
+        function createAppUI(containerId, appType) {
+            const container = appContainers[containerId];
+            const isGlyphs = appType === 'glyphs';
+            const isMeanings = appType === 'meanings';
+            
+            container.innerHTML = `
+                <div class="bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                    <div>
+                        ${isMeanings ? `
+                        <label for="mode-select-meanings" class="block text-sm font-medium text-gray-700">篩選模式</label>
+                        <select id="mode-select-meanings" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option value="volume">依冊別</option> 
+                            <option value="multi-words">依多義字詞</option>
+                        </select>` : ''}
+                        <label for="${appType}-book-select" class="block text-sm font-medium text-gray-700">${isMeanings ? '選擇條件' : '選擇冊別'}</label>
+                        <select id="${appType}-book-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></select>
+                    </div>
+                    <div>
+                        ${isGlyphs ? `
+                        <label for="mode-select" class="block text-sm font-medium text-gray-700">練習模式</label>
+                        <select id="mode-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option value="mixed">混合模式</option> <option value="pronunciation">字音練習</option> <option value="character">字型練習</option>
+                        </select>` : `<div></div>`}
+                    </div>
+                    <div>
+                         <label for="csv-upload-${appType}" class="block text-sm font-medium text-gray-700">上傳CSV檔</label>
+                         <input type="file" id="csv-upload-${appType}" accept=".csv" class="mt-1 block w-full text-sm text-gray-500">
+                    </div>
+                </div>
+                <div class="flashcard-container h-80 cursor-pointer" id="${appType}-flashcard-container">
+                     <svg id="${appType}-star-btn" class="star-button" viewBox="0 0 24 24" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
+                    <div class="flashcard" id="${appType}-flashcard">
+                        <div class="card-face card-front" id="${appType}-card-front"></div>
+                        <div class="card-face card-back" id="${appType}-card-back"></div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center flex-wrap gap-4 mt-6">
+                    <button id="${appType}-shuffle-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">打亂順序</button>
+                    <button id="${appType}-reset-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">重置練習</button>
+                    <button id="${appType}-prev-btn" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">上一個</button>
+                    <div id="${appType}-card-counter" class="text-lg font-medium text-gray-700">0 / 0</div>
+                    <button id="${appType}-next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">下一個</button>
+                </div>
+            `;
+        }
+        // -------------------------------------------------------------
+        // ** MODIFICATION END: Updated createAppUI **
+        // -------------------------------------------------------------
 
-            allCards: [],
-            currentDeck: [],
-            currentIndex: 0,
-            starredCardIds: new Set(),
-            unsubscribeStarred: null,
-            // 你的 sampleData (保持不變)
-            sampleData:
-            [
+        class FlashcardApp {
+            constructor(type) {
+                this.type = type;
+                this.allCards = [];
+                this.currentDeck = [];
+                this.currentIndex = 0;
+                this.starredCardIds = new Set();
+                this.unsubscribeStarred = null;
+                
+                this.dom = {};
+            }
+
+            init(sampleData) {
+                createAppUI(this.type, this.type);
+                this.assignDomElements();
+                
+                this.sampleData = sampleData;
+                this.allCards = this.sampleData
+                    .filter(card => this.isValidCard(card))
+                    .map(card => ({...card, id: this.generateCardId(card)}));
+                
+                this.populateBookSelect();
+                this.addEventListeners();
+                this.setupStarredListener();
+                this.buildDeck();
+            }
+
+            assignDomElements() {
+                this.dom.bookSelect = document.getElementById(`${this.type}-book-select`);
+                this.dom.modeSelect = document.getElementById('mode-select'); // Only for glyphs
+                // MeaningsApp 會新增 this.dom.modeSelectMeanings
+                this.dom.csvUpload = document.getElementById(`csv-upload-${this.type}`);
+                this.dom.flashcardContainer = document.getElementById(`${this.type}-flashcard-container`);
+                this.dom.flashcard = document.getElementById(`${this.type}-flashcard`);
+                this.dom.cardFront = document.getElementById(`${this.type}-card-front`);
+                this.dom.cardBack = document.getElementById(`${this.type}-card-back`);
+                this.dom.starBtn = document.getElementById(`${this.type}-star-btn`);
+                this.dom.shuffleBtn = document.getElementById(`${this.type}-shuffle-btn`);
+                this.dom.resetBtn = document.getElementById(`${this.type}-reset-btn`);
+                this.dom.prevBtn = document.getElementById(`${this.type}-prev-btn`);
+                this.dom.nextBtn = document.getElementById(`${this.type}-next-btn`);
+                this.dom.cardCounter = document.getElementById(`${this.type}-card-counter`);
+            }
+            
+            destroy() {
+                if (this.unsubscribeStarred) this.unsubscribeStarred();
+                appContainers[this.type].innerHTML = ''; 
+            }
+
+            populateBookSelect() {
+                const dynamicBooks = this.allCards.map(c => this.getCardVolume(c));
+                const combinedBooksSet = new Set(dynamicBooks);
+                combinedBooksSet.delete(undefined);
+                combinedBooksSet.delete(null);
+                
+                const volumes = [...combinedBooksSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
+
+                let optionsHTML = `<option value="all">全部 (資料)</option><option value="starred">我的收藏</option>`;
+                volumes.forEach(book => {
+                    optionsHTML += `<option value="${book}">${book}</option>`;
+                });
+                this.dom.bookSelect.innerHTML = optionsHTML;
+            }
+
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const customCards = this.parseCSV(e.target.result);
+                    if (customCards.length === 0) {
+                        alert('CSV檔案格式不符或內容為空。');
+                        return;
+                    }
+
+                    const existingCardIds = new Set(this.allCards.map(c => c.id));
+                    const newUniqueCards = customCards.filter(c => !existingCardIds.has(c.id));
+
+                    if (newUniqueCards.length > 0) {
+                        this.allCards.push(...newUniqueCards);
+                        alert(`成功新增 ${newUniqueCards.length} 張卡片。`);
+                    } else {
+                        alert('CSV中的卡片皆已存在。');
+                    }
+                    
+                    this.populateBookSelect();
+                    this.dom.bookSelect.value = 'all';
+                    this.buildDeck();
+                };
+                reader.readAsText(file);
+            }
+
+            async toggleStar() {
+                if (!userId || this.currentDeck.length === 0) return;
+                const card = this.currentDeck[this.currentIndex];
+                const docRef = doc(db, `users/${userId}/starred_${this.type}`, card.id);
+                try {
+                    if (this.starredCardIds.has(card.id)) {
+                        await deleteDoc(docRef);
+                    } else {
+                        await setDoc(docRef, { ...card, starredAt: new Date() });
+                    }
+                } catch (error) {
+                    console.error("Update star status failed:", error);
+                    alert("抱歉，更新收藏狀態失敗。");
+                }
+            }
+
+            setupStarredListener() {
+                if (this.unsubscribeStarred) this.unsubscribeStarred();
+                // 修正：在嘗試設定監聽器前，確保 userId 已被設定 (通過 onAuthStateChanged)
+                if (!userId) {
+                    console.error(`UserID is not available for starred listener setup for ${this.type}. Firestore operation skipped.`);
+                    return; 
+                }
+
+                const collectionRef = collection(db, `users/${userId}/starred_${this.type}`);
+                this.unsubscribeStarred = onSnapshot(collectionRef, (snapshot) => {
+                    const newStarredIds = new Set();
+                    snapshot.forEach(doc => newStarredIds.add(doc.id));
+                    this.starredCardIds = newStarredIds;
+                    if (this.dom.bookSelect.value === 'starred') {
+                        this.buildDeck();
+                    } else if (this.currentDeck.length > 0) {
+                        const currentCard = this.currentDeck[this.currentIndex];
+                        this.dom.starBtn.classList.toggle('starred', this.starredCardIds.has(currentCard.id));
+                    }
+                }, (error) => {
+                    console.error(`Failed to listen to starred ${this.type}:`, error);
+                    // 提示使用者檢查 Firebase Security Rules
+                    if (error.code === 'permission-denied') {
+                        console.warn('PERMISSION ERROR: 請檢查您的 Firebase Security Rules 是否允許已驗證的使用者讀取/寫入他們的個人收藏資料 (e.g., match /users/{userId}/starred_meanings/{docId} { allow read, write: if request.auth.uid == userId; })');
+                    }
+                });
+            }
+
+            addEventListeners() {
+                this.dom.flashcardContainer.addEventListener('click', (e) => {
+                    if (e.target.closest(`#${this.type}-star-btn`)) return;
+                    if (this.currentDeck.length > 0) this.dom.flashcard.classList.toggle('is-flipped');
+                });
+                this.dom.starBtn.addEventListener('click', () => this.toggleStar());
+                this.dom.prevBtn.addEventListener('click', () => {
+                    if (this.currentIndex > 0) {
+                        this.currentIndex--;
+                        this.dom.flashcard.classList.remove('is-flipped');
+                        this.displayCard();
+                    }
+                });
+                this.dom.nextBtn.addEventListener('click', () => {
+                    if (this.currentIndex < this.currentDeck.length - 1) {
+                        this.currentIndex++;
+                        this.dom.flashcard.classList.remove('is-flipped');
+                        this.displayCard();
+                    }
+                });
+                this.dom.shuffleBtn.addEventListener('click', () => this.buildDeck());
+                this.dom.resetBtn.addEventListener('click', () => {
+                    if (this.currentDeck.length > 0) {
+                        this.currentIndex = 0;
+                        this.dom.flashcard.classList.remove('is-flipped');
+                        this.displayCard();
+                    }
+                });
+                this.dom.bookSelect.addEventListener('change', () => this.buildDeck());
+                if (this.dom.modeSelect) { // only for glyphs
+                    this.dom.modeSelect.addEventListener('change', () => this.buildDeck());
+                }
+                this.dom.csvUpload.addEventListener('change', (e) => this.handleFileUpload(e));
+            }
+            
+            // Methods to be overridden by subclasses
+            isValidCard(card) { return true; }
+            generateCardId(card) { return ''; }
+            getCardVolume(card) { return card.book || card.volume; }
+            parseCSV(text) { return []; }
+            buildDeck() {}
+            displayCard() {}
+        }
+        
+        // --- 字卡 (Glyphs) App ---
+        class GlyphsApp extends FlashcardApp {
+            constructor() { super('glyphs'); }
+            isValidCard(card) { return card.book && card.char && card.pinyin && card.phrase; }
+            generateCardId(card) { return `${card.char}_${card.phrase}`; }
+            parseCSV(text) {
+                const lines = text.trim().split('\n');
+                return lines.map(line => {
+                    const [book, char, pinyin, phrase] = line.split(',').map(s => s.trim());
+                    if (book && char && pinyin && phrase) {
+                        const cardData = { book, char, pinyin, phrase };
+                        cardData.id = this.generateCardId(cardData);
+                        return cardData;
+                    }
+                    return null;
+                }).filter(Boolean);
+            }
+            buildDeck() {
+                const selectedBook = this.dom.bookSelect.value;
+                let filteredByBook = (selectedBook === 'starred') 
+                    ? this.allCards.filter(card => this.starredCardIds.has(card.id))
+                    : (selectedBook !== 'all') 
+                        ? this.allCards.filter(card => card.book === selectedBook)
+                        : [...this.allCards];
+                this.currentDeck = [];
+                const selectedMode = this.dom.modeSelect.value;
+                if (selectedMode === 'mixed') {
+                    filteredByBook.forEach(card => {
+                        this.currentDeck.push({ ...card, type: 'pronunciation' });
+                        this.currentDeck.push({ ...card, type: 'character' });
+                    });
+                } else {
+                    filteredByBook.forEach(card => this.currentDeck.push({ ...card, type: selectedMode }));
+                }
+                this.currentDeck.sort(() => Math.random() - 0.5);
+                this.currentIndex = 0;
+                this.dom.flashcard.classList.remove('is-flipped');
+                this.displayCard();
+            }
+            displayCard() {
+                const hasDeck = this.currentDeck.length > 0;
+                this.dom.starBtn.style.display = hasDeck ? 'block' : 'none';
+                if (!hasDeck) {
+                    this.dom.cardFront.innerHTML = `<p class="text-xl text-gray-500">沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。</p>`;
+                    this.dom.cardBack.innerHTML = '';
+                    this.dom.cardCounter.textContent = '0 / 0';
+                } else {
+                    const cardData = this.currentDeck[this.currentIndex];
+                    const { id, char, pinyin, phrase, type } = cardData;
+                    let frontHTML = (type === 'pronunciation')
+                        ? `<p class="phrase-text">${phrase.replace(char, `<span class="highlight">「${char}」</span>`)}</p>`
+                        : `<p class="phrase-text">${phrase.replace(char, `<span class="highlight">「${pinyin}」</span>`)}</p>`;
+                    let backHTML = `<div class="answer-text">${phrase.replace(char, `<span class="highlight">「${char}」</span>`)}</div><div class="answer-pinyin">${pinyin}</div>`;
+                    this.dom.cardFront.innerHTML = frontHTML;
+                    this.dom.cardBack.innerHTML = backHTML;
+                    this.dom.cardCounter.textContent = `${this.currentIndex + 1} / ${this.currentDeck.length}`;
+                    this.dom.starBtn.classList.toggle('starred', this.starredCardIds.has(id));
+                }
+                this.dom.prevBtn.disabled = !hasDeck || this.currentIndex === 0;
+                this.dom.nextBtn.disabled = !hasDeck || this.currentIndex === this.currentDeck.length - 1;
+                this.dom.shuffleBtn.disabled = !hasDeck;
+                this.dom.resetBtn.disabled = !hasDeck;
+            }
+        }
+        
+        // -------------------------------------------------------------
+        // ** MODIFICATION START: Updated MeaningsApp **
+        // -------------------------------------------------------------
+        class MeaningsApp extends FlashcardApp {
+            constructor() { 
+                super('meanings'); 
+                this.currentFilterMode = 'volume'; // 新增狀態：預設為依冊別
+                this.multiWordsOptions = []; // 新增多義字詞選項
+            }
+
+            assignDomElements() {
+                super.assignDomElements();
+                this.dom.modeSelectMeanings = document.getElementById('mode-select-meanings'); // 新增 DOM
+            }
+            
+            isValidCard(card) { return card.volume && card.phrase && card.words && card.meaning; }
+            generateCardId(card) { return `${card.volume}_${card.phrase}_${card.words}`; }
+            getCardVolume(card) { return card.volume; }
+
+            parseCSV(text) {
+                const lines = text.trim().split('\n');
+                return lines.map(line => {
+                    const [volume, phrase, words, meaning] = line.split(',').map(s => s.trim());
+                    if (volume && phrase && words && meaning) {
+                        const cardData = { volume, phrase, words, meaning };
+                        cardData.id = this.generateCardId(cardData);
+                        return cardData;
+                    }
+                    return null;
+                }).filter(Boolean);
+            }
+            
+            // 新增計算多義字詞的方法
+            calculateMultiWords() {
+                const wordsCount = this.allCards.reduce((acc, card) => {
+                    const word = card.words;
+                    if (word) {
+                        acc[word] = (acc[word] || 0) + 1;
+                    }
+                    return acc;
+                }, {});
+
+                // 篩選出出現 2 次（含）以上的字詞，並排序
+                this.multiWordsOptions = Object.keys(wordsCount)
+                    .filter(word => wordsCount[word] >= 2)
+                    .sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
+            }
+
+            // 重寫 populateBookSelect 方法
+            populateBookSelect() {
+                this.dom.bookSelect.innerHTML = ''; // 清空選項
+                
+                let optionsHTML = '';
+                
+                // 確保 bookSelect 的標籤正確
+                this.dom.bookSelect.previousElementSibling.textContent = this.currentFilterMode === 'volume' ? '選擇冊別' : '選擇多義字詞';
+
+
+                if (this.currentFilterMode === 'volume') {
+                    const dynamicVolumes = this.allCards.map(c => this.getCardVolume(c));
+                    const combinedVolumesSet = new Set(dynamicVolumes);
+                    combinedVolumesSet.delete(undefined);
+                    combinedVolumesSet.delete(null);
+                    const volumes = [...combinedVolumesSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
+
+                    optionsHTML += `<option value="all">全部 (資料)</option><option value="starred">我的收藏</option>`;
+                    volumes.forEach(book => {
+                        optionsHTML += `<option value="${book}">${book}</option>`;
+                    });
+                } else if (this.currentFilterMode === 'multi-words') {
+                    this.calculateMultiWords(); // 計算多義字詞
+                    
+                    if (this.multiWordsOptions.length === 0) {
+                        optionsHTML = `<option value="none">沒有重複字詞</option>`;
+                    } else {
+                         this.multiWordsOptions.forEach(word => {
+                             // 在多義字詞模式下，我們只需要列出字詞本身作為選項
+                            optionsHTML += `<option value="${word}">${word} (${this.allCards.filter(c => c.words === word).length}個意思)</option>`;
+                        });
+                    }
+                }
+                
+                this.dom.bookSelect.innerHTML = optionsHTML;
+                // 如果是多義字詞模式且有選項，預設選第一個
+                if (this.currentFilterMode === 'multi-words' && this.multiWordsOptions.length > 0) {
+                    this.dom.bookSelect.value = this.multiWordsOptions[0];
+                }
+            }
+
+            // 重寫 addEventListeners 方法，增加模式切換監聽
+            addEventListeners() {
+                super.addEventListeners();
+                if (this.dom.modeSelectMeanings) {
+                    this.dom.modeSelectMeanings.addEventListener('change', (e) => {
+                        this.currentFilterMode = e.target.value;
+                        this.populateBookSelect(); // 重新載入下拉選單選項
+                        this.buildDeck(); // 重新建立牌組
+                    });
+                }
+            }
+
+            // 重寫 buildDeck 方法，根據新的模式進行篩選
+            buildDeck() {
+                const selectedValue = this.dom.bookSelect.value;
+                let filteredDeck = [];
+
+                if (this.currentFilterMode === 'volume') {
+                    // 依冊別或收藏篩選
+                    if (selectedValue === 'starred') {
+                        filteredDeck = this.allCards.filter(card => this.starredCardIds.has(card.id));
+                    } else if (selectedValue !== 'all') {
+                        filteredDeck = this.allCards.filter(card => this.getCardVolume(card) === selectedValue);
+                    } else {
+                        filteredDeck = [...this.allCards];
+                    }
+                } else if (this.currentFilterMode === 'multi-words') {
+                    // 依選定的多義字詞篩選
+                    if (this.multiWordsOptions.length > 0 && selectedValue && selectedValue !== 'none') {
+                        // 確保選中的值是實際的多義字詞
+                        filteredDeck = this.allCards.filter(card => card.words === selectedValue);
+                    } else {
+                         filteredDeck = []; // 沒有多義字詞或未選擇
+                    }
+                }
+
+                this.currentDeck = filteredDeck.sort(() => Math.random() - 0.5);
+                this.currentIndex = 0;
+                this.dom.flashcard.classList.remove('is-flipped');
+                this.displayCard();
+            }
+            
+            displayCard() {
+                const hasDeck = this.currentDeck.length > 0;
+                this.dom.starBtn.style.display = hasDeck ? 'block' : 'none';
+                 if (!hasDeck) {
+                    const message = this.currentFilterMode === 'multi-words' && this.multiWordsOptions.length === 0
+                        ? "目前的資料中沒有出現 2 次以上的字詞可供練習。"
+                        : "沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。";
+                    this.dom.cardFront.innerHTML = `<p class="text-xl text-gray-500">${message}</p>`;
+                    this.dom.cardBack.innerHTML = '';
+                    this.dom.cardCounter.textContent = '0 / 0';
+                } else {
+                    const cardData = this.currentDeck[this.currentIndex];
+                    const { id, phrase, words, meaning } = cardData;
+
+                    // 這裡讓正面顯示帶有紅色標註字詞的例句
+                    const frontHTML = `<p class="phrase-text">${phrase.replace(words, `<span class="highlight">「${words}」</span>`)}</p>`;
+                    // 背面顯示字義 (Meaning)
+                    const backHTML = `<div class="answer-text">${meaning}</div><div class="answer-pinyin mt-4 text-gray-600 font-normal">字詞：${words}</div>`;
+                    
+                    this.dom.cardFront.innerHTML = frontHTML;
+                    this.dom.cardBack.innerHTML = backHTML;
+                    this.dom.cardCounter.textContent = `${this.currentIndex + 1} / ${this.currentDeck.length}`;
+                    this.dom.starBtn.classList.toggle('starred', this.starredCardIds.has(id));
+                }
+                this.dom.prevBtn.disabled = !hasDeck || this.currentIndex === 0;
+                this.dom.nextBtn.disabled = !hasDeck || this.currentIndex === this.currentDeck.length - 1;
+                this.dom.shuffleBtn.disabled = !hasDeck;
+                this.dom.resetBtn.disabled = !hasDeck;
+            }
+        }
+        // -------------------------------------------------------------
+        // ** MODIFICATION END: Updated MeaningsApp **
+        // -------------------------------------------------------------
+
+        // =================================================================================
+        // --- 成語 (Idioms) App Logic (React) ---
+        // =================================================================================
+        const IdiomsApp = {
+            reactRoot: null,
+            init() {
+                const container = document.getElementById('idioms-root');
+                if (!this.reactRoot) {
+                    this.reactRoot = ReactDOM.createRoot(container);
+                }
+                this.reactRoot.render(React.createElement(this.IdiomsComponent));
+            },
+            destroy() {
+                // Unmount logic for React 18+ is handled by the root itself
+            },
+            IdiomsComponent() {
+                const [allIdioms, setAllIdioms] = useState(
+                    
+                    [
   {
-    "book": "其他",
-    "char": "墨",
-    "pinyin": "ㄇㄛˋ",
-    "phrase": "墨守成規"
+    "volume": "其他",
+    "idiom": "振聾發聵",
+    "meaning": "比喻大聲疾呼，以喚醒愚昧的人。"
   },
   {
-    "book": "其他",
-    "char": "幀",
-    "pinyin": "ㄓㄥˋ",
-    "phrase": "一幀照片"
+    "volume": "其他",
+    "idiom": "白雲蒼狗",
+    "meaning": "比喻世事變幻無常"
   },
   {
-    "book": "其他",
-    "char": "挑",
-    "pinyin": "ㄊㄧㄠˇ",
-    "phrase": "挑燈看劍"
+    "volume": "其他",
+    "idiom": "身無長物",
+    "meaning": "比喻節儉或貧困"
   },
   {
-    "book": "其他",
-    "char": "屬",
-    "pinyin": "ㄓㄨˇ",
-    "phrase": "舉酒屬客"
+    "volume": "其他",
+    "idiom": "不刊之論",
+    "meaning": "確鑿不移，見識超拔，不可磨滅的言論"
   },
   {
-    "book": "其他",
-    "char": "許",
-    "pinyin": "ㄒㄩˇ",
-    "phrase": "孤高自許"
+    "volume": "其他",
+    "idiom": "洞若觀火",
+    "meaning": "觀察的非常清楚透徹"
   },
   {
-    "book": "其他",
-    "char": "杼",
-    "pinyin": "ㄓㄨˋ",
-    "phrase": "機杼"
+    "volume": "其他",
+    "idiom": "綆短汲深",
+    "meaning": "才能無法勝任"
   },
   {
-    "book": "其他",
-    "char": "騖",
-    "pinyin": "ㄨˋ",
-    "phrase": "好高騖遠"
+    "volume": "其他",
+    "idiom": "膠柱鼓瑟",
+    "meaning": "比喻做事拘泥而不知變通"
   },
   {
-    "book": "其他",
-    "char": "僭",
-    "pinyin": "ㄐㄧㄢˋ",
-    "phrase": "僭號"
+    "volume": "其他",
+    "idiom": "倚馬可待",
+    "meaning": "比喻文思敏捷，寫作迅速。"
   },
   {
-    "book": "其他",
-    "char": "譖",
-    "pinyin": "ㄗㄣˋ",
-    "phrase": "譖下謾上"
+    "volume": "其他",
+    "idiom": "魚游釜中",
+    "meaning": "比喻身處險境，危在旦夕"
   },
   {
-    "book": "其他",
-    "char": "暄",
-    "pinyin": "ㄒㄩㄢ",
-    "phrase": "寒暄"
+    "volume": "其他",
+    "idiom": "齧臂之交",
+    "meaning": "交情深厚的朋友"
   },
   {
-    "book": "其他",
-    "char": "觥",
-    "pinyin": "ㄍㄨㄥ",
-    "phrase": "觥籌"
+    "volume": "其他",
+    "idiom": "誇誇其談",
+    "meaning": "言談浮誇，不切實際"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "其他",
+    "idiom": "一時之選",
+    "meaning": "當世傑出的人才"
+  },
+  {
+    "volume": "其他",
+    "idiom": "師心自用",
+    "meaning": "固執己見，自以為是"
+  },
+  {
+    "volume": "其他",
+    "idiom": "偃旗息鼓",
+    "meaning": "形容不露行蹤。語出《雲別傳》。後亦用「偃旗息鼓」比喻事情中斷或聲勢減弱。"
+  },
+  {
+    "volume": "其他",
+    "idiom": "伊於胡底",
+    "meaning": "意謂不知將落到什麼地步為止。比喻後果不堪設想。"
+  },
+  {
+    "volume": "其他",
+    "idiom": "繩愆糾謬",
+    "meaning": "舉發錯誤，糾正過失。"
+  },
+  {
+    "volume": "",
+    "idiom": "",
+    "meaning": ""
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "斗杓東指",
+    "meaning": "斗柄指向東方，表示春季來臨。"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "東海揚塵",
+    "meaning": "世事變幻迅速"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "馬耳東風",
+    "meaning": "比喻充耳不聞、無動於衷"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "東鱗西爪",
+    "meaning": "畫龍時，龍在雲中為雲所蔽，東露一鱗，西現一爪，不見全貌。比喻事物零碎、不完整。"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "數典忘祖",
+    "meaning": "比喻忘本，或對本國、自己祖先的歷史無知"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "退避三舍",
+    "meaning": "為避免正面衝突或因害怕而主動讓步"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "曳尾塗中",
+    "meaning": "比喻寧願貧困而逍遙自在，不願尊貴禮遇而備受拘束"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "東山高臥",
+    "meaning": "比喻隱居不仕"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "狼奔豕突",
+    "meaning": "形容人倉皇失措的逃跑，或壞人恣意摧殘破壞"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "狼前虎後",
+    "meaning": "比喻壞人接踵而來"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "狼煙四起",
+    "meaning": "比喻外敵來犯，戰事迭起，社會動蕩不安"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "虎狼之師",
+    "meaning": "比喻勇猛善戰的軍隊"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "雁行折翼",
+    "meaning": "比喻兄弟分離或死亡"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "雁過留聲",
+    "meaning": "比喻死後留下好名聲"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "雁杳魚沉",
+    "meaning": "杳無音信，音訊斷絕"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "投桃報李",
+    "meaning": "比喻朋友之間禮尚往來"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "懲前毖後",
+    "meaning": "以從前的過失為教訓，戒慎不再犯錯"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "戰戰兢兢",
+    "meaning": "抱著戒慎恐懼的心情"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "無忝所生",
+    "meaning": "為人子女者不僅應當善盡孝道，更須努力奉獻社會，才能光耀門楣"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "鳶飛魚躍",
+    "meaning": "比喻萬物任其天性而動，各得其所"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "高山仰止",
+    "meaning": "比喻崇高的德行，令人景仰"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "瓜瓞綿綿",
+    "meaning": "比喻子孫繁盛、傳世久遠"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "耳提面命",
+    "meaning": "比喻懇切教誨"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "進退維谷",
+    "meaning": "形容前進後退都無路可走的困窘處境"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "深厲淺揭",
+    "meaning": "比喻行事隨機應變"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "日就月將",
+    "meaning": "每日有成就，每月有進步。形容持續不斷，積少成多"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "南箕北斗",
+    "meaning": "比喻徒有虛名而無實用"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "行雲流水",
+    "meaning": "形容飄逸自然，無拘無束的樣子；或比喻無足輕重事物"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "雪泥鴻爪",
+    "meaning": "比喻往事所遺留的痕跡"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "斫輪老手",
+    "meaning": "比喻技藝精練純熟或經驗豐富的人"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "冒天下之大不韙",
+    "meaning": "比喻不顧一切去做全天下人都認為不對的事"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "蓼莪之思",
+    "meaning": "孝子思念父母"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "寒泉之思",
+    "meaning": "比喻感懷母恩的深切思念"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "秋水伊人",
+    "meaning": "面對景物思念人"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "甘棠遺愛",
+    "meaning": "用以表示對賢官廉吏的愛戴或懷念"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "不愧屋漏",
+    "meaning": "獨處暗地，仍心思端正，行為不苟且"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "夢熊之兆",
+    "meaning": "生男的頌語"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "搔首踟蹰",
+    "meaning": "徬徨不知如何自處"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "不忮不求",
+    "meaning": "多用來形容淡泊無求，不做非分之事的處世態度"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "餔糟歠釃",
+    "meaning": "有與世浮沉、和眾人同醉之意"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "懷瑾握瑜",
+    "meaning": "比喻懷有高貴的美德與才能"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "蘭芷蕭艾",
+    "meaning": "比喻士人改變氣節，成為凡人"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "黃鐘毀棄",
+    "meaning": "比喻賢才不被重用"
+  },
+  {
+    "volume": "第一冊",
+    "idiom": "瓦釜雷鳴",
+    "meaning": "比喻平庸無才德的人卻居於顯赫的高位"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "怙惡不悛",
+    "meaning": "有過惡卻不肯悔改"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "雕欄玉砌",
+    "meaning": "形容富麗華美的建築物"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "動如參商",
+    "meaning": "比喻分別而無法相見"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "自吹自擂",
+    "meaning": "比喻自我宣傳吹噓"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "槁木死灰",
+    "meaning": "比喻心情極端消沉，對一切事情無動於衷"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "將功贖罪",
+    "meaning": "用功勞來抵銷罪過"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "買櫝還珠",
+    "meaning": "比喻捨本逐末，取捨失當"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "案牘勞形",
+    "meaning": "形容因文書工作繁重而疲憊不堪"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "舐犢情深",
+    "meaning": "比喻父母疼愛子女之深情"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "情竇初開",
+    "meaning": "初通情愛的感覺，多用於少男少女"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "窮兵黷武",
+    "meaning": "恣意動用兵力，發動戰爭"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "桴鼓相應",
+    "meaning": "比喻極力響應，緊密配合"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "匏瓜空懸",
+    "meaning": "比喻有才能的人卻不為世所用"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "越俎代庖",
+    "meaning": "比喻踰越自己的職分而代人做事"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "鮑魚之肆",
+    "meaning": "比喻臭穢的地方、惡劣的環境或小人聚集的場所"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "如法炮製",
+    "meaning": "本指依照古法製藥，後多指依照往例或現有的方法辦事"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "未雨綢繆",
+    "meaning": "事先預備以防患未然"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "椿萱並茂",
+    "meaning": "比喻父母都健在"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "齟齬",
+    "meaning": "多用來比喻彼此意見不合"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "籠街喝道",
+    "meaning": "形容車駕儀從之盛"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "被褐懷珠",
+    "meaning": "比喻有真才實學而身處寒微的人"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "玩日愒歲",
+    "meaning": "怠惰偷安，虛度光陰"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "桑榆暮景",
+    "meaning": "比喻晚年、年老"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "詠絮之才",
+    "meaning": "稱美能作詩文的才女"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "春樹暮雲",
+    "meaning": "為思念遠方友人之辭"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "月中折桂",
+    "meaning": "比喻科舉及第"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "指桑罵槐",
+    "meaning": "比喻拐彎抹角罵人"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "蒲柳之姿",
+    "meaning": "比喻人身體衰弱"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "步步金蓮",
+    "meaning": "形容女性步態婀娜多姿"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "同氣連枝",
+    "meaning": "比喻同胞兄弟姐妹"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "讓棗推梨",
+    "meaning": "比喻兄弟間的友愛"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "同室操戈",
+    "meaning": "比喻兄弟之間不和睦或團體內部互相爭鬥"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "夜雨對床",
+    "meaning": "比喻兄弟或親友相聚，親密交談"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "陟罰臧否",
+    "meaning": "指賞功罰過"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "不知所云",
+    "meaning": "說話或文章內容模糊、重點不明，無法讓人了解其意旨"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "不求聞達",
+    "meaning": "無意追求名譽顯貴"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "引喻失義",
+    "meaning": "引用不恰當的例證"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "初出茅廬",
+    "meaning": "比喻初入社會，缺乏歷練"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "鞠躬盡瘁",
+    "meaning": "指做事小心謹慎，不辭辛勞，盡心盡力"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "作姦犯科",
+    "meaning": "為非作歹，觸犯法令"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "志大才疏",
+    "meaning": "指志向遠大，而才能疏闊不實在"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "老驥伏櫪",
+    "meaning": "比喻年紀雖大，仍懷雄心壯志"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "壯志未酬",
+    "meaning": "偉大的志願尚未實現"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "玩物喪志",
+    "meaning": "一味玩賞無益的事物，因而消磨人的壯志"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "人窮志短",
+    "meaning": "人處於貧窮困苦之時，容易只顧眼前利益而喪失遠大的志向"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "年少得志",
+    "meaning": "年紀很輕就已經有所成就"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "桀驁不馴",
+    "meaning": "性情凶暴狂傲"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "虎視眈眈",
+    "meaning": "比喻心懷不軌，伺機掠奪"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "明察秋毫",
+    "meaning": "比喻能洞察一切，看出極細微的地方"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "一曝十寒",
+    "meaning": "比喻沒有恆心，做事不能持久"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "出爾反爾",
+    "meaning": "比喻人的言行前後反覆"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "五十步笑百步",
+    "meaning": "比喻自己和別人犯同樣的錯誤，只是程度上輕些，可是卻譏笑別人"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "顧左右而言他",
+    "meaning": "閃避主題而談論別的事情"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "緣木求魚",
+    "meaning": "比喻用錯方法，徒勞無功"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "揠苗助長",
+    "meaning": "比喻為求速成而未循序，結果不但無益，反而有害"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "閒雲野鶴",
+    "meaning": "比喻來去自如，無所羈絆的人"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "暴虎馮河",
+    "meaning": "比喻有勇無謀的行為"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "兔死狗烹",
+    "meaning": "比喻事情成功之後，曾經出過力的人遭到遺棄或被殺的命運"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "攀龍附鳳",
+    "meaning": "趨附權貴，以求晉升"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "汗牛充棟",
+    "meaning": "形容書籍極多"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "管中窺豹",
+    "meaning": "比喻所見狹小，未得全貌"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "狼狽為奸",
+    "meaning": "比喻彼此勾結做壞事"
+  },
+  {
+    "volume": "第二冊",
+    "idiom": "門可羅雀",
+    "meaning": "形容賓客稀少、交往的朋友很少，門庭冷落。也比喻生意清淡"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "猝不及防",
+    "meaning": "忽然發生，來不及防備"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "裨補闕漏",
+    "meaning": "有助於缺失的改善"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "睥睨群雄",
+    "meaning": "斜眼看人，表示傲然輕視的意思"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "濯纓彈冠",
+    "meaning": "清洗帽纓，整理帽冠，比喻準備出仕"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "連篇累牘",
+    "meaning": "篇幅過多，文詞冗長"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "官吏瀆職",
+    "meaning": "有虧職守"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "中流砥柱",
+    "meaning": "獨立不撓、能堅強支撐危局的人"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "根深柢固",
+    "meaning": "基礎堅實，牢不可拔"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "神情矍鑠",
+    "meaning": "老而強健的樣子"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "雙瞳翦水",
+    "meaning": "形容眼睛清澈明亮"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "鬼影幢幢",
+    "meaning": "形容陰森恐怖的樣子"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "牛山濯濯",
+    "meaning": "比喻人秃頂無髮"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "亂點鴛鴦譜",
+    "meaning": "將未婚男女胡亂湊成夫妻"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "殃及池魚",
+    "meaning": "比喻無故受累"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "泱泱大國",
+    "meaning": "稱讚國力強大的國家，懷有寬大的氣度與良好的風範"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "追根究柢",
+    "meaning": "追查探究事物的根本"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "提綱挈領",
+    "meaning": "抓住事理的要點"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "鍥而不舍",
+    "meaning": "比喻有恆心、有毅力"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "蟾宮折桂",
+    "meaning": "比喻科舉及第"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "櫛比鱗次",
+    "meaning": "比喻緊密的連接排列"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "滄海桑田",
+    "meaning": "比喻世事多變，人生無常"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "兄弟鬩牆",
+    "meaning": "指兄弟失和爭吵"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "一衣帶水",
+    "meaning": "比喻江流狹窄有如一條衣帶。後泛指雖有江河阻隔，但不足以限制交往"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "吞舟之魚",
+    "meaning": "比喻犯大罪的人"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "門當戶對",
+    "meaning": "指結親的雙方家庭背景、社會地位相等"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "貌合神離",
+    "meaning": "表面彼此相合，實際上卻心志背離"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "齊大非偶",
+    "meaning": "指談論婚事的對象條件太好，不敢高攀作為配偶"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "鶼鰈情深",
+    "meaning": "比喻夫妻恩愛"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "秦晉之好",
+    "meaning": "指兩姓聯姻的關係"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "秋扇見捐",
+    "meaning": "比喻女子不再年輕貌美而遭受冷落"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "扶危持顛",
+    "meaning": "扶持危殆，挽救顛覆。形容盡力挽回危局"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "滿坐風生",
+    "meaning": "比喻來的人神清氣揚，光彩耀人"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "垂福萬葉",
+    "meaning": "福澤延及萬代。比喻恩澤久遠"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "榮極軒裳",
+    "meaning": "自己的生活極盡奢華，行事的禮儀與排場的講究，超越一般大臣。"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "螳臂拒輪",
+    "meaning": "比喻不自量力"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "不衫不履",
+    "meaning": "形容人灑脫、不拘禮法"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "板蕩識忠臣",
+    "meaning": "指在亂世中才能識得真正忠心的臣子"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "孤臣孽子",
+    "meaning": "原指被疏遠、孤立的臣子與失寵的庶子"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "虎父無犬子",
+    "meaning": "比喻上一代強，下一代也不弱"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "兄友弟恭",
+    "meaning": "兄弟間感情和睦，能相互友愛尊敬"
+  },
+  {
+    "volume": "第三冊",
+    "idiom": "骨鯁之臣",
+    "meaning": "犯顏諫諍，敢進忠言的臣子"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "率爾操觚",
+    "meaning": "不加思索，揮筆成文，或草率作文"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "縱橫捭闔",
+    "meaning": "運用政治、外交等手段進行分化或聯合"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "稗官野史",
+    "meaning": "記載街談巷說、軼聞瑣事的書籍"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "纏綿悱惻",
+    "meaning": "情感悲切動人"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "蜚聲國際",
+    "meaning": "聞名於國際間"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "流言蜚語",
+    "meaning": "沒有根據的話"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "不言之教",
+    "meaning": "上位者以德化民，不發號施令而天下平治"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "功成弗居",
+    "meaning": "有所成就而不居功"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "天長地久",
+    "meaning": "天地永恆無窮地存在著，後用以形容時間悠遠長久"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "金玉滿堂",
+    "meaning": "形容極為富有"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "和光同塵",
+    "meaning": "鋒芒內斂與世無爭，而與塵俗相融；或喻與世浮沉，隨波逐流"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "絕聖棄智",
+    "meaning": "棄絕智慧聰明，返歸於人的天真純樸"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "無中生有",
+    "meaning": "本無其事憑空造作"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "大器晚成",
+    "meaning": "一個人的成就較晚"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "出生入死",
+    "meaning": "不避艱險，將生死置之度外"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "禍福相倚",
+    "meaning": "禍與福常相因而至"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "被褐懷玉",
+    "meaning": "比喻有真才實學而身處寒微的人"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "天網恢恢",
+    "meaning": "犯法者難逃國法制裁"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "以柔克剛",
+    "meaning": "用柔弱之道戰勝剛強"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "小國寡民",
+    "meaning": "國家小，百姓少，常用為自謙之詞"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "雞犬相聞",
+    "meaning": "比喻住家相近"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "朝三暮四",
+    "meaning": "比喻以詐術欺人，或心意不定、反覆無常"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "螳臂當車",
+    "meaning": "比喻不自量力"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "相濡以沫",
+    "meaning": "比喻同處於困境，互相以微力救助"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "井底之蛙",
+    "meaning": "比喻見識淺薄的人"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "邯鄲學步",
+    "meaning": "比喻仿效他人未成，反而失去自己本來的面目"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "呆若木雞",
+    "meaning": "形容愚笨或受到驚嚇而發愣的樣子"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "蝸角虛名",
+    "meaning": "比喻微不足道的浮名虛譽"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "涸轍之鮒",
+    "meaning": "比喻陷處困境，急需救援的人或物"
+  },
+  {
+    "volume": "第四冊",
+    "idiom": "得魚忘筌",
+    "meaning": "比喻成功後忘本背恩"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "睚眥必報",
+    "meaning": "指極小的怨恨也一定要報復"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "含英咀華",
+    "meaning": "品味文章的要旨及辭藻的華美"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "暴殄天物",
+    "meaning": "浪費、糟蹋物力，不知珍惜"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "蓴羹鱸膾",
+    "meaning": "比喻歸隱之思"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "揆情度理",
+    "meaning": "審度情勢、事理"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "玩日愒歲",
+    "meaning": "怠惰偷安，虛度光陰"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "短褐穿結",
+    "meaning": "形容衣服破爛"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "咳唾成珠",
+    "meaning": "比喻言談不凡或文詞優美"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "深文巧劾",
+    "meaning": "巧妙援用嚴苛律法陷人入罪"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "言簡意賅",
+    "meaning": "言辭精簡，意義完備"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "一諾千金",
+    "meaning": "形容承諾信用高，一旦許諾別人，必定做到"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "四面楚歌",
+    "meaning": "比喻所處環境艱難困頓，危急無援"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "破釜沉舟",
+    "meaning": "比喻下定決心、義無反顧，不留後路"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "運籌帷幄",
+    "meaning": "謀劃策略，通常指人善於策劃或指揮"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "錦衣夜行",
+    "meaning": "事業上有所成就，卻沒有回鄉接受親友的稱譽"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "明修棧道，暗渡陳倉",
+    "meaning": "比喻出其不意、從旁突擊的戰略，或比喻暗中進行的活動"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "借箸代籌",
+    "meaning": "比喻代人謀劃策略"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "胯下之辱",
+    "meaning": "比喻人未顯達時，被人鄙視、譏笑，遭受恥辱"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "圯橋進履",
+    "meaning": "比喻屈己尊老，求取教益"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "約法三章",
+    "meaning": "泛指事先約好或規定的事"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "無顏見江東父老",
+    "meaning": "指心懷羞愧，沒臉見自己人"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "十面埋伏",
+    "meaning": "形容被敵軍層層包圍"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "人為刀俎，我為魚肉",
+    "meaning": "比喻任人宰割"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "項莊舞劍，意在沛公",
+    "meaning": "在表面事物之下隱藏了另外的意圖"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "多多益善",
+    "meaning": "指愈多愈好"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "玉石俱焚",
+    "meaning": "比喻不分好壞、善惡，同歸於盡"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "蘭艾同焚",
+    "meaning": "比喻貴賤賢愚同歸於盡"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "兄弟鬩牆",
+    "meaning": "本指兄弟雖在家爭吵，但遇上外侮卻能共同抵禦，後比喻內部不和睦。"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "釁起蕭牆",
+    "meaning": "爭端起於內部"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "禍起蕭牆",
+    "meaning": "比喻禍亂發生於內部"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "洗心革面",
+    "meaning": "比喻澈底悔悟，改過自新"
+  },
+  {
+    "volume": "第五冊",
+    "idiom": "四海之內皆兄弟",
+    "meaning": "天下的人都像兄弟一樣，親如一家"
+  }
+]
+                
+                );
+                const [filteredIdioms, setFilteredIdioms] = useState([]);
+                const [selectedVolume, setSelectedVolume] = useState("全部");
+                const [currentIndex, setCurrentIndex] = useState(0);
+                const [showMeaning, setShowMeaning] = useState(false);
+                const [notification, setNotification] = useState({ show: false, message: '', type: '' });
+                const [starredIdiomIds, setStarredIdiomIds] = useState(new Set());
+                const prevSelectedVolumeRef = React.useRef();
+                const prevAllIdiomsRef = React.useRef();
+
+                const dynamicVolumes = Array.isArray(allIdioms) ? allIdioms.map(item => item.volume) : [];
+                const combinedVolumesSet = new Set(dynamicVolumes);
+                combinedVolumesSet.delete(undefined);
+                combinedVolumesSet.delete(null);
+                const volumes = [...combinedVolumesSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
+
+                useEffect(() => {
+                    if (!userId) return;
+                    const collectionRef = collection(db, `users/${userId}/starred_idioms`);
+                    const unsubscribe = onSnapshot(collectionRef, (snapshot) => {
+                        const newStarredIds = new Set();
+                        snapshot.forEach(doc => newStarredIds.add(doc.id));
+                        setStarredIdiomIds(newStarredIds);
+                    }, (error) => {
+                        console.error(`Failed to listen to starred idioms (React):`, error);
+                        if (error.code === 'permission-denied') {
+                             console.warn('PERMISSION ERROR: 請檢查您的 Firebase Security Rules 是否允許已驗證的使用者讀取/寫入他們的個人收藏資料。');
+                        }
+                    });
+                    return () => unsubscribe();
+                }, []);
+                
+                const generateIdiomId = useCallback((idiom) => `${idiom.idiom}_${idiom.meaning}`, []);
+
+                useEffect(() => {
+                    const idiomsWithIds = (Array.isArray(allIdioms) ? allIdioms : []).map(item => ({ ...item, id: generateIdiomId(item) }));
+                    let newFiltered;
+                    if (selectedVolume === "我的收藏") {
+                        newFiltered = idiomsWithIds.filter(item => starredIdiomIds.has(item.id));
+                    } else if (selectedVolume === "全部") {
+                        newFiltered = idiomsWithIds;
+                    } else {
+                        newFiltered = idiomsWithIds.filter(item => item.volume === selectedVolume);
+                    }
+                    const newDeck = newFiltered.sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
+                    setFilteredIdioms(newDeck);
+
+                    const volumeChanged = prevSelectedVolumeRef.current !== undefined && prevSelectedVolumeRef.current !== selectedVolume;
+                    const dataChanged = prevAllIdiomsRef.current !== undefined && prevAllIdiomsRef.current !== allIdioms;
+                    if (volumeChanged || dataChanged) {
+                        setCurrentIndex(0);
+                        setShowMeaning(false);
+                    } else {
+                        const newMaxIndex = newDeck.length - 1;
+                        if (currentIndex > newMaxIndex) setCurrentIndex(Math.max(0, newMaxIndex));
+                    }
+                    prevSelectedVolumeRef.current = selectedVolume;
+                    prevAllIdiomsRef.current = allIdioms;
+                }, [selectedVolume, allIdioms, starredIdiomIds, generateIdiomId, currentIndex]);
+                
+                const showNotification = (message, type = 'success', duration = 3000) => {
+                    setNotification({ show: true, message, type });
+                    setTimeout(() => setNotification({ show: false, message: '', type: '' }), duration);
+                };
+                const shuffleCards = () => {
+                    setFilteredIdioms(prev => [...prev].sort(() => Math.random() - 0.5));
+                    setCurrentIndex(0); setShowMeaning(false);
+                    showNotification('卡片已隨機排列！', 'success');
+                };
+                const resetCards = () => {
+                     const originalOrder = [...filteredIdioms].sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
+                     setFilteredIdioms(originalOrder);
+                     setCurrentIndex(0); setShowMeaning(false);
+                     showNotification('卡片已重置為預設順序。', 'info');
+                };
+                const navigate = (direction) => {
+                    const newIndex = currentIndex + direction;
+                    if (newIndex >= 0 && newIndex < filteredIdioms.length) {
+                        setCurrentIndex(newIndex);
+                        setShowMeaning(false);
+                    }
+                };
+                const handleFileUpload = async (event) => {
+                    const file = event.target.files[0];
+                    if (!file) return;
+                    if (!file.type.includes('csv') && !file.name.endsWith('.csv')) { showNotification('檔案格式錯誤，請上傳CSV檔案。', 'error'); return; }
+                    const text = await file.text();
+                    const newIdioms = text.trim().split('\n').map(line => {
+                        const [volume, idiom, meaning] = line.split(',').map(s => s.trim());
+                        return (volume && idiom && meaning) ? { volume, idiom, meaning } : null;
+                    }).filter(Boolean);
+                    if (newIdioms.length > 0) {
+                        const currentIdiomsSet = new Set((Array.isArray(allIdioms) ? allIdioms : []).map(i => i.idiom));
+                        const uniqueNewIdioms = newIdioms.filter(i => !currentIdiomsSet.has(i.idiom));
+                        setAllIdioms(prev => [...(Array.isArray(prev) ? prev : []), ...uniqueNewIdioms]);
+                        showNotification(`成功匯入 ${uniqueNewIdioms.length} 個新成語！`, 'success');
+                    } else {
+                        showNotification('CSV檔案為空或格式不符。', 'error');
+                    }
+                    event.target.value = null; 
+                };
+                const toggleStar = async (event) => {
+                    event.stopPropagation();
+                    if (!userId || !currentIdiom) return;
+                    const docRef = doc(db, `users/${userId}/starred_idioms`, currentIdiom.id);
+                    try {
+                        if (starredIdiomIds.has(currentIdiom.id)) { await deleteDoc(docRef); } 
+                        else { const { id, ...dataToSave } = currentIdiom; await setDoc(docRef, { ...dataToSave, starredAt: new Date() }); }
+                    } catch (error) { console.error("Update star status failed:", error); showNotification("更新收藏狀態失敗。", "error"); }
+                };
+                const currentIdiom = filteredIdioms[currentIndex];
+                const isStarred = currentIdiom ? starredIdiomIds.has(currentIdiom.id) : false;
+                const hasDeck = filteredIdioms.length > 0;
+
+                return React.createElement('div', null,
+                    notification.show && React.createElement('div', { className: `fixed top-20 left-1/2 -translate-x-1/2 flex items-center gap-3 w-auto max-w-sm p-4 rounded-lg shadow-2xl text-white z-50 transition-all duration-300 ${notification.type === 'success' ? 'bg-green-500' : notification.type === 'info' ? 'bg-blue-500' : 'bg-red-500'}` },
+                      React.createElement('p', null, notification.message),
+                      React.createElement('button', { onClick: () => setNotification({ ...notification, show: false }), className: "p-1 rounded-full hover:bg-white/20" }, React.createElement(XCircle, { size: 20 }))
+                    ),
+                    React.createElement('div', { className: "bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center" },
+                        React.createElement('div', null,
+                            React.createElement('label', { htmlFor: "idiom-book-select", className: "block text-sm font-medium text-gray-700" }, "選擇冊別"),
+                            React.createElement('select', { id: "idiom-book-select", className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm", value: selectedVolume, onChange: e => setSelectedVolume(e.target.value) },
+                                ['全部', '我的收藏', ...volumes].map(volume => React.createElement('option', { key: volume, value: volume }, volume))
+                            )
+                        ),
+                        React.createElement('div', null,
+                            React.createElement('label', { htmlFor: "csv-upload-idioms", className: "block text-sm font-medium text-gray-700" }, "上傳CSV檔"),
+                            React.createElement('input', { type: "file", id: "csv-upload-idioms", accept: ".csv", className: "mt-1 block w-full text-sm text-gray-500", onChange: handleFileUpload })
+                        )
+                    ),
+                    React.createElement('div', { className: "flashcard-container h-80 cursor-pointer", onClick: () => hasDeck && setShowMeaning(!showMeaning) },
+                        hasDeck && React.createElement('svg', { className: `star-button ${isStarred ? 'starred' : ''}`, onClick: toggleStar, viewBox: "0 0 24 24", strokeLinejoin: "round" }, 
+                            React.createElement('path', { d: "M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" })
+                        ),
+                        React.createElement('div', { className: `flashcard ${showMeaning ? 'is-flipped' : ''}` },
+                            React.createElement('div', { className: "card-face card-front" },
+                                currentIdiom ? React.createElement('p', { className: "phrase-text", style:{fontSize:'2.8rem'} }, currentIdiom.idiom) : React.createElement('p', { className: "text-xl text-gray-500" }, "沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。", null)
+                            ),
+                            React.createElement('div', { className: "card-face card-back" },
+                                currentIdiom && React.createElement(React.Fragment, null,
+                                    React.createElement('div', { className: "answer-text", style: { fontSize: '2.25rem', marginBottom: '1rem', color: '#1e40af' } }, currentIdiom.idiom),
+                                    React.createElement('div', { className: "answer-text", style: { fontSize: '1.5rem', color: '#1e293b', fontWeight:'normal' } }, currentIdiom.meaning)
+                                )
+                            )
+                        )
+                    ),
+                    React.createElement('div', { className: "flex items-center justify-center flex-wrap gap-4 mt-6" },
+                        React.createElement('button', { className: "bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed", onClick: shuffleCards, disabled: !hasDeck }, "打亂順序"),
+                        React.createElement('button', { className: "bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed", onClick: resetCards, disabled: !hasDeck }, "重置練習"),
+                        React.createElement('button', { className: "bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed", onClick: () => navigate(-1), disabled: !hasDeck || currentIndex === 0 }, "上一個"),
+                        React.createElement('div', { className: "text-lg font-medium text-gray-700" }, hasDeck ? `${currentIndex + 1} / ${filteredIdioms.length}` : '0 / 0'),
+                        React.createElement('button', { className: "bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed", onClick: () => navigate(1), disabled: !hasDeck || currentIndex === filteredIdioms.length - 1 }, "下一個")
+                    )
+                );
+            }
+        };
+
+        // =================================================================================
+        // --- Main Controller Logic ---
+        // =================================================================================
+        const appInstances = {
+            glyphs: new GlyphsApp(),
+            meanings: new MeaningsApp(),
+            idioms: IdiomsApp
+        };
+        
+        const sampleData = {
+            glyphs: [
+  {
+    "volume": "其他",
+    "phrase": "墨",
+    "words": "ㄇㄛˋ",
+    "meaning": "墨守成規"
+  },
+  {
+    "volume": "其他",
+    "phrase": "幀",
+    "words": "ㄓㄥˋ",
+    "meaning": "一幀照片"
+  },
+  {
+    "volume": "其他",
+    "phrase": "挑",
+    "words": "ㄊㄧㄠˇ",
+    "meaning": "挑燈看劍"
+  },
+  {
+    "volume": "其他",
+    "phrase": "屬",
+    "words": "ㄓㄨˇ",
+    "meaning": "舉酒屬客"
+  },
+  {
+    "volume": "其他",
+    "phrase": "許",
+    "words": "ㄒㄩˇ",
+    "meaning": "孤高自許"
+  },
+  {
+    "volume": "其他",
+    "phrase": "杼",
+    "words": "ㄓㄨˋ",
+    "meaning": "機杼"
+  },
+  {
+    "volume": "其他",
+    "phrase": "騖",
+    "words": "ㄨˋ",
+    "meaning": "好高騖遠"
+  },
+  {
+    "volume": "其他",
+    "phrase": "僭",
+    "words": "ㄐㄧㄢˋ",
+    "meaning": "僭號"
+  },
+  {
+    "volume": "其他",
+    "phrase": "譖",
+    "words": "ㄗㄣˋ",
+    "meaning": "譖下謾上"
+  },
+  {
+    "volume": "其他",
+    "phrase": "暄",
+    "words": "ㄒㄩㄢ",
+    "meaning": "寒暄"
+  },
+  {
+    "volume": "其他",
+    "phrase": "觥",
+    "words": "ㄍㄨㄥ",
+    "meaning": "觥籌"
+  },
+  {
+    "volume": "其他",
+    "phrase": "諏",
+    "words": "ㄗㄡ",
+    "meaning": "諮諏善道"
+  },
+  {
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
     "book": "第1冊",
@@ -1774,10 +3517,10 @@
     "phrase": "虎視眈眈"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
     "book": "第2冊",
@@ -1834,16 +3577,16 @@
     "phrase": "步履矍鑠 (腳步迅速)"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
     "book": "第2冊",
@@ -1948,10 +3691,10 @@
     "phrase": "倨傲鮮腆 (傲慢無禮)"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
     "book": "第2冊",
@@ -2368,10 +4111,10 @@
     "phrase": "鵝鑾鼻"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "ㄌㄨㄢˊ",
-    "phrase": "嘗鼎一臠(見微知著、因小 見大)"
+    "volume": "",
+    "phrase": "",
+    "words": "ㄌㄨㄢˊ",
+    "meaning": "嘗鼎一臠(見微知著、因小 見大)"
   },
   {
     "book": "第2冊",
@@ -3922,16 +5665,16 @@
     "phrase": "埳井之蛙"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
     "book": "第4冊",
@@ -3946,16 +5689,16 @@
     "phrase": "足之所履 (踩踏) 、削足適履 (鞋子)"
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
-    "book": "",
-    "char": "",
-    "pinyin": "",
-    "phrase": ""
+    "volume": "",
+    "phrase": "",
+    "words": "",
+    "meaning": ""
   },
   {
     "book": "第5冊",
@@ -4371,1643 +6114,627 @@
     "pinyin": "ㄋㄧˊ",
     "phrase": "(頭緒)。端倪。"
   }
-]
-            ,
-
-            // ========== 修正 1: 修改 init() ==========
-            init() {
-                // 1. 過濾掉 sampleData 中的空白行
-                this.allCards = this.sampleData
-                    .filter(card => card.book && card.char && card.pinyin && card.phrase)
-                    .map(card => ({...card, id: this.generateCardId(card)}));
-                
-                // 2. 動態建立下拉選單 (採用與 Idioms 相同的邏輯，只顯示資料中有的冊別)
-                const dynamicBooks = this.allCards.map(c => c.book);
-                const combinedBooksSet = new Set(dynamicBooks); // 從資料中取得所有唯一的冊別
-                combinedBooksSet.delete(undefined);
-                combinedBooksSet.delete(null); // 移除空值
-                
-                const volumes = [...combinedBooksSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
-
-                // 3. 重新寫入 bookSelect 的 HTML
-                let optionsHTML = `<option value="all">全部 (資料)</option><option value="starred">我的收藏</option>`;
-                volumes.forEach(book => {
-                    optionsHTML += `<option value="${book}">${book}</option>`;
-                });
-                this.bookSelect.innerHTML = optionsHTML; // 用這個動態列表覆蓋 HTML 中的靜態列表
-
-                // 4. 繼續原有的初始化流程
-                this.addEventListeners();
-                this.setupStarredListener();
-                this.buildDeck();
-            },
-            
-            destroy() {
-                if (this.unsubscribeStarred) this.unsubscribeStarred();
-            },
-            generateCardId(card) {
-                return `${card.char}_${card.phrase}`;
-            },
-            parseCSV(text) {
-                const lines = text.trim().split('\n');
-                return lines.map(line => {
-                    const [book, char, pinyin, phrase] = line.split(',').map(s => s.trim());
-                    if (book && char && pinyin && phrase) {
-                        const cardData = { book, char, pinyin, phrase };
-                        cardData.id = this.generateCardId(cardData);
-                        return cardData;
-                    }
-                    return null;
-                }).filter(Boolean);
-            },
-            // buildDeck, displayCard, toggleStar (保持不變)
-             buildDeck() {
-                const selectedBook = this.bookSelect.value;
-                let filteredByBook = (selectedBook === 'starred') 
-                    ? this.allCards.filter(card => this.starredCardIds.has(card.id))
-                    : (selectedBook !== 'all') 
-                        ? this.allCards.filter(card => card.book === selectedBook)
-                        : this.allCards;
-                this.currentDeck = [];
-                const selectedMode = this.modeSelect.value;
-                if (selectedMode === 'mixed') {
-                    filteredByBook.forEach(card => {
-                        this.currentDeck.push({ ...card, type: 'pronunciation' });
-                        this.currentDeck.push({ ...card, type: 'character' });
-                    });
-                } else {
-                    filteredByBook.forEach(card => this.currentDeck.push({ ...card, type: selectedMode }));
-                }
-                this.currentDeck.sort(() => Math.random() - 0.5);
-                this.currentIndex = 0;
-                this.flashcard.classList.remove('is-flipped');
-                this.displayCard();
-            },
-            displayCard() {
-                const hasDeck = this.currentDeck.length > 0;
-                this.starBtn.style.display = hasDeck ? 'block' : 'none';
-                if (!hasDeck) {
-                    this.cardFront.innerHTML = `<p class="text-xl text-gray-500">沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。</p>`;
-                    this.cardBack.innerHTML = '';
-                    this.cardCounter.textContent = '0 / 0';
-                } else {
-                    const cardData = this.currentDeck[this.currentIndex];
-                    const { id, char, pinyin, phrase, type } = cardData;
-                    let frontHTML = (type === 'pronunciation')
-                        ? `<p class="phrase-text">${phrase.replace(char, `<span class="highlight">「${char}」</span>`)}</p>`
-                        : `<p class="phrase-text">${phrase.replace(char, `<span class="highlight">「${pinyin}」</span>`)}</p>`;
-                    let backHTML = `<div class="answer-text">${phrase.replace(char, `<span class="highlight">「${char}」</span>`)}</div><div class="answer-pinyin">${pinyin}</div>`;
-                    this.cardFront.innerHTML = frontHTML;
-                    this.cardBack.innerHTML = backHTML;
-                    this.cardCounter.textContent = `${this.currentIndex + 1} / ${this.currentDeck.length}`;
-                    this.starBtn.classList.toggle('starred', this.starredCardIds.has(id));
-                }
-                this.prevBtn.disabled = !hasDeck || this.currentIndex === 0;
-                this.nextBtn.disabled = !hasDeck || this.currentIndex === this.currentDeck.length - 1;
-                this.shuffleBtn.disabled = !hasDeck;
-                this.resetBtn.disabled = !hasDeck;
-            },
-            async toggleStar() {
-                if (!userId || this.currentDeck.length === 0) return;
-                const card = this.currentDeck[this.currentIndex];
-                const docRef = doc(db, `users/${userId}/starred_glyphs`, card.id);
-                try {
-                    if (this.starredCardIds.has(card.id)) {
-                        await deleteDoc(docRef);
-                    } else {
-                        await setDoc(docRef, { ...card, starredAt: new Date() });
-                    }
-                } catch (error) {
-                    console.error("Update star status failed:", error);
-                    alert("抱歉，更新收藏狀態失敗。");
-                }
-            },
-
-            // ========== 修正 2: 修改 handleFileUpload() ==========
-            handleFileUpload(event) {
-                const file = event.target.files[0];
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const customCards = this.parseCSV(e.target.result);
-                    if (customCards.length === 0) {
-                        alert('CSV檔案格式不符或內容為空。');
-                        return;
-                    }
-
-                    // --- [START MODIFICATION] ---
-                    // 1. 不要覆蓋 allCards，而是新增獨特的卡片 (邏輯同 Idioms App)
-                    const existingCardIds = new Set(this.allCards.map(c => c.id));
-                    const newUniqueCards = customCards.filter(c => !existingCardIds.has(c.id));
-
-                    if (newUniqueCards.length > 0) {
-                        this.allCards.push(...newUniqueCards); // 將新卡片加入到現有陣列
-                        alert(`成功新增 ${newUniqueCards.length} 張卡片。`);
-                    } else {
-                        alert('CSV中的卡片皆已存在。');
-                    }
-                    
-                    // 2. 重新建立下拉選單，使其包含 "所有" 動態資料
-                    const dynamicBooks = this.allCards.map(c => c.book); // 從 *所有* (合併後) 的卡片中取得冊別
-                    const combinedBooksSet = new Set(dynamicBooks);
-                    combinedBooksSet.delete(""); // 移除空白冊別
-
-                    const volumes = [...combinedBooksSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
-
-                    let optionsHTML = `<option value="all">全部 (資料)</option><option value="starred">我的收藏</option>`;
-                    volumes.forEach(book => {
-                        optionsHTML += `<option value="${book}">${book}</option>`;
-                    });
-                    
-                    this.bookSelect.innerHTML = optionsHTML; // 用這個完整的列表覆蓋 HTML
-                    // --- [END MODIFICATION] ---
-
-                    this.bookSelect.value = 'all'; // 重設選單到 "全部"
-                    this.buildDeck();
-                };
-                reader.readAsText(file);
-            },
-            
-            // setupStarredListener 和 addEventListeners (保持不變)
-             setupStarredListener() {
-                if (this.unsubscribeStarred) this.unsubscribeStarred();
-                const collectionRef = collection(db, `users/${userId}/starred_glyphs`);
-                this.unsubscribeStarred = onSnapshot(collectionRef, (snapshot) => {
-                    const newStarredIds = new Set();
-                    snapshot.forEach(doc => newStarredIds.add(doc.id));
-                    this.starredCardIds = newStarredIds;
-                    if (this.bookSelect.value === 'starred') {
-                        this.buildDeck();
-                    } else if (this.currentDeck.length > 0) {
-                        const currentCard = this.currentDeck[this.currentIndex];
-                        this.starBtn.classList.toggle('starred', this.starredCardIds.has(currentCard.id));
-                    }
-                }, (error) => {
-                    console.error("Failed to listen to starred glyphs:", error);
-                });
-            },
-            addEventListeners() {
-                this.flashcardContainer.addEventListener('click', (e) => {
-                    if (e.target.closest('#star-btn')) return;
-                    if (this.currentDeck.length > 0) this.flashcard.classList.toggle('is-flipped');
-                });
-                this.starBtn.addEventListener('click', () => this.toggleStar());
-                this.prevBtn.addEventListener('click', () => {
-                    if (this.currentIndex > 0) {
-                        this.currentIndex--;
-                        this.flashcard.classList.remove('is-flipped');
-                        this.displayCard();
-                    }
-                });
-                this.nextBtn.addEventListener('click', () => {
-                    if (this.currentIndex < this.currentDeck.length - 1) {
-                        this.currentIndex++;
-                        this.flashcard.classList.remove('is-flipped');
-                        this.displayCard();
-                    }
-                });
-                this.shuffleBtn.addEventListener('click', () => this.buildDeck());
-                this.resetBtn.addEventListener('click', () => {
-                    if (this.currentDeck.length > 0) {
-                        this.currentIndex = 0;
-                        this.flashcard.classList.remove('is-flipped');
-                        this.displayCard();
-                    }
-                });
-                this.bookSelect.addEventListener('change', () => this.buildDeck());
-                this.modeSelect.addEventListener('change', () => this.buildDeck());
-                this.csvUpload.addEventListener('change', (e) => this.handleFileUpload(e));
-            }
-        };
-
-        // =================================================================================
-        // --- 成語 (Idioms) App Logic (React) ---
-        // =================================================================================
-        const IdiomsApp = {
-            reactRoot: null,
-
-            init() {
-                const container = document.getElementById('idioms-root');
-                if (!this.reactRoot) {
-                    this.reactRoot = ReactDOM.createRoot(container);
-                }
-                this.reactRoot.render(React.createElement(this.IdiomsComponent));
-            },
-            
-            destroy() {
-                // React 18 cleanup handled internally
-            },
-
-            IdiomsComponent() {
-                // (useState 資料保持不變)
-                const [allIdioms, setAllIdioms] = useState(
-                  [
+],
+            meanings: [
   {
-    "volume": "其他",
-    "idiom": "振聾發聵",
-    "meaning": "比喻大聲疾呼，以喚醒愚昧的人。"
+    "volume": "燭之武退秦師",
+    "phrase": "以其無禮於晉",
+    "words": "以",
+    "meaning": "因為"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "且貳於楚也",
+    "words": "貳於楚",
+    "meaning": "\"貳於晉而親於楚"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "晉軍函陵",
+    "words": "軍",
+    "meaning": "\"駐紮"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "若使燭之武見秦君，師必退",
+    "words": "使",
+    "meaning": "派遣"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "若使燭之武見秦君，師必退",
+    "words": "師",
+    "meaning": "軍隊"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "辭曰:「臣之壯也，猶不如人，今矣!無能為也已。」",
+    "words": "辭",
+    "meaning": "推辭"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "吾不能早用子",
+    "words": "子",
+    "meaning": "你，對男子的敬稱"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "夜縋(ㄓㄨㄟˋ)而出",
+    "words": "縋",
+    "meaning": "用繩子綁住物體懸墜而下"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "敢以煩執事",
+    "words": "敢",
+    "meaning": "謙詞，表示冒昧"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "敢以煩執事",
+    "words": "執事",
+    "meaning": "對人的敬稱，此指秦穆公"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "越國以鄙遠，君知其難也",
+    "words": "以",
+    "meaning": "而"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "越國以鄙遠，君知其難也",
+    "words": "鄙",
+    "meaning": "\"以......為邊邑"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "焉用亡鄭以陪鄰？",
+    "words": "焉",
+    "meaning": "安、何 反詰語氣"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "焉用亡鄭以陪鄰？",
+    "words": "陪",
+    "meaning": "增加"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "焉用亡鄭以陪鄰？",
+    "words": "鄰",
+    "meaning": "鄰國"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "若舍鄭以為東道主",
+    "words": "舍",
+    "meaning": "通「捨」，放棄"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "行李之往來",
+    "words": "行李",
+    "meaning": "奉命出使的人"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "共其乏困",
+    "words": "共",
+    "meaning": "通「供」，供給"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "朝濟而夕設版焉",
+    "words": "濟",
+    "meaning": "渡河"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "朝濟而夕設版焉",
+    "words": "版",
+    "meaning": "築牆用的夾板，指防禦工事"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "夫晉，何厭之有?",
+    "words": "厭",
+    "meaning": "通「饜」，滿足"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "既東封鄭",
+    "words": "封",
+    "meaning": "v. 以......為領土"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "又欲肆其西封",
+    "words": "肆",
+    "meaning": "擴張"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "又欲肆其西封",
+    "words": "封",
+    "meaning": "名 疆域"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "若不闕(ㄑㄩㄝ)秦，將焉取之",
+    "words": "焉",
+    "meaning": "何處、哪裡"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "若不闕(ㄑㄩㄝ)秦，將焉取之",
+    "words": "闕",
+    "meaning": "損害"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "闕秦以利晉，唯君圖之",
+    "words": "唯",
+    "meaning": "表示希望、祈請"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "闕秦以利晉，唯君圖之",
+    "words": "圖",
+    "meaning": "思考"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "秦伯說",
+    "words": "說",
+    "meaning": "同「悅」"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "微夫人之力不及此",
+    "words": "微",
+    "meaning": "沒有"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "微夫人之力不及此",
+    "words": "夫人",
+    "meaning": "那個人，指秦穆公"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "因人之力而敝之",
+    "words": "因",
+    "meaning": "憑藉"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "因人之力而敝之",
+    "words": "敝",
+    "meaning": "傷害"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "失其所與，不知",
+    "words": "與",
+    "meaning": "親近"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "失其所與，不知",
+    "words": "知",
+    "meaning": "同「智」"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "以亂易整，不武",
+    "words": "易",
+    "meaning": "替換、取代"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "吾其還也",
+    "words": "其",
+    "meaning": "還是"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "亦去之",
+    "words": "去",
+    "meaning": "離開"
   },
   {
     "volume": "其他",
-    "idiom": "白雲蒼狗",
-    "meaning": "比喻世事變幻無常"
+    "phrase": "故步自封",
+    "words": "封",
+    "meaning": "限制、禁止"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "鄰之厚，君之薄也。",
+    "words": "薄",
+    "meaning": "少、薄弱"
+  },
+  {
+    "volume": "燭之武退秦師",
+    "phrase": "省刑罰，薄稅斂",
+    "words": "薄",
+    "meaning": "減輕、減損"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "仲尼與(ㄩˋ)於蜡(ㄓㄚˋ)賓",
+    "words": "與",
+    "meaning": "參與"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "仲尼與(ㄩˋ)於蜡(ㄓㄚˋ)賓",
+    "words": "蜡",
+    "meaning": "歲末大祭"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "事畢，出游於觀(ㄍㄨㄢˋ)之上",
+    "words": "游",
+    "meaning": "同「遊」"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "喟然而嘆",
+    "words": "喟然",
+    "meaning": "嘆息的樣子"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "仲尼之嘆，蓋嘆魯也",
+    "words": "蓋",
+    "meaning": "大概"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "大道之行也，與三代之英",
+    "words": "大道",
+    "meaning": "至公至正之道"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "大道之行也，與三代之英",
+    "words": "英",
+    "meaning": "傑出之人"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "丘未之逮(ㄉㄞˋ)也，而有志焉。",
+    "words": "逮",
+    "meaning": "及、趕得上"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "丘未之逮(ㄉㄞˋ)也，而有志焉。",
+    "words": "而",
+    "meaning": "卻"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "丘未之逮(ㄉㄞˋ)也，而有志焉。",
+    "words": "志",
+    "meaning": "通「誌」，記載"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "選賢與能",
+    "words": "與",
+    "meaning": "通「舉」，推舉"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "故人不獨親其親，不獨子其子",
+    "words": "故",
+    "meaning": "因此"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "故人不獨親其親，不獨子其子",
+    "words": "獨",
+    "meaning": "僅僅、只是"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "矜、寡、孤、獨、廢、疾者皆有所養。",
+    "words": "獨",
+    "meaning": "老而無子"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "使老有所終",
+    "words": "終",
+    "meaning": "終養"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "幼有所長",
+    "words": "長",
+    "meaning": "教養"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "男有分，女有歸",
+    "words": "分",
+    "meaning": "本分，此指職業"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "男有分，女有歸",
+    "words": "歸",
+    "meaning": "女子出嫁，此指歸宿"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "貨惡其棄於地也，不必藏於己",
+    "words": "惡",
+    "meaning": "厭惡"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "力惡其不出於身也，不必為己",
+    "words": "身",
+    "meaning": "自身"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "是故謀閉而不興",
+    "words": "謀",
+    "meaning": "奸謀"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "是故謀閉而不興",
+    "words": "興",
+    "meaning": "發生"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "盜竊亂賊而不作",
+    "words": "作",
+    "meaning": "興起、產生"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "故外戶而不閉",
+    "words": "外戶",
+    "meaning": "大門"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "今大道既隱",
+    "words": "既",
+    "meaning": "已經"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "大人世及以為禮",
+    "words": "大人",
+    "meaning": "在位者"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "大人世及以為禮",
+    "words": "世",
+    "meaning": "父子相傳"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "大人世及以為禮",
+    "words": "及",
+    "meaning": "兄終弟及"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "大人世及以為禮",
+    "words": "禮",
+    "meaning": "制度"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "禮義以為紀",
+    "words": "紀",
+    "meaning": "綱紀"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以正君臣",
+    "words": "正",
+    "meaning": "使......端正"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以立田里",
+    "words": "立",
+    "meaning": "住屋"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以賢勇知",
+    "words": "賢",
+    "meaning": "尊崇重視"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以賢勇知",
+    "words": "勇知",
+    "meaning": "有勇力，有智謀的人"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以功為己",
+    "words": "功",
+    "meaning": "獎勵"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以功為己",
+    "words": "為己",
+    "meaning": "為己效力的人"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "故謀用是作，而兵由此起。",
+    "words": "兵",
+    "meaning": "戰爭"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "由此其選也",
+    "words": "選",
+    "meaning": "此指優秀的人物"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "此六君子者",
+    "words": "君子",
+    "meaning": "在位者"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以著其義",
+    "words": "以",
+    "meaning": "用"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以著其義",
+    "words": "著",
+    "meaning": "彰顯"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以著其義",
+    "words": "義",
+    "meaning": "宜、合理之事"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "以考其信",
+    "words": "考",
+    "meaning": "查核"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "刑仁講讓",
+    "words": "刑",
+    "meaning": "通「型」，以......為典型"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "示民有常",
+    "words": "常",
+    "meaning": "常規"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "如有不由此者",
+    "words": "由",
+    "meaning": "依照、遵從"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "在埶(ㄕˋ)者去，眾以為殃",
+    "words": "埶",
+    "meaning": "在位。埶，同「勢」"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "在埶(ㄕˋ)者去，眾以為殃",
+    "words": "殃",
+    "meaning": "禍害"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "講信修睦",
+    "words": "信",
+    "meaning": "信用"
   },
   {
     "volume": "其他",
-    "idiom": "身無長物",
-    "meaning": "比喻節儉或貧困"
+    "phrase": "信手拈來",
+    "words": "信",
+    "meaning": "隨意"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "矜(ㄍㄨㄢ)、寡、孤、獨、廢、疾者皆有所養。",
+    "words": "矜",
+    "meaning": "通「鰥」，老而無妻"
   },
   {
     "volume": "其他",
-    "idiom": "不刊之論",
-    "meaning": "確鑿不移，見識超拔，不可磨滅的言論"
+    "phrase": "如得其情，則哀矜而勿喜。（論語子張）",
+    "words": "矜",
+    "meaning": "憐憫"
   },
   {
     "volume": "其他",
-    "idiom": "洞若觀火",
-    "meaning": "觀察的非常清楚透徹"
+    "phrase": "本圖宦達，不矜名節。（李密 陳情表）",
+    "words": "矜",
+    "meaning": "愛惜"
   },
   {
     "volume": "其他",
-    "idiom": "綆短汲深",
-    "meaning": "才能無法勝任"
+    "phrase": "君子矜而不爭，群而不黨。(論語 衛靈公)",
+    "words": "矜",
+    "meaning": "莊重自持"
   },
   {
     "volume": "其他",
-    "idiom": "膠柱鼓瑟",
-    "meaning": "比喻做事拘泥而不知變通"
+    "phrase": "公子聞之，意驕矜而有自功之色。(史記 魏公子傳)",
+    "words": "矜",
+    "meaning": "驕傲自大"
+  },
+  {
+    "volume": "大同與小康",
+    "phrase": "禹、湯、文、武、成王、周公，由此其選也。",
+    "words": "由",
+    "meaning": "用、藉由"
   },
   {
     "volume": "其他",
-    "idiom": "倚馬可待",
-    "meaning": "比喻文思敏捷，寫作迅速。"
-  },
-  {
-    "volume": "其他",
-    "idiom": "魚游釜中",
-    "meaning": "比喻身處險境，危在旦夕"
-  },
-  {
-    "volume": "其他",
-    "idiom": "齧臂之交",
-    "meaning": "交情深厚的朋友"
-  },
-  {
-    "volume": "其他",
-    "idiom": "誇誇其談",
-    "meaning": "言談浮誇，不切實際"
-  },
-  {
-    "volume": "其他",
-    "idiom": "一時之選",
-    "meaning": "當世傑出的人才"
-  },
-  {
-    "volume": "其他",
-    "idiom": "師心自用",
-    "meaning": "固執己見，自以為是"
-  },
-  {
-    "volume": "",
-    "idiom": "伊於胡底",
-    "meaning": "意謂不知將落到什麼地步為止。比喻後果不堪設想。"
-  },
-  {
-    "volume": "",
-    "idiom": "",
-    "meaning": ""
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "斗杓東指",
-    "meaning": "斗柄指向東方，表示春季來臨。"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "東海揚塵",
-    "meaning": "世事變幻迅速"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "馬耳東風",
-    "meaning": "比喻充耳不聞、無動於衷"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "東鱗西爪",
-    "meaning": "畫龍時，龍在雲中為雲所蔽，東露一鱗，西現一爪，不見全貌。比喻事物零碎、不完整。"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "數典忘祖",
-    "meaning": "比喻忘本，或對本國、自己祖先的歷史無知"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "退避三舍",
-    "meaning": "為避免正面衝突或因害怕而主動讓步"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "曳尾塗中",
-    "meaning": "比喻寧願貧困而逍遙自在，不願尊貴禮遇而備受拘束"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "東山高臥",
-    "meaning": "比喻隱居不仕"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "狼奔豕突",
-    "meaning": "形容人倉皇失措的逃跑，或壞人恣意摧殘破壞"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "狼前虎後",
-    "meaning": "比喻壞人接踵而來"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "狼煙四起",
-    "meaning": "比喻外敵來犯，戰事迭起，社會動蕩不安"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "虎狼之師",
-    "meaning": "比喻勇猛善戰的軍隊"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "雁行折翼",
-    "meaning": "比喻兄弟分離或死亡"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "雁過留聲",
-    "meaning": "比喻死後留下好名聲"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "雁杳魚沉",
-    "meaning": "杳無音信，音訊斷絕"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "投桃報李",
-    "meaning": "比喻朋友之間禮尚往來"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "懲前毖後",
-    "meaning": "以從前的過失為教訓，戒慎不再犯錯"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "戰戰兢兢",
-    "meaning": "抱著戒慎恐懼的心情"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "無忝所生",
-    "meaning": "為人子女者不僅應當善盡孝道，更須努力奉獻社會，才能光耀門楣"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "鳶飛魚躍",
-    "meaning": "比喻萬物任其天性而動，各得其所"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "高山仰止",
-    "meaning": "比喻崇高的德行，令人景仰"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "瓜瓞綿綿",
-    "meaning": "比喻子孫繁盛、傳世久遠"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "耳提面命",
-    "meaning": "比喻懇切教誨"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "進退維谷",
-    "meaning": "形容前進後退都無路可走的困窘處境"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "深厲淺揭",
-    "meaning": "比喻行事隨機應變"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "日就月將",
-    "meaning": "每日有成就，每月有進步。形容持續不斷，積少成多"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "南箕北斗",
-    "meaning": "比喻徒有虛名而無實用"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "行雲流水",
-    "meaning": "形容飄逸自然，無拘無束的樣子；或比喻無足輕重事物"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "雪泥鴻爪",
-    "meaning": "比喻往事所遺留的痕跡"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "斫輪老手",
-    "meaning": "比喻技藝精練純熟或經驗豐富的人"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "冒天下之大不韙",
-    "meaning": "比喻不顧一切去做全天下人都認為不對的事"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "蓼莪之思",
-    "meaning": "孝子思念父母"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "寒泉之思",
-    "meaning": "比喻感懷母恩的深切思念"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "秋水伊人",
-    "meaning": "面對景物思念人"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "甘棠遺愛",
-    "meaning": "用以表示對賢官廉吏的愛戴或懷念"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "不愧屋漏",
-    "meaning": "獨處暗地，仍心思端正，行為不苟且"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "夢熊之兆",
-    "meaning": "生男的頌語"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "搔首踟蹰",
-    "meaning": "徬徨不知如何自處"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "不忮不求",
-    "meaning": "多用來形容淡泊無求，不做非分之事的處世態度"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "餔糟歠釃",
-    "meaning": "有與世浮沉、和眾人同醉之意"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "懷瑾握瑜",
-    "meaning": "比喻懷有高貴的美德與才能"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "蘭芷蕭艾",
-    "meaning": "比喻士人改變氣節，成為凡人"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "黃鐘毀棄",
-    "meaning": "比喻賢才不被重用"
-  },
-  {
-    "volume": "第一冊",
-    "idiom": "瓦釜雷鳴",
-    "meaning": "比喻平庸無才德的人卻居於顯赫的高位"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "怙惡不悛",
-    "meaning": "有過惡卻不肯悔改"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "雕欄玉砌",
-    "meaning": "形容富麗華美的建築物"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "動如參商",
-    "meaning": "比喻分別而無法相見"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "自吹自擂",
-    "meaning": "比喻自我宣傳吹噓"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "槁木死灰",
-    "meaning": "比喻心情極端消沉，對一切事情無動於衷"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "將功贖罪",
-    "meaning": "用功勞來抵銷罪過"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "買櫝還珠",
-    "meaning": "比喻捨本逐末，取捨失當"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "案牘勞形",
-    "meaning": "形容因文書工作繁重而疲憊不堪"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "舐犢情深",
-    "meaning": "比喻父母疼愛子女之深情"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "情竇初開",
-    "meaning": "初通情愛的感覺，多用於少男少女"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "窮兵黷武",
-    "meaning": "恣意動用兵力，發動戰爭"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "桴鼓相應",
-    "meaning": "比喻極力響應，緊密配合"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "匏瓜空懸",
-    "meaning": "比喻有才能的人卻不為世所用"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "越俎代庖",
-    "meaning": "比喻踰越自己的職分而代人做事"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "鮑魚之肆",
-    "meaning": "比喻臭穢的地方、惡劣的環境或小人聚集的場所"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "如法炮製",
-    "meaning": "本指依照古法製藥，後多指依照往例或現有的方法辦事"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "未雨綢繆",
-    "meaning": "事先預備以防患未然"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "椿萱並茂",
-    "meaning": "比喻父母都健在"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "齟齬",
-    "meaning": "多用來比喻彼此意見不合"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "籠街喝道",
-    "meaning": "形容車駕儀從之盛"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "被褐懷珠",
-    "meaning": "比喻有真才實學而身處寒微的人"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "玩日愒歲",
-    "meaning": "怠惰偷安，虛度光陰"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "桑榆暮景",
-    "meaning": "比喻晚年、年老"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "詠絮之才",
-    "meaning": "稱美能作詩文的才女"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "春樹暮雲",
-    "meaning": "為思念遠方友人之辭"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "月中折桂",
-    "meaning": "比喻科舉及第"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "指桑罵槐",
-    "meaning": "比喻拐彎抹角罵人"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "蒲柳之姿",
-    "meaning": "比喻人身體衰弱"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "步步金蓮",
-    "meaning": "形容女性步態婀娜多姿"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "同氣連枝",
-    "meaning": "比喻同胞兄弟姐妹"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "讓棗推梨",
-    "meaning": "比喻兄弟間的友愛"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "同室操戈",
-    "meaning": "比喻兄弟之間不和睦或團體內部互相爭鬥"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "夜雨對床",
-    "meaning": "比喻兄弟或親友相聚，親密交談"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "陟罰臧否",
-    "meaning": "指賞功罰過"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "不知所云",
-    "meaning": "說話或文章內容模糊、重點不明，無法讓人了解其意旨"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "不求聞達",
-    "meaning": "無意追求名譽顯貴"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "引喻失義",
-    "meaning": "引用不恰當的例證"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "初出茅廬",
-    "meaning": "比喻初入社會，缺乏歷練"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "鞠躬盡瘁",
-    "meaning": "指做事小心謹慎，不辭辛勞，盡心盡力"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "作姦犯科",
-    "meaning": "為非作歹，觸犯法令"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "志大才疏",
-    "meaning": "指志向遠大，而才能疏闊不實在"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "老驥伏櫪",
-    "meaning": "比喻年紀雖大，仍懷雄心壯志"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "壯志未酬",
-    "meaning": "偉大的志願尚未實現"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "玩物喪志",
-    "meaning": "一味玩賞無益的事物，因而消磨人的壯志"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "人窮志短",
-    "meaning": "人處於貧窮困苦之時，容易只顧眼前利益而喪失遠大的志向"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "年少得志",
-    "meaning": "年紀很輕就已經有所成就"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "桀驁不馴",
-    "meaning": "性情凶暴狂傲"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "虎視眈眈",
-    "meaning": "比喻心懷不軌，伺機掠奪"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "明察秋毫",
-    "meaning": "比喻能洞察一切，看出極細微的地方"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "一曝十寒",
-    "meaning": "比喻沒有恆心，做事不能持久"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "出爾反爾",
-    "meaning": "比喻人的言行前後反覆"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "五十步笑百步",
-    "meaning": "比喻自己和別人犯同樣的錯誤，只是程度上輕些，可是卻譏笑別人"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "顧左右而言他",
-    "meaning": "閃避主題而談論別的事情"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "緣木求魚",
-    "meaning": "比喻用錯方法，徒勞無功"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "揠苗助長",
-    "meaning": "比喻為求速成而未循序，結果不但無益，反而有害"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "閒雲野鶴",
-    "meaning": "比喻來去自如，無所羈絆的人"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "暴虎馮河",
-    "meaning": "比喻有勇無謀的行為"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "兔死狗烹",
-    "meaning": "比喻事情成功之後，曾經出過力的人遭到遺棄或被殺的命運"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "攀龍附鳳",
-    "meaning": "趨附權貴，以求晉升"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "汗牛充棟",
-    "meaning": "形容書籍極多"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "管中窺豹",
-    "meaning": "比喻所見狹小，未得全貌"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "狼狽為奸",
-    "meaning": "比喻彼此勾結做壞事"
-  },
-  {
-    "volume": "第二冊",
-    "idiom": "門可羅雀",
-    "meaning": "形容賓客稀少、交往的朋友很少，門庭冷落。也比喻生意清淡"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "猝不及防",
-    "meaning": "忽然發生，來不及防備"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "裨補闕漏",
-    "meaning": "有助於缺失的改善"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "睥睨群雄",
-    "meaning": "斜眼看人，表示傲然輕視的意思"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "濯纓彈冠",
-    "meaning": "清洗帽纓，整理帽冠，比喻準備出仕"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "連篇累牘",
-    "meaning": "篇幅過多，文詞冗長"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "官吏瀆職",
-    "meaning": "有虧職守"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "中流砥柱",
-    "meaning": "獨立不撓、能堅強支撐危局的人"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "根深柢固",
-    "meaning": "基礎堅實，牢不可拔"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "神情矍鑠",
-    "meaning": "老而強健的樣子"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "雙瞳翦水",
-    "meaning": "形容眼睛清澈明亮"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "鬼影幢幢",
-    "meaning": "形容陰森恐怖的樣子"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "牛山濯濯",
-    "meaning": "比喻人秃頂無髮"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "亂點鴛鴦譜",
-    "meaning": "將未婚男女胡亂湊成夫妻"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "殃及池魚",
-    "meaning": "比喻無故受累"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "泱泱大國",
-    "meaning": "稱讚國力強大的國家，懷有寬大的氣度與良好的風範"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "追根究柢",
-    "meaning": "追查探究事物的根本"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "提綱挈領",
-    "meaning": "抓住事理的要點"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "鍥而不舍",
-    "meaning": "比喻有恆心、有毅力"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "蟾宮折桂",
-    "meaning": "比喻科舉及第"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "櫛比鱗次",
-    "meaning": "比喻緊密的連接排列"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "滄海桑田",
-    "meaning": "比喻世事多變，人生無常"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "兄弟鬩牆",
-    "meaning": "指兄弟失和爭吵"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "一衣帶水",
-    "meaning": "比喻江流狹窄有如一條衣帶。後泛指雖有江河阻隔，但不足以限制交往"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "吞舟之魚",
-    "meaning": "比喻犯大罪的人"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "門當戶對",
-    "meaning": "指結親的雙方家庭背景、社會地位相等"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "貌合神離",
-    "meaning": "表面彼此相合，實際上卻心志背離"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "齊大非偶",
-    "meaning": "指談論婚事的對象條件太好，不敢高攀作為配偶"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "鶼鰈情深",
-    "meaning": "比喻夫妻恩愛"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "秦晉之好",
-    "meaning": "指兩姓聯姻的關係"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "秋扇見捐",
-    "meaning": "比喻女子不再年輕貌美而遭受冷落"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "扶危持顛",
-    "meaning": "扶持危殆，挽救顛覆。形容盡力挽回危局"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "滿坐風生",
-    "meaning": "比喻來的人神清氣揚，光彩耀人"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "垂福萬葉",
-    "meaning": "福澤延及萬代。比喻恩澤久遠"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "榮極軒裳",
-    "meaning": "自己的生活極盡奢華，行事的禮儀與排場的講究，超越一般大臣。"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "螳臂拒輪",
-    "meaning": "比喻不自量力"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "不衫不履",
-    "meaning": "形容人灑脫、不拘禮法"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "板蕩識忠臣",
-    "meaning": "指在亂世中才能識得真正忠心的臣子"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "孤臣孽子",
-    "meaning": "原指被疏遠、孤立的臣子與失寵的庶子"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "虎父無犬子",
-    "meaning": "比喻上一代強，下一代也不弱"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "兄友弟恭",
-    "meaning": "兄弟間感情和睦，能相互友愛尊敬"
-  },
-  {
-    "volume": "第三冊",
-    "idiom": "骨鯁之臣",
-    "meaning": "犯顏諫諍，敢進忠言的臣子"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "率爾操觚",
-    "meaning": "不加思索，揮筆成文，或草率作文"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "縱橫捭闔",
-    "meaning": "運用政治、外交等手段進行分化或聯合"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "稗官野史",
-    "meaning": "記載街談巷說、軼聞瑣事的書籍"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "纏綿悱惻",
-    "meaning": "情感悲切動人"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "蜚聲國際",
-    "meaning": "聞名於國際間"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "流言蜚語",
-    "meaning": "沒有根據的話"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "不言之教",
-    "meaning": "上位者以德化民，不發號施令而天下平治"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "功成弗居",
-    "meaning": "有所成就而不居功"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "天長地久",
-    "meaning": "天地永恆無窮地存在著，後用以形容時間悠遠長久"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "金玉滿堂",
-    "meaning": "形容極為富有"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "和光同塵",
-    "meaning": "鋒芒內斂與世無爭，而與塵俗相融；或喻與世浮沉，隨波逐流"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "絕聖棄智",
-    "meaning": "棄絕智慧聰明，返歸於人的天真純樸"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "無中生有",
-    "meaning": "本無其事憑空造作"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "大器晚成",
-    "meaning": "一個人的成就較晚"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "出生入死",
-    "meaning": "不避艱險，將生死置之度外"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "禍福相倚",
-    "meaning": "禍與福常相因而至"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "被褐懷玉",
-    "meaning": "比喻有真才實學而身處寒微的人"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "天網恢恢",
-    "meaning": "犯法者難逃國法制裁"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "以柔克剛",
-    "meaning": "用柔弱之道戰勝剛強"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "小國寡民",
-    "meaning": "國家小，百姓少，常用為自謙之詞"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "雞犬相聞",
-    "meaning": "比喻住家相近"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "朝三暮四",
-    "meaning": "比喻以詐術欺人，或心意不定、反覆無常"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "螳臂當車",
-    "meaning": "比喻不自量力"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "相濡以沫",
-    "meaning": "比喻同處於困境，互相以微力救助"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "井底之蛙",
-    "meaning": "比喻見識淺薄的人"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "邯鄲學步",
-    "meaning": "比喻仿效他人未成，反而失去自己本來的面目"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "呆若木雞",
-    "meaning": "形容愚笨或受到驚嚇而發愣的樣子"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "蝸角虛名",
-    "meaning": "比喻微不足道的浮名虛譽"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "涸轍之鮒",
-    "meaning": "比喻陷處困境，急需救援的人或物"
-  },
-  {
-    "volume": "第四冊",
-    "idiom": "得魚忘筌",
-    "meaning": "比喻成功後忘本背恩"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "睚眥必報",
-    "meaning": "指極小的怨恨也一定要報復"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "含英咀華",
-    "meaning": "品味文章的要旨及辭藻的華美"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "暴殄天物",
-    "meaning": "浪費、糟蹋物力，不知珍惜"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "蓴羹鱸膾",
-    "meaning": "比喻歸隱之思"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "揆情度理",
-    "meaning": "審度情勢、事理"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "玩日愒歲",
-    "meaning": "怠惰偷安，虛度光陰"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "短褐穿結",
-    "meaning": "形容衣服破爛"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "咳唾成珠",
-    "meaning": "比喻言談不凡或文詞優美"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "深文巧劾",
-    "meaning": "巧妙援用嚴苛律法陷人入罪"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "言簡意賅",
-    "meaning": "言辭精簡，意義完備"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "一諾千金",
-    "meaning": "形容承諾信用高，一旦許諾別人，必定做到"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "四面楚歌",
-    "meaning": "比喻所處環境艱難困頓，危急無援"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "破釜沉舟",
-    "meaning": "比喻下定決心、義無反顧，不留後路"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "運籌帷幄",
-    "meaning": "謀劃策略，通常指人善於策劃或指揮"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "錦衣夜行",
-    "meaning": "事業上有所成就，卻沒有回鄉接受親友的稱譽"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "明修棧道，暗渡陳倉",
-    "meaning": "比喻出其不意、從旁突擊的戰略，或比喻暗中進行的活動"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "借箸代籌",
-    "meaning": "比喻代人謀劃策略"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "胯下之辱",
-    "meaning": "比喻人未顯達時，被人鄙視、譏笑，遭受恥辱"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "圯橋進履",
-    "meaning": "比喻屈己尊老，求取教益"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "約法三章",
-    "meaning": "泛指事先約好或規定的事"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "無顏見江東父老",
-    "meaning": "指心懷羞愧，沒臉見自己人"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "十面埋伏",
-    "meaning": "形容被敵軍層層包圍"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "人為刀俎，我為魚肉",
-    "meaning": "比喻任人宰割"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "項莊舞劍，意在沛公",
-    "meaning": "在表面事物之下隱藏了另外的意圖"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "多多益善",
-    "meaning": "指愈多愈好"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "玉石俱焚",
-    "meaning": "比喻不分好壞、善惡，同歸於盡"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "蘭艾同焚",
-    "meaning": "比喻貴賤賢愚同歸於盡"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "兄弟鬩牆",
-    "meaning": "本指兄弟雖在家爭吵，但遇上外侮卻能共同抵禦，後比喻內部不和睦。"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "釁起蕭牆",
-    "meaning": "爭端起於內部"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "禍起蕭牆",
-    "meaning": "比喻禍亂發生於內部"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "洗心革面",
-    "meaning": "比喻澈底悔悟，改過自新"
-  },
-  {
-    "volume": "第五冊",
-    "idiom": "四海之內皆兄弟",
-    "meaning": "天下的人都像兄弟一樣，親如一家"
+    "phrase": "余宗老塗山，左公甥也，與先君子善。",
+    "words": "君子",
+    "meaning": "兒子稱呼父親"
   }
 ]
-                );
-
-                // (其餘 state hooks 保持不變)
-                const [filteredIdioms, setFilteredIdioms] = useState([]);
-                const [selectedVolume, setSelectedVolume] = useState("全部");
-                const [currentIndex, setCurrentIndex] = useState(0);
-                const [showMeaning, setShowMeaning] = useState(false);
-                const [notification, setNotification] = useState({ show: false, message: '', type: '' });
-                const [starredIdiomIds, setStarredIdiomIds] = useState(new Set());
-                const prevSelectedVolumeRef = React.useRef();
-                const prevAllIdiomsRef = React.useRef();
-
-                // ========== 修正 3: 刪除 baseVolumes ==========
-                // 1. 刪除靜態的 baseVolumes 列表
-                // const baseVolumes = ['第1冊', '第2冊', '第3冊', '第4冊', '第5冊', '其他']; // <-- 刪除此行
-                
-                // 2. 只從 allIdioms (動態資料) 中取得冊別
-                const dynamicVolumes = Array.isArray(allIdioms) ? allIdioms.map(item => item.volume) : [];
-                
-                // 3. 建立 Set 時，不再傳入 baseVolumes
-                const combinedVolumesSet = new Set(dynamicVolumes); // <-- 只使用 dynamicVolumes
-                combinedVolumesSet.delete(undefined);
-                combinedVolumesSet.delete(null);
-                
-                // 4. 建立最終列表 (現在它只會包含 "其他" 和 "第一冊"，或任何 CSV 中的冊別)
-                const volumes = [...combinedVolumesSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
-                // ========== 修正結束 ==========
-
-
-                // (Firebase listener 保持不變)
-                useEffect(() => {
-                    if (!userId) return;
-                    const collectionRef = collection(db, `users/${userId}/starred_idioms`);
-                    const unsubscribe = onSnapshot(collectionRef, (snapshot) => {
-                        const newStarredIds = new Set();
-                        snapshot.forEach(doc => newStarredIds.add(doc.id));
-                        setStarredIdiomIds(newStarredIds);
-                    });
-                    return () => unsubscribe();
-                }, [userId]);
-                
-                // (generateIdiomId 保持不變)
-                const generateIdiomId = useCallback((idiom) => `${idiom.idiom}_${idiom.meaning}`, []);
-
-                // (useEffect build deck 邏輯保持不變 - 你的防 bug 邏輯是正確的)
-                useEffect(() => {
-                    const idiomsWithIds = (Array.isArray(allIdioms) ? allIdioms : []).map(item => ({ ...item, id: generateIdiomId(item) }));
-
-                    let newFiltered;
-                    if (selectedVolume === "我的收藏") {
-                        newFiltered = idiomsWithIds.filter(item => starredIdiomIds.has(item.id));
-                    } else if (selectedVolume === "全部") {
-                        newFiltered = idiomsWithIds;
-                    } else {
-                        newFiltered = idiomsWithIds.filter(item => item.volume === selectedVolume);
-                    }
- 
-                    const newDeck = newFiltered.sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
-                    setFilteredIdioms(newDeck);
-
-                    const volumeChanged = prevSelectedVolumeRef.current !== undefined && prevSelectedVolumeRef.current !== selectedVolume;
-                    const dataChanged = prevAllIdiomsRef.current !== undefined && prevAllIdiomsRef.current !== allIdioms;
-
-                    if (volumeChanged || dataChanged) {
-                        setCurrentIndex(0);
-                        setShowMeaning(false);
-                    } else {
-                        const newMaxIndex = newDeck.length - 1;
-                        if (currentIndex > newMaxIndex) {
-                            setCurrentIndex(Math.max(0, newMaxIndex));
-                        }
-                    }
-
-                    prevSelectedVolumeRef.current = selectedVolume;
-                    prevAllIdiomsRef.current = allIdioms;
-
-                }, [selectedVolume, allIdioms, starredIdiomIds, generateIdiomId, currentIndex]);
-                
-                // (showNotification, shuffleCards, resetCards, navigate 保持不變)
-                const showNotification = (message, type = 'success', duration = 3000) => {
-                    setNotification({ show: true, message, type });
-                    setTimeout(() => setNotification({ show: false, message: '', type: '' }), duration);
-                };
-
-                const shuffleCards = () => {
-                    let array = [...filteredIdioms];
-                    for (let i = array.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [array[i], array[j]] = [array[j], array[i]];
-                    }
-                    setFilteredIdioms(array);
-                    setCurrentIndex(0); setShowMeaning(false);
-                    showNotification('卡片已隨機排列！', 'success');
-                };
-                
-                const resetCards = () => {
-                     const originalOrder = (Array.isArray(allIdioms) ? allIdioms : [])
-                        .map(item => ({ ...item, id: generateIdiomId(item) }))
-                        .filter(item => {
-                             if (selectedVolume === "我的收藏") return starredIdiomIds.has(item.id);
-                             if (selectedVolume === "全部") return true;
-                             return item.volume === selectedVolume;
-                        })
-                        .sort((a, b) => a.idiom.localeCompare(b.idiom, 'zh-Hant-TW-u-co-stroke'));
-                     
-                     setFilteredIdioms(originalOrder);
-                     setCurrentIndex(0); setShowMeaning(false);
-                     showNotification('卡片已重置為預設順序。', 'info');
-                };
-
-                const navigate = (direction) => {
-                    const newIndex = currentIndex + direction;
-                    if (newIndex >= 0 && newIndex < filteredIdioms.length) {
-                        setCurrentIndex(newIndex);
-                        setShowMeaning(false);
-                    }
-                };
-                
-                // (handleFileUpload 保持不變)
-                const handleFileUpload = async (event) => {
-                    const file = event.target.files[0];
-                    if (!file) return;
-                    if (!file.type.includes('csv') && !file.name.endsWith('.csv')) {
-                        showNotification('檔案格式錯誤，請上傳CSV檔案。', 'error'); return;
-                    }
-                    const text = await file.text();
-                    const newIdioms = text.trim().split('\n').map(line => {
-                        const [volume, idiom, meaning] = line.split(',').map(s => s.trim());
-                        return (volume && idiom && meaning) ? { volume, idiom, meaning } : null;
-                    }).filter(Boolean);
-
-                    if (newIdioms.length > 0) {
-                        const currentIdiomsSet = new Set((Array.isArray(allIdioms) ? allIdioms : []).map(i => i.idiom));
-                        const uniqueNewIdioms = newIdioms.filter(i => !currentIdiomsSet.has(i.idiom));
-                        setAllIdioms(prev => [...(Array.isArray(prev) ? prev : []), ...uniqueNewIdioms]);
-                        showNotification(`成功匯入 ${uniqueNewIdioms.length} 個新成語！`, 'success');
-                    } else {
-                        showNotification('CSV檔案為空或格式不符。', 'error');
-                    }
-                    event.target.value = null; 
-                };
-
-                // (toggleStar 保持不變)
-                const toggleStar = async (event) => {
-                    event.stopPropagation();
-                    if (!userId || !currentIdiom) return;
-                    const docRef = doc(db, `users/${userId}/starred_idioms`, currentIdiom.id);
-                    try {
-                        if (starredIdiomIds.has(currentIdiom.id)) {
-                            await deleteDoc(docRef);
-                        } else {
-                            const { id, ...dataToSave } = currentIdiom;
-                            await setDoc(docRef, { ...dataToSave, starredAt: new Date() });
-                        }
-                    } catch (error) {
-                        console.error("Update star status failed:", error);
-                        showNotification("更新收藏狀態失敗。", "error");
-                    }
-                };
-
-                const currentIdiom = filteredIdioms[currentIndex];
-                const isStarred = currentIdiom ? starredIdiomIds.has(currentIdiom.id) : false;
-                const hasDeck = filteredIdioms.length > 0;
-
-                // (React return 保持不變, 但 '...volumes' 現在是修正後的列表)
-                return React.createElement('div', null,
-                    // Notification
-                    notification.show && React.createElement('div', { className: `fixed top-20 left-1/2 -translate-x-1/2 flex items-center gap-3 w-auto max-w-sm p-4 rounded-lg shadow-2xl text-white z-50 transition-all duration-300 ${notification.type === 'success' ? 'bg-green-500' : notification.type === 'info' ? 'bg-blue-500' : 'bg-red-500'}` },
-                      React.createElement('p', null, notification.message),
-                      React.createElement('button', { onClick: () => setNotification({ ...notification, show: false }), className: "p-1 rounded-full hover:bg-white/20" }, React.createElement(XCircle, { size: 20 }))
-                    ),
-                    
-                    // Control Panel
-                    React.createElement('div', { className: "bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center" },
-                        // Book Select
-                        React.createElement('div', null,
-                            React.createElement('label', { htmlFor: "idiom-book-select", className: "block text-sm font-medium text-gray-700" }, "選擇冊別"),
-                            React.createElement('select', { 
-                                id: "idiom-book-select", 
-                                className: "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
-                                value: selectedVolume,
-                                onChange: e => setSelectedVolume(e.target.value)
-                            },
-                                // 這裡的 '...volumes' 現在只會包含資料中實際存在的冊別
-                                ['全部', '我的收藏', ...volumes].map(volume => React.createElement('option', { key: volume, value: volume }, volume))
-                            )
-                        ),
-                        
-                        // CSV Upload
-                        React.createElement('div', null,
-                            React.createElement('label', { htmlFor: "csv-upload-idioms", className: "block text-sm font-medium text-gray-700" }, "上傳CSV檔"),
-                            React.createElement('input', { 
-                                type: "file", 
-                                id: "csv-upload-idioms", 
-                                accept: ".csv", 
-                                className: "mt-1 block w-full text-sm text-gray-500",
-                                onChange: handleFileUpload 
-                            })
-                        )
-                    ),
-                    
-                    // (Flashcard Container 和 Navigation Bar 保持不變)
-                    React.createElement('div', { className: "flashcard-container h-80 cursor-pointer", onClick: () => hasDeck && setShowMeaning(!showMeaning) },
-                        hasDeck && React.createElement('svg', { 
-                            id: "star-btn-idiom", 
-                            onClick: toggleStar, 
-                            viewBox: "0 0 24 24", 
-                            strokeLinejoin: "round", 
-                            className: isStarred ? 'starred' : '' 
-                        }, React.createElement('path', { d: "M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" })),
-                        
-                        React.createElement('div', { className: `flashcard ${showMeaning ? 'is-flipped' : ''}` },
-                            React.createElement('div', { className: "card-face card-front" },
-                                currentIdiom 
-                                ? React.createElement('p', { className: "phrase-text" }, currentIdiom.idiom)
-                                : React.createElement('p', { className: "text-xl text-gray-500" }, "沒有可用的卡片。<br>請選擇不同條件或上傳CSV檔。", null)
-                            ),
-                            React.createElement('div', { className: "card-face card-back" },
-                                currentIdiom && React.createElement(React.Fragment, null,
-                                    React.createElement('div', { className: "answer-text highlight", style: { fontSize: '2.25rem', marginBottom: '1rem' } }, currentIdiom.idiom),
-                                    React.createElement('div', { className: "answer-text", style: { fontSize: '1.5rem' } }, currentIdiom.meaning)
-                                )
-                            )
-                        )
-                    ),
-                    React.createElement('div', { className: "flex items-center justify-center flex-wrap gap-4 mt-6" },
-                        React.createElement('button', { 
-                            id: "shuffle-btn-idiom", 
-                            className: "bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
-                            onClick: shuffleCards,
-                            disabled: !hasDeck
-                        }, "打亂順序"),
-                        React.createElement('button', { 
-                            id: "reset-btn-idiom", 
-                            className: "bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
-                            onClick: resetCards,
-                            disabled: !hasDeck
-                        }, "重置練習"),
-                        React.createElement('button', { 
-                            id: "prev-btn-idiom", 
-                            className: "bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
-                            onClick: () => navigate(-1),
-                            disabled: !hasDeck || currentIndex === 0
-                        }, "上一個"),
-                        React.createElement('div', { 
-                            id: "card-counter-idiom", 
-                            className: "text-lg font-medium text-gray-700" 
-                        }, hasDeck ? `${currentIndex + 1} / ${filteredIdioms.length}` : '0 / 0'),
-                        React.createElement('button', { 
-                            id: "next-btn-idiom", 
-                            className: "bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
-                            onClick: () => navigate(1),
-                            disabled: !hasDeck || currentIndex === filteredIdioms.length - 1
-                        }, "下一個")
-                    )
-                );
-            }
         };
 
-
-        // =================================================================================
-        // --- Main Controller Logic (Unchanged) ---
-        // =================================================================================
+        let currentApp = null;
+        
         function showApp(mode) {
             welcomeScreen.classList.add('hidden');
             mainApp.classList.remove('hidden');
             appSwitcher.value = mode;
 
-            if (mode === 'glyphs') {
-                appTitle.innerText = "中文生字學習卡";
-                glyphsContainer.classList.remove('hidden');
-                idiomsContainer.classList.add('hidden');
-                GlyphsApp.init();
-                IdiomsApp.destroy();
+            if (currentApp && currentApp.type !== mode) {
+                 appInstances[currentApp.type].destroy();
+            }
+
+            Object.keys(appContainers).forEach(key => {
+                appContainers[key].classList.toggle('hidden', key !== mode);
+            });
+            
+            const titles = {
+                glyphs: "中文生字學習卡",
+                idioms: "成語學習卡",
+                meanings: "字義學習卡"
+            };
+            appTitle.innerText = titles[mode];
+            
+            currentApp = { type: mode, instance: appInstances[mode] };
+            
+            if (mode === 'idioms') {
+                appInstances.idioms.init();
             } else {
-                appTitle.innerText = "成語學習卡";
-                glyphsContainer.classList.add('hidden');
-                idiomsContainer.classList.remove('hidden');
-                GlyphsApp.destroy();
-                IdiomsApp.init();
+                appInstances[mode].init(sampleData[mode]);
             }
         }
 
@@ -6022,8 +6749,10 @@
             }
         }
         
-        document.getElementById('start-glyphs-btn').addEventListener('click', () => start('glyphs'));
-        document.getElementById('start-idioms-btn').addEventListener('click', () => start('idioms'));
+        document.querySelectorAll('.start-btn').forEach(btn => {
+            btn.addEventListener('click', () => start(btn.dataset.mode));
+        });
+        
         appSwitcher.addEventListener('change', (e) => showApp(e.target.value));
 
     </script>
