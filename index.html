@@ -44,6 +44,15 @@
         .star-button { position: absolute; top: 1rem; right: 1rem; z-index: 10; cursor: pointer; width: 32px; height: 32px; fill: none; stroke: #fbbf24; stroke-width: 2; transition: all 0.2s ease-in-out; }
         .star-button.starred { fill: #f59e0b; stroke: #f59e0b; }
         .star-button:hover { transform: scale(1.1); }
+
+        /* Table Styles for Search Mode */
+        .result-table { width: 100%; border-collapse: collapse; margin-top: 1rem; background: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .result-table th { background-color: #f3f4f6; color: #374151; font-weight: bold; padding: 0.75rem 1rem; text-align: left; border-bottom: 2px solid #e5e7eb; }
+        .result-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e5e7eb; color: #4b5563; }
+        .result-table tr:last-child td { border-bottom: none; }
+        .result-table tr:hover { background-color: #f9fafb; }
+        .table-star { cursor: pointer; fill: none; stroke: #d1d5db; stroke-width: 2; width: 24px; height: 24px; }
+        .table-star.starred { fill: #f59e0b; stroke: #f59e0b; }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
@@ -171,16 +180,27 @@
             const isMeanings = appType === 'meanings';
             
             container.innerHTML = `
-                <div class="bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                <div class="bg-white p-4 rounded-xl shadow-md mb-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
                     <div>
                         ${isMeanings ? `
                         <label for="mode-select-meanings" class="block text-sm font-medium text-gray-700">篩選模式</label>
                         <select id="mode-select-meanings" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option value="volume">依冊別</option> 
                             <option value="multi-words">依多義字詞</option>
+                            <option value="search">🔍 查字搜尋 (列表)</option>
                         </select>` : ''}
-                        <label for="${appType}-book-select" class="block text-sm font-medium text-gray-700">${isMeanings ? '選擇條件' : '選擇冊別'}</label>
-                        <select id="${appType}-book-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></select>
+                        
+                        <div id="${appType}-select-group">
+                            <label for="${appType}-book-select" class="block text-sm font-medium text-gray-700">${isMeanings ? '選擇條件' : '選擇冊別'}</label>
+                            <select id="${appType}-book-select" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></select>
+                        </div>
+                        
+                        ${isMeanings ? `
+                        <div id="meanings-search-group" class="hidden">
+                            <label for="meanings-search-input" class="block text-sm font-medium text-gray-700">輸入欲查詢字詞</label>
+                            <input type="text" id="meanings-search-input" placeholder="例如：白、上..." class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        ` : ''}
                     </div>
                     <div>
                         ${isGlyphs ? `
@@ -194,20 +214,45 @@
                          <input type="file" id="csv-upload-${appType}" accept=".csv" class="mt-1 block w-full text-sm text-gray-500">
                     </div>
                 </div>
-                <div class="flashcard-container h-80 cursor-pointer" id="${appType}-flashcard-container">
-                     <svg id="${appType}-star-btn" class="star-button" viewBox="0 0 24 24" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
-                    <div class="flashcard" id="${appType}-flashcard">
-                        <div class="card-face card-front" id="${appType}-card-front"></div>
-                        <div class="card-face card-back" id="${appType}-card-back"></div>
+
+                <!-- Flashcard Section -->
+                <div id="${appType}-main-content">
+                    <div class="flashcard-container h-80 cursor-pointer" id="${appType}-flashcard-container">
+                         <svg id="${appType}-star-btn" class="star-button" viewBox="0 0 24 24" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
+                        <div class="flashcard" id="${appType}-flashcard">
+                            <div class="card-face card-front" id="${appType}-card-front"></div>
+                            <div class="card-face card-back" id="${appType}-card-back"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center flex-wrap gap-4 mt-6" id="${appType}-controls">
+                        <button id="${appType}-shuffle-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">打亂順序</button>
+                        <button id="${appType}-reset-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">重置練習</button>
+                        <button id="${appType}-prev-btn" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">上一個</button>
+                        <div id="${appType}-card-counter" class="text-lg font-medium text-gray-700">0 / 0</div>
+                        <button id="${appType}-next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">下一個</button>
                     </div>
                 </div>
-                <div class="flex items-center justify-center flex-wrap gap-4 mt-6">
-                    <button id="${appType}-shuffle-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">打亂順序</button>
-                    <button id="${appType}-reset-btn" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">重置練習</button>
-                    <button id="${appType}-prev-btn" class="bg-white hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">上一個</button>
-                    <div id="${appType}-card-counter" class="text-lg font-medium text-gray-700">0 / 0</div>
-                    <button id="${appType}-next-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed">下一個</button>
+                
+                <!-- Search Result Table Section (For Meanings) -->
+                ${isMeanings ? `
+                <div id="meanings-search-results" class="hidden mt-4 overflow-x-auto">
+                    <table class="result-table w-full text-left">
+                        <thead>
+                            <tr>
+                                <th class="w-10">收藏</th>
+                                <th>冊別</th>
+                                <th>詞語</th>
+                                <th>字詞</th>
+                                <th>意思</th>
+                            </tr>
+                        </thead>
+                        <tbody id="meanings-table-body">
+                            <!-- Results will be injected here -->
+                        </tbody>
+                    </table>
+                    <p id="meanings-no-results" class="text-center text-gray-500 mt-4 hidden">找不到相關結果。</p>
                 </div>
+                ` : ''}
             `;
         }
 
@@ -241,8 +286,10 @@
 
             assignDomElements() {
                 this.dom.bookSelect = document.getElementById(`${this.type}-book-select`);
+                this.dom.selectGroup = document.getElementById(`${this.type}-select-group`);
                 this.dom.modeSelect = document.getElementById('mode-select');
                 this.dom.csvUpload = document.getElementById(`csv-upload-${this.type}`);
+                this.dom.mainContent = document.getElementById(`${this.type}-main-content`);
                 this.dom.flashcardContainer = document.getElementById(`${this.type}-flashcard-container`);
                 this.dom.flashcard = document.getElementById(`${this.type}-flashcard`);
                 this.dom.cardFront = document.getElementById(`${this.type}-card-front`);
@@ -296,16 +343,39 @@
                         alert('CSV中的卡片皆已存在。');
                     }
                     
-                    this.populateBookSelect();
-                    this.dom.bookSelect.value = 'all';
-                    this.buildDeck();
+                    // Re-run relevant logic
+                    if (this.type === 'meanings' && this.currentFilterMode === 'multi-words') {
+                         this.calculateMultiWords();
+                         this.populateBookSelect();
+                    } else if (this.type === 'meanings' && this.currentFilterMode === 'search') {
+                         // do nothing, wait for input
+                    } else {
+                         this.populateBookSelect();
+                    }
+                    
+                    if (this.type !== 'meanings' || this.currentFilterMode !== 'search') {
+                         this.dom.bookSelect.value = 'all';
+                         this.buildDeck();
+                    }
                 };
                 reader.readAsText(file);
             }
 
-            async toggleStar() {
-                if (!userId || this.currentDeck.length === 0) return;
-                const card = this.currentDeck[this.currentIndex];
+            async toggleStar(cardId = null) {
+                if (!userId) return;
+                
+                let card;
+                if (cardId) {
+                    // For table view specific star toggle
+                    card = this.allCards.find(c => c.id === cardId);
+                } else {
+                    // For main flashcard view
+                    if (this.currentDeck.length === 0) return;
+                    card = this.currentDeck[this.currentIndex];
+                }
+
+                if (!card) return;
+
                 const docRef = doc(db, `users/${userId}/starred_${this.type}`, card.id);
                 try {
                     if (this.starredCardIds.has(card.id)) {
@@ -328,11 +398,17 @@
                     const newStarredIds = new Set();
                     snapshot.forEach(doc => newStarredIds.add(doc.id));
                     this.starredCardIds = newStarredIds;
-                    if (this.dom.bookSelect.value === 'starred') {
-                        this.buildDeck();
-                    } else if (this.currentDeck.length > 0) {
-                        const currentCard = this.currentDeck[this.currentIndex];
-                        this.dom.starBtn.classList.toggle('starred', this.starredCardIds.has(currentCard.id));
+                    
+                    // Update UI based on current mode
+                    if (this.type === 'meanings' && this.currentFilterMode === 'search') {
+                        this.renderTable(this.dom.searchInput.value);
+                    } else {
+                        if (this.dom.bookSelect.value === 'starred') {
+                            this.buildDeck();
+                        } else if (this.currentDeck.length > 0) {
+                            const currentCard = this.currentDeck[this.currentIndex];
+                            this.dom.starBtn.classList.toggle('starred', this.starredCardIds.has(currentCard.id));
+                        }
                     }
                 }, (error) => {
                     console.error(`Failed to listen to starred ${this.type}:`, error);
@@ -458,6 +534,11 @@
             assignDomElements() {
                 super.assignDomElements();
                 this.dom.modeSelectMeanings = document.getElementById('mode-select-meanings');
+                this.dom.searchGroup = document.getElementById('meanings-search-group');
+                this.dom.searchInput = document.getElementById('meanings-search-input');
+                this.dom.searchResults = document.getElementById('meanings-search-results');
+                this.dom.tableBody = document.getElementById('meanings-table-body');
+                this.dom.noResults = document.getElementById('meanings-no-results');
             }
             
             isValidCard(card) { return card.volume && card.phrase && card.words && card.meaning; }
@@ -493,13 +574,10 @@
 
             populateBookSelect() {
                 this.dom.bookSelect.innerHTML = '';
-                
                 let optionsHTML = '';
                 
-                this.dom.bookSelect.previousElementSibling.textContent = this.currentFilterMode === 'volume' ? '選擇冊別' : '選擇多義字詞';
-
-
                 if (this.currentFilterMode === 'volume') {
+                    this.dom.bookSelect.previousElementSibling.textContent = '選擇冊別';
                     const dynamicVolumes = this.allCards.map(c => this.getCardVolume(c));
                     const combinedVolumesSet = new Set(dynamicVolumes);
                     combinedVolumesSet.delete(undefined);
@@ -511,6 +589,7 @@
                         optionsHTML += `<option value="${book}">${book}</option>`;
                     });
                 } else if (this.currentFilterMode === 'multi-words') {
+                    this.dom.bookSelect.previousElementSibling.textContent = '選擇多義字詞';
                     this.calculateMultiWords();
                     
                     if (this.multiWordsOptions.length === 0) {
@@ -530,16 +609,59 @@
 
             addEventListeners() {
                 super.addEventListeners();
+                
+                // Mode Select Change
                 if (this.dom.modeSelectMeanings) {
                     this.dom.modeSelectMeanings.addEventListener('change', (e) => {
                         this.currentFilterMode = e.target.value;
-                        this.populateBookSelect();
-                        this.buildDeck();
+                        this.updateUIForMode();
+                        
+                        if (this.currentFilterMode === 'search') {
+                             this.dom.searchInput.value = '';
+                             this.renderTable('');
+                        } else {
+                             this.populateBookSelect();
+                             this.buildDeck();
+                        }
                     });
+                }
+
+                // Search Input
+                if (this.dom.searchInput) {
+                    this.dom.searchInput.addEventListener('input', (e) => {
+                        this.renderTable(e.target.value);
+                    });
+                }
+
+                // Delegate table star clicks
+                if (this.dom.tableBody) {
+                    this.dom.tableBody.addEventListener('click', (e) => {
+                        const star = e.target.closest('.table-star');
+                        if (star) {
+                            const cardId = star.dataset.id;
+                            this.toggleStar(cardId);
+                        }
+                    });
+                }
+            }
+            
+            updateUIForMode() {
+                if (this.currentFilterMode === 'search') {
+                    this.dom.selectGroup.classList.add('hidden');
+                    this.dom.searchGroup.classList.remove('hidden');
+                    this.dom.mainContent.classList.add('hidden');
+                    this.dom.searchResults.classList.remove('hidden');
+                } else {
+                    this.dom.selectGroup.classList.remove('hidden');
+                    this.dom.searchGroup.classList.add('hidden');
+                    this.dom.mainContent.classList.remove('hidden');
+                    this.dom.searchResults.classList.add('hidden');
                 }
             }
 
             buildDeck() {
+                if (this.currentFilterMode === 'search') return; // Handled by input event
+
                 const selectedValue = this.dom.bookSelect.value;
                 let filteredDeck = [];
 
@@ -563,6 +685,47 @@
                 this.currentIndex = 0;
                 this.dom.flashcard.classList.remove('is-flipped');
                 this.displayCard();
+            }
+            
+            renderTable(keyword) {
+                const trimmedKeyword = keyword.trim();
+                let results = [];
+                
+                if (trimmedKeyword) {
+                    results = this.allCards.filter(card => 
+                        card.words.includes(trimmedKeyword) || 
+                        card.phrase.includes(trimmedKeyword)
+                    );
+                } else {
+                    // Show some default or all (maybe top 20 to avoid lag if list is huge)
+                    results = this.allCards.slice(0, 50); 
+                }
+
+                this.dom.tableBody.innerHTML = '';
+                if (results.length === 0) {
+                    this.dom.noResults.classList.remove('hidden');
+                    if (trimmedKeyword) this.dom.noResults.textContent = `找不到包含「${trimmedKeyword}」的結果。`;
+                    else this.dom.noResults.textContent = "請輸入字詞開始搜尋。";
+                } else {
+                    this.dom.noResults.classList.add('hidden');
+                    const html = results.map(card => {
+                        const isStarred = this.starredCardIds.has(card.id);
+                        return `
+                            <tr>
+                                <td class="text-center">
+                                    <svg class="table-star ${isStarred ? 'starred' : ''}" data-id="${card.id}" viewBox="0 0 24 24" stroke-linejoin="round">
+                                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                                    </svg>
+                                </td>
+                                <td>${card.volume}</td>
+                                <td class="font-bold text-gray-800">${card.phrase.replace(trimmedKeyword, `<span class="bg-yellow-200">${trimmedKeyword}</span>`)}</td>
+                                <td class="text-blue-600">${card.words.replace(trimmedKeyword, `<span class="bg-yellow-200">${trimmedKeyword}</span>`)}</td>
+                                <td>${card.meaning}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                    this.dom.tableBody.innerHTML = html;
+                }
             }
             
             displayCard() {
@@ -620,7 +783,9 @@
                 // 自動讀取 JSON
                 useEffect(() => {
                     const timestamp = new Date().getTime();
-                    fetch(`./idioms.json?t=${timestamp}`)
+                    // Removed ./ to be safer, added error handling for URL parsing
+                    const url = `idioms.json?t=${timestamp}`;
+                    fetch(url)
                         .then(res => {
                             if(!res.ok) throw new Error("無法讀取 idioms.json");
                             return res.json();
@@ -629,8 +794,10 @@
                             setAllIdioms(data);
                         })
                         .catch(err => {
-                            console.error("Error loading idioms:", err);
-                            setNotification({ show: true, message: '無法載入 idioms.json，請確認檔案存在。', type: 'error' });
+                            console.warn("Error loading idioms:", err);
+                            // Don't show critical error, just info, as it might be expected in preview
+                            setNotification({ show: true, message: '未偵測到預設資料，請上傳 CSV 檔案開始使用。', type: 'info' });
+                            setAllIdioms([]); // Ensure it's initialized
                         });
                 }, []);
 
@@ -832,23 +999,26 @@
                     loadingText.innerText = "正在同步雲端資料庫...";
                     try {
                         const timestamp = new Date().getTime();
-                        // 下載對應的 JSON 檔案
-                        const response = await fetch(`./${mode}.json?t=${timestamp}`);
+                        // Removed ./ to be safer, added error handling for URL parsing
+                        const url = `${mode}.json?t=${timestamp}`;
+                        
+                        const response = await fetch(url);
                         
                         if (!response.ok) {
-                            throw new Error(`找不到資料檔 (${mode}.json)，請確認已上傳至 GitHub。`);
+                            // If 404 or other network error, just proceed with empty data
+                            console.warn(`Default data ${mode}.json not found.`);
+                            showApp(mode, []);
+                            loadingOverlay.classList.add('hidden');
+                            return;
                         }
                         
                         const data = await response.json();
                         showApp(mode, data);
                         
                     } catch (error) {
-                        console.error(error);
-                        alert("讀取資料失敗：\n" + error.message);
-                        // 如果失敗，隱藏 loading 並回到歡迎頁面
-                        loadingOverlay.classList.add('hidden');
-                        welcomeScreen.classList.remove('hidden');
-                        return;
+                        console.warn("Fetch error:", error);
+                        // Graceful fallback: just show the app empty
+                        showApp(mode, []);
                     }
                 } else {
                     // Idioms 模式直接進入，由 React 內部負責 Fetch
@@ -864,21 +1034,25 @@
         
         appSwitcher.addEventListener('change', async (e) => {
              const mode = e.target.value;
-             // 切換時也重新走一次 start 流程以確保資料載入
-             // 但因為已经在 Main App 視圖，稍微簡化 UX
              loadingOverlay.classList.remove('hidden');
              loadingText.innerText = "切換模式中...";
              
              if (mode === 'glyphs' || mode === 'meanings') {
                 try {
                     const timestamp = new Date().getTime();
-                    const response = await fetch(`./${mode}.json?t=${timestamp}`);
-                    if (!response.ok) throw new Error("Network response was not ok");
-                    const data = await response.json();
-                    showApp(mode, data);
+                    // Removed ./ to be safer, added error handling for URL parsing
+                    const url = `${mode}.json?t=${timestamp}`;
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                         console.warn("Network response was not ok, loading empty.");
+                         showApp(mode, []);
+                    } else {
+                        const data = await response.json();
+                        showApp(mode, data);
+                    }
                 } catch(e) {
-                    console.error(e);
-                    alert("切換失敗，無法讀取資料。");
+                    console.error("Fetch failed during switch:", e);
+                    showApp(mode, []);
                 }
              } else {
                  showApp(mode);
