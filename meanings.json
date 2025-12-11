@@ -4478,6 +4478,12 @@
   {
     "volume": "岳陽樓記",
     "phrase": "微斯人，吾誰與歸",
+    "words": "歸",
+    "meaning": "依附、趨向"
+  },
+  {
+    "volume": "岳陽樓記",
+    "phrase": "微斯人，吾誰與歸",
     "words": "微",
     "meaning": "無、沒有"
   },
@@ -4510,5 +4516,497 @@
     "phrase": "河水洋洋，北流活活。(詩經 衛風 碩人)",
     "words": "洋洋",
     "meaning": "水勢盛大的樣子"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "其西南諸峰，林壑尤美",
+    "words": "諸",
+    "meaning": "眾多、各個"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "其西南諸峰，林壑尤美",
+    "words": "壑",
+    "meaning": "山谷"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "有亭翼然臨於泉上者，醉翁亭也",
+    "words": "臨",
+    "meaning": "從高處往下看，在此有高踞之意"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "太守與客來飲於此，飲少輒醉，而年又最高",
+    "words": "輒",
+    "meaning": "往往、就"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "太守與客來飲於此，飲少輒醉，而年又最高",
+    "words": "而",
+    "meaning": "且"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "山水之樂，得之心而寓之酒也",
+    "words": "寓",
+    "meaning": "寄託"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "若夫日出而林霏開，雲歸而巖穴暝",
+    "words": "霏",
+    "meaning": "霧氣"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "若夫日出而林霏開，雲歸而巖穴暝",
+    "words": "歸",
+    "meaning": "聚集"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "若夫日出而林霏開，雲歸而巖穴暝",
+    "words": "暝",
+    "meaning": "昏暗"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "野芳發而幽香，佳木秀而繁陰",
+    "words": "芳",
+    "meaning": "花"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "野芳發而幽香，佳木秀而繁陰",
+    "words": "發",
+    "meaning": "開放"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "野芳發而幽香，佳木秀而繁陰",
+    "words": "陰",
+    "meaning": "同「蔭」"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "至於負者歌於塗，行者休於樹",
+    "words": "塗",
+    "meaning": "通「途」，道路"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "臨谿而漁，谿深而魚肥",
+    "words": "臨",
+    "meaning": "靠近"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "釀泉為酒，泉香而酒洌(ㄌㄧㄝˋ)",
+    "words": "洌",
+    "meaning": "清澈"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "山肴野蔌(ㄙㄨˋ)，雜然而前陳者，太守宴也",
+    "words": "蔌",
+    "meaning": "蔬菜"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "山肴野蔌(ㄙㄨˋ)，雜然而前陳者，太守宴也",
+    "words": "陳",
+    "meaning": "陳列"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "射者中，弈者勝",
+    "words": "弈",
+    "meaning": "下棋"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "觥(ㄍㄨㄥ)籌交錯，起坐而諠譁者，眾賓懽也",
+    "words": "觥",
+    "meaning": "酒器"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "觥(ㄍㄨㄥ)籌交錯，起坐而諠譁者，眾賓懽也",
+    "words": "籌",
+    "meaning": "酒籌"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "觥(ㄍㄨㄥ)籌交錯，起坐而諠譁者，眾賓懽也",
+    "words": "懽",
+    "meaning": "同「歡」"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "已而，夕陽在山，人影散亂，太守歸而賓客從也",
+    "words": "已而",
+    "meaning": "不久"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "已而，夕陽在山，人影散亂，太守歸而賓客從也",
+    "words": "從",
+    "meaning": "跟從"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "樹林陰翳(ㄧˋ)，鳴聲上下",
+    "words": "翳",
+    "meaning": "遮蔽"
+  },
+  {
+    "volume": "醉翁亭記",
+    "phrase": "朝而往，暮而歸",
+    "words": "歸",
+    "meaning": "返回"
+  },
+  {
+    "volume": "其他",
+    "phrase": "一日克己復禮，天下歸仁焉。(論語 顏淵)",
+    "words": "歸",
+    "meaning": "稱許"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "壬戌之秋，七月既望",
+    "words": "既",
+    "meaning": "已經"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "壬戌之秋，七月既望",
+    "words": "望",
+    "meaning": "滿月，每月十五日"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "舉酒屬客，誦明月之詩",
+    "words": "屬",
+    "meaning": "勸客飲酒"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "少焉，月出於東山之上，徘徊於斗牛之間",
+    "words": "少焉",
+    "meaning": "不久"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "白露橫江，水光接天",
+    "words": "橫",
+    "meaning": "瀰漫"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "縱一葦之所如，凌萬頃之茫然",
+    "words": "縱",
+    "meaning": "任憑"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "縱一葦之所如，凌萬頃之茫然",
+    "words": "一葦",
+    "meaning": "小舟"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "縱一葦之所如，凌萬頃之茫然",
+    "words": "如",
+    "meaning": "往"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "縱一葦之所如，凌萬頃之茫然",
+    "words": "凌",
+    "meaning": "越過"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "縱一葦之所如，凌萬頃之茫然",
+    "words": "茫然",
+    "meaning": "水面空闊迷濛"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "浩浩乎如馮(ㄆㄧㄥˊ)虛御風，而不知其所止",
+    "words": "馮",
+    "meaning": "通「憑」，依恃"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "浩浩乎如馮(ㄆㄧㄥˊ)虛御風，而不知其所止",
+    "words": "虛",
+    "meaning": "天空"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "飄飄乎如遺世獨立，羽化而登仙",
+    "words": "遺世獨立",
+    "meaning": "超然特立"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "於是飲酒樂甚，扣舷而歌之",
+    "words": "舷",
+    "meaning": "船邊"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
+    "words": "棹",
+    "meaning": "船槳"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
+    "words": "擊",
+    "meaning": "拍打"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
+    "words": "空明",
+    "meaning": "\"倒映在水面"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
+    "words": "泝",
+    "meaning": "通「溯」，逆流而上"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "渺渺兮予懷，望美人兮天一方",
+    "words": "渺渺",
+    "meaning": "幽遠的樣子"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "渺渺兮予懷，望美人兮天一方",
+    "words": "美人",
+    "meaning": "喻國君，或指思慕的賢人"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "有吹洞簫者，倚歌而和之",
+    "words": "和",
+    "meaning": "依附"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "舞幽壑之潛蛟，泣孤舟之嫠(ㄌㄧˊ)婦",
+    "words": "嫠",
+    "meaning": "寡婦"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "蘇子愀(ㄑㄧㄠˇ)然，正襟危坐而問客曰:「何為其然也?」",
+    "words": "愀然",
+    "meaning": "容色改變的樣子"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "蘇子愀(ㄑㄧㄠˇ)然，正襟危坐而問客曰:「何為其然也?」",
+    "words": "危",
+    "meaning": "端正"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "蘇子愀(ㄑㄧㄠˇ)然，正襟危坐而問客曰:「何為其然也?」",
+    "words": "然",
+    "meaning": "如此"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "山川相繆(ㄌㄧㄠˊ)，鬱乎蒼蒼",
+    "words": "繆",
+    "meaning": "通「繚」，纏繞、連接"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "山川相繆(ㄌㄧㄠˊ)，鬱乎蒼蒼",
+    "words": "鬱",
+    "meaning": "茂盛"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "山川相繆(ㄌㄧㄠˊ)，鬱乎蒼蒼",
+    "words": "蒼蒼",
+    "meaning": "深青色"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "方其破荊州、下江陵",
+    "words": "方",
+    "meaning": "當"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "舳艫千里，旌旗蔽空",
+    "words": "舳",
+    "meaning": "船尾"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "舳艫千里，旌旗蔽空",
+    "words": "艫",
+    "meaning": "船頭"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "釃酒臨江，橫槊賦詩",
+    "words": "釃",
+    "meaning": "斟酒"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "固一世之雄也，而今安在哉",
+    "words": "固",
+    "meaning": "的確是"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "駕一葉之扁(ㄆㄧㄢ)舟，舉匏樽以相屬",
+    "words": "扁",
+    "meaning": "小"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "駕一葉之扁(ㄆㄧㄢ)舟，舉匏樽以相屬",
+    "words": "樽",
+    "meaning": "酒器"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "挾飛仙以遨遊，抱明月而長終",
+    "words": "挾",
+    "meaning": "偕同"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "挾飛仙以遨遊，抱明月而長終",
+    "words": "長終",
+    "meaning": "長存"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "客亦知夫水與月乎?",
+    "words": "夫",
+    "meaning": "指稱詞，那"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "逝者如斯，而未嘗往也；",
+    "words": "往",
+    "meaning": "指逝去"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "逝者如斯，而未嘗往也；",
+    "words": "斯",
+    "meaning": "此，指江水"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "盈虛者如彼，而卒莫消長也",
+    "words": "卒",
+    "meaning": "終究"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "盈虛者如彼，而卒莫消長也",
+    "words": "彼",
+    "meaning": "指月亮"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "蓋將自其變者而觀之，則天地曾不能以一瞬",
+    "words": "曾",
+    "meaning": "竟"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "蓋將自其變者而觀之，則天地曾不能以一瞬",
+    "words": "將",
+    "meaning": "如果"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "苟非吾之所有，雖一毫而莫取",
+    "words": "一毫",
+    "meaning": "形容極少"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "耳得之而為聲，目遇之而成色",
+    "words": "聲",
+    "meaning": "悅耳的音樂"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "耳得之而為聲，目遇之而成色",
+    "words": "色",
+    "meaning": "美麗的風景"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "是造物者之無盡藏也，而吾與子之所共適",
+    "words": "適",
+    "meaning": "快意、歡樂"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "客喜而笑，洗盞更酌",
+    "words": "更",
+    "meaning": "重新"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "相與枕藉乎舟中，不知東方之既白",
+    "words": "藉",
+    "meaning": "以物襯墊"
+  },
+  {
+    "volume": "赤壁賦",
+    "phrase": "相與枕藉乎舟中，不知東方之既白",
+    "words": "既白",
+    "meaning": "指天亮"
+  },
+  {
+    "volume": "其他",
+    "phrase": "子適衛，冉有僕。(論語 子路)",
+    "words": "適",
+    "meaning": "往、到"
+  },
+  {
+    "volume": "諫逐客書",
+    "phrase": "快意當前，適觀而已矣。",
+    "words": "適",
+    "meaning": "適合、符合"
+  },
+  {
+    "volume": "其他",
+    "phrase": "無適(ㄉㄧˊ)也，無莫也，義之與比。(論語 里仁)",
+    "words": "適",
+    "meaning": "專主、一定"
+  },
+  {
+    "volume": "其他",
+    "phrase": "危言危行",
+    "words": "危",
+    "meaning": "正直的"
+  },
+  {
+    "volume": "其他",
+    "phrase": "危檣獨夜舟。(杜甫 旅夜書懷)",
+    "words": "危",
+    "meaning": "高"
   }
 ]
