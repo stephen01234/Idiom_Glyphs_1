@@ -125,7 +125,7 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
     <div id="welcome-screen" class="text-center">
-        <h1 class="text-5xl font-bold text-gray-800 mb-4">綜合學習卡 <span class="text-2xl text-blue-500">(v2.4)</span></h1>
+        <h1 class="text-5xl font-bold text-gray-800 mb-4">綜合學習卡 <span class="text-2xl text-blue-500">(v2.5)</span></h1>
         <p class="text-xl text-gray-600 mb-8">請選擇您想要學習的項目</p>
         <div class="flex flex-col sm:flex-row justify-center gap-6">
             <button data-mode="glyphs" class="start-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 active:scale-95 active:bg-blue-700">
@@ -271,10 +271,15 @@
                             <select id="meanings-specific-select" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"></select>
                         </div>
                         
-                        <!-- CSV Upload (Smaller) -->
-                        <div>
-                           <label class="block text-xs font-medium text-gray-500 mb-1">匯入資料 (CSV)</label>
-                           <input type="file" id="csv-upload-meanings" accept=".csv" class="block w-full text-sm text-gray-500">
+                        <!-- Row 4: CSV Upload & Quick Start Quiz -->
+                        <div class="flex items-end gap-4">
+                            <div class="flex-1">
+                               <label class="block text-xs font-medium text-gray-500 mb-1">匯入資料 (CSV)</label>
+                               <input type="file" id="csv-upload-meanings" accept=".csv" class="block w-full text-sm text-gray-500">
+                            </div>
+                            <button id="btn-start-quiz-from-browse" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-colors active:scale-95 flex items-center gap-2">
+                                <span>🚀 測驗此範圍</span>
+                            </button>
                         </div>
                     </div>
 
@@ -655,6 +660,7 @@
                 this.dom.specificSelect = document.getElementById('meanings-specific-select');
                 this.dom.selectLabel = document.getElementById('select-label');
                 this.dom.csvUpload = document.getElementById('csv-upload-meanings');
+                this.dom.btnStartQuiz = document.getElementById('btn-start-quiz-from-browse');
 
                 // Sections
                 this.dom.displayArea = document.getElementById('meanings-display-area');
@@ -712,6 +718,10 @@
             // Override init to setup new UI state
             init(data) {
                 super.init(data);
+                // Force defaults on init to match UI
+                this.viewMode = 'browse';
+                this.filterType = 'volume';
+                this.updateControls(); // Ensure buttons look correct
                 this.updateUI(); // Trigger initial render
             }
             
@@ -721,7 +731,18 @@
             }
 
             onStarredUpdated() {
-               this.updateUI(); // Re-render current view (Table or Card) to reflect star
+               if (this.viewMode === 'browse') {
+                   // Refresh table to show new star state without full reset
+                   this.renderTable(this.currentDeck);
+               } else {
+                   // Quiz mode: just update the star icon without resetting deck
+                   if (this.currentDeck.length > 0) {
+                        const currentCard = this.currentDeck[this.currentIndex];
+                        if (this.dom.starBtn) {
+                            this.dom.starBtn.classList.toggle('starred', this.starredCardIds.has(currentCard.id));
+                        }
+                   }
+               }
             }
 
             addEventListeners() {
@@ -763,6 +784,15 @@
                 this.dom.resetBtn.addEventListener('click', () => {
                      this.updateUI(); // Re-fetch clean list
                 });
+                
+                // Start Quiz Button in Browse Mode
+                if (this.dom.btnStartQuiz) {
+                    this.dom.btnStartQuiz.addEventListener('click', () => {
+                        this.viewMode = 'quiz';
+                        this.updateControls();
+                        this.updateUI();
+                    });
+                }
 
                 // Table Star Click
                 this.dom.tableBody.addEventListener('click', (e) => {
@@ -788,6 +818,15 @@
                 setActive(this.dom.btnQuiz, this.viewMode === 'quiz');
                 setActive(this.dom.btnFilterVolume, this.filterType === 'volume');
                 setActive(this.dom.btnFilterPoly, this.filterType === 'polysemy');
+                
+                // Toggle "Start Quiz" button visibility
+                if (this.dom.btnStartQuiz) {
+                    if (this.viewMode === 'browse') {
+                        this.dom.btnStartQuiz.classList.remove('hidden');
+                    } else {
+                        this.dom.btnStartQuiz.classList.add('hidden');
+                    }
+                }
             }
 
             populateSelect() {
@@ -857,6 +896,7 @@
                     this.dom.flashcard.classList.remove('is-flipped');
                     this.displayCard();
                 }
+                this.updateControls(); // Ensure button states are correct
             }
             
             renderTable(data) {
