@@ -125,7 +125,7 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
     <div id="welcome-screen" class="text-center">
-        <h1 class="text-5xl font-bold text-gray-800 mb-4">綜合學習卡 <span class="text-2xl text-blue-500">(v2.6)</span></h1>
+        <h1 class="text-5xl font-bold text-gray-800 mb-4">綜合學習卡 <span class="text-2xl text-blue-500">(v2.7)</span></h1>
         <p class="text-xl text-gray-600 mb-8">請選擇您想要學習的項目</p>
         <div class="flex flex-col sm:flex-row justify-center gap-6">
             <button data-mode="glyphs" class="start-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 active:scale-95 active:bg-blue-700">
@@ -259,14 +259,15 @@
                             </div>
                         </div>
 
-                        <!-- Row 3: Filter Type (Volume vs Polysemy) -->
+                        <!-- Row 3: Filter Type (Volume vs Polysemy vs Starred) -->
                         <div class="flex justify-center gap-4">
                             <div id="btn-filter-volume" class="sub-mode-btn active">📚 依冊別 (Volume)</div>
                             <div id="btn-filter-poly" class="sub-mode-btn inactive">🔤 多義字詞 (Polysemy)</div>
+                            <div id="btn-filter-starred" class="sub-mode-btn inactive">⭐ 我的收藏 (Favorites)</div>
                         </div>
 
-                        <!-- Specific Select Dropdown -->
-                        <div>
+                        <!-- Specific Select Dropdown & Search (Hidden in Starred mode) -->
+                        <div id="filter-options-wrapper">
                             <label for="meanings-specific-select" class="block text-sm font-medium text-gray-700 mb-1" id="select-label">選擇冊別</label>
                             <select id="meanings-specific-select" class="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-lg"></select>
                             
@@ -666,10 +667,14 @@
                 this.dom.btnQuiz = document.getElementById('btn-quiz');
                 this.dom.btnFilterVolume = document.getElementById('btn-filter-volume');
                 this.dom.btnFilterPoly = document.getElementById('btn-filter-poly');
+                this.dom.btnFilterStarred = document.getElementById('btn-filter-starred'); // New
                 this.dom.specificSelect = document.getElementById('meanings-specific-select');
                 this.dom.selectLabel = document.getElementById('select-label');
                 
-                // Search Input Elements (New)
+                // Filter Options Container (New wrapper)
+                this.dom.filterOptionsWrapper = document.getElementById('filter-options-wrapper');
+
+                // Search Input Elements
                 this.dom.searchContainer = document.getElementById('meanings-search-container');
                 this.dom.searchInput = document.getElementById('meanings-search-input');
 
@@ -763,6 +768,7 @@
                 // Mode Buttons
                 this.dom.btnBrowse.addEventListener('click', () => { this.viewMode = 'browse'; this.updateControls(); this.updateUI(); });
                 this.dom.btnQuiz.addEventListener('click', () => { this.viewMode = 'quiz'; this.updateControls(); this.updateUI(); });
+                
                 this.dom.btnFilterVolume.addEventListener('click', () => { 
                     this.filterType = 'volume'; 
                     this.dom.searchInput.value = ''; // Clear search when switching tabs
@@ -772,6 +778,13 @@
                 });
                 this.dom.btnFilterPoly.addEventListener('click', () => { 
                     this.filterType = 'polysemy'; 
+                    this.populateSelect(); 
+                    this.updateControls(); 
+                    this.updateUI(); 
+                });
+                this.dom.btnFilterStarred.addEventListener('click', () => { 
+                    this.filterType = 'starred'; 
+                    this.dom.searchInput.value = ''; // Clear search
                     this.populateSelect(); 
                     this.updateControls(); 
                     this.updateUI(); 
@@ -856,6 +869,7 @@
                 setActive(this.dom.btnQuiz, this.viewMode === 'quiz');
                 setActive(this.dom.btnFilterVolume, this.filterType === 'volume');
                 setActive(this.dom.btnFilterPoly, this.filterType === 'polysemy');
+                setActive(this.dom.btnFilterStarred, this.filterType === 'starred');
                 
                 // Toggle "Start Quiz" button visibility
                 if (this.dom.btnStartQuiz) {
@@ -870,6 +884,15 @@
             populateSelect() {
                 let optionsHTML = '';
                 
+                // In starred mode, we hide the selection controls
+                if (this.filterType === 'starred') {
+                    this.dom.filterOptionsWrapper.classList.add('hidden');
+                    return;
+                }
+                
+                // In other modes, ensure controls are visible
+                this.dom.filterOptionsWrapper.classList.remove('hidden');
+
                 if (this.filterType === 'volume') {
                     this.dom.selectLabel.textContent = '選擇冊別';
                     this.dom.searchContainer.classList.add('hidden'); // Hide search in Volume mode
@@ -880,7 +903,8 @@
                     combinedVolumesSet.delete(null);
                     const volumes = [...combinedVolumesSet].sort((a, b) => a.localeCompare(b, 'zh-Hant-TW-u-co-stroke'));
 
-                    optionsHTML += `<option value="all">全部 (資料)</option><option value="starred">我的收藏</option>`;
+                    optionsHTML += `<option value="all">全部 (資料)</option>`;
+                    // Note: 'My Favorites' is no longer an option here
                     volumes.forEach(book => {
                         optionsHTML += `<option value="${book}">${book}</option>`;
                     });
@@ -905,10 +929,10 @@
                 const searchKeyword = this.dom.searchInput.value.trim();
                 let filteredDeck = [];
 
-                if (this.filterType === 'volume') {
-                    if (selectedValue === 'starred') {
-                        filteredDeck = this.allCards.filter(card => this.starredCardIds.has(card.id));
-                    } else if (selectedValue !== 'all') {
+                if (this.filterType === 'starred') {
+                    filteredDeck = this.allCards.filter(card => this.starredCardIds.has(card.id));
+                } else if (this.filterType === 'volume') {
+                    if (selectedValue !== 'all') {
                         filteredDeck = this.allCards.filter(card => this.getCardVolume(card) === selectedValue);
                     } else {
                         filteredDeck = [...this.allCards];
@@ -953,7 +977,10 @@
                     this.dom.noResults.classList.remove('hidden');
                     // Customize empty message based on context
                     const searchKeyword = this.dom.searchInput.value.trim();
-                    if (this.filterType === 'polysemy' && searchKeyword) {
+                    
+                    if (this.filterType === 'starred') {
+                        this.dom.noResults.textContent = "目前沒有收藏任何字詞。";
+                    } else if (this.filterType === 'polysemy' && searchKeyword) {
                         this.dom.noResults.textContent = `找不到包含「${searchKeyword}」的字詞。`;
                     } else if (this.filterType === 'polysemy' && this.multiWordsOptions.length === 0) {
                         this.dom.noResults.textContent = "目前的資料中沒有出現 2 次以上的字詞。";
@@ -1002,7 +1029,9 @@
                     let message = "沒有可用的卡片。<br>請確認是否選取了正確的冊別或資料。";
                     const searchKeyword = this.dom.searchInput.value.trim();
                     
-                    if (this.filterType === 'polysemy') {
+                    if (this.filterType === 'starred') {
+                        message = "目前沒有收藏任何字詞。";
+                    } else if (this.filterType === 'polysemy') {
                         if (searchKeyword) {
                             message = `找不到包含「${searchKeyword}」的字詞可供練習。`;
                         } else if (this.multiWordsOptions.length === 0) {
