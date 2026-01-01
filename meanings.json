@@ -1525,6 +1525,12 @@
   },
   {
     "volume": "04_諫逐客書",
+    "phrase": "由此觀之，客何負於秦哉",
+    "words": "觀",
+    "meaning": "觀察"
+  },
+  {
+    "volume": "04_諫逐客書",
     "phrase": "河海不擇細流，故能就其深",
     "words": "擇",
     "meaning": "挑撿，此指排拒"
@@ -1873,7 +1879,13 @@
   },
   {
     "volume": "05_鴻門宴",
-    "phrase": "孰與君少長",
+    "phrase": "沛公曰:「孰與君少長?」",
+    "words": "少",
+    "meaning": "年輕"
+  },
+  {
+    "volume": "05_鴻門宴",
+    "phrase": "沛公曰:「孰與君少長?」",
     "words": "孰與",
     "meaning": "和......相比怎麼樣(表示比較)"
   },
@@ -2368,6 +2380,12 @@
     "phrase": "今者項莊拔劍舞，其意常在沛公也",
     "words": "意",
     "meaning": "念頭、想法"
+  },
+  {
+    "volume": "04_諫逐客書",
+    "phrase": "快意當前，適觀而已矣",
+    "words": "觀",
+    "meaning": "觀賞、觀看"
   },
   {
     "volume": "04_諫逐客書",
@@ -3342,115 +3360,115 @@
     "meaning": "等級"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "所以傳道、受業、解惑也",
     "words": "所以",
     "meaning": "用來"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "所以傳道、受業、解惑也",
     "words": "受",
     "meaning": "通「授」"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "所以傳道、受業、解惑也",
     "words": "解",
     "meaning": "解答"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "人非生而知之者，孰能無惑",
     "words": "孰",
     "meaning": "誰"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "惑而不從師，其為惑也終不解矣",
     "words": "而",
     "meaning": "卻"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "惑而不從師，其為惑也終不解矣",
     "words": "師",
     "meaning": "老師"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "生乎吾前，其聞道也，固先乎吾",
     "words": "乎",
     "meaning": "在、於"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "生乎吾前，其聞道也，固先乎吾",
     "words": "聞",
     "meaning": "聽到，引申為懂得"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "生乎吾前，其聞道也，固先乎吾",
     "words": "固",
     "meaning": "本來"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "吾師道也，夫(ㄈㄨˊ)庸知其年之先後生於吾乎",
     "words": "師",
     "meaning": "學習請教，從師問學"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "吾師道也，夫(ㄈㄨˊ)庸知其年之先後生於吾乎",
     "words": "夫",
     "meaning": "發語詞，無義"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "吾師道也，夫(ㄈㄨˊ)庸知其年之先後生於吾乎",
     "words": "庸",
     "meaning": "豈、哪裡，表反詰語氣"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "古之聖人，其出人也遠矣，猶且從師而問焉",
     "words": "出",
     "meaning": "超越"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "古之聖人，其出人也遠矣，猶且從師而問焉",
     "words": "且",
     "meaning": "尚且"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "今之眾人，其下聖人也亦遠矣，而恥學於師",
     "words": "下",
     "meaning": "低於、不如"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "今之眾人，其下聖人也亦遠矣，而恥學於師",
     "words": "恥",
     "meaning": "以從師問學為恥"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "是故聖益聖，愚益愚",
     "words": "益",
     "meaning": "更加"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "聖人之所以為聖",
     "words": "所以",
     "meaning": "何以、為什麼"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "愚人之所以為愚，其皆出於此乎",
     "words": "其",
     "meaning": "大概"
@@ -3486,158 +3504,158 @@
     "meaning": "從師問學的"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "愛其子，擇師而教之，於其身也則恥師焉",
     "words": "則",
     "meaning": "卻，表轉折"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "愛其子，擇師而教之，於其身也則恥師焉",
     "words": "恥",
     "meaning": "以......為恥，意動用法"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "愛其子，擇師而教之，於其身也則恥師焉",
     "words": "師",
     "meaning": "學習請教，從師問學"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "彼童子之師，授之書而習其句讀者也",
     "words": "彼",
     "meaning": "那些"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "彼童子之師，授之書而習其句讀者也",
     "words": "其",
     "meaning": "書"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "彼童子之師，授之書而習其句讀者也",
     "words": "之",
     "meaning": "童子"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "句讀之不知，惑之不解，或師焉，或不(ㄈㄡˇ)焉",
     "words": "或",
     "meaning": "有的"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "句讀之不知，惑之不解，或師焉，或不(ㄈㄡˇ)焉",
     "words": "不",
     "meaning": "通「否」"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "小學而大遺，吾未見其明也",
     "words": "明",
     "meaning": "高明"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "士大夫之族，曰師、曰弟子云者，則群聚而笑之",
     "words": "族",
     "meaning": "意同:輩、徒、倫"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "士大夫之族，曰師、曰弟子云者，則群聚而笑之",
     "words": "曰",
     "meaning": "稱呼"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "位卑則足羞，官盛則近諛",
     "words": "足",
     "meaning": "十分、非常"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "位卑則足羞，官盛則近諛",
     "words": "諛",
     "meaning": "阿諛、諂媚"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "彼與彼年相若也，道相似也",
     "words": "彼",
     "meaning": "他"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "今其智乃反不能及",
     "words": "乃",
     "meaning": "竟"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "郯子之徒，其賢不及孔子",
     "words": "徒",
     "meaning": "輩、類"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "是故弟子不必不如師，師不必賢於弟子",
     "words": "賢",
     "meaning": "高明"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "是故弟子不必不如師，師不必賢於弟子",
     "words": "於",
     "meaning": "比"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "聞道有先後，術業有專攻",
     "words": "攻",
     "meaning": "研究"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "\"不拘*於*時，請學\"\"於\"\"余\"",
     "words": "*於*",
     "meaning": "被"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "\"不拘*於*時，請學\"\"於\"\"余\"",
     "words": "\"\"\"於\"\"\"",
     "meaning": "向"
   },
   {
-    "volume": "009_師說",
-    "phrase": "余嘉其能行古道，作009_師說以貽(ㄧˊ)之",
+    "volume": "09_師說",
+    "phrase": "余嘉其能行古道，作09_師說以貽(ㄧˊ)之",
     "words": "嘉",
     "meaning": "讚美"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "古之學者必有師",
     "words": "師",
     "meaning": "老師"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "郯子、萇弘、師襄",
     "words": "師",
     "meaning": "具有專門技藝的人"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "巫醫、樂師、百工之人",
     "words": "師",
     "meaning": "具有專門技藝的人"
   },
   {
-    "volume": "009_師說",
-    "phrase": "余嘉其能行古道，作009_師說以貽(ㄧˊ)之",
+    "volume": "09_師說",
+    "phrase": "余嘉其能行古道，作09_師說以貽(ㄧˊ)之",
     "words": "貽",
     "meaning": "贈送"
   },
@@ -3702,496 +3720,508 @@
     "meaning": "豈、哪裡"
   },
   {
-    "volume": "009_師說",
+    "volume": "09_師說",
     "phrase": "古之聖人，其出人也遠矣",
     "words": "其",
     "meaning": "他們"
   },
   {
-    "volume": "晚遊六橋待月記",
+    "volume": "16_晚遊六橋待月記",
     "phrase": "皆在朝日始出，夕舂未下，始極其濃媚。",
     "words": "其",
     "meaning": "助詞，無義"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "隋煬帝之幸江都也",
     "words": "幸",
     "meaning": "帝王親臨"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "素驕貴，又以時亂",
     "words": "以",
     "meaning": "認為"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "賓客上謁(ㄧㄝˋ)，未嘗不踞床而見",
     "words": "謁",
     "meaning": "晉見"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "賓客上謁(ㄧㄝˋ)，未嘗不踞床而見",
     "words": "踞床",
     "meaning": "伸腿坐於床上"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "侍婢羅列，頗僭(ㄐㄧㄢˋ)於上",
     "words": "僭",
     "meaning": "僭越"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "末年益甚，無復知所負荷",
     "words": "益",
     "meaning": "更"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "素斂容而起，與語大悅，收其策而退",
     "words": "斂容",
     "meaning": "端正容色，肅敬的樣子"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "一妓有殊色",
     "words": "殊",
     "meaning": "出眾的"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖既去，而執拂妓臨軒指吏",
     "words": "既",
     "meaning": "已"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖既去，而執拂妓臨軒指吏",
     "words": "去",
     "meaning": "離開"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "吏具以對，妓頷(ㄏㄢˋ)而去",
     "words": "具",
     "meaning": "詳細"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "吏具以對，妓頷(ㄏㄢˋ)而去",
     "words": "頷",
     "meaning": "頷首，微微點頭"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖歸逆旅",
     "words": "逆",
     "meaning": "迎接"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "乃紫衣戴帽人，杖揭一囊",
     "words": "揭",
     "meaning": "挑負"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖遽延入",
     "words": "遽",
     "meaning": "急忙"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "故來奔耳",
     "words": "奔",
     "meaning": "投奔，此指未經婚嫁程序而結合"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "去者眾矣，彼亦不甚逐也",
     "words": "逐",
     "meaning": "追究"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "計之詳矣，幸無疑焉",
     "words": "幸",
     "meaning": "希望"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "而窺戶者足無停屨(ㄐㄩˋ)",
     "words": "屨",
     "meaning": "鞋"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "既數日，聞追訪之聲，意亦非峻",
     "words": "峻",
     "meaning": "急切、嚴厲"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "乃雄服乘馬，排闥(ㄊㄚˋ)而去，將歸太原",
     "words": "雄服",
     "meaning": "指穿著男裝"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "乃雄服乘馬，排闥(ㄊㄚˋ)而去，將歸太原",
     "words": "排闥",
     "meaning": "推開門"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "乃雄服乘馬，排闥(ㄊㄚˋ)而去，將歸太原",
     "words": "歸",
     "meaning": "往"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "行次靈石旅舍",
     "words": "次",
     "meaning": "住宿"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "既設床，爐中烹肉且熟",
     "words": "且",
     "meaning": "將"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "張氏以髮長委地，立梳床前",
     "words": "以",
     "meaning": "因為"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "投革囊於爐前，取枕攲(ㄑㄧˊ)臥",
     "words": "攲",
     "meaning": "傾斜"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖怒甚，未決，猶刷馬",
     "words": "決",
     "meaning": "發作"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "張氏熟觀其面，一手握髮",
     "words": "熟",
     "meaning": "仔細"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "一手映身搖示，令勿怒",
     "words": "映",
     "meaning": "隱蔽"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "急急梳頭畢，斂衽前問其姓",
     "words": "斂衽",
     "meaning": "整理衣襟，表示恭敬"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "對曰：「妾亦姓張，合是妹」遽拜之",
     "words": "合",
     "meaning": "應該"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "對曰：「妾亦姓張，合是妹」遽拜之",
     "words": "遽",
     "meaning": "立刻、馬上"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖驟拜，遂環坐",
     "words": "驟",
     "meaning": "立刻、馬上"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖出市胡餅",
     "words": "市",
     "meaning": "購買"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "食竟，餘肉亂切送驢前食之",
     "words": "竟",
     "meaning": "完畢"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖雖貧，亦有心者焉",
     "words": "心",
     "meaning": "雄心壯志"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "「他人見問，固不言，兄之問，則無隱耳」具言其由",
     "words": "見",
     "meaning": "代詞性助詞，指「我」"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "「他人見問，固不言，兄之問，則無隱耳」具言其由",
     "words": "固",
     "meaning": "必定"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "「他人見問，固不言，兄之問，則無隱耳」具言其由",
     "words": "具",
     "meaning": "詳細"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "吾有少下酒物，李郎能同之乎",
     "words": "少",
     "meaning": "一些"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "取一人頭並心肝，卻收頭囊中",
     "words": "卻",
     "meaning": "退"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "似矣，亦須見之，李郎能致吾一見否？",
     "words": "致",
     "meaning": "讓"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖之友劉文靜者與之狎，因文靜見之可也",
     "words": "狎",
     "meaning": "親近"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖之友劉文靜者與之狎，因文靜見之可也",
     "words": "因",
     "meaning": "憑藉"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "言訖，乘驢而去，其行若飛",
     "words": "訖",
     "meaning": "完畢"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "及期，入太原候之",
     "words": "及期",
     "meaning": "約定的時間到了"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "偕詣劉氏，詐謂文靜曰",
     "words": "詣",
     "meaning": "拜訪"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "偕詣劉氏，詐謂文靜曰",
     "words": "詐",
     "meaning": "假裝"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "有善相者思見郎君，請迎之",
     "words": "善",
     "meaning": "善於"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "文靜素奇其人",
     "words": "素",
     "meaning": "向來"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "文靜素奇其人",
     "words": "奇",
     "meaning": "以...為奇"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "滿坐風生，顧盼偉暐如也",
     "words": "顧盼暐如",
     "meaning": "目光流轉，神采不凡"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "此局全輸矣!於此失卻局，奇哉!救無路矣!復奚言!",
     "words": "卻",
     "meaning": "了"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "此局全輸矣!於此失卻局，奇哉!救無路矣!復奚言!",
     "words": "奚",
     "meaning": "何"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "罷弈請去。",
     "words": "罷",
     "meaning": "停止"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "欲令新婦支祗(ㄓ)謁，兼議從容，無前卻也",
     "words": "祗",
     "meaning": "恭敬"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "欲令新婦支祗(ㄓ)謁，兼議從容，無前卻也",
     "words": "從容",
     "meaning": "行止、舉動"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "欲令新婦支祗(ㄓ)謁，兼議從容，無前卻也",
     "words": "前",
     "meaning": "事先"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "欲令新婦支祗(ㄓ)謁，兼議從容，無前卻也",
     "words": "卻",
     "meaning": "推辭"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖亦策馬傳遄征，俄即到京",
     "words": "遄",
     "meaning": "迅速"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖亦策馬傳遄征，俄即到京",
     "words": "征",
     "meaning": "遠行"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "陳設盤筵之盛，雖王公家不侔也",
     "words": "侔",
     "meaning": "相等"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "家人自西堂舁(ㄩˊ)出二十床，各以錦繡帕覆之",
     "words": "舁",
     "meaning": "扛抬"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "家人自西堂舁(ㄩˊ)出二十床，各以錦繡帕覆之",
     "words": "床",
     "meaning": "此指放置器物的架子"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "此盡寶貨泉貝之數，吾之所有，悉以充贈",
     "words": "泉貝",
     "meaning": "錢"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "此盡寶貨泉貝之數，吾之所有，悉以充贈",
     "words": "數",
     "meaning": "帳目"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "此盡寶貨泉貝之數，吾之所有，悉以充贈",
     "words": "悉",
     "meaning": "全"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "今既有主，住亦何為?",
     "words": "住",
     "meaning": "停留"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "當東南數千里外有異事，是吾得志之秋也",
     "words": "秋",
     "meaning": "時刻"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "一妹與李郎可瀝酒東南相賀",
     "words": "相",
     "meaning": "代詞性助詞，指「我」"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "言訖，與其妻從一奴，戎裝乘馬而去",
     "words": "從",
     "meaning": "帶領"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖據其宅，遂為豪家",
     "words": "據",
     "meaning": "擁有"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "得以助文皇締構之資，遂匡天下",
     "words": "匡",
     "meaning": "正"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "靖以左僕夜射平章事，適東南蠻入奏曰",
     "words": "適",
     "meaning": "剛好、恰逢"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "歸告張氏，具禮相賀",
     "words": "具",
     "meaning": "準備"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "我皇家垂福萬葉，豈虛然哉",
     "words": "垂",
     "meaning": "流傳"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "我皇家垂福萬葉，豈虛然哉",
     "words": "葉",
     "meaning": "世代"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
     "phrase": "我皇家垂福萬葉，豈虛然哉",
     "words": "豈",
     "meaning": "難道"
   },
   {
-    "volume": "010_虬髯客傳",
+    "volume": "10_虬髯客傳",
+    "phrase": "少焉，文靜飛書迎文皇看棋",
+    "words": "少",
+    "meaning": "不久"
+  },
+  {
+    "volume": "10_虬髯客傳",
     "phrase": "我皇家垂福萬葉，豈虛然哉",
     "words": "虛然",
     "meaning": "僥倖"
+  },
+  {
+    "volume": "10_虬髯客傳",
+    "phrase": "觀其肌膚、儀狀、言詞、氣性，真天",
+    "words": "觀",
+    "meaning": "觀賞、觀看"
   },
   {
     "volume": "0_其他",
@@ -4200,283 +4230,283 @@
     "meaning": "迎接"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "越明年，政通人和，百廢具興",
     "words": "越",
     "meaning": "及、到"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "越明年，政通人和，百廢具興",
     "words": "具",
     "meaning": "通「俱」，全部"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "乃重修岳陽樓，增其舊制",
     "words": "乃",
     "meaning": "於是"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "乃重修岳陽樓，增其舊制",
     "words": "舊制",
     "meaning": "舊有的規模"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "屬予作文以記之",
     "words": "屬",
     "meaning": "通「囑」，請託"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "予觀夫巴陵勝狀，在洞庭一湖",
     "words": "夫",
     "meaning": "那個，指示代詞"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "予觀夫巴陵勝狀，在洞庭一湖",
     "words": "勝狀",
     "meaning": "美景"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "銜遠山，吞長江",
     "words": "吞",
     "meaning": "吸納"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "浩浩湯湯，橫無際涯",
     "words": "浩浩",
     "meaning": "水勢廣大"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "浩浩湯湯，橫無際涯",
     "words": "湯湯",
     "meaning": "水流湍急"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "朝暉夕陰，氣象萬千",
     "words": "暉",
     "meaning": "日色晴朗"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "朝暉夕陰，氣象萬千",
     "words": "陰",
     "meaning": "幽暗"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "此則岳陽樓之大觀也，前人之述備矣",
-    "words": "大觀",
-    "meaning": "壯麗的景觀"
+    "words": "觀",
+    "meaning": "景象"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "此則岳陽樓之大觀也，前人之述備矣",
     "words": "述",
     "meaning": "作品"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "然則北通巫峽，南極瀟湘",
     "words": "極",
     "meaning": "窮盡、達到"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "遷客騷人，多會於此",
     "words": "遷",
     "meaning": "貶謫"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "若夫霪雨霏霏， 連月不開",
     "words": "若夫",
     "meaning": "至於"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "若夫霪雨霏霏， 連月不開",
     "words": "霪",
     "meaning": "久雨"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "若夫霪雨霏霏， 連月不開",
     "words": "霏霏",
     "meaning": "細雨綿密的樣子"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "若夫霪雨霏霏， 連月不開",
     "words": "開",
     "meaning": "放晴"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "陰風怒號，濁浪排空",
     "words": "排",
     "meaning": "推"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "日星隱耀，山岳潛形",
     "words": "潛",
     "meaning": "隱沒"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "商旅不行，檣傾楫摧",
     "words": "檣",
     "meaning": "桅杆"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "商旅不行，檣傾楫摧",
     "words": "楫",
     "meaning": "船槳"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "薄暮冥冥，虎嘯猿啼",
     "words": "薄",
     "meaning": "迫近"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "薄暮冥冥，虎嘯猿啼",
     "words": "冥冥",
     "meaning": "昏暗"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "薄暮冥冥，虎嘯猿啼",
     "words": "猿啼",
     "meaning": "常用以象徵悲情"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "則有去國懷鄉，憂讒畏譏",
     "words": "去國",
     "meaning": "離開京城"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "滿目蕭然，感極而悲者矣",
     "words": "蕭然",
     "meaning": "蕭條冷清的樣子"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "至若春和景明，波瀾不驚",
     "words": "至若",
     "meaning": "至於"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "至若春和景明，波瀾不驚",
     "words": "景",
     "meaning": "日光"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "上下天光，一碧萬頃",
     "words": "萬頃",
     "meaning": "極言碧波無邊無盡"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "沙鷗翔集，錦鱗游泳",
     "words": "翔",
     "meaning": "飛翔"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "沙鷗翔集，錦鱗游泳",
     "words": "集",
     "meaning": "棲止"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "岸芷汀蘭，郁郁青青",
     "words": "汀",
     "meaning": "水邊平地或小沙洲"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "岸芷汀蘭，郁郁青青",
     "words": "青青",
     "meaning": "通「菁」形容花葉茂盛"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "而或長煙一空，皓月千里",
     "words": "一",
     "meaning": "完全"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "登斯樓也，則有心曠神怡，寵辱偕(ㄒㄧㄝˊ)忘",
     "words": "偕",
     "meaning": "並、皆"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "把酒臨風，其喜洋洋者矣",
     "words": "洋洋",
     "meaning": "得意的樣子"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "予嘗求古仁人之心，或異二者之為",
     "words": "求",
     "meaning": "探究"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "予嘗求古仁人之心，或異二者之為",
     "words": "或",
     "meaning": "有的"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "予嘗求古仁人之心，或異二者之為",
     "words": "為",
     "meaning": "表現"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "是進亦憂，退亦憂",
     "words": "是",
     "meaning": "如此"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "是進亦憂，退亦憂",
     "words": "進",
     "meaning": "出仕為官"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "是進亦憂，退亦憂",
     "words": "退",
     "meaning": "貶退在野"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "微斯人，吾誰與歸",
     "words": "歸",
     "meaning": "依附、趨向"
   },
   {
-    "volume": "0101_岳陽樓記",
+    "volume": "11_岳陽樓記",
     "phrase": "微斯人，吾誰與歸",
     "words": "微",
     "meaning": "無、沒有"
@@ -4512,151 +4542,151 @@
     "meaning": "水勢盛大的樣子"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "其西南諸峰，林壑尤美",
     "words": "諸",
     "meaning": "眾多、各個"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "其西南諸峰，林壑尤美",
     "words": "壑",
     "meaning": "山谷"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "有亭翼然臨於泉上者，醉翁亭也",
     "words": "臨",
     "meaning": "從高處往下看，在此有高踞之意"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "太守與客來飲於此，飲少輒醉，而年又最高",
     "words": "輒",
     "meaning": "往往、就"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "太守與客來飲於此，飲少輒醉，而年又最高",
     "words": "而",
     "meaning": "且"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "山水之樂，得之心而寓之酒也",
     "words": "寓",
     "meaning": "寄託"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "若夫日出而林霏開，雲歸而巖穴暝",
     "words": "霏",
     "meaning": "霧氣"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "若夫日出而林霏開，雲歸而巖穴暝",
     "words": "歸",
     "meaning": "聚集"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "若夫日出而林霏開，雲歸而巖穴暝",
     "words": "暝",
     "meaning": "昏暗"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "野芳發而幽香，佳木秀而繁陰",
     "words": "芳",
     "meaning": "花"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "野芳發而幽香，佳木秀而繁陰",
     "words": "發",
     "meaning": "開放"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "野芳發而幽香，佳木秀而繁陰",
     "words": "陰",
     "meaning": "同「蔭」"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "至於負者歌於塗，行者休於樹",
     "words": "塗",
     "meaning": "通「途」，道路"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "臨谿而漁，谿深而魚肥",
     "words": "臨",
     "meaning": "靠近"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "釀泉為酒，泉香而酒洌(ㄌㄧㄝˋ)",
     "words": "洌",
     "meaning": "清澈"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "山肴野蔌(ㄙㄨˋ)，雜然而前陳者，太守宴也",
     "words": "蔌",
     "meaning": "蔬菜"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "山肴野蔌(ㄙㄨˋ)，雜然而前陳者，太守宴也",
     "words": "陳",
     "meaning": "陳列"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "射者中，弈者勝",
     "words": "弈",
     "meaning": "下棋"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "觥(ㄍㄨㄥ)籌交錯，起坐而諠譁者，眾賓懽也",
     "words": "觥",
     "meaning": "酒器"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "觥(ㄍㄨㄥ)籌交錯，起坐而諠譁者，眾賓懽也",
     "words": "籌",
     "meaning": "酒籌"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "觥(ㄍㄨㄥ)籌交錯，起坐而諠譁者，眾賓懽也",
     "words": "懽",
     "meaning": "同「歡」"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "已而，夕陽在山，人影散亂，太守歸而賓客從也",
     "words": "已而",
     "meaning": "不久"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "已而，夕陽在山，人影散亂，太守歸而賓客從也",
     "words": "從",
     "meaning": "跟從"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "樹林陰翳(ㄧˋ)，鳴聲上下",
     "words": "翳",
     "meaning": "遮蔽"
   },
   {
-    "volume": "0102_醉翁亭記",
+    "volume": "12_醉翁亭記",
     "phrase": "朝而往，暮而歸",
     "words": "歸",
     "meaning": "返回"
@@ -4668,307 +4698,313 @@
     "meaning": "稱許"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "壬戌之秋，七月既望",
     "words": "既",
     "meaning": "已經"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "壬戌之秋，七月既望",
     "words": "望",
     "meaning": "滿月，每月十五日"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "舉酒屬客，誦明月之詩",
     "words": "屬",
     "meaning": "勸客飲酒"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "少焉，月出於東山之上，徘徊於斗牛之間",
     "words": "少焉",
     "meaning": "不久"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "白露橫江，水光接天",
     "words": "橫",
     "meaning": "瀰漫"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "縱一葦之所如，凌萬頃之茫然",
     "words": "縱",
     "meaning": "任憑"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "縱一葦之所如，凌萬頃之茫然",
     "words": "一葦",
     "meaning": "小舟"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "縱一葦之所如，凌萬頃之茫然",
     "words": "如",
     "meaning": "往"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "縱一葦之所如，凌萬頃之茫然",
     "words": "凌",
     "meaning": "越過"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "縱一葦之所如，凌萬頃之茫然",
     "words": "茫然",
     "meaning": "水面空闊迷濛"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "浩浩乎如馮(ㄆㄧㄥˊ)虛御風，而不知其所止",
     "words": "馮",
     "meaning": "通「憑」，依恃"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "浩浩乎如馮(ㄆㄧㄥˊ)虛御風，而不知其所止",
     "words": "虛",
     "meaning": "天空"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "飄飄乎如遺世獨立，羽化而登仙",
     "words": "遺世獨立",
     "meaning": "超然特立"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "於是飲酒樂甚，扣舷而歌之",
     "words": "舷",
     "meaning": "船邊"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
     "words": "棹",
     "meaning": "船槳"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
     "words": "擊",
     "meaning": "拍打"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
     "words": "空明",
     "meaning": "\"倒映在水面"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "桂棹(ㄓㄠˋ)兮蘭槳，擊空明兮泝(ㄙㄨˋ)流光",
     "words": "泝",
     "meaning": "通「溯」，逆流而上"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "渺渺兮予懷，望美人兮天一方",
     "words": "渺渺",
     "meaning": "幽遠的樣子"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "渺渺兮予懷，望美人兮天一方",
     "words": "美人",
     "meaning": "喻國君，或指思慕的賢人"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "有吹洞簫者，倚歌而和之",
     "words": "和",
     "meaning": "依附"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "舞幽壑之潛蛟，泣孤舟之嫠(ㄌㄧˊ)婦",
     "words": "嫠",
     "meaning": "寡婦"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "蘇子愀(ㄑㄧㄠˇ)然，正襟危坐而問客曰:「何為其然也?」",
     "words": "愀然",
     "meaning": "容色改變的樣子"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "蘇子愀(ㄑㄧㄠˇ)然，正襟危坐而問客曰:「何為其然也?」",
     "words": "危",
     "meaning": "端正"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "蘇子愀(ㄑㄧㄠˇ)然，正襟危坐而問客曰:「何為其然也?」",
     "words": "然",
     "meaning": "如此"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "山川相繆(ㄌㄧㄠˊ)，鬱乎蒼蒼",
     "words": "繆",
     "meaning": "通「繚」，纏繞、連接"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "山川相繆(ㄌㄧㄠˊ)，鬱乎蒼蒼",
     "words": "鬱",
     "meaning": "茂盛"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "山川相繆(ㄌㄧㄠˊ)，鬱乎蒼蒼",
     "words": "蒼蒼",
     "meaning": "深青色"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "方其破荊州、下江陵",
     "words": "方",
     "meaning": "當"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "舳艫千里，旌旗蔽空",
     "words": "舳",
     "meaning": "船尾"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "舳艫千里，旌旗蔽空",
     "words": "艫",
     "meaning": "船頭"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "釃酒臨江，橫槊賦詩",
     "words": "釃",
     "meaning": "斟酒"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "固一世之雄也，而今安在哉",
     "words": "固",
     "meaning": "的確是"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "駕一葉之扁(ㄆㄧㄢ)舟，舉匏樽以相屬",
     "words": "扁",
     "meaning": "小"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "駕一葉之扁(ㄆㄧㄢ)舟，舉匏樽以相屬",
     "words": "樽",
     "meaning": "酒器"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "挾飛仙以遨遊，抱明月而長終",
     "words": "挾",
     "meaning": "偕同"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "挾飛仙以遨遊，抱明月而長終",
     "words": "長終",
     "meaning": "長存"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "客亦知夫水與月乎?",
     "words": "夫",
     "meaning": "指稱詞，那"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "逝者如斯，而未嘗往也；",
     "words": "往",
     "meaning": "指逝去"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "逝者如斯，而未嘗往也；",
     "words": "斯",
     "meaning": "此，指江水"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "盈虛者如彼，而卒莫消長也",
     "words": "卒",
     "meaning": "終究"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "盈虛者如彼，而卒莫消長也",
     "words": "彼",
     "meaning": "指月亮"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
+    "phrase": "蓋將自其變者而觀之，則天地曾不能以一瞬",
+    "words": "觀",
+    "meaning": "觀察"
+  },
+  {
+    "volume": "13_赤壁賦",
     "phrase": "蓋將自其變者而觀之，則天地曾不能以一瞬",
     "words": "曾",
     "meaning": "竟"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "蓋將自其變者而觀之，則天地曾不能以一瞬",
     "words": "將",
     "meaning": "如果"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "苟非吾之所有，雖一毫而莫取",
     "words": "一毫",
     "meaning": "形容極少"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "耳得之而為聲，目遇之而成色",
     "words": "聲",
     "meaning": "悅耳的音樂"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "耳得之而為聲，目遇之而成色",
     "words": "色",
     "meaning": "美麗的風景"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "是造物者之無盡藏也，而吾與子之所共適",
     "words": "適",
     "meaning": "快意、歡樂"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "客喜而笑，洗盞更酌",
     "words": "更",
     "meaning": "重新"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "相與枕藉乎舟中，不知東方之既白",
     "words": "藉",
     "meaning": "以物襯墊"
   },
   {
-    "volume": "0103_赤壁賦",
+    "volume": "13_赤壁賦",
     "phrase": "相與枕藉乎舟中，不知東方之既白",
     "words": "既白",
     "meaning": "指天亮"
@@ -5014,5 +5050,436 @@
     "phrase": "如有博施於民，而能濟眾，何如。《論語．雍也》",
     "words": "施",
     "meaning": "給予"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "邑有王生，行七，故家子",
+    "words": "行",
+    "meaning": "排行"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "少慕道，聞勞山多仙人，負笈(ㄐㄧˊ)往遊",
+    "words": "少",
+    "meaning": "年輕"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "少慕道，聞勞山多仙人，負笈(ㄐㄧˊ)往遊",
+    "words": "笈",
+    "meaning": "書箱"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "少慕道，聞勞山多仙人，負笈(ㄐㄧˊ)往遊",
+    "words": "道",
+    "meaning": "道教的神仙法術"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "素髮垂領，而神觀爽邁",
+    "words": "觀",
+    "meaning": "容貌儀態"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "素髮垂領，而神觀爽邁",
+    "words": "素",
+    "meaning": "白色"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "素髮垂領，而神觀爽邁",
+    "words": "領",
+    "meaning": "脖子"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "叩而與語，理甚玄妙",
+    "words": "叩",
+    "meaning": "叩頭拜見"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "叩而與語，理甚玄妙",
+    "words": "玄妙",
+    "meaning": "深奧微妙"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "請師(v.)之，道士曰:「恐嬌惰不能作苦。」",
+    "words": "作",
+    "meaning": "勞動"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "薄暮畢集，王俱與稽首，遂留觀中",
+    "words": "薄",
+    "meaning": "迫近"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "薄暮畢集，王俱與稽首，遂留觀中",
+    "words": "畢",
+    "meaning": "全"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "薄暮畢集，王俱與稽首，遂留觀中",
+    "words": "與",
+    "meaning": "向"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "凌晨，道士呼王去，授以斧",
+    "words": "去",
+    "meaning": "前去"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "不堪其苦，陰有歸志",
+    "words": "陰",
+    "meaning": "暗中"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "不堪其苦，陰有歸志",
+    "words": "志",
+    "meaning": "想法、念頭"
+  },
+  {
+    "volume": "乃剪紙如鏡，黏壁間\"",
+    "idiom": "乃",
+    "meaning": "於是"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "俄頃，月明輝室，光鑑毫芒",
+    "words": "輝",
+    "meaning": "照耀"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "俄頃，月明輝室，光鑑毫芒",
+    "words": "鑑",
+    "meaning": "照"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "俄頃，月明輝室，光鑑毫芒",
+    "words": "毫芒",
+    "meaning": "微小的事物"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "良宵勝樂，不可不同",
+    "words": "勝",
+    "meaning": "美好的、優美的"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "乃於案上取壺酒，分賚(ㄌㄞˋ)諸徒，且囑盡醉",
+    "words": "賚",
+    "meaning": "賞賜"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "七八人，壺酒何能遍給",
+    "words": "遍",
+    "meaning": "全面"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂各覓盎(ㄤˋ)盂(ㄩˊ)，競飲先釂(ㄐㄧㄠˋ)，惟恐樽(ㄗㄨㄣ)盡，而往復挹(ㄧˋ)注，竟不少(ㄕㄠˇ)減",
+    "words": "釂",
+    "meaning": "將杯中酒喝盡"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂各覓盎(ㄤˋ)盂(ㄩˊ)，競飲先釂(ㄐㄧㄠˋ)，惟恐樽(ㄗㄨㄣ)盡，而往復挹(ㄧˋ)注，竟不少(ㄕㄠˇ)減",
+    "words": "少",
+    "meaning": "v. 稍微"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "心奇之",
+    "words": "奇",
+    "meaning": "以...為奇"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "蒙賜月明之照，乃爾寂飲，何不呼嫦娥來",
+    "words": "乃",
+    "meaning": "竟然 如此"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "見一美人，自光中出，初不盈尺，至地，遂與人等",
+    "words": "盈",
+    "meaning": "滿"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "見一美人，自光中出，初不盈尺，至地，遂與人等",
+    "words": "等",
+    "meaning": "此指身長相同"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "已而歌曰:「仙仙乎!而環還乎?而幽我於廣寒乎?」",
+    "words": "幽",
+    "meaning": "囚禁"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "已而歌曰:「仙仙乎!而環還乎?而幽我於廣寒乎?」",
+    "words": "仙仙",
+    "meaning": "輕盈起舞的樣子"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "驚顧之間，已復為箸",
+    "words": "顧",
+    "meaning": "看"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "今宵最樂，然不勝酒力矣",
+    "words": "勝",
+    "meaning": "承受"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "其餞我於月宮，可乎?",
+    "words": "其",
+    "meaning": "表示希望、期望的語氣詞"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "眾視三人坐月中飲，鬚眉畢見(ㄒㄧㄢˋ)，如影之在鏡中",
+    "words": "見",
+    "meaning": "通「現」，顯現"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "移時，月漸暗",
+    "words": "移時",
+    "meaning": "過了一會兒"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "門人然燭來，則道士獨坐，而客杳(ㄧㄠˇ)矣",
+    "words": "然",
+    "meaning": "「燃」的本字，點燃"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "門人然燭來，則道士獨坐，而客杳(ㄧㄠˇ)矣",
+    "words": "杳",
+    "meaning": "不見蹤影"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "足，宜早寢，勿悞樵蘇",
+    "words": "悞",
+    "meaning": "同「誤」，耽誤"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "足，宜早寢，勿悞樵蘇",
+    "words": "蘇",
+    "meaning": "割草"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "王竊忻(ㄒㄧㄣ)慕，歸念遂息",
+    "words": "竊",
+    "meaning": "暗中"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "王竊忻(ㄒㄧㄣ)慕，歸念遂息",
+    "words": "忻",
+    "meaning": "通「欣」"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "縱不能得長生術，或小有傳習，亦可慰求教之心",
+    "words": "或",
+    "meaning": "如果"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "縱不能得長生術，或小有傳習，亦可慰求教之心",
+    "words": "小",
+    "meaning": "稍"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "今閱兩、三月，不過早樵而暮歸，弟子在家，未安諳此苦",
+    "words": "諳",
+    "meaning": "熟悉，此指經歷"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "今閱兩、三月，不過早樵而暮歸，弟子在家，未安諳此苦",
+    "words": "閱",
+    "meaning": "經過"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "我固謂不能作苦，今果然。明早當遣汝行",
+    "words": "固",
+    "meaning": "本來"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "我固謂不能作苦，今果然。明早當遣汝行",
+    "words": "當",
+    "meaning": "即、就"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "弟子操作多日，師略授小技，此來為不負也",
+    "words": "負",
+    "meaning": "辜負"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "每見師行處，牆壁所不能隔，但得此法足矣",
+    "words": "但",
+    "meaning": "只、僅"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "道士笑而允之，乃傳以訣，令自咒",
+    "words": "允",
+    "meaning": "答應"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "道士笑而允之，乃傳以訣，令自咒",
+    "words": "訣",
+    "meaning": "口訣"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "道士笑而允之，乃傳以訣，令自咒",
+    "words": "咒",
+    "meaning": "唸咒語"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "王果從容入，及牆而阻",
+    "words": "果",
+    "meaning": "果真"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "俛首驟入，勿逡(ㄑㄩㄣ)巡",
+    "words": "驟",
+    "meaning": "急速"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "王果去牆數步，奔而入",
+    "words": "去",
+    "meaning": "距離"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "歸宜潔持，否則不驗",
+    "words": "潔持",
+    "meaning": "潔身修持"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "歸宜潔持，否則不驗",
+    "words": "驗",
+    "meaning": "靈驗、有效果"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂助資斧遣之歸",
+    "words": "資斧",
+    "meaning": "資財和器用，借代旅費"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "頭觸硬壁，驀(ㄇㄛˋ)然而踣(ㄅㄛˊ)",
+    "words": "驀",
+    "meaning": "忽然"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "頭觸硬壁，驀(ㄇㄛˋ)然而踣(ㄅㄛˊ)",
+    "words": "踣",
+    "meaning": "跌倒"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "額上墳起如巨卵焉",
+    "words": "墳起",
+    "meaning": "凸起、腫起來"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "今有傖父，喜疢(ㄔㄣˋ)毒而畏藥石，",
+    "words": "傖父",
+    "meaning": "粗俗鄙陋的人"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "今有傖父，喜疢毒而畏藥石，",
+    "words": "疢",
+    "meaning": "疾病"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂有吮癰舐痔者，進宣威逞暴之術，以迎其旨",
+    "words": "癰",
+    "meaning": "膿瘡"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂有吮癰舐痔者，進宣威逞暴之術，以迎其旨",
+    "words": "術",
+    "meaning": "方法，手段"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂有吮癰舐痔者，進宣威逞暴之術，以迎其旨",
+    "words": "旨",
+    "meaning": "心意"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "詒之曰「執此術也以往，可以橫行而無礙」",
+    "words": "詒",
+    "meaning": "通「紿」，欺騙"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "初試，未嘗不小效",
+    "words": "效",
+    "meaning": "成效"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "遂謂天下之大，舉可以如是行矣",
+    "words": "舉",
+    "meaning": "全、皆"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "勢不至觸硬壁而顛蹶，不止也。",
+    "words": "顛蹶",
+    "meaning": "跌倒"
+  },
+  {
+    "volume": "18_勞山道士",
+    "phrase": "不知世之為王生者，正復不少",
+    "words": "少",
+    "meaning": "不多"
   }
 ]
